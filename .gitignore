@@ -216,3 +216,26 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# AwareOn raw datasets
+data/raw/
+
+# Local environment
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Secrets / credentials
+.env
+*.env
+.netrc
+.urs_cookies
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
