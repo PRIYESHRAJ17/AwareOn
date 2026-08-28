@@ -1,0 +1,2 @@
+timestamp,latitude,longitude,rainfall_anomaly_score,soil_anomaly_score,overall_anomaly_z,anomaly_score,anomaly_category,dominant_anomaly,dominant_anomaly_z
+2025-09-30 23:00:00,27.50000000000096,88.49999999999926,0.8801225406241663,1.0968915992414046,0.9451532582093377,23.628831455233442,NORMAL,swvl1,-1.2586970095683565

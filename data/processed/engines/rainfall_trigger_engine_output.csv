@@ -1,0 +1,2 @@
+timestamp,latitude,longitude,rain_24h_mm,rain_72h_mm,rain_7d_mm,peak_hourly_rain_mm,rain_24h_percentile,rain_72h_percentile,rain_7d_percentile,hourly_burst_percentile,rainfall_trigger_score,rainfall_trigger_category
+2025-09-30 23:00:00,27.50000000000096,88.49999999999926,5.673038773238659,33.39506559818983,44.09099395945668,1.8477887,0.1448165869218501,0.279939748360801,0.05440368598263335,0.8793771043771044,24.072700691121746,LOW

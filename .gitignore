@@ -250,3 +250,41 @@ data/processed/landslides/gsi_inventory_extracted.csv
 data/processed/landslides/gsi_inventory_raw.txt
 data/processed/landslides/gsi_sikkim_inventory.csv
 data/processed/landslides/gsi_sikkim_inventory.geojson
+
+# ============================================================
+# LARGE / RAW / DERIVED DATA
+# ============================================================
+
+# Large processed geospatial rasters
+data/processed/grid/
+
+# Large weather time-series exports
+data/processed/weather/
+
+# Raw satellite imagery
+data/raw/satellite/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ============================================================
+# LOCAL / GENERATED MODEL ARTIFACTS
+# ============================================================
+
+# Ignore binary model files unless explicitly forced
+*.joblib
+
+# Keep diagnostic/result CSVs tracked where useful

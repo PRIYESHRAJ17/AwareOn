@@ -1,0 +1,5 @@
+metric,value
+total_events,677.0
+number_of_hotspots,406.0
+max_events_in_hotspot,8.0
+mean_events_per_hotspot,1.667487684729064

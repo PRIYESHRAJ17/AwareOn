@@ -1,0 +1,7 @@
+engine,status,rows,missing_from_state,extra_cells
+susceptibility,OK,1298,0,0
+terrain,OK,1298,0,0
+exposure,OK,1298,0,0
+spatial,OK,1298,0,0
+confidence,OK,1298,0,0
+explanation,OK,1298,0,0
