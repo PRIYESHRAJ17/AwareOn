@@ -239,3 +239,8 @@ __pycache__/
 .idea/
 .DS_Store
 Thumbs.db
+# AwareOn generated geospatial outputs
+data/processed/grid/*.tif
+data/processed/grid/master_grid_100m.geojson
+data/processed/grid/osm_sikkim_clipped.geojson
+data/processed/grid/osm_sikkim_clipped_utm45.geojson

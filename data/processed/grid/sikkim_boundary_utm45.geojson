@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "sikkim_boundary_utm45",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32645" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "AwareOn Sikkim Study Area" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 708747.1568845838774, 2966009.051686868537217 ], [ 705928.203724290244281, 3132225.280322894454002 ], [ 588246.000872823991813, 3130764.234280803240836 ], [ 589453.295096818706952, 2964600.504423519130796 ], [ 708747.1568845838774, 2966009.051686868537217 ] ] ] } }
+]
+}
