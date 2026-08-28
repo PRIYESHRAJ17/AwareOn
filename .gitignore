@@ -244,3 +244,9 @@ data/processed/grid/*.tif
 data/processed/grid/master_grid_100m.geojson
 data/processed/grid/osm_sikkim_clipped.geojson
 data/processed/grid/osm_sikkim_clipped_utm45.geojson
+
+# GSI intermediate processing files
+data/processed/landslides/gsi_inventory_extracted.csv
+data/processed/landslides/gsi_inventory_raw.txt
+data/processed/landslides/gsi_sikkim_inventory.csv
+data/processed/landslides/gsi_sikkim_inventory.geojson
