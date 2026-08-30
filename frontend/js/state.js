@@ -1,0 +1,23 @@
+export const state = {
+  activeView: "overview",
+  riskRecords: [],
+  incidents: [],
+  alerts: [],
+  riskGeoJson: null,
+  riskLayer: null,
+  exposureLayer: null,
+  historicalLayer: null,
+  incidentLayer: null,
+  boundaryLayer: null,
+  selectedRiskLayer: null,
+  highlightedIncidentCells: [],
+  incidentFocusActive: false,
+  selectedIncident: null,
+  selectedCell: null,
+  mapInitialBounds: null,
+  scenarioSummary: null,
+  selectedScenario: null,
+  scenarioRecords: [],
+  presentationMode: false,
+  ready: false
+};
