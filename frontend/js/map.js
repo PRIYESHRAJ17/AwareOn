@@ -1,25 +1,26 @@
 import { api } from "./api.js";
 import { state } from "./state.js";
-import { switchView } from "./views.js";
+import { switchView, openContextDrawer } from "./views.js";
 
 const INITIAL_CENTER = [27.55, 88.45];
 const INITIAL_ZOOM = 9;
-const DETAIL_ZOOM = 11;
-const INITIAL_MAX_ZOOM = 12;
+const POLYGON_ZOOM = 13;
 const MAX_FOCUS_ZOOM = 15;
 
 export const map = L.map("map", {
   zoomControl: false,
   attributionControl: true,
-  preferCanvas: false,
+  preferCanvas: true,
   zoomAnimation: true,
   fadeAnimation: true,
-  markerZoomAnimation: true
+  markerZoomAnimation: true,
+  wheelDebounceTime: 25,
+  wheelPxPerZoomLevel: 110
 }).setView(INITIAL_CENTER, INITIAL_ZOOM);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
-  opacity: 0.90,
+  opacity: 0.92,
   attribution: "&copy; OpenStreetMap contributors"
 }).addTo(map);
 
@@ -33,375 +34,380 @@ function createPane(name, zIndex, pointerEvents = "none") {
   return pane;
 }
 
-createPane("awareonRiskPolygonPane", 620, "auto");
+createPane("awareonRiskClusterPane", 640, "auto");
 createPane("awareonRiskPointPane", 660, "auto");
+createPane("awareonRiskPolygonPane", 650, "auto");
 createPane("awareonIncidentPane", 680, "auto");
 createPane("awareonBoundaryPane", 610, "none");
 
 let riskPointLayer = null;
 let riskPolygonLayer = null;
+let riskClusterLayer = null;
 let mapToolsBound = false;
 let secondaryLayersStarted = false;
 let pendingIncidentId = null;
 const desiredLayers = new Set(["risk"]);
 
 const n = (v, d = 1) => {
-  const number = Number(v);
-  return Number.isFinite(number) ? number.toFixed(d) : "—";
+  const value = Number(v);
+  return Number.isFinite(value) ? value.toFixed(d) : "—";
 };
-
-const esc = v => String(v ?? "")
-  .replaceAll("&", "&amp;")
-  .replaceAll("<", "&lt;")
-  .replaceAll(">", "&gt;")
-  .replaceAll('"', "&quot;")
-  .replaceAll("'", "&#039;");
+const esc = v => String(v ?? "").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
 
 const riskColor = score => {
-  const n = Number(score);
-  if (n >= 75) return "#7e2023";
-  if (n >= 50) return "#de403e";
-  if (n >= 25) return "#d69318";
-  return "#19a463";
+  const value = Number(score);
+  if (value >= 75) return "#7f282b";
+  if (value >= 50) return "#df4945";
+  if (value >= 25) return "#d99619";
+  return "#1fa86b";
 };
-
 const riskLabel = score => {
-  const n = Number(score);
-  if (n >= 75) return "EXTREME";
-  if (n >= 50) return "HIGH";
-  if (n >= 25) return "MODERATE";
+  const value = Number(score);
+  if (value >= 75) return "EXTREME";
+  if (value >= 50) return "HIGH";
+  if (value >= 25) return "MODERATE";
   return "LOW";
 };
 
-const normal = f => ({
-  color: "#0d1b2a",
-  weight: 1.1,
-  opacity: 0.78,
-  fillColor: riskColor(f?.properties?.unified_risk_score),
-  fillOpacity: 0.60
-});
+function rgbaFromHex(hex, alpha) {
+  const clean = String(hex).replace('#','');
+  const value = clean.length === 3 ? clean.split('').map(ch => ch + ch).join('') : clean;
+  const int = Number.parseInt(value, 16);
+  if (!Number.isFinite(int)) return `rgba(255,255,255,${alpha})`;
+  return `rgba(${(int >> 16) & 255},${(int >> 8) & 255},${int & 255},${alpha})`;
+}
 
+const normal = f => ({
+  color: "#5f7487",
+  weight: 0.8,
+  opacity: 0.55,
+  fillColor: riskColor(f?.properties?.unified_risk_score),
+  fillOpacity: 0.16
+});
 const hover = f => ({
-  color: "#081320",
+  color: "#18283b",
+  weight: 1.8,
+  opacity: 0.86,
+  fillColor: riskColor(f?.properties?.unified_risk_score),
+  fillOpacity: 0.30
+});
+const selected = f => ({
+  color: "#2563eb",
   weight: 3,
   opacity: 1,
   fillColor: riskColor(f?.properties?.unified_risk_score),
-  fillOpacity: 0.88
+  fillOpacity: 0.42
 });
-
-const selected = f => ({
-  color: "#2563eb",
-  weight: 4.5,
-  opacity: 1,
-  fillColor: riskColor(f?.properties?.unified_risk_score),
-  fillOpacity: 0.94
-});
-
 const dim = f => ({
-  color: "#93a1b2",
+  color: "#90a0b0",
   weight: 0.5,
-  opacity: 0.18,
+  opacity: 0.12,
   fillColor: riskColor(f?.properties?.unified_risk_score),
-  fillOpacity: 0.06
+  fillOpacity: 0.035
 });
-
 const focus = f => ({
-  color: "#00bcd4",
-  weight: 4.5,
+  color: "#08a4ba",
+  weight: 2.8,
   opacity: 1,
   fillColor: riskColor(f?.properties?.unified_risk_score),
-  fillOpacity: 0.90,
-  dashArray: "7 4"
+  fillOpacity: 0.36,
+  dashArray: "6 4"
 });
-
-function cellTooltip(p) {
-  return `<strong>AwareOn cell ${esc(p?.cell_id)}</strong><br>Risk ${n(p?.unified_risk_score)} · ${esc(riskLabel(p?.unified_risk_score))}<br>Warning ${esc(p?.warning_state)}<br>Confidence ${n(p?.confidence_score)}<br><span style="color:#2563eb;font-weight:800">Click to investigate</span>`;
-}
 
 function featureCenter(feature) {
   const geometry = feature?.geometry;
   if (!geometry) return null;
-
   if (geometry.type === "Point") {
     const [lon, lat] = geometry.coordinates || [];
-    if (!Number.isFinite(Number(lat)) || !Number.isFinite(Number(lon))) return null;
-    return [Number(lat), Number(lon)];
+    return Number.isFinite(Number(lat)) && Number.isFinite(Number(lon)) ? [Number(lat), Number(lon)] : null;
   }
-
-  if (geometry.type === "Polygon") {
-    const ring = geometry?.coordinates?.[0];
-    if (!Array.isArray(ring) || ring.length === 0) return null;
-
-    let minLon = Infinity, maxLon = -Infinity;
-    let minLat = Infinity, maxLat = -Infinity;
-
-    for (const coordinate of ring) {
-      if (!Array.isArray(coordinate) || coordinate.length < 2) continue;
-      const lon = Number(coordinate[0]);
-      const lat = Number(coordinate[1]);
-      if (!Number.isFinite(lon) || !Number.isFinite(lat)) continue;
-      minLon = Math.min(minLon, lon);
-      maxLon = Math.max(maxLon, lon);
-      minLat = Math.min(minLat, lat);
-      maxLat = Math.max(maxLat, lat);
-    }
-
-    if (!Number.isFinite(minLon) || !Number.isFinite(maxLon) || !Number.isFinite(minLat) || !Number.isFinite(maxLat)) return null;
-    return [(minLat + maxLat) / 2, (minLon + maxLon) / 2];
+  const coordinates = geometry.type === "Polygon" ? geometry.coordinates?.[0] : geometry.type === "MultiPolygon" ? geometry.coordinates?.[0]?.[0] : null;
+  if (!Array.isArray(coordinates) || !coordinates.length) return null;
+  let minLon = Infinity, maxLon = -Infinity, minLat = Infinity, maxLat = -Infinity;
+  for (const pair of coordinates) {
+    if (!Array.isArray(pair) || pair.length < 2) continue;
+    const lon = Number(pair[0]), lat = Number(pair[1]);
+    if (!Number.isFinite(lon) || !Number.isFinite(lat)) continue;
+    minLon = Math.min(minLon, lon); maxLon = Math.max(maxLon, lon);
+    minLat = Math.min(minLat, lat); maxLat = Math.max(maxLat, lat);
   }
-
-  if (geometry.type === "MultiPolygon") {
-    const first = geometry?.coordinates?.[0];
-    if (first) return featureCenter({ geometry: { type: "Polygon", coordinates: first } });
-  }
-
-  return null;
+  if (!Number.isFinite(minLon) || !Number.isFinite(maxLon) || !Number.isFinite(minLat) || !Number.isFinite(maxLat)) return null;
+  return [(minLat + maxLat) / 2, (minLon + maxLon) / 2];
 }
 
-function riskPointIcon() {
+function cellTooltip(p) {
+  return `<strong>Cell ${esc(p?.cell_id)}</strong><br>Risk ${n(p?.unified_risk_score,1)} · ${esc(riskLabel(p?.unified_risk_score))}<br>Warning ${esc(p?.warning_state || "—")} · Confidence ${n(p?.confidence_score,0)}`;
+}
+
+function popupHtml(p) {
+  const cell = esc(p?.cell_id || "Unknown");
+  const risk = n(p?.unified_risk_score, 1);
+  const category = esc(riskLabel(p?.unified_risk_score));
+  return `<div class="awareon-map-popup" data-cell-id="${cell}"><span class="popup-kicker">SPATIAL RISK CELL</span><h4>${cell}</h4><div class="popup-score"><strong>${risk}</strong><span>${category}</span></div><div class="popup-grid"><div class="popup-stat"><span>Warning</span><b>${esc(p?.warning_state || "—")}</b></div><div class="popup-stat"><span>Confidence</span><b>${n(p?.confidence_score,0)}%</b></div></div><button class="popup-open" data-ao-action="open-cell" data-cell-id="${cell}" type="button">Open intelligence</button></div>`;
+}
+
+function pointIcon(color, size = 8) {
   return L.divIcon({
     className: "awareon-risk-point-icon",
-    html: `<span class="awareon-risk-point" style="display:block;width:5px;height:5px;background:#111827;border:1px solid rgba(255,255,255,.96);border-radius:50%;box-shadow:0 0 0 1px rgba(15,23,42,.40);transform:translate(-50%,-50%);cursor:pointer;pointer-events:auto;transition:transform 120ms ease,box-shadow 120ms ease,background 120ms ease"></span>`,
-    iconSize: [5, 5],
-    iconAnchor: [2.5, 2.5]
+    html: `<span class="risk-point" style="display:block;width:${size}px;height:${size}px;background:${color}"></span>`,
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2]
   });
 }
 
 function buildRiskPointLayer(geojson) {
   const group = L.layerGroup();
-  const features = geojson?.features || [];
-  let created = 0;
-
-  for (const feature of features) {
-    const properties = feature?.properties || {};
+  for (const feature of geojson?.features || []) {
+    const p = feature?.properties || {};
     const center = featureCenter(feature);
     if (!center) continue;
-
     const marker = L.marker(center, {
-      icon: riskPointIcon(),
+      icon: pointIcon(riskColor(p.unified_risk_score), 8),
       pane: "awareonRiskPointPane",
       keyboard: true,
-      title: `AwareOn risk cell ${properties.cell_id ?? ""}`
+      title: `AwareOn risk cell ${p.cell_id ?? ""}`
     });
-
     marker.feature = feature;
-    marker.cellId = String(properties.cell_id ?? "");
-
-    marker.bindTooltip(cellTooltip(properties), {
-      sticky: true,
-      direction: "top",
-      opacity: 0.98,
-      className: "awareon-risk-tooltip"
-    });
-
-    marker.on("mouseover", () => {
-      const element = marker.getElement();
-      const dot = element?.querySelector(".awareon-risk-point");
-      if (dot) {
-        dot.style.transform = "translate(-50%,-50%) scale(2.1)";
-        dot.style.background = "#020617";
-        dot.style.boxShadow = "0 0 0 3px rgba(37,99,235,.16),0 0 10px rgba(15,23,42,.42)";
-      }
-    });
-
-    marker.on("mouseout", () => {
-      const element = marker.getElement();
-      const dot = element?.querySelector(".awareon-risk-point");
-      if (dot) {
-        dot.style.transform = "translate(-50%,-50%)";
-        dot.style.background = "#111827";
-        dot.style.boxShadow = "0 0 0 1px rgba(15,23,42,.40)";
-      }
-    });
-
-    marker.on("click", () => selectCellById(marker.cellId));
+    marker.cellId = String(p.cell_id ?? "");
+    marker.bindTooltip(cellTooltip(p), { sticky: true, direction: "top", className: "awareon-risk-tooltip" });
+    marker.on("click", () => openCellQuick(marker.cellId));
     group.addLayer(marker);
-    created += 1;
   }
-
-  console.log("AwareOn risk points created:", created);
   return group;
+}
+
+function clusterStepForZoom(zoom) {
+  if (zoom <= 8) return 0.65;
+  if (zoom <= 9) return 0.42;
+  if (zoom <= 10) return 0.26;
+  return 0.14;
+}
+
+function clusterRisk(features) {
+  let weighted = 0;
+  let weight = 0;
+  let counts = { low: 0, moderate: 0, high: 0, extreme: 0 };
+  for (const feature of features) {
+    const score = Number(feature?.properties?.unified_risk_score);
+    if (!Number.isFinite(score)) continue;
+    weighted += score;
+    weight += 1;
+    if (score >= 75) counts.extreme += 1;
+    else if (score >= 50) counts.high += 1;
+    else if (score >= 25) counts.moderate += 1;
+    else counts.low += 1;
+  }
+  return { mean: weight ? weighted / weight : 0, counts };
+}
+
+function buildRiskClusters() {
+  const layer = L.layerGroup();
+  const features = state.riskGeoJson?.features || [];
+  if (!features.length) return layer;
+  const zoom = map.getZoom();
+  const step = clusterStepForZoom(zoom);
+  const buckets = new Map();
+  for (const feature of features) {
+    const center = featureCenter(feature);
+    if (!center) continue;
+    const key = `${Math.floor(center[0] / step)}:${Math.floor(center[1] / step)}`;
+    if (!buckets.has(key)) buckets.set(key, { latSum: 0, lonSum: 0, items: [] });
+    const bucket = buckets.get(key);
+    bucket.latSum += center[0]; bucket.lonSum += center[1]; bucket.items.push(feature);
+  }
+  for (const bucket of buckets.values()) {
+    const count = bucket.items.length;
+    const center = [bucket.latSum / count, bucket.lonSum / count];
+    const stats = clusterRisk(bucket.items);
+    const radius = Math.min(30, 11 + Math.sqrt(count) * 2.4);
+    const color = riskColor(stats.mean);
+    const marker = L.marker(center, {
+      pane: "awareonRiskClusterPane",
+      icon: L.divIcon({
+        className: "awareon-risk-cluster",
+        html: `<span class="risk-cluster" style="width:${radius}px;height:${radius}px;background:${rgbaFromHex(color,.20)};border-color:${color}">${count}</span>`,
+        iconSize: [radius, radius],
+        iconAnchor: [radius / 2, radius / 2]
+      }),
+      keyboard: true,
+      title: `${count} AwareOn risk cells`
+    });
+    const bounds = L.latLngBounds(bucket.items.map(f => featureCenter(f)).filter(Boolean));
+    marker.bindTooltip(`<strong>${count} cells</strong><br>Average risk ${n(stats.mean,1)} · ${esc(riskLabel(stats.mean))}`, { direction: "top", className: "awareon-risk-tooltip" });
+    marker.on("click", () => {
+      if (bounds.isValid()) {
+        map.flyToBounds(bounds, { padding: [80, 80], maxZoom: Math.min(POLYGON_ZOOM, zoom + 2), duration: 0.55 });
+      }
+    });
+    layer.addLayer(marker);
+  }
+  return layer;
+}
+
+function rebuildRiskClusters() {
+  if (riskClusterLayer && map.hasLayer(riskClusterLayer)) map.removeLayer(riskClusterLayer);
+  riskClusterLayer = buildRiskClusters();
+  if (desiredLayers.has("risk") && map.getZoom() < POLYGON_ZOOM && !state.incidentFocusActive) riskClusterLayer.addTo(map);
 }
 
 function loadRiskLayer(geojson) {
   state.riskGeoJson = geojson;
-
   riskPolygonLayer = L.geoJSON(geojson, {
     pane: "awareonRiskPolygonPane",
     style: normal,
     onEachFeature(feature, layer) {
       const p = feature?.properties || {};
-      layer.bindTooltip(cellTooltip(p), {
-        sticky: true,
-        direction: "top",
-        opacity: 0.97,
-        className: "awareon-risk-tooltip"
-      });
-
+      layer.feature = feature;
+      layer.bindTooltip(cellTooltip(p), { sticky: true, direction: "top", className: "awareon-risk-tooltip" });
       layer.on("mouseover", () => {
         if (state.selectedRiskLayer === layer) return;
         if (state.incidentFocusActive && !state.highlightedIncidentCells.includes(layer)) return;
         layer.setStyle(hover(feature));
         layer.bringToFront();
       });
-
       layer.on("mouseout", () => {
         if (state.selectedRiskLayer === layer) return;
         if (state.incidentFocusActive && !state.highlightedIncidentCells.includes(layer)) layer.setStyle(dim(feature));
         else if (state.highlightedIncidentCells.includes(layer)) layer.setStyle(focus(feature));
         else layer.setStyle(normal(feature));
       });
-
-      layer.on("click", () => selectCell(layer));
-      layer.on("add", () => {
-        const element = layer.getElement();
-        if (element) element.style.cursor = "pointer";
-      });
+      layer.on("click", () => openCellQuick(String(p.cell_id || "")));
     }
   });
-
   state.riskLayer = riskPolygonLayer;
   state.mapInitialBounds = riskPolygonLayer.getBounds();
-
   riskPointLayer = buildRiskPointLayer(geojson);
-  riskPointLayer.addTo(map);
-
-  if (state.mapInitialBounds.isValid()) {
-    map.fitBounds(state.mapInitialBounds, { padding: [45, 45], maxZoom: INITIAL_MAX_ZOOM });
-  }
-
+  rebuildRiskClusters();
+  if (state.mapInitialBounds.isValid()) map.fitBounds(state.mapInitialBounds, { padding: [80, 90], maxZoom: INITIAL_ZOOM });
   syncRiskDisplay();
 }
 
 async function loadRisk() {
-  const riskGeo = await api.riskLayer();
-  if (!riskGeo || riskGeo.type !== "FeatureCollection" || !riskGeo.features?.length) {
-    throw new Error("AwareOn risk layer returned no features.");
-  }
-  loadRiskLayer(riskGeo);
-  console.log("AwareOn risk layer loaded:", riskGeo.features.length);
+  const geo = await api.riskLayer();
+  if (!geo || geo.type !== "FeatureCollection" || !geo.features?.length) throw new Error("AwareOn risk layer returned no features.");
+  loadRiskLayer(geo);
 }
 
 function syncRiskDisplay() {
-  if (!riskPointLayer || !riskPolygonLayer) return;
-
-  if (state.incidentFocusActive) {
-    if (!map.hasLayer(riskPolygonLayer)) riskPolygonLayer.addTo(map);
-    if (map.hasLayer(riskPointLayer)) map.removeLayer(riskPointLayer);
-    return;
-  }
-
+  if (!riskPolygonLayer || !riskPointLayer) return;
   const zoom = map.getZoom();
-
-  if (zoom < DETAIL_ZOOM) {
-    if (!map.hasLayer(riskPolygonLayer)) {
-      // keep polygons available for programmatic selection but don't render them regionally
-    } else {
-      map.removeLayer(riskPolygonLayer);
-    }
-
-    if (!map.hasLayer(riskPointLayer) && desiredLayers.has("risk")) riskPointLayer.addTo(map);
-  } else {
-    if (!map.hasLayer(riskPolygonLayer) && desiredLayers.has("risk")) riskPolygonLayer.addTo(map);
-    if (!map.hasLayer(riskPointLayer) && desiredLayers.has("risk")) riskPointLayer.addTo(map);
-  }
-}
-
-function selectCellById(cellId) {
-  if (!riskPolygonLayer) {
-    console.warn("Risk polygon layer is not ready.");
+  if (state.incidentFocusActive) {
+    if (riskClusterLayer && map.hasLayer(riskClusterLayer)) map.removeLayer(riskClusterLayer);
+    if (map.hasLayer(riskPointLayer)) map.removeLayer(riskPointLayer);
+    if (desiredLayers.has("risk") && !map.hasLayer(riskPolygonLayer)) riskPolygonLayer.addTo(map);
     return;
   }
-
-  let target = null;
-  riskPolygonLayer.eachLayer(layer => {
-    if (String(layer?.feature?.properties?.cell_id) === String(cellId)) target = layer;
-  });
-
-  if (target) selectCell(target);
-  else console.warn("AwareOn risk cell not found:", cellId);
+  if (!desiredLayers.has("risk")) {
+    if (riskClusterLayer && map.hasLayer(riskClusterLayer)) map.removeLayer(riskClusterLayer);
+    if (map.hasLayer(riskPointLayer)) map.removeLayer(riskPointLayer);
+    if (map.hasLayer(riskPolygonLayer)) map.removeLayer(riskPolygonLayer);
+    return;
+  }
+  if (zoom < POLYGON_ZOOM) {
+    if (map.hasLayer(riskPolygonLayer)) map.removeLayer(riskPolygonLayer);
+    if (map.hasLayer(riskPointLayer)) map.removeLayer(riskPointLayer);
+    rebuildRiskClusters();
+  } else {
+    if (riskClusterLayer && map.hasLayer(riskClusterLayer)) map.removeLayer(riskClusterLayer);
+    if (map.hasLayer(riskPointLayer)) map.removeLayer(riskPointLayer);
+    if (!map.hasLayer(riskPolygonLayer)) riskPolygonLayer.addTo(map);
+  }
 }
+
+function openCellQuick(cellId) {
+  if (!cellId) return;
+  let p = null;
+  if (riskPolygonLayer) riskPolygonLayer.eachLayer(layer => { if (String(layer?.feature?.properties?.cell_id) === String(cellId)) p = layer.feature.properties; });
+  if (!p && state.riskGeoJson) {
+    const feature = state.riskGeoJson.features.find(f => String(f?.properties?.cell_id) === String(cellId));
+    p = feature?.properties;
+  }
+  if (!p) return;
+  const center = featureCenter(state.riskGeoJson.features.find(f => String(f?.properties?.cell_id) === String(cellId)));
+  const popup = L.popup({ closeButton: true, offset: [0, -6], maxWidth: 300 });
+  popup.setLatLng(center || map.getCenter()).setContent(popupHtml(p)).openOn(map);
+  window.dispatchEvent(new CustomEvent("awareon:cell-quick", { detail: p }));
+}
+
+document.addEventListener("click", event => {
+  const button = event.target.closest("[data-ao-action='open-cell']");
+  if (!button) return;
+  const id = button.dataset.cellId;
+  if (id) {
+    event.preventDefault();
+    selectCellById(id);
+    openContextDrawer();
+  }
+});
+
+export function focusCellById(cellId) {
+  if (!riskPolygonLayer) return;
+  let target = null;
+  riskPolygonLayer.eachLayer(layer => { if (String(layer?.feature?.properties?.cell_id) === String(cellId)) target = layer; });
+  if (target) {
+    if (map.getZoom() < POLYGON_ZOOM) map.flyTo(featureCenter(target.feature), Math.min(POLYGON_ZOOM, map.getZoom() + 3), { duration: 0.55 });
+    selectCell(target);
+  } else {
+    openCellQuick(cellId);
+  }
+}
+
+function selectCellById(cellId) { focusCellById(cellId); }
 
 function selectCell(layer) {
   if (!layer) return;
-
   clearIncidentFocus();
-
-  if (state.selectedRiskLayer && state.selectedRiskLayer !== layer) {
-    state.selectedRiskLayer.setStyle(normal(state.selectedRiskLayer.feature));
-  }
-
+  if (state.selectedRiskLayer && state.selectedRiskLayer !== layer) state.selectedRiskLayer.setStyle(normal(state.selectedRiskLayer.feature));
   state.selectedRiskLayer = layer;
   state.selectedCell = layer.feature.properties;
-
   if (!map.hasLayer(riskPolygonLayer)) riskPolygonLayer.addTo(map);
   layer.setStyle(selected(layer.feature));
   layer.bringToFront();
-
-  const bounds = layer.getBounds();
-  if (bounds?.isValid()) {
-    map.flyToBounds(bounds, { padding: [90, 90], maxZoom: MAX_FOCUS_ZOOM, duration: 0.55 });
-  }
-
-  switchView("risk-map");
+  const bounds = layer.getBounds?.();
+  if (bounds?.isValid()) map.flyToBounds(bounds, { padding: [90, 90], maxZoom: MAX_FOCUS_ZOOM, duration: 0.5 });
+  switchView("risk-map", { openDrawer: true });
   window.dispatchEvent(new CustomEvent("awareon:cell", { detail: layer.feature.properties }));
 }
 
-export function focusIncident(id) {
-  if (!state.incidentLayer) {
-    pendingIncidentId = String(id);
-    console.log("Incident focus queued until spatial incident layer is ready:", id);
-    return;
-  }
-
-  let target = null;
-  state.incidentLayer.eachLayer(layer => {
-    if (String(layer.incidentId) === String(id)) target = layer;
+export function focusHighestRisk() {
+  if (!riskPolygonLayer) return;
+  let top = null;
+  riskPolygonLayer.eachLayer(layer => {
+    const score = Number(layer?.feature?.properties?.unified_risk_score);
+    if (Number.isFinite(score) && (!top || score > Number(top.feature.properties.unified_risk_score))) top = layer;
   });
+  if (top) selectCell(top);
+}
 
-  if (!target) {
-    console.warn("AwareOn incident not found:", id);
-    return;
-  }
-
+export function focusIncident(id) {
+  if (!state.incidentLayer) { pendingIncidentId = String(id); return; }
+  let target = null;
+  state.incidentLayer.eachLayer(layer => { if (String(layer.incidentId) === String(id)) target = layer; });
+  if (!target) return;
   const p = target.feature.properties;
   const affected = String(p.affected_cells || "").split(",").map(v => v.trim()).filter(Boolean);
-
   state.incidentFocusActive = true;
   state.selectedIncident = p;
   state.highlightedIncidentCells = [];
-
+  if (riskClusterLayer && map.hasLayer(riskClusterLayer)) map.removeLayer(riskClusterLayer);
   if (riskPointLayer && map.hasLayer(riskPointLayer)) map.removeLayer(riskPointLayer);
-  if (riskPolygonLayer && !map.hasLayer(riskPolygonLayer)) riskPolygonLayer.addTo(map);
-
-  riskPolygonLayer.eachLayer(layer => {
+  if (riskPolygonLayer && !map.hasLayer(riskPolygonLayer) && desiredLayers.has("risk")) riskPolygonLayer.addTo(map);
+  riskPolygonLayer?.eachLayer(layer => {
     const hit = affected.includes(String(layer?.feature?.properties?.cell_id));
     layer.setStyle(hit ? focus(layer.feature) : dim(layer.feature));
-    if (hit) {
-      layer.bringToFront();
-      state.highlightedIncidentCells.push(layer);
-    }
+    if (hit) state.highlightedIncidentCells.push(layer);
   });
-
   if (state.highlightedIncidentCells.length) {
     const bounds = L.featureGroup(state.highlightedIncidentCells).getBounds();
-    if (bounds.isValid()) map.fitBounds(bounds, { padding: [70, 70], maxZoom: MAX_FOCUS_ZOOM });
-  } else {
-    map.flyTo(target.getLatLng(), 13, { duration: 0.6 });
-  }
-
+    if (bounds.isValid()) map.flyToBounds(bounds, { padding: [80,80], maxZoom: MAX_FOCUS_ZOOM, duration: 0.55 });
+  } else map.flyTo(target.getLatLng(), 13, { duration: 0.55 });
   target.bringToFront();
   target.openTooltip();
-
   const focusBar = document.getElementById("focus-bar");
-  const title = document.getElementById("focus-bar-title");
-  const cells = document.getElementById("focus-bar-cells");
-
-  focusBar?.classList.add("active");
-  if (title) title.textContent = `${p.incident_id} · ${p.priority_level}`;
-  if (cells) cells.textContent = `${p.cell_count} affected cells`;
-
-  switchView("risk-map");
+  focusBar.hidden = false;
+  document.getElementById("focus-bar-title").textContent = `${p.incident_id} · ${p.priority_level}`;
+  document.getElementById("focus-bar-cells").textContent = `${p.cell_count} affected cells`;
+  switchView("risk-map", { openDrawer: true });
   window.dispatchEvent(new CustomEvent("awareon:incident", { detail: p }));
 }
 
@@ -409,21 +415,14 @@ export function clearIncidentFocus() {
   state.incidentFocusActive = false;
   state.selectedIncident = null;
   state.highlightedIncidentCells = [];
-
-  if (riskPolygonLayer) {
-    riskPolygonLayer.eachLayer(layer => {
-      layer.setStyle(layer === state.selectedRiskLayer ? selected(layer.feature) : normal(layer.feature));
-    });
-  }
-
-  document.getElementById("focus-bar")?.classList.remove("active");
+  if (riskPolygonLayer) riskPolygonLayer.eachLayer(layer => layer.setStyle(layer === state.selectedRiskLayer ? selected(layer.feature) : normal(layer.feature)));
+  const focusBar = document.getElementById("focus-bar");
+  if (focusBar) focusBar.hidden = true;
   syncRiskDisplay();
 }
 
 export function clearCellSelection() {
-  if (state.selectedRiskLayer) {
-    state.selectedRiskLayer.setStyle(normal(state.selectedRiskLayer.feature));
-  }
+  if (state.selectedRiskLayer) state.selectedRiskLayer.setStyle(normal(state.selectedRiskLayer.feature));
   state.selectedRiskLayer = null;
   state.selectedCell = null;
   window.dispatchEvent(new CustomEvent("awareon:clear-selection"));
@@ -434,191 +433,70 @@ function setButtonActive(button, active) {
   button.classList.toggle("is-active", active);
   button.setAttribute("aria-pressed", active ? "true" : "false");
 }
-
 function resolveLayer(key) {
   switch (key) {
-    case "risk": return riskPointLayer;
+    case "risk": return riskPolygonLayer && map.getZoom() >= POLYGON_ZOOM ? riskPolygonLayer : riskClusterLayer;
     case "incidents": return state.incidentLayer;
     case "history": return state.historicalLayer;
     case "exposure": return state.exposureLayer;
     default: return null;
   }
 }
-
-function applyDesiredLayer(key) {
-  const layer = resolveLayer(key);
-  if (!layer) return;
-
-  const shouldShow = desiredLayers.has(key);
-  const visible = map.hasLayer(layer);
-
-  if (shouldShow && !visible) layer.addTo(map);
-  if (!shouldShow && visible) map.removeLayer(layer);
-
-  const button = document.querySelector(`[data-layer-toggle="${key}"]`);
-  setButtonActive(button, shouldShow);
-}
-
 export function initializeMapTools() {
   if (mapToolsBound) return;
   mapToolsBound = true;
-
   document.querySelectorAll("[data-layer-toggle]").forEach(button => {
     setButtonActive(button, desiredLayers.has(button.dataset.layerToggle));
-
     button.addEventListener("click", event => {
       event.preventDefault();
       event.stopPropagation();
-
       const key = button.dataset.layerToggle;
       if (!key) return;
-
-      if (desiredLayers.has(key)) desiredLayers.delete(key);
-      else desiredLayers.add(key);
-
+      if (desiredLayers.has(key)) desiredLayers.delete(key); else desiredLayers.add(key);
       setButtonActive(button, desiredLayers.has(key));
-      applyDesiredLayer(key);
-      syncRiskDisplay();
+      if (key === "risk") syncRiskDisplay(); else {
+        const layer = resolveLayer(key);
+        if (layer) { if (desiredLayers.has(key)) layer.addTo(map); else map.removeLayer(layer); }
+      }
     });
   });
-
-  document.getElementById("map-reset")?.addEventListener("click", event => {
-    event.preventDefault();
-    event.stopPropagation();
-    desiredLayers.add("risk");
-    setButtonActive(document.querySelector('[data-layer-toggle="risk"]'), true);
-    clearIncidentFocus();
-    clearCellSelection();
-    if (state.mapInitialBounds?.isValid()) map.fitBounds(state.mapInitialBounds, { padding: [45, 45], maxZoom: INITIAL_MAX_ZOOM });
-    window.setTimeout(syncRiskDisplay, 350);
-  });
-
-  document.getElementById("map-focus-risk")?.addEventListener("click", event => {
-    event.preventDefault();
-    event.stopPropagation();
-    focusHighestRisk();
-  });
-
-  document.getElementById("clear-focus")?.addEventListener("click", event => {
-    event.preventDefault();
-    event.stopPropagation();
-    clearIncidentFocus();
-  });
-}
-
-export function focusHighestRisk() {
-  if (!riskPolygonLayer) {
-    console.warn("AwareOn risk layer is still loading.");
-    return;
-  }
-
-  let top = null;
-  riskPolygonLayer.eachLayer(layer => {
-    const score = Number(layer?.feature?.properties?.unified_risk_score);
-    if (Number.isFinite(score) && (!top || score > Number(top.feature.properties.unified_risk_score))) top = layer;
-  });
-
-  if (top) selectCell(top);
+  document.getElementById("map-reset")?.addEventListener("click", e => { e.preventDefault(); clearIncidentFocus(); clearCellSelection(); map.closePopup(); desiredLayers.add("risk"); setButtonActive(document.querySelector('[data-layer-toggle="risk"]'), true); if (state.mapInitialBounds?.isValid()) map.flyToBounds(state.mapInitialBounds, { padding:[80,90], maxZoom:INITIAL_ZOOM, duration:.55 }); syncRiskDisplay(); });
+  document.getElementById("map-focus-risk")?.addEventListener("click", e => { e.preventDefault(); focusHighestRisk(); });
+  document.getElementById("clear-focus")?.addEventListener("click", e => { e.preventDefault(); clearIncidentFocus(); });
 }
 
 async function loadSecondaryLayers() {
   if (secondaryLayersStarted) return;
   secondaryLayersStarted = true;
-
   const boundaryPromise = api.boundary().then(geojson => {
-    state.boundaryLayer = L.geoJSON(geojson, {
-      pane: "awareonBoundaryPane",
-      style: () => ({ color: "#536273", weight: 1.4, opacity: 0.55, fillOpacity: 0, interactive: false })
-    }).addTo(map);
-    state.boundaryLayer.bringToFront();
-    console.log("Boundary loaded.");
-  }).catch(err => console.error("Boundary layer failed:", err));
-
+    state.boundaryLayer=L.geoJSON(geojson,{pane:"awareonBoundaryPane",style:()=>({color:"#657588",weight:1.3,opacity:.48,fillOpacity:0,interactive:false})}).addTo(map);
+  }).catch(err=>console.error("Boundary layer failed:",err));
   const historyPromise = api.historicalLayer().then(geojson => {
-    state.historicalLayer = L.geoJSON(geojson, {
-      pointToLayer: (f, ll) => L.circleMarker(ll, {
-        radius: Number(f?.properties?.hotspot_score) >= 75 ? 9 : Number(f?.properties?.hotspot_score) >= 50 ? 7 : 5,
-        color: "#12314e",
-        weight: 1.2,
-        fillColor: "#2563eb",
-        fillOpacity: 0.77
-      }),
-      onEachFeature: (f, l) => l.bindTooltip(`<strong>Historical hotspot</strong><br>${esc(f?.properties?.hotspot_id)}<br>${f?.properties?.event_count ?? 0} events · score ${n(f?.properties?.hotspot_score)}`, { sticky: true })
-    });
-    console.log("Historical layer loaded:", geojson?.features?.length || 0);
-    applyDesiredLayer("history");
-  }).catch(err => console.error("Historical layer failed:", err));
-
+    state.historicalLayer=L.geoJSON(geojson,{pointToLayer:(f,ll)=>L.circleMarker(ll,{radius:Number(f?.properties?.hotspot_score)>=75?8:Number(f?.properties?.hotspot_score)>=50?6:4,color:"#163b64",weight:1,fillColor:"#2563eb",fillOpacity:.74}),onEachFeature:(f,l)=>{const p=f?.properties||{};l.bindTooltip(`<strong>Historical hotspot</strong><br>${esc(p.hotspot_id)}<br>${p.event_count??0} events · score ${n(p.hotspot_score)}`,{sticky:true});l.on("click",()=>{switchView("risk-map");openContextDrawer();})}});
+    if(desiredLayers.has("history"))state.historicalLayer.addTo(map);
+  }).catch(err=>console.error("History layer failed:",err));
   const exposurePromise = api.exposureLayer().then(geojson => {
-    state.exposureLayer = L.geoJSON(geojson, {
-      style: () => ({ color: "#7656d6", weight: 1, opacity: 0.65, fillColor: "#a28bea", fillOpacity: 0.19 }),
-      onEachFeature: (f, l) => l.bindTooltip(`<strong>Exposure</strong><br>Cell ${esc(f?.properties?.cell_id)}<br>Score ${n(f?.properties?.exposure_score)}<br>${esc(f?.properties?.exposure_category)}`, { sticky: true })
-    });
-    console.log("Exposure layer loaded:", geojson?.features?.length || 0);
-    applyDesiredLayer("exposure");
-  }).catch(err => console.error("Exposure layer failed:", err));
-
+    state.exposureLayer=L.geoJSON(geojson,{style:()=>({color:"#7656d6",weight:1,opacity:.58,fillColor:"#a28bea",fillOpacity:.14}),onEachFeature:(f,l)=>{const p=f?.properties||{};l.bindTooltip(`<strong>Exposure</strong><br>Cell ${esc(p.cell_id)}<br>Score ${n(p.exposure_score)} · ${esc(p.exposure_category)}`,{sticky:true});l.on("click",()=>{switchView("risk-map");openContextDrawer();})}});
+    if(desiredLayers.has("exposure"))state.exposureLayer.addTo(map);
+  }).catch(err=>console.error("Exposure layer failed:",err));
   const incidentsPromise = api.incidents().then(geojson => {
-    state.incidentLayer = L.geoJSON(geojson, {
-      pane: "awareonIncidentPane",
-      pointToLayer: (f, ll) => {
-        const p = f?.properties || {};
-        const radius = p.priority_level === "P1_CRITICAL" ? 12 : p.priority_level === "P2_HIGH" ? 10 : 8;
-        return L.circleMarker(ll, { radius, color: "#332010", weight: 2, fillColor: "#ef7b33", fillOpacity: 0.94 });
-      },
-      onEachFeature: (f, l) => {
-        const p = f?.properties || {};
-        l.incidentId = String(p.incident_id ?? "");
-        l.bindTooltip(`<strong>Priority ${esc(p.priority_level)}</strong><br>${esc(p.incident_id)} · rank #${p.priority_rank}<br>Priority ${n(p.priority_score)} · max risk ${n(p.max_risk_score)}<br>${p.cell_count ?? 0} affected cells`, { sticky: true });
-        l.on("click", () => focusIncident(p.incident_id));
-      }
-    });
-    console.log("Incident layer loaded:", geojson?.features?.length || 0);
-    applyDesiredLayer("incidents");
-
-    if (pendingIncidentId) {
-      const id = pendingIncidentId;
-      pendingIncidentId = null;
-      window.setTimeout(() => focusIncident(id), 0);
-    }
-  }).catch(err => console.error("Incident layer failed:", err));
-
-  await Promise.allSettled([boundaryPromise, historyPromise, exposurePromise, incidentsPromise]);
+    state.incidentLayer=L.geoJSON(geojson,{pane:"awareonIncidentPane",pointToLayer:(f,ll)=>{const p=f?.properties||{};const radius=p.priority_level==="P1_CRITICAL"?10:p.priority_level==="P2_HIGH"?8:7;return L.circleMarker(ll,{radius,color:"#583113",weight:1.6,fillColor:"#ef7b33",fillOpacity:.94})},onEachFeature:(f,l)=>{const p=f?.properties||{};l.incidentId=String(p.incident_id??"");l.bindTooltip(`<strong>${esc(p.priority_level)}</strong><br>${esc(p.incident_id)} · rank #${p.priority_rank}<br>Priority ${n(p.priority_score)} · ${p.cell_count??0} cells`,{sticky:true});l.on("click",()=>focusIncident(p.incident_id));}});
+    if(desiredLayers.has("incidents"))state.incidentLayer.addTo(map);
+    if(pendingIncidentId){const id=pendingIncidentId;pendingIncidentId=null;setTimeout(()=>focusIncident(id),0);}
+  }).catch(err=>console.error("Incident layer failed:",err));
+  await Promise.allSettled([boundaryPromise,historyPromise,exposurePromise,incidentsPromise]);
 }
 
 export async function initMap() {
   map.invalidateSize(true);
   initializeMapTools();
-
   await loadRisk();
   loadSecondaryLayers();
-
-  window.setTimeout(() => {
-    map.invalidateSize(true);
-    syncRiskDisplay();
-  }, 150);
-
-  window.setTimeout(() => map.invalidateSize(true), 600);
+  setTimeout(()=>{map.invalidateSize(true);syncRiskDisplay();},120);
 }
 
-map.on("zoomend", syncRiskDisplay);
+map.on("zoomend",()=>{rebuildRiskClusters();syncRiskDisplay();});
+map.on("moveend",()=>{if(map.getZoom()<POLYGON_ZOOM)rebuildRiskClusters();});
+window.addEventListener("resize",()=>setTimeout(()=>map.invalidateSize(true),80));
 
-window.addEventListener("resize", () => {
-  window.setTimeout(() => map.invalidateSize(true), 80);
-});
-
-window.awareonMapDebug = () => ({
-  zoom: map.getZoom(),
-  mapWidth: map.getContainer().getBoundingClientRect().width,
-  mapHeight: map.getContainer().getBoundingClientRect().height,
-  riskFeatures: state.riskGeoJson?.features?.length || 0,
-  riskPolygons: riskPolygonLayer?.getLayers()?.length || 0,
-  riskPoints: riskPointLayer?.getLayers()?.length || 0,
-  riskPointsVisible: Boolean(riskPointLayer && map.hasLayer(riskPointLayer)),
-  riskPolygonsVisible: Boolean(riskPolygonLayer && map.hasLayer(riskPolygonLayer)),
-  incidents: state.incidentLayer?.getLayers()?.length || 0,
-  historical: state.historicalLayer?.getLayers()?.length || 0,
-  exposureReady: Boolean(state.exposureLayer),
-  boundaryReady: Boolean(state.boundaryLayer),
-  pendingIncidentId
-});
+window.awareonMapDebug=()=>({zoom:map.getZoom(),mapWidth:map.getContainer().getBoundingClientRect().width,mapHeight:map.getContainer().getBoundingClientRect().height,riskFeatures:state.riskGeoJson?.features?.length||0,riskPolygons:riskPolygonLayer?.getLayers()?.length||0,riskPoints:riskPointLayer?.getLayers()?.length||0,riskClusters:riskClusterLayer?.getLayers()?.length||0,riskIncidents:state.incidentLayer?.getLayers()?.length||0,selectedCell:state.selectedCell?.cell_id||null});

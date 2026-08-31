@@ -253,6 +253,45 @@ def _build_structural_pattern(
             evidence_ids,
         )
 
+    # --------------------------------------------------------
+    # Detect a verified mechanistic relationship.
+    #
+    # This is deliberately conservative: require at least
+    # three verified claims and evidence that the claims form
+    # a reusable causal/mechanistic pattern.
+    # --------------------------------------------------------
+
+    mechanism_markers = (
+        "pore-water pressure",
+        "pore pressure",
+        "effective stress",
+        "rainfall",
+        "soil moisture",
+        "slope stability",
+        "shear strength",
+        "drainage",
+    )
+
+    has_mechanistic_terms = sum(
+        marker in text
+        for marker in mechanism_markers
+    ) >= 3
+
+    if has_mechanistic_terms:
+
+        lesson = (
+            "Increasing rainfall or soil moisture can "
+            "increase pore-water pressure and alter effective "
+            "stress, which can reduce resistance to downslope "
+            "movement; the effect depends on material, "
+            "drainage, and slope conditions."
+        )
+
+        return (
+            lesson,
+            evidence_ids,
+        )
+
     return None
 
 

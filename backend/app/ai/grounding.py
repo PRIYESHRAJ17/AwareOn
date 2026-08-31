@@ -63,30 +63,71 @@ def ground_tool_result(
             {},
         )
 
-        if isinstance(
+        if not isinstance(
             summary,
             dict,
         ):
+            summary = {}
 
-            risk = summary.get(
-                "current_risk_score"
+        # Fall back to the canonical current assessment for
+        # fields that may not be included in signal_summary.
+        assessment = result.get(
+            "current_assessment",
+            {},
+        )
+
+        if not isinstance(
+            assessment,
+            dict,
+        ):
+            assessment = {}
+
+        def canonical_value(
+            key: str,
+        ) -> Any:
+            value = summary.get(key)
+
+            if value is not None:
+                return value
+
+            return assessment.get(key)
+
+        risk = canonical_value(
+            "current_risk_score"
+        )
+
+        severity = canonical_value(
+            "current_severity"
+        )
+
+        if severity is None:
+            severity = assessment.get(
+                "severity"
             )
 
-            severity = summary.get(
-                "current_severity"
-            )
+        scenario = canonical_value(
+            "scenario_risk"
+        )
 
-            scenario = summary.get(
-                "scenario_risk"
-            )
+        scenario_change = canonical_value(
+            "scenario_risk_change"
+        )
 
-            scenario_change = summary.get(
-                "scenario_risk_change"
-            )
+        susceptibility = canonical_value(
+            "susceptibility_category"
+        )
 
-            if risk is not None:
+        terrain = canonical_value(
+            "terrain_instability_category"
+        )
 
-                package.add(
+        spatial_pressure = canonical_value(
+            "spatial_pressure_score"
+        )
+
+        if risk is not None:
+
+            package.add(
                     source_tool=tool_name,
                     evidence_type=(
                         EvidenceType.MODEL_OUTPUT
@@ -117,6 +158,60 @@ def ground_tool_result(
                     value=severity,
                     source_id=(
                         f"cell:{cell_id}:severity"
+                    ),
+                )
+
+            if susceptibility is not None:
+
+                package.add(
+                    source_tool=tool_name,
+                    evidence_type=(
+                        EvidenceType.MODEL_OUTPUT
+                    ),
+                    claim=(
+                        f"Cell {cell_id} has "
+                        f"susceptibility category "
+                        f"{susceptibility}."
+                    ),
+                    value=susceptibility,
+                    source_id=(
+                        f"cell:{cell_id}:susceptibility"
+                    ),
+                )
+
+            if terrain is not None:
+
+                package.add(
+                    source_tool=tool_name,
+                    evidence_type=(
+                        EvidenceType.MODEL_OUTPUT
+                    ),
+                    claim=(
+                        f"Cell {cell_id} has terrain "
+                        f"instability category "
+                        f"{terrain}."
+                    ),
+                    value=terrain,
+                    source_id=(
+                        f"cell:{cell_id}:terrain"
+                    ),
+                )
+
+            if spatial_pressure is not None:
+
+                package.add(
+                    source_tool=tool_name,
+                    evidence_type=(
+                        EvidenceType.MODEL_OUTPUT
+                    ),
+                    claim=(
+                        f"Cell {cell_id} has spatial "
+                        f"pressure score "
+                        f"{_num(spatial_pressure):.2f}."
+                    ),
+                    value=_num(spatial_pressure),
+                    source_id=(
+                        f"cell:{cell_id}:spatial_pressure"
                     ),
                 )
 

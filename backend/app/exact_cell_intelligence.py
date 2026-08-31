@@ -277,6 +277,11 @@ def build_exact_cell_intelligence(
         "cell_id":
             str(cell_id),
 
+        # Preserve the canonical assessment under the structure
+        # consumed by build_cell_evidence_package().
+        "current_assessment":
+            dict(current),
+
         "rainfall_change_percent":
             change,
 

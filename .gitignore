@@ -288,3 +288,7 @@ Thumbs.db
 *.joblib
 
 # Keep diagnostic/result CSVs tracked where useful
+
+# AwareOn runtime artifacts
+backend/awareon_learning.db
+data/processed/cache/

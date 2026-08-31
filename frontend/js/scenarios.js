@@ -568,6 +568,13 @@ export async function initScenarios() {
                         data-pct="${
                             scenario.pct
                         }"
+                        aria-label="${
+                            esc(
+                                scenario.pct === 0
+                                    ? "Baseline scenario"
+                                    : `Rainfall plus ${scenario.pct} percent scenario`
+                            )
+                        }"
                     >
 
                         <strong>
@@ -578,7 +585,9 @@ export async function initScenarios() {
 
                         <span>
                             ${esc(
-                                scenario.hint
+                                scenario.pct === 0
+                                    ? "Reference conditions"
+                                    : scenario.hint
                             )}
                         </span>
 
@@ -934,19 +943,14 @@ function render(
 
         container.innerHTML =
             `
-            <div class="assessment empty">
-
-                <div class="empty-symbol">
-                    ◌
-                </div>
-
+            <div class="scenario-empty-state">
+                <div class="scenario-empty-icon">◌</div>
+                <strong>Scenario data unavailable</strong>
                 <p>
-                    No scenario data.
+                    No generated counterfactual is available for this selection.
                 </p>
-
             </div>
             `;
-
 
         return;
     }
@@ -965,220 +969,475 @@ function render(
             );
 
 
-    const delta =
+    const rainfallPct =
         Number(
-            row.mean_risk_score
-        )
-        -
+            row.rainfall_change_percent
+        ) || 0;
+
+
+    const baselineRisk =
         Number(
             baseline
                 ?.mean_risk_score
-            ||
-            0
         );
+
+
+    const meanRisk =
+        Number(
+            row.mean_risk_score
+        );
+
+
+    const meanChange =
+        Number(
+            row.mean_risk_change
+        );
+
+
+    const calculatedDelta =
+        Number.isFinite(
+            meanRisk
+        ) &&
+        Number.isFinite(
+            baselineRisk
+        )
+            ? meanRisk - baselineRisk
+            : meanChange;
+
+
+    const trigger =
+        Number(
+            row.rainfall_trigger_score
+        );
+
+
+    const maxChange =
+        Number(
+            row.max_risk_change
+        );
+
+
+    const maxRisk =
+        Number(
+            row.max_risk_score
+        );
+
+
+    const escalating =
+        Number(
+            row.escalating_cells
+        ) || 0;
+
+
+    const newHigh =
+        Number(
+            row.new_high_or_extreme
+        ) || 0;
+
+
+    const newExtreme =
+        Number(
+            row.new_extreme_cells
+        ) || 0;
+
+
+    const isBaseline =
+        rainfallPct === 0;
+
+
+    const directionClass =
+        calculatedDelta > 0
+            ? "scenario-positive"
+            : calculatedDelta < 0
+                ? "scenario-negative"
+                : "scenario-neutral";
+
+
+    const directionLabel =
+        calculatedDelta > 0
+            ? "Risk increases"
+            : calculatedDelta < 0
+                ? "Risk decreases"
+                : "No mean-risk change";
+
+
+    const scenarioLabel =
+        isBaseline
+            ? "Current baseline"
+            : `Rainfall +${rainfallPct.toFixed(0)}%`;
+
+
+    const scenarioName =
+        rainfallPct === 0
+            ? "Baseline conditions"
+            : rainfallPct === 25
+                ? "Moderate rainfall shock"
+                : rainfallPct === 50
+                    ? "Strong rainfall shock"
+                    : "Extreme rainfall shock";
+
+
+    const triggerCategory =
+        row.trigger_category
+        ||
+        "UNCLASSIFIED";
+
+
+    const transitionText =
+        isBaseline
+            ? "Reference state"
+            : escalating > 0
+                ? `${escalating.toLocaleString()} cells escalate`
+                : "No category escalation detected";
+
+
+    const interpretation =
+        isBaseline
+            ? "This is AwareOn's reference state. Other scenarios are compared against this condition."
+            : escalating > 0
+                ? `${escalating.toLocaleString()} modelled cells move into a higher risk category under this tested rainfall condition.`
+                : "The tested rainfall increase raises the modelled risk surface without producing category transitions.";
 
 
     container.innerHTML =
         `
-        <div
-            class="section-title-row"
-        >
+        <div class="scenario-result">
 
-            <div>
+            <div class="scenario-result-head">
 
-                <span class="eyebrow">
-                    SCENARIO OUTCOME
-                </span>
+                <div>
+                    <span class="scenario-kicker">
+                        SELECTED COUNTERFACTUAL
+                    </span>
 
-                <h2>
+                    <h3>
+                        ${esc(
+                            scenarioLabel
+                        )}
+                    </h3>
+
+                    <p>
+                        ${esc(
+                            scenarioName
+                        )}
+                    </p>
+                </div>
+
+                <div class="scenario-status-badge ${directionClass}">
+                    <span></span>
                     ${esc(
-                        row.scenario
+                        directionLabel
                     )}
-                </h2>
+                </div>
 
             </div>
 
-            <span class="state-chip">
-                ${esc(
-                    row.trigger_category
-                    ||
-                    "SCENARIO"
-                )}
-            </span>
 
-        </div>
+            <div class="scenario-primary">
+
+                <div class="scenario-primary-main">
+
+                    <span>
+                        MEAN RISK SCORE
+                    </span>
+
+                    <strong>
+                        ${n(
+                            row.mean_risk_score
+                        )}
+                    </strong>
+
+                    <small>
+                        ${esc(
+                            transitionText
+                        )}
+                    </small>
+
+                </div>
 
 
-        <div
-            class="scenario-grid"
-        >
+                <div class="scenario-delta-panel ${directionClass}">
 
-            <div
-                class="scenario-stat"
-            >
+                    <span>
+                        CHANGE FROM BASELINE
+                    </span>
+
+                    <strong>
+                        ${
+                            calculatedDelta > 0
+                                ? "+"
+                                : ""
+                        }${n(
+                            calculatedDelta
+                        )}
+                    </strong>
+
+                    <small>
+                        risk-score points
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="scenario-metrics-grid">
+
+                <article class="scenario-metric-card">
+
+                    <span>Escalating cells</span>
+
+                    <strong>
+                        ${escalating.toLocaleString()}
+                    </strong>
+
+                    <small>
+                        category transitions
+                    </small>
+
+                </article>
+
+
+                <article class="scenario-metric-card">
+
+                    <span>New HIGH+</span>
+
+                    <strong>
+                        ${newHigh.toLocaleString()}
+                    </strong>
+
+                    <small>
+                        newly elevated cells
+                    </small>
+
+                </article>
+
+
+                <article class="scenario-metric-card">
+
+                    <span>New EXTREME</span>
+
+                    <strong>
+                        ${newExtreme.toLocaleString()}
+                    </strong>
+
+                    <small>
+                        newly extreme cells
+                    </small>
+
+                </article>
+
+
+                <article class="scenario-metric-card">
+
+                    <span>Max risk</span>
+
+                    <strong>
+                        ${n(
+                            maxRisk
+                        )}
+                    </strong>
+
+                    <small>
+                        highest modelled score
+                    </small>
+
+                </article>
+
+            </div>
+
+
+            <div class="scenario-driver-card">
+
+                <div class="scenario-driver-head">
+
+                    <div>
+                        <span class="scenario-kicker">
+                            RAINFALL RESPONSE
+                        </span>
+
+                        <strong>
+                            Trigger signal
+                        </strong>
+                    </div>
+
+                    <b>
+                        ${n(
+                            trigger
+                        )}
+                    </b>
+
+                </div>
+
+
+                <div class="scenario-trigger-track">
+
+                    <div
+                        class="scenario-trigger-fill"
+                        style="width:${Math.max(
+                            0,
+                            Math.min(
+                                100,
+                                Number.isFinite(
+                                    trigger
+                                )
+                                    ? trigger
+                                    : 0
+                            )
+                        )}%"
+                    ></div>
+
+                </div>
+
+
+                <div class="scenario-driver-meta">
+
+                    <span>
+                        ${esc(
+                            triggerCategory
+                        )}
+                    </span>
+
+                    <span>
+                        Rainfall +${rainfallPct.toFixed(0)}%
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="scenario-comparison">
+
+                <div class="scenario-comparison-head">
+
+                    <div>
+                        <span class="scenario-kicker">
+                            BASELINE COMPARISON
+                        </span>
+
+                        <strong>
+                            Mean risk trajectory
+                        </strong>
+                    </div>
+
+                    <span>
+                        ${n(
+                            baselineRisk
+                        )}
+                        →
+                        ${n(
+                            meanRisk
+                        )}
+                    </span>
+
+                </div>
+
+
+                <div class="scenario-comparison-track">
+
+                    <div class="scenario-comparison-baseline">
+                        <span></span>
+                    </div>
+
+                    <div
+                        class="scenario-comparison-current ${directionClass}"
+                        style="width:${Math.max(
+                            4,
+                            Math.min(
+                                100,
+                                Number.isFinite(
+                                    meanRisk
+                                )
+                                    ? meanRisk
+                                    : 0
+                            )
+                        )}%"
+                    >
+                        <span></span>
+                    </div>
+
+                </div>
+
+
+                <div class="scenario-comparison-labels">
+
+                    <span>
+                        Baseline ${n(
+                            baselineRisk
+                        )}
+                    </span>
+
+                    <span>
+                        Selected ${n(
+                            meanRisk
+                        )}
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="scenario-decision-card">
+
+                <div class="scenario-decision-icon">
+                    →
+                </div>
+
+                <div>
+
+                    <span class="scenario-kicker">
+                        DECISION READOUT
+                    </span>
+
+                    <strong>
+                        ${esc(
+                            transitionText
+                        )}
+                    </strong>
+
+                    <p>
+                        ${esc(
+                            interpretation
+                        )}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="scenario-footer">
 
                 <span>
-                    Mean risk
+                    Rainfall
+                    <b>
+                        +${rainfallPct.toFixed(0)}%
+                    </b>
                 </span>
-
-                <strong>
-                    ${n(
-                        row.mean_risk_score
-                    )}
-                </strong>
-
-                <em>
-                    ${Number(
-                        row.mean_risk_change
-                        ||
-                        0
-                    ) === 0
-                        ? "Baseline"
-                        : "from baseline"
-                    }
-                </em>
-
-            </div>
-
-
-            <div
-                class="scenario-stat"
-            >
 
                 <span>
-                    Mean change
+                    Max change
+                    <b>
+                        ${
+                            Number.isFinite(
+                                maxChange
+                            )
+                                ? `${maxChange >= 0 ? "+" : ""}${n(maxChange)}`
+                                : "—"
+                        }
+                    </b>
                 </span>
-
-                <strong
-                    class="${
-                        delta > 0
-                            ? "delta-up"
-                            : "delta-flat"
-                    }"
-                >
-
-                    ${
-                        delta >= 0
-                            ? "+"
-                            : ""
-                    }${n(
-                        delta
-                    )}
-
-                </strong>
-
-                <em>
-                    vs baseline
-                </em>
-
-            </div>
-
-
-            <div
-                class="scenario-stat"
-            >
 
                 <span>
-                    Escalating cells
+                    Data state
+                    <b>
+                        PRECOMPUTED
+                    </b>
                 </span>
 
-                <strong>
-                    ${row.escalating_cells ?? "—"}
-                </strong>
-
-                <em>
-                    category transitions
-                </em>
-
             </div>
-
-
-            <div
-                class="scenario-stat"
-            >
-
-                <span>
-                    New HIGH+
-                </span>
-
-                <strong>
-                    ${row.new_high_or_extreme ?? "—"}
-                </strong>
-
-                <em>
-                    newly elevated cells
-                </em>
-
-            </div>
-
-
-            <div
-                class="scenario-stat"
-            >
-
-                <span>
-                    New EXTREME
-                </span>
-
-                <strong>
-                    ${row.new_extreme_cells ?? "—"}
-                </strong>
-
-                <em>
-                    newly extreme cells
-                </em>
-
-            </div>
-
-
-            <div
-                class="scenario-stat"
-            >
-
-                <span>
-                    Trigger
-                </span>
-
-                <strong>
-                    ${n(
-                        row.rainfall_trigger_score
-                    )}
-                </strong>
-
-                <em>
-                    ${esc(
-                        row.trigger_category
-                        ||
-                        "UNKNOWN"
-                    )}
-                </em>
-
-            </div>
-
-        </div>
-
-
-        <div
-            class="scenario-footer"
-        >
-
-            <span>
-                Rainfall change
-                <b>
-                    ${Number(
-                        row.rainfall_change_percent
-                    ).toFixed(0)}%
-                </b>
-            </span>
-
-            <span>
-                Max change
-                <b>
-                    +${n(
-                        row.max_risk_change
-                    )}
-                </b>
-            </span>
 
         </div>
         `;

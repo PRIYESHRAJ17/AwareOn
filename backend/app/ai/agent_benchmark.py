@@ -513,7 +513,11 @@ def evaluate_decision(
             "regional_intelligence" in tools,
 
         "decision_tool":
-            "decision_master" in tools,
+            (
+                "decision_orchestrator" in tools
+                or
+                "decision_master" in tools
+            ),
 
         "verified":
             _verified(result),

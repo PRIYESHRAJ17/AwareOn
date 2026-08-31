@@ -16,6 +16,9 @@ from backend.app.ai.grounding import (
 from backend.app.exact_cell_intelligence import (
     build_exact_cell_intelligence,
 )
+from backend.app.ai.evidence_builder import (
+    build_cell_evidence_package,
+)
 
 
 # ============================================================
@@ -269,6 +272,10 @@ def investigate_cell(
     # --------------------------------------------------------
     # Step 2 — Ground evidence
     # --------------------------------------------------------
+
+    canonical_evidence = build_cell_evidence_package(
+        exact
+    )
 
     exact_evidence = ground_tool_result(
         "exact_cell_intelligence",

@@ -1,1487 +1,174 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
-  <meta
-    name="viewport"
-    content="width=device-width,initial-scale=1"
-  >
-  <meta
-    name="theme-color"
-    content="#07111f"
-  >
-  <meta
-    name="description"
-    content="AwareOn — AI-native landslide risk decision intelligence for Sikkim."
-  >
-
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b1726">
+  <meta name="description" content="AwareOn — AI-native spatial decision intelligence for landslide risk in Sikkim.">
   <title>AwareOn — Spatial Decision Intelligence</title>
-
-  <link
-    rel="preconnect"
-    href="https://unpkg.com"
-  >
-
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  >
-
-  <link
-    rel="stylesheet"
-    href="css/style.css"
-  >
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
-
 <body>
+<div id="app" class="app-shell">
 
-<div
-  id="app"
-  class="app-shell"
->
-
-  <!-- =========================================================
-       LEFT NAVIGATION RAIL
-       ========================================================= -->
-
-  <aside
-    class="rail"
-    aria-label="AwareOn navigation"
-  >
-
-    <button
-      class="brand"
-      id="brand-home"
-      aria-label="AwareOn Command Center"
-      type="button"
-    >
-
-      <span class="brand-mark">
-        <span>A</span>
-        <span>O</span>
-      </span>
-
-      <span class="brand-wordmark">
-        <strong>AwareOn</strong>
-        <small>
-          Spatial Decision Intelligence
-        </small>
-      </span>
-
+  <aside class="rail" aria-label="AwareOn navigation">
+    <button class="brand" id="brand-home" type="button" aria-label="AwareOn Command Center">
+      <span class="brand-mark">AO</span>
+      <span class="brand-copy"><strong>AwareOn</strong><small>Spatial Intelligence</small></span>
     </button>
-
-
     <div class="rail-rule"></div>
-
-
     <nav class="rail-nav">
-
-      <button
-        class="rail-item active"
-        data-view="overview"
-        title="Command Center"
-        type="button"
-      >
-        <span class="nav-glyph">⌂</span>
-        <span class="rail-label">Command</span>
-      </button>
-
-
-      <button
-        class="rail-item"
-        data-view="risk-map"
-        title="Risk Explorer"
-        type="button"
-      >
-        <span class="nav-glyph">◈</span>
-        <span class="rail-label">Risk</span>
-      </button>
-
-
-      <button
-        class="rail-item"
-        data-view="incidents"
-        title="Incident Command"
-        type="button"
-      >
-        <span class="nav-glyph">!</span>
-        <span class="rail-label">Incidents</span>
-
-        <span
-          class="rail-dot"
-          id="rail-incident-dot"
-        ></span>
-      </button>
-
-
-      <button
-        class="rail-item"
-        data-view="scenarios"
-        title="Scenario Lab"
-        type="button"
-      >
-        <span class="nav-glyph">◌</span>
-        <span class="rail-label">Scenarios</span>
-      </button>
-
-
-      <button
-        class="rail-item"
-        data-view="intelligence"
-        title="AwareOn Intelligence"
-        type="button"
-      >
-        <span class="nav-glyph">✦</span>
-        <span class="rail-label">Intel</span>
-      </button>
-
+      <button class="rail-item active" data-view="overview" type="button"><span class="nav-icon">⌂</span><span>Overview</span></button>
+      <button class="rail-item" data-view="risk-map" type="button"><span class="nav-icon">◈</span><span>Risk</span></button>
+      <button class="rail-item" data-view="incidents" type="button"><span class="nav-icon">!</span><span>Incidents</span><i class="rail-dot" id="rail-incident-dot"></i></button>
+      <button class="rail-item" data-view="scenarios" type="button"><span class="nav-icon">◌</span><span>Scenarios</span></button>
+      <button class="rail-item" data-view="intelligence" type="button"><span class="nav-icon ao-icon">AO</span><span>Intel</span></button>
     </nav>
-
-
     <div class="rail-spacer"></div>
-
-
-    <button
-      class="rail-command"
-      id="command-palette-button"
-      title="Open command palette"
-      type="button"
-    >
-      <span>⌘K</span>
-    </button>
-
-
-    <button
-      class="rail-command"
-      id="theme-button"
-      title="Toggle presentation mode"
-      type="button"
-    >
-      <span>◐</span>
-    </button>
-
-
-    <div
-      class="rail-status"
-      title="Backend health"
-    >
-
-      <span
-        class="status-orb"
-        id="rail-status-orb"
-      ></span>
-
-      <span id="rail-status-text">
-        Connecting
-      </span>
-
-    </div>
-
+    <button class="rail-icon-button" id="command-palette-button" title="Search AwareOn" type="button"><span>⌕</span></button>
+    <button class="rail-icon-button" id="theme-button" title="Focus map" type="button"><span>◐</span></button>
+    <div class="rail-status"><i id="rail-status-orb"></i><span id="rail-status-text">Connecting</span></div>
   </aside>
-
-
-  <!-- =========================================================
-       LEFT CONTEXT / WORKSPACE PANEL
-       ========================================================= -->
-
-  <aside class="context-panel">
-
-    <!-- TOP BAR -->
-
-    <div class="context-topbar">
-
-      <div class="workspace-heading">
-
-        <span
-          class="eyebrow"
-          id="workspace-eyebrow"
-        >
-          SITUATION ROOM
-        </span>
-
-        <h1 id="workspace-title">
-          Command Center
-        </h1>
-
-        <p id="workspace-subtitle">
-          Understand the current risk landscape before you act.
-        </p>
-
-      </div>
-
-
-      <div class="context-actions">
-
-        <button
-          class="icon-button"
-          id="mobile-search"
-          title="Search"
-          type="button"
-        >
-          ⌕
-        </button>
-
-        <button
-          class="text-button"
-          id="refresh-data"
-          type="button"
-        >
-          Refresh
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <!-- SCROLLABLE CONTENT -->
-
-    <div class="context-scroll">
-
-
-      <!-- =======================================================
-           COMMAND CENTER
-           ======================================================= -->
-
-      <section
-        class="workspace active"
-        id="view-overview"
-      >
-
-        <div class="hero-state">
-
-          <div>
-
-            <div class="eyebrow">
-              CURRENT SITUATION
-            </div>
-
-            <div
-              class="hero-number"
-              id="hero-extreme"
-            >
-              —
-            </div>
-
-            <div class="hero-label">
-              extreme-risk cells
-            </div>
-
-          </div>
-
-
-          <div class="hero-meta">
-
-            <span
-              class="state-chip"
-              id="overview-state"
-            >
-              SCANNING
-            </span>
-
-            <span
-              class="freshness"
-              id="freshness-text"
-            >
-              Updating intelligence…
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="metric-grid">
-
-          <article class="metric-card">
-
-            <span>
-              Modelled cells
-            </span>
-
-            <strong id="overview-cells">
-              —
-            </strong>
-
-            <small>
-              Current study domain
-            </small>
-
-          </article>
-
-
-          <article class="metric-card">
-
-            <span>
-              High risk
-            </span>
-
-            <strong id="overview-high">
-              —
-            </strong>
-
-            <small>
-              Requires attention
-            </small>
-
-          </article>
-
-
-          <article class="metric-card">
-
-            <span>
-              Critical zones
-            </span>
-
-            <strong id="overview-zones">
-              —
-            </strong>
-
-            <small>
-              Clustered risk areas
-            </small>
-
-          </article>
-
-
-          <article class="metric-card">
-
-            <span>
-              Active alerts
-            </span>
-
-            <strong id="overview-alerts">
-              —
-            </strong>
-
-            <small>
-              Current escalation
-            </small>
-
-          </article>
-
-        </div>
-
-
-        <div class="signal-card">
-
-          <div class="section-title-row">
-
-            <div>
-
-              <span class="eyebrow">
-                AWAREON SIGNAL
-              </span>
-
-              <h2 id="signal-title">
-                Loading current signal
-              </h2>
-
-            </div>
-
-            <span class="signal-icon">
-              ✦
-            </span>
-
-          </div>
-
-
-          <p id="signal-text">
-            Fetching multi-engine risk intelligence.
-          </p>
-
-
-          <div class="signal-meta">
-
-            <span id="signal-driver">
-              —
-            </span>
-
-            <span id="signal-confidence">
-              —
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="panel-card">
-
-          <div class="section-title-row">
-
-            <div>
-
-              <span class="eyebrow">
-                LANDSCAPE
-              </span>
-
-              <h2>
-                Risk distribution
-              </h2>
-
-            </div>
-
-
-            <button
-              class="text-button"
-              data-view="risk-map"
-              type="button"
-            >
-              Explore map
-            </button>
-
-          </div>
-
-
-          <div
-            id="distribution"
-            class="distribution"
-          ></div>
-
-        </div>
-
-
-        <div class="panel-card">
-
-          <div class="section-title-row">
-
-            <div>
-
-              <span class="eyebrow">
-                PRIORITY
-              </span>
-
-              <h2>
-                Where attention starts
-              </h2>
-
-            </div>
-
-
-            <button
-              class="text-button"
-              data-view="incidents"
-              type="button"
-            >
-              All incidents
-            </button>
-
-          </div>
-
-
-          <div
-            id="priority-list"
-            class="priority-stack"
-          ></div>
-
-        </div>
-
-      </section>
-
-
-      <!-- =======================================================
-           RISK EXPLORER
-           ======================================================= -->
-
-      <section
-        class="workspace"
-        id="view-risk-map"
-      >
-
-        <div
-          class="context-card selected-context"
-          id="selection-card"
-        >
-
-          <div class="section-title-row">
-
-            <div>
-
-              <span class="eyebrow">
-                SPATIAL INVESTIGATION
-              </span>
-
-              <h2 id="selection-title">
-                Nothing selected
-              </h2>
-
-            </div>
-
-
-            <button
-              class="icon-button"
-              id="clear-selection"
-              title="Clear selection"
-              type="button"
-            >
-              ×
-            </button>
-
-          </div>
-
-
-          <div
-            id="assessment"
-            class="assessment empty"
-          >
-
-            <div class="empty-symbol">
-              ◈
-            </div>
-
-            <p>
-              Select a risk cell or incident marker to investigate its decision state.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <!-- TRUST BOUNDARY -->
-
-        <div class="panel-card">
-
-          <div class="section-title-row">
-
-            <div>
-
-              <span class="eyebrow">
-                TRUST BOUNDARY
-              </span>
-
-              <h2>
-                What the signals mean
-              </h2>
-
-            </div>
-
-          </div>
-
-
-          <div class="trust-list">
-
-            <div>
-
-              <span class="trust-pill observed">
-                OBSERVED
-              </span>
-
-              <span>
-                Direct environmental or reference data
-              </span>
-
-            </div>
-
-
-            <div>
-
-              <span class="trust-pill derived">
-                DERIVED
-              </span>
-
-              <span>
-                Calculated indicators and spatial metrics
-              </span>
-
-            </div>
-
-
-            <div>
-
-              <span class="trust-pill modelled">
-                MODELLED
-              </span>
-
-              <span>
-                Machine-learning or fused risk output
-              </span>
-
-            </div>
-
-
-            <div>
-
-              <span class="trust-pill simulated">
-                SIMULATED
-              </span>
-
-              <span>
-                Counterfactual scenario output
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- =====================================================
-             PREMIUM MAP LEGEND
-             ===================================================== -->
-
-        <div
-          class="panel-card legend-card"
-        >
-
-          <span class="eyebrow">
-            RISK SEMANTICS
-          </span>
-
-
-          <div class="legend-heading">
-
-            <h2>
-              Map legend
-            </h2>
-
-            <span class="legend-subtitle">
-              Unified risk score
-            </span>
-
-          </div>
-
-
-          <div class="legend-list">
-
-            <div class="legend-item low">
-
-              <div class="legend-swatch"></div>
-
-              <div class="legend-copy">
-
-                <strong>
-                  Low
-                </strong>
-
-                <span>
-                  Lower assessed risk
-                </span>
-
-              </div>
-
-              <span class="legend-range">
-                0–24
-              </span>
-
-            </div>
-
-
-            <div class="legend-item moderate">
-
-              <div class="legend-swatch"></div>
-
-              <div class="legend-copy">
-
-                <strong>
-                  Moderate
-                </strong>
-
-                <span>
-                  Elevated monitoring
-                </span>
-
-              </div>
-
-              <span class="legend-range">
-                25–49
-              </span>
-
-            </div>
-
-
-            <div class="legend-item high">
-
-              <div class="legend-swatch"></div>
-
-              <div class="legend-copy">
-
-                <strong>
-                  High
-                </strong>
-
-                <span>
-                  Requires attention
-                </span>
-
-              </div>
-
-              <span class="legend-range">
-                50–74
-              </span>
-
-            </div>
-
-
-            <div class="legend-item extreme">
-
-              <div class="legend-swatch"></div>
-
-              <div class="legend-copy">
-
-                <strong>
-                  Extreme
-                </strong>
-
-                <span>
-                  Highest assessed risk
-                </span>
-
-              </div>
-
-              <span class="legend-range">
-                75–100
-              </span>
-
-            </div>
-
-
-            <div class="legend-divider"></div>
-
-
-            <div class="legend-note">
-
-              <span class="legend-note-dot"></span>
-
-              <div>
-
-                <strong>
-                  Incident focus
-                </strong>
-
-                <span>
-                  Affected cells highlighted during investigation
-                </span>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <!-- =======================================================
-           INCIDENT COMMAND
-           ======================================================= -->
-
-      <section
-        class="workspace"
-        id="view-incidents"
-      >
-
-        <div class="incident-overview">
-
-          <div>
-
-            <span class="eyebrow">
-              OPERATIONS
-            </span>
-
-            <h2 id="incident-heading">
-              Priority queue
-            </h2>
-
-            <p>
-              Ranked risk zones ordered by operational priority.
-            </p>
-
-          </div>
-
-
-          <div class="big-stat">
-
-            <strong id="incident-total">
-              —
-            </strong>
-
-            <span>
-              zones
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div
-          id="incident-list"
-          class="incident-stack"
-        ></div>
-
-      </section>
-
-
-      <!-- =======================================================
-           SCENARIO LAB
-           ======================================================= -->
-
-      <section
-        class="workspace"
-        id="view-scenarios"
-      >
-
-        <div class="scenario-hero">
-
-          <div>
-
-            <span class="eyebrow">
-              DECISION SUPPORT
-            </span>
-
-            <h2>
-              What changes if rainfall rises?
-            </h2>
-
-            <p>
-              Explore the actual precomputed counterfactual states produced by AwareOn.
-            </p>
-
-          </div>
-
-
-          <span class="state-chip accent">
-            WHAT-IF
-          </span>
-
-        </div>
-
-
-        <div
-          id="scenario-options"
-          class="scenario-options"
-        ></div>
-
-
-        <div
-          id="scenario-readout"
-          class="scenario-readout"
-        ></div>
-
-
-        <div class="panel-card">
-
-          <div class="section-title-row">
-
-            <div>
-
-              <span class="eyebrow">
-                DECISION NOTE
-              </span>
-
-              <h2>
-                Model honesty
-              </h2>
-
-            </div>
-
-          </div>
-
-
-          <div class="notice-box">
-
-            <strong>
-              Only generated scenarios are shown.
-            </strong>
-
-            <p>
-              AwareOn currently has baseline, +25%, +50% and +100% rainfall counterfactuals. Intermediate values are not presented as simulated facts.
-            </p>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <!-- =======================================================
-           INTELLIGENCE
-           ======================================================= -->
-
-      <section
-        class="workspace"
-        id="view-intelligence"
-      >
-
-        <div class="intel-hero">
-
-          <span class="eyebrow">
-            AWAREON INTELLIGENCE
-          </span>
-
-          <h2>
-            Investigate the landscape
-          </h2>
-
-          <p>
-            Ask a question. AwareOn can surface the strongest current signals and map context.
-          </p>
-
-        </div>
-
-
-        <div class="prompt-grid">
-
-          <button
-            class="prompt-card"
-            data-prompt="Which areas should be reviewed first?"
-            type="button"
-          >
-
-            <span>
-              Priority
-            </span>
-
-            <strong>
-              Which areas should be reviewed first?
-            </strong>
-
-          </button>
-
-
-          <button
-            class="prompt-card"
-            data-prompt="Why is the highest risk area high risk?"
-            type="button"
-          >
-
-            <span>
-              Explain
-            </span>
-
-            <strong>
-              Why is the highest risk area high risk?
-            </strong>
-
-          </button>
-
-
-          <button
-            class="prompt-card"
-            data-prompt="What evidence supports the current risk?"
-            type="button"
-          >
-
-            <span>
-              Evidence
-            </span>
-
-            <strong>
-              What evidence supports the current risk?
-            </strong>
-
-          </button>
-
-
-          <button
-            class="prompt-card"
-            data-prompt="What happens if rainfall increases by 50%?"
-            type="button"
-          >
-
-            <span>
-              Scenario
-            </span>
-
-            <strong>
-              What happens if rainfall increases by 50%?
-            </strong>
-
-          </button>
-
-        </div>
-
-
-        <div class="intel-card">
-
-          <div
-            id="chat-thread"
-            class="chat-thread"
-          ></div>
-
-
-          <div class="chat-composer">
-
-            <input
-              id="intelligence-query"
-              placeholder="Ask AwareOn…"
-              autocomplete="off"
-            >
-
-            <button
-              id="intelligence-submit"
-              class="primary-button"
-              type="button"
-            >
-              Ask
-            </button>
-
-          </div>
-
-        </div>
-
-      </section>
-
-    </div>
-
-
-    <!-- FOOTER -->
-
-    <div class="context-footer">
-
-      <span>
-        AwareOn Intelligence Platform
-      </span>
-
-      <span>
-        •
-      </span>
-
-      <span id="footer-system">
-        Sikkim study area
-      </span>
-
-    </div>
-
-  </aside>
-
-
-  <!-- =========================================================
-       MAP STAGE
-       ========================================================= -->
 
   <main class="stage">
+    <div id="map" aria-label="AwareOn interactive map"></div>
 
-    <div id="map"></div>
-
-
-    <!-- TOP MAP BAR -->
-
-    <header class="stage-topbar glass">
-
-      <div
-        class="search-box"
-        id="search-trigger"
-        role="button"
-        tabindex="0"
-        aria-label="Open global search"
-      >
-
-        <span class="search-glyph">
-          ⌕
-        </span>
-
-        <span>
-          Search cells, incidents, scenarios…
-        </span>
-
-        <kbd>
-          ⌘ K
-        </kbd>
-
+    <header class="map-header">
+      <div class="header-brandline">
+        <div class="crumb"><span>Sikkim</span><span>/</span><strong id="stage-mode">COMMAND CENTER</strong></div>
+        <div class="live-pill"><i></i>Live</div>
       </div>
-
-
-      <div class="stage-info">
-
-        <span class="region-label">
-          SIKKIM
-        </span>
-
-        <span class="separator">
-          /
-        </span>
-
-        <span id="stage-mode">
-          COMMAND CENTER
-        </span>
-
-        <span class="live-indicator">
-
-          <i></i>
-
-          LIVE
-
-        </span>
-
+      <div class="search-wrap" id="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input id="global-search" type="search" placeholder="Search cells, incidents or places…" autocomplete="off" aria-label="Search AwareOn">
+        <kbd>⌘ K</kbd>
+        <div class="search-results" id="command-results" hidden></div>
       </div>
-
+      <div class="header-actions">
+        <button class="map-control-pill" id="refresh-data" type="button">Refresh</button>
+      </div>
     </header>
 
-
-    <!-- MAP TOOLKIT -->
-
-    <div class="map-toolkit glass">
-
-      <div class="toolkit-label">
-        MAP
-      </div>
-
-
-      <button
-        class="map-tool is-active"
-        data-layer-toggle="risk"
-        type="button"
-      >
-
-        <span class="tool-dot risk"></span>
-
-        Risk
-
-      </button>
-
-
-      <button
-        class="map-tool"
-        data-layer-toggle="incidents"
-        type="button"
-      >
-
-        <span class="tool-dot incident"></span>
-
-        Incidents
-
-      </button>
-
-
-      <button
-        class="map-tool"
-        data-layer-toggle="history"
-        type="button"
-      >
-
-        <span class="tool-dot history"></span>
-
-        History
-
-      </button>
-
-
-      <button
-        class="map-tool"
-        data-layer-toggle="exposure"
-        type="button"
-      >
-
-        <span class="tool-dot exposure"></span>
-
-        Exposure
-
-      </button>
-
-
-      <div class="toolkit-divider"></div>
-
-
-      <button
-        class="map-tool subtle"
-        id="map-reset"
-        type="button"
-      >
-        Reset
-      </button>
-
-
-      <button
-        class="map-tool subtle"
-        id="map-focus-risk"
-        type="button"
-      >
-        Focus risk
-      </button>
-
+    <div class="map-layers-control" aria-label="Map layers">
+      <span class="control-label">Layers</span>
+      <button class="map-layer-button is-active" data-layer-toggle="risk" type="button"><i class="layer-dot risk"></i>Risk</button>
+      <button class="map-layer-button" data-layer-toggle="incidents" type="button"><i class="layer-dot incident"></i>Incidents</button>
+      <button class="map-layer-button" data-layer-toggle="history" type="button"><i class="layer-dot history"></i>History</button>
+      <button class="map-layer-button" data-layer-toggle="exposure" type="button"><i class="layer-dot exposure"></i>Exposure</button>
+      <button class="map-layer-button ghost" id="map-reset" type="button">Reset</button>
+      <button class="map-layer-button ghost" id="map-focus-risk" type="button">Focus highest</button>
     </div>
 
-
-    <!-- MAP KPIs -->
-
-    <div class="map-kpis glass">
-
-      <div>
-
-        <span>
-          RISK
-        </span>
-
-        <strong id="map-kpi-risk">
-          —
-        </strong>
-
-      </div>
-
-
-      <div>
-
-        <span>
-          HIGH+
-        </span>
-
-        <strong id="map-kpi-high">
-          —
-        </strong>
-
-      </div>
-
-
-      <div>
-
-        <span>
-          INCIDENTS
-        </span>
-
-        <strong id="map-kpi-incidents">
-          —
-        </strong>
-
-      </div>
-
+    <div class="map-status-pill">
+      <i class="status-orb" id="map-status-orb"></i>
+      <div><strong id="map-status-text">Loading intelligence</strong><span id="map-status-meta">Connecting to AwareOn</span></div>
     </div>
 
-
-    <!-- INCIDENT FOCUS BAR -->
-
-    <div
-      class="focus-bar glass"
-      id="focus-bar"
-    >
-
-      <div class="focus-main">
-
-        <span class="eyebrow">
-          INCIDENT FOCUS
-        </span>
-
-        <strong id="focus-bar-title">
-          —
-        </strong>
-
-      </div>
-
-
-      <div class="focus-actions">
-
-        <span id="focus-bar-cells">
-          — affected cells
-        </span>
-
-        <button
-          class="map-action light"
-          id="clear-focus"
-          type="button"
-        >
-          Clear
-        </button>
-
-      </div>
-
+    <div class="map-kpis">
+      <div><span>Extreme</span><strong id="map-kpi-risk">—</strong></div>
+      <div><span>High+</span><strong id="map-kpi-high">—</strong></div>
+      <div><span>Incidents</span><strong id="map-kpi-incidents">—</strong></div>
     </div>
 
-
-    <!-- MAP STATUS -->
-
-    <div class="map-status glass">
-
-      <span
-        class="status-orb"
-        id="map-status-orb"
-      ></span>
-
-
-      <div>
-
-        <strong id="map-status-text">
-          Loading intelligence
-        </strong>
-
-        <span id="map-status-meta">
-          Connecting to AwareOn
-        </span>
-
-      </div>
-
+    <div class="map-legend-mini">
+      <div><span class="risk-chip low"></span><span>Low</span></div>
+      <div><span class="risk-chip moderate"></span><span>Moderate</span></div>
+      <div><span class="risk-chip high"></span><span>High</span></div>
+      <div><span class="risk-chip extreme"></span><span>Extreme</span></div>
     </div>
 
-
-    <!-- RISK STATE BAR -->
-
-    <div
-      class="timeline glass"
-      id="timeline"
-    >
-
-      <div class="timeline-label">
-
-        <span class="eyebrow">
-          RISK STATE
-        </span>
-
-        <strong>
-          Current intelligence
-        </strong>
-
-      </div>
-
-
-      <div class="timeline-track">
-
-        <span class="track-base"></span>
-
-        <span
-          class="track-fill"
-          id="timeline-fill"
-        ></span>
-
-        <span
-          class="timeline-now"
-          id="timeline-now"
-        ></span>
-
-      </div>
-
-
-      <div class="timeline-end">
-
-        <span>
-          LOW
-        </span>
-
-        <span>
-          EXTREME
-        </span>
-
-      </div>
-
+    <div class="focus-bar" id="focus-bar" hidden>
+      <div><span class="eyebrow">INCIDENT FOCUS</span><strong id="focus-bar-title">—</strong></div>
+      <div><span id="focus-bar-cells">— affected cells</span><button id="clear-focus" type="button">Clear</button></div>
     </div>
 
+    <div class="map-scale-note">Sikkim study area</div>
 
-    <!-- MAP HELP -->
+    <aside class="context-panel" id="context-panel" aria-label="AwareOn contextual workspace">
+      <button class="drawer-handle" id="drawer-toggle" type="button" aria-label="Collapse panel"><span>‹</span></button>
+      <div class="context-topbar">
+        <div class="workspace-heading">
+          <span class="eyebrow" id="workspace-eyebrow">SITUATION ROOM</span>
+          <h1 id="workspace-title">Command Center</h1>
+          <p id="workspace-subtitle">Understand the current risk landscape before you act.</p>
+        </div>
+        <button class="close-drawer" id="drawer-close" type="button" aria-label="Close panel">×</button>
+      </div>
 
-    <div class="map-help glass">
+      <div class="context-scroll">
+        <section class="workspace active" id="view-overview">
+          <div class="overview-hero">
+            <div><span class="eyebrow">CURRENT SITUATION</span><div class="hero-number" id="hero-extreme">—</div><p>extreme-risk cells</p></div>
+            <div class="hero-side"><span class="state-chip" id="overview-state">SCANNING</span><span id="freshness-text">Updating intelligence…</span></div>
+          </div>
+          <div class="overview-metrics">
+            <article><span>Modelled cells</span><strong id="overview-cells">—</strong><small>Current study domain</small></article>
+            <article><span>High risk</span><strong id="overview-high">—</strong><small>Requires attention</small></article>
+            <article><span>Critical zones</span><strong id="overview-zones">—</strong><small>Clustered risk areas</small></article>
+            <article><span>Active alerts</span><strong id="overview-alerts">—</strong><small>Current escalation</small></article>
+          </div>
+          <article class="surface signal-surface">
+            <div class="surface-head"><div><span class="eyebrow">AWAREON SIGNAL</span><h2 id="signal-title">Loading current signal</h2></div><span class="signal-badge">AO</span></div>
+            <p id="signal-text">Fetching multi-engine risk intelligence.</p>
+            <div class="signal-meta"><span id="signal-driver">—</span><span id="signal-confidence">—</span></div>
+          </article>
+          <article class="surface">
+            <div class="surface-head"><div><span class="eyebrow">LANDSCAPE</span><h2>Risk distribution</h2></div><button class="link-button" data-view="risk-map" type="button">Explore map</button></div>
+            <div id="distribution" class="distribution"></div>
+          </article>
+          <article class="surface">
+            <div class="surface-head"><div><span class="eyebrow">PRIORITY</span><h2>Where attention starts</h2></div><button class="link-button" data-view="incidents" type="button">All incidents</button></div>
+            <div id="priority-list" class="priority-stack"></div>
+          </article>
+        </section>
 
-      <strong>
-        Map intelligence
-      </strong>
+        <section class="workspace" id="view-risk-map">
+          <div class="selection-hero">
+            <div><span class="eyebrow">SPATIAL INVESTIGATION</span><h2 id="selection-title">Select a location</h2><p>Click any risk cell or incident on the map.</p></div>
+            <button class="icon-button" id="clear-selection" type="button">×</button>
+          </div>
+          <article class="surface selection-surface"><div id="assessment" class="assessment empty"><div class="empty-symbol">◈</div><p>Select a spatial object to open its intelligence.</p></div></article>
+          <article class="surface"><div class="surface-head"><div><span class="eyebrow">TRUST</span><h2>Signal semantics</h2></div></div><div class="trust-grid"><span><b>OBSERVED</b><small>Reference data</small></span><span><b>DERIVED</b><small>Spatial metrics</small></span><span><b>MODELLED</b><small>Risk output</small></span><span><b>SIMULATED</b><small>Counterfactual</small></span></div></article>
+          <article class="surface"><div class="surface-head"><div><span class="eyebrow">RISK SEMANTICS</span><h2>Legend</h2></div></div><div class="legend-stack"><span><i class="risk-chip low"></i><b>Low</b><small>0–24</small></span><span><i class="risk-chip moderate"></i><b>Moderate</b><small>25–49</small></span><span><i class="risk-chip high"></i><b>High</b><small>50–74</small></span><span><i class="risk-chip extreme"></i><b>Extreme</b><small>75–100</small></span></div></article>
+        </section>
 
-      <span>
-        Hover for a decision summary
-      </span>
+        <section class="workspace" id="view-incidents">
+          <div class="selection-hero"><div><span class="eyebrow">INCIDENT COMMAND</span><h2>Priority incidents</h2><p>Move from ranked risk zones to spatial action.</p></div><div class="big-counter"><strong id="incident-total">—</strong><span>zones</span></div></div>
+          <div id="incident-list" class="incident-stack"></div>
+        </section>
 
-      <span>
-        Click to investigate
-      </span>
+        <section class="workspace" id="view-scenarios">
+          <div class="selection-hero"><div><span class="eyebrow">DECISION SUPPORT</span><h2>Scenario Lab</h2><p>Explore supported rainfall counterfactuals and their spatial effect.</p></div><span class="state-chip accent">WHAT-IF</span></div>
+          <div id="scenario-options" class="scenario-options"></div>
+          <div id="scenario-readout" class="scenario-readout"></div>
+          <article class="surface"><div class="surface-head"><div><span class="eyebrow">MODEL HONESTY</span><h2>Supported scenarios only</h2></div></div><p class="note-copy">AwareOn presents the generated baseline, +25%, +50% and +100% rainfall states without inventing intermediate simulations.</p></article>
+        </section>
 
-    </div>
-
-
-    <!-- STUDY AREA -->
-
-    <div class="boundary-chip glass">
-
-      <span class="status-orb"></span>
-
-      Sikkim study area
-
-    </div>
-
+        <section class="workspace" id="view-intelligence">
+          <div class="intel-hero"><div><span class="eyebrow">AWAREON INTELLIGENCE</span><h2>Ask the landscape.</h2><p>Investigate current risk, evidence, scenarios, history and decisions in natural language.</p></div><span class="ao-avatar-large">AO</span></div>
+          <div class="prompt-grid">
+            <button class="prompt-card" data-prompt="What is the current situation of landslides in Sikkim?" type="button"><span>Current</span><strong>What is the current situation in Sikkim?</strong></button>
+            <button class="prompt-card" data-prompt="Which areas should be reviewed first?" type="button"><span>Priority</span><strong>Which areas should be reviewed first?</strong></button>
+            <button class="prompt-card" data-prompt="Why is cell 506_422 extreme?" type="button"><span>Explain</span><strong>Why is 506_422 extreme?</strong></button>
+            <button class="prompt-card" data-prompt="What happens if rainfall increases by 50%?" type="button"><span>Scenario</span><strong>What happens at +50% rainfall?</strong></button>
+          </div>
+          <article class="intel-card">
+            <div id="chat-thread" class="chat-thread" aria-live="polite"></div>
+            <div class="chat-composer"><span class="composer-ao">AO</span><input id="intelligence-query" placeholder="Ask AwareOn…" autocomplete="off" aria-label="Ask AwareOn"><button id="intelligence-submit" class="primary-button" type="button">Ask</button></div>
+          </article>
+        </section>
+      </div>
+    </aside>
   </main>
 
-
-  <!-- =========================================================
-       SEARCH PALETTE
-       ========================================================= -->
-
-  <div
-    class="overlay"
-    id="command-overlay"
-    hidden
-  >
-
-    <div
-      class="command-modal"
-      role="dialog"
-      aria-modal="true"
-      aria-label="AwareOn search"
-    >
-
-      <div class="command-header">
-
-        <span class="search-glyph">
-          ⌕
-        </span>
-
-
-        <input
-          id="global-search"
-          placeholder="Search AwareOn…"
-          autocomplete="off"
-        >
-
-
-        <button
-          class="icon-button"
-          id="command-close"
-          type="button"
-        >
-          ×
-        </button>
-
-      </div>
-
-
-      <div class="command-hint">
-        Search cells, priority incidents, or run a workspace action.
-      </div>
-
-
-      <div
-        id="command-results"
-        class="command-results"
-      ></div>
-
-    </div>
-
+  <div class="overlay" id="command-overlay" hidden>
+    <div class="command-modal" role="dialog" aria-modal="true"><div class="command-header"><span>⌕</span><input id="command-modal-input" placeholder="Search AwareOn…"><button id="command-close" type="button">×</button></div><div class="command-results" id="command-modal-results"></div></div>
   </div>
-
-
-  <!-- =========================================================
-       TOASTS
-       ========================================================= -->
-
-  <div
-    class="toast-stack"
-    id="toast-stack"
-    aria-live="polite"
-  ></div>
-
+  <div class="toast-stack" id="toast-stack" aria-live="polite"></div>
 </div>
-
-
-<!-- ===========================================================
-     LEAFLET
-     =========================================================== -->
-
-<script
-  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-></script>
-
-
-<!-- ===========================================================
-     AWAREON APP
-     =========================================================== -->
-
-<script
-  type="module"
-  src="js/app.js"
-></script>
-
-
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script type="module" src="js/app.js"></script>
 </body>
 </html>
