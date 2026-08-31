@@ -1,7 +1,11 @@
 import { switchView } from "./views.js";
 import { focusCellById } from "./map.js";
 
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1"
+    ? "http://127.0.0.1:8000"
+    : "https://awareon-backend.onrender.com";
 const esc = value => String(value ?? "").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
 const get = id => document.getElementById(id);
 let busy = false;
