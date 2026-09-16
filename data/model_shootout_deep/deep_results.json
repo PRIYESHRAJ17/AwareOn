@@ -1,0 +1,3438 @@
+[
+  {
+    "model": "qwen3.5:9b",
+    "test": "explanation",
+    "query": "Why is cell 283_522 currently at high risk?",
+    "latency_seconds": 44.432,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "EXPLANATION",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.46. [EVD-49A4D260C2BE]\n- Cell 283_522 has severity EXTREME. [EVD-CD4EA1F3F10E]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-6BED4A660497]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-3218DAF057CE]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-405B9C7BDAC2]\n- The unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-A51ADD56A861]",
+      "domain": "AWAREON",
+      "intent": "EXPLANATION",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-49A4D260C2BE",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-CD4EA1F3F10E",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-6BED4A660497",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-3218DAF057CE",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-405B9C7BDAC2",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-7F28FD1CD869",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-EE8ED4174FDD",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-A51ADD56A861",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.46. [EVD-49A4D260C2BE]\n- Cell 283_522 has severity EXTREME. [EVD-CD4EA1F3F10E]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-6BED4A660497]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-3218DAF057CE]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-405B9C7BDAC2]\n- The unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-A51ADD56A861]",
+    "classification": "LLM_VERIFIED",
+    "exception": ""
+  },
+  {
+    "model": "qwen3.5:9b",
+    "test": "spatial",
+    "query": "Why is cell 283_522 more concerning than the surrounding cells?",
+    "latency_seconds": 24.676,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "EXPLANATION",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has severity EXTREME. [EVD-92DC19F88381]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-EE43988D79E6]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-5005C565750E]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-41A0FD96C515]\n- Cell 283_522 has a current risk score of 84.46. [EVD-FD29149746D7]\n- The unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-22A1041B0D60]",
+      "domain": "AWAREON",
+      "intent": "EXPLANATION",
+      "confidence": 73.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-FD29149746D7",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-92DC19F88381",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-EE43988D79E6",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-5005C565750E",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-41A0FD96C515",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-03ECC2C92019",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-7BF55EC5AEE3",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-22A1041B0D60",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has severity EXTREME. [EVD-92DC19F88381]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-EE43988D79E6]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-5005C565750E]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-41A0FD96C515]\n- Cell 283_522 has a current risk score of 84.46. [EVD-FD29149746D7]\n- The unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-22A1041B0D60]",
+    "classification": "LLM_VERIFIED",
+    "exception": ""
+  },
+  {
+    "model": "qwen3.5:9b",
+    "test": "temporal",
+    "query": "Is the risk of cell 283_522 increasing, decreasing, or stable? Explain why.",
+    "latency_seconds": 33.39,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "EXPLANATION",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.46. [EVD-D70187D097B3]\n- The modeled scenario risk for cell 283_522 is 73.18. [EVD-91586ECBA433]\n- The modeled scenario risk change for cell 283_522 is +6.52. [EVD-39B89E4C7D17]\n- Cell 283_522 has a susceptibility category of VERY_HIGH. [EVD-BB88BC4DC17D]\n- Cell 283_522 has a terrain instability category of EXTREME. [EVD-97568CA7E379]\n- Cell 283_522 has a spatial pressure score of 94.52. [EVD-E7DE8A481243]\n- The unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-F2BFF190E10D]\n- A risk score is a model-derived indicator, not a direct measurement of future damage. [KNOW-GEN-RISK-003]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-BB88BC4DC17D]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-97568CA7E379]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-E7DE8A481243]",
+      "domain": "AWAREON",
+      "intent": "EXPLANATION",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-D70187D097B3",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-4F96817D2A21",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-BB88BC4DC17D",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-97568CA7E379",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-E7DE8A481243",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-91586ECBA433",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-39B89E4C7D17",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-F2BFF190E10D",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.46. [EVD-D70187D097B3]\n- The modeled scenario risk for cell 283_522 is 73.18. [EVD-91586ECBA433]\n- The modeled scenario risk change for cell 283_522 is +6.52. [EVD-39B89E4C7D17]\n- Cell 283_522 has a susceptibility category of VERY_HIGH. [EVD-BB88BC4DC17D]\n- Cell 283_522 has a terrain instability category of EXTREME. [EVD-97568CA7E379]\n- Cell 283_522 has a spatial pressure score of 94.52. [EVD-E7DE8A481243]\n- The unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-F2BFF190E10D]\n- A risk score is a model-derived indicator, not a direct measurement of future damage. [KNOW-GEN-RISK-003]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-BB88BC4DC17D]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-97568CA7E379]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-E7DE8A481243]",
+    "classification": "LLM_VERIFIED",
+    "exception": ""
+  },
+  {
+    "model": "qwen3.5:9b",
+    "test": "scenario",
+    "query": "What changes for cell 283_522 under the highest tested rainfall scenario?",
+    "latency_seconds": 33.921,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "SCENARIO",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.46. [EVD-D20692ACD1EA]\n- Cell 283_522 has severity EXTREME. [EVD-A0F6AB6911A8]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-464A0EAA7736]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-3DBF2E7F4EA9]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-FCE59A7E6889]\n- Under the highest tested rainfall scenario, the scenario risk for cell 283_522 is 73.18. [EVD-B1D97CB58AE2]\n- Under the highest tested rainfall scenario, the scenario risk change for cell 283_522 is +6.52. [EVD-8A2406776ADA]\n- The unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-5D94BC99FBC5]",
+      "domain": "AWAREON",
+      "intent": "SCENARIO",
+      "confidence": 89.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-D20692ACD1EA",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-A0F6AB6911A8",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-464A0EAA7736",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-3DBF2E7F4EA9",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-FCE59A7E6889",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-B1D97CB58AE2",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-8A2406776ADA",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-5D94BC99FBC5",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.46. [EVD-D20692ACD1EA]\n- Cell 283_522 has severity EXTREME. [EVD-A0F6AB6911A8]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-464A0EAA7736]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-3DBF2E7F4EA9]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-FCE59A7E6889]\n- Under the highest tested rainfall scenario, the scenario risk for cell 283_522 is 73.18. [EVD-B1D97CB58AE2]\n- Under the highest tested rainfall scenario, the scenario risk change for cell 283_522 is +6.52. [EVD-8A2406776ADA]\n- The unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-5D94BC99FBC5]",
+    "classification": "LLM_VERIFIED",
+    "exception": ""
+  },
+  {
+    "model": "qwen3.5:9b",
+    "test": "uncertainty",
+    "query": "How confident should we be in the current risk assessment for cell 283_522, and what are the main uncertainties?",
+    "latency_seconds": 33.272,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "CELL_RISK",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.46. [EVD-C6E7345A435F]\n- The severity for cell 283_522 is classified as EXTREME. [EVD-B383A06C71F4]\n- Susceptibility category for cell 283_522 is VERY_HIGH. [EVD-E95507E7A22A]\n- Terrain instability category for cell 283_522 is EXTREME. [EVD-DF3BD9A6F63E]\n- Spatial pressure score for cell 283_522 is 94.52. [EVD-535A9B18DEE3]\n- Scenario risk for cell 283_522 is modeled at 73.18. [EVD-E37670D186D6]\n- Scenario risk change for cell 283_522 is +6.52. [EVD-2260441DD344]\n- Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-347530190561]",
+      "domain": "AWAREON",
+      "intent": "CELL_RISK",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-C6E7345A435F",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-B383A06C71F4",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-E95507E7A22A",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-DF3BD9A6F63E",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-535A9B18DEE3",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-E37670D186D6",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-2260441DD344",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-347530190561",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.46. [EVD-C6E7345A435F]\n- The severity for cell 283_522 is classified as EXTREME. [EVD-B383A06C71F4]\n- Susceptibility category for cell 283_522 is VERY_HIGH. [EVD-E95507E7A22A]\n- Terrain instability category for cell 283_522 is EXTREME. [EVD-DF3BD9A6F63E]\n- Spatial pressure score for cell 283_522 is 94.52. [EVD-535A9B18DEE3]\n- Scenario risk for cell 283_522 is modeled at 73.18. [EVD-E37670D186D6]\n- Scenario risk change for cell 283_522 is +6.52. [EVD-2260441DD344]\n- Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-347530190561]",
+    "classification": "LLM_VERIFIED",
+    "exception": ""
+  },
+  {
+    "model": "qwen3.5:9b",
+    "test": "decision",
+    "query": "What should a field team prioritize for cell 283_522 right now, and why?",
+    "latency_seconds": 29.176,
+    "api_status": "REVIEW_REQUIRED",
+    "domain": "AWAREON",
+    "intent": "DECISION",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "FAILED",
+    "verification_score": 70.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Field team must execute an immediate field assessment for cell 283_522. [decision-recommended-option, optimization-option]\n- The intervention priority for this cell is P1. [intervention-priority]\n- Cell 283_522 has a current risk score of 84.46. [EVD-C122B8BB88BC]\n- Cell 283_522 exhibits EXTREME severity and EXTREME terrain instability. [EVD-609BA904CB31, EVD-C9263B916E08]\n- The cell is classified as VERY_HIGH susceptibility. [EVD-93AB640F165C]\n- Spatial pressure score for the cell is 94.52. [EVD-E9C76F395DD8]\n- Operational focus must be on transport corridor protection. [decision-operational_focus]\n- Command posture requires activating high priority field review. [decision-command_posture]",
+      "domain": "AWAREON",
+      "intent": "DECISION",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "decision-master_state",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Decision master state is ACTION_READY_CRITICAL.",
+          "value": "ACTION_READY_CRITICAL",
+          "source_id": "orchestration:decision_orchestrator:decision-master_state",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-master_urgency",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Decision master urgency is IMMEDIATE.",
+          "value": "IMMEDIATE",
+          "source_id": "orchestration:decision_orchestrator:decision-master_urgency",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-operational_posture",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Operational posture is EXECUTE_IMMEDIATE_FIELD_REVIEW.",
+          "value": "EXECUTE_IMMEDIATE_FIELD_REVIEW",
+          "source_id": "orchestration:decision_orchestrator:decision-operational_posture",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-operational_focus",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Operational focus is TRANSPORT_CORRIDOR_PROTECTION.",
+          "value": "TRANSPORT_CORRIDOR_PROTECTION",
+          "source_id": "orchestration:decision_orchestrator:decision-operational_focus",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-command_posture",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Command posture is ACTIVATE_HIGH_PRIORITY_FIELD_REVIEW.",
+          "value": "ACTIVATE_HIGH_PRIORITY_FIELD_REVIEW",
+          "source_id": "orchestration:decision_orchestrator:decision-command_posture",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-time_horizon",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Decision time horizon is NOW.",
+          "value": "NOW",
+          "source_id": "orchestration:decision_orchestrator:decision-time_horizon",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-recommended-option",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Recommended intervention is IMMEDIATE_FIELD_ASSESSMENT.",
+          "value": "IMMEDIATE_FIELD_ASSESSMENT",
+          "source_id": "orchestration:decision_orchestrator:decision-recommended-option",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-optimization-score",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Recommended intervention optimization score is 91.80.",
+          "value": 91.8,
+          "source_id": "orchestration:decision_orchestrator:decision-optimization-score",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "optimization-option",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Optimization recommends IMMEDIATE_FIELD_ASSESSMENT.",
+          "value": "IMMEDIATE_FIELD_ASSESSMENT",
+          "source_id": "orchestration:decision_orchestrator:optimization-option",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "intervention-priority",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Intervention priority is P1.",
+          "value": "P1",
+          "source_id": "orchestration:decision_orchestrator:intervention-priority",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "response-level",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Response level is IMMEDIATE.",
+          "value": "IMMEDIATE",
+          "source_id": "orchestration:decision_orchestrator:response-level",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-C122B8BB88BC",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-609BA904CB31",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-93AB640F165C",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-C9263B916E08",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-E9C76F395DD8",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-65D3F6B4A2EE",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-CA009610697D",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-CD8773A404FF",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "decision_orchestrator",
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package.",
+        "The response did not fully pass verification and requires review."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Field team must execute an immediate field assessment for cell 283_522. [decision-recommended-option, optimization-option]\n- The intervention priority for this cell is P1. [intervention-priority]\n- Cell 283_522 has a current risk score of 84.46. [EVD-C122B8BB88BC]\n- Cell 283_522 exhibits EXTREME severity and EXTREME terrain instability. [EVD-609BA904CB31, EVD-C9263B916E08]\n- The cell is classified as VERY_HIGH susceptibility. [EVD-93AB640F165C]\n- Spatial pressure score for the cell is 94.52. [EVD-E9C76F395DD8]\n- Operational focus must be on transport corridor protection. [decision-operational_focus]\n- Command posture requires activating high priority field review. [decision-command_posture]",
+    "classification": "LLM_REVIEW_OR_FAIL",
+    "exception": ""
+  },
+  {
+    "model": "qwen3.5:9b",
+    "test": "certainty",
+    "query": "Will a landslide definitely occur at cell 283_522 tomorrow at 3 PM?",
+    "latency_seconds": 32.033,
+    "api_status": "REVIEW_REQUIRED",
+    "domain": "AWAREON",
+    "intent": "CELL_RISK",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "FAILED",
+    "verification_score": 70.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.46. [EVD-36A1A8838C46]\n- Cell 283_522 has severity EXTREME. [EVD-7C892AB98C8D]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-29A4E9A6C9EA]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-2DE66BF2B751]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-A343CF536EFA]\n- Landslides can occur gradually or rapidly and range from small slope failures to large destructive events. [KNOW-GEN-LS-001]\n- Landslide occurrence is influenced by interacting factors rather than one universal cause. [KNOW-GEN-LS-002]\n- A location can experience repeated landsliding when underlying susceptibility remains high and triggering conditions recur, but past activity does not prove failure will occur again. [KNOW-GEN-LS-017]",
+      "domain": "AWAREON",
+      "intent": "CELL_RISK",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-36A1A8838C46",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-7C892AB98C8D",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-29A4E9A6C9EA",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-2DE66BF2B751",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-A343CF536EFA",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-271017A257A7",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-FDA19CFCE0A4",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-0B55AD7278E9",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package.",
+        "The response did not fully pass verification and requires review."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.46. [EVD-36A1A8838C46]\n- Cell 283_522 has severity EXTREME. [EVD-7C892AB98C8D]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-29A4E9A6C9EA]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-2DE66BF2B751]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-A343CF536EFA]\n- Landslides can occur gradually or rapidly and range from small slope failures to large destructive events. [KNOW-GEN-LS-001]\n- Landslide occurrence is influenced by interacting factors rather than one universal cause. [KNOW-GEN-LS-002]\n- A location can experience repeated landsliding when underlying susceptibility remains high and triggering conditions recur, but past activity does not prove failure will occur again. [KNOW-GEN-LS-017]",
+    "classification": "LLM_REVIEW_OR_FAIL",
+    "exception": ""
+  },
+  {
+    "model": "qwen3.5:9b",
+    "test": "evidence_vs_inference",
+    "query": "For cell 283_522, distinguish what the current evidence directly shows from what can only be inferred. Do not treat inference as confirmed evidence.",
+    "latency_seconds": 31.481,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "EXPLANATION",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.46. [EVD-D835F12B9FB5]\n- Cell 283_522 is classified with severity EXTREME. [EVD-7F1A7BEB7B8D]\n- Cell 283_522 has a susceptibility category of VERY_HIGH. [EVD-068D790BF069]\n- Cell 283_522 has terrain instability categorized as EXTREME. [EVD-EB1419CCFF31]\n- Cell 283_522 has a spatial pressure score of 94.52. [EVD-C27EE941ACB6]\n- The scenario risk for cell 283_522 is modeled at 73.18. [EVD-88A17CC1B9E9]\n- The modeled scenario risk change for cell 283_522 is +6.52. [EVD-1A40809BF129]\n- The derived unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-AFAFF38E049D]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-068D790BF069]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-EB1419CCFF31]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-C27EE941ACB6]",
+      "domain": "AWAREON",
+      "intent": "EXPLANATION",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-D835F12B9FB5",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-7F1A7BEB7B8D",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-068D790BF069",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-EB1419CCFF31",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-C27EE941ACB6",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-88A17CC1B9E9",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-1A40809BF129",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-AFAFF38E049D",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.46. [EVD-D835F12B9FB5]\n- Cell 283_522 is classified with severity EXTREME. [EVD-7F1A7BEB7B8D]\n- Cell 283_522 has a susceptibility category of VERY_HIGH. [EVD-068D790BF069]\n- Cell 283_522 has terrain instability categorized as EXTREME. [EVD-EB1419CCFF31]\n- Cell 283_522 has a spatial pressure score of 94.52. [EVD-C27EE941ACB6]\n- The scenario risk for cell 283_522 is modeled at 73.18. [EVD-88A17CC1B9E9]\n- The modeled scenario risk change for cell 283_522 is +6.52. [EVD-1A40809BF129]\n- The derived unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-AFAFF38E049D]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-068D790BF069]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-EB1419CCFF31]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-C27EE941ACB6]",
+    "classification": "LLM_VERIFIED",
+    "exception": ""
+  },
+  {
+    "model": "qwen3.5:9b",
+    "test": "unsupported_specificity",
+    "query": "Which exact road segment at cell 283_522 should be closed immediately? Give the road name, closure point, and exact closure coordinates only if the supplied evidence actually supports them.",
+    "latency_seconds": 30.512,
+    "api_status": "REVIEW_REQUIRED",
+    "domain": "AWAREON",
+    "intent": "EXPLANATION",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "FAILED",
+    "verification_score": 70.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.46. [EVD-09B4A5235017]\n- Cell 283_522 has severity EXTREME. [EVD-5DE4EAE729EA]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-8C14CC1F27DB]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-FC8EBBB3B5FB]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-170D949F0CE9]\n- Field inspection may examine cracks, scarps, displaced material, drainage blockage, seepage, tension cracks, rockfall indicators, slope deformation, road cuts, retaining structures, culverts, channels, and nearby exposed assets. [KNOW-GEN-OPS-004]\n- Roads can be exposed to landslide processes through direct impact, loss of access, debris deposition, slope failure, or drainage disruption. [KNOW-GEN-INFRA-001]",
+      "domain": "AWAREON",
+      "intent": "EXPLANATION",
+      "confidence": 89.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-09B4A5235017",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-5DE4EAE729EA",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-8C14CC1F27DB",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-FC8EBBB3B5FB",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-170D949F0CE9",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-EE2CF3843800",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-87E3677C4B89",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-4D3DAD87DBE8",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package.",
+        "The response did not fully pass verification and requires review."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.46. [EVD-09B4A5235017]\n- Cell 283_522 has severity EXTREME. [EVD-5DE4EAE729EA]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-8C14CC1F27DB]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-FC8EBBB3B5FB]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-170D949F0CE9]\n- Field inspection may examine cracks, scarps, displaced material, drainage blockage, seepage, tension cracks, rockfall indicators, slope deformation, road cuts, retaining structures, culverts, channels, and nearby exposed assets. [KNOW-GEN-OPS-004]\n- Roads can be exposed to landslide processes through direct impact, loss of access, debris deposition, slope failure, or drainage disruption. [KNOW-GEN-INFRA-001]",
+    "classification": "LLM_REVIEW_OR_FAIL",
+    "exception": ""
+  },
+  {
+    "model": "gpt-oss:20b",
+    "test": "explanation",
+    "query": "Why is cell 283_522 currently at high risk?",
+    "latency_seconds": 126.007,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "EXPLANATION",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.45754856427473. [EVD-607A234FEE42]\n- The cell's severity is EXTREME. [EVD-CA133D2C88DF]\n- The cell has a susceptibility category of VERY_HIGH. [EVD-C1934EB0FF5E]\n- The cell has terrain instability category EXTREME. [EVD-1459894899D1]\n- The cell has a spatial pressure score of 94.51935294117648. [EVD-5D74258C1E4A]\n- The unified posture for the cell is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-C569395417F7]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-C1934EB0FF5E]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-1459894899D1]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-5D74258C1E4A]",
+      "domain": "AWAREON",
+      "intent": "EXPLANATION",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-607A234FEE42",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-CA133D2C88DF",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-C1934EB0FF5E",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-1459894899D1",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-5D74258C1E4A",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-5812A18ED272",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-51AC78A6B2B9",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-C569395417F7",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.45754856427473. [EVD-607A234FEE42]\n- The cell's severity is EXTREME. [EVD-CA133D2C88DF]\n- The cell has a susceptibility category of VERY_HIGH. [EVD-C1934EB0FF5E]\n- The cell has terrain instability category EXTREME. [EVD-1459894899D1]\n- The cell has a spatial pressure score of 94.51935294117648. [EVD-5D74258C1E4A]\n- The unified posture for the cell is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-C569395417F7]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-C1934EB0FF5E]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-1459894899D1]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-5D74258C1E4A]",
+    "classification": "LLM_VERIFIED",
+    "exception": ""
+  },
+  {
+    "model": "gpt-oss:20b",
+    "test": "spatial",
+    "query": "Why is cell 283_522 more concerning than the surrounding cells?",
+    "latency_seconds": 34.203,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "EXPLANATION",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.45754856427473 [EVD-D001008E008E]\n- Cell 283_522 has severity EXTREME [EVD-5C606D5DE464]\n- Cell 283_522 has susceptibility category VERY_HIGH [EVD-63864DB9229C]\n- Cell 283_522 has terrain instability category EXTREME [EVD-94EF67C835A5]\n- Cell 283_522 has spatial pressure score 94.51935294117648 [EVD-E785FB955F82]\n- Scenario risk for cell 283_522 is 73.17500127775897 [EVD-D1425989C732]\n- Scenario risk change for cell 283_522 is +6.524582447279812 [EVD-839C132F5CF1]\n- Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE [EVD-54E68401FAC7]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-63864DB9229C]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-94EF67C835A5]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-E785FB955F82]",
+      "domain": "AWAREON",
+      "intent": "EXPLANATION",
+      "confidence": 73.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-D001008E008E",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-5C606D5DE464",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-63864DB9229C",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-94EF67C835A5",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-E785FB955F82",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-D1425989C732",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-839C132F5CF1",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-54E68401FAC7",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.45754856427473 [EVD-D001008E008E]\n- Cell 283_522 has severity EXTREME [EVD-5C606D5DE464]\n- Cell 283_522 has susceptibility category VERY_HIGH [EVD-63864DB9229C]\n- Cell 283_522 has terrain instability category EXTREME [EVD-94EF67C835A5]\n- Cell 283_522 has spatial pressure score 94.51935294117648 [EVD-E785FB955F82]\n- Scenario risk for cell 283_522 is 73.17500127775897 [EVD-D1425989C732]\n- Scenario risk change for cell 283_522 is +6.524582447279812 [EVD-839C132F5CF1]\n- Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE [EVD-54E68401FAC7]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-63864DB9229C]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-94EF67C835A5]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-E785FB955F82]",
+    "classification": "LLM_VERIFIED",
+    "exception": ""
+  },
+  {
+    "model": "gpt-oss:20b",
+    "test": "temporal",
+    "query": "Is the risk of cell 283_522 increasing, decreasing, or stable? Explain why.",
+    "latency_seconds": 99.372,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "EXPLANATION",
+    "model_reasoning_status": "REVIEW_REQUIRED",
+    "model_success": false,
+    "model_used": false,
+    "review_required": true,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn evidence-based explanation:\n\u2022 Cell 283_522 current risk score is 84.46.\n\u2022 Current severity is EXTREME.\n\u2022 Tested scenario risk is 73.18.\n\u2022 Tested scenario changes risk by +6.52.\n\u2022 Neighborhood analysis includes 32 nearby cells.\n\u2022 Spatial pattern is HIGH_RISK_CLUSTER.\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-8ADBBCBB38FF]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-34FBBBF3038A]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-631CF75AE216]",
+      "domain": "AWAREON",
+      "intent": "EXPLANATION",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-EB986D2DC827",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-A9429CB8D014",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-8ADBBCBB38FF",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-34FBBBF3038A",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-631CF75AE216",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-BD9C32AA63F7",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-CA0068D68B7C",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-42C39ABC8129",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn evidence-based explanation:\n\u2022 Cell 283_522 current risk score is 84.46.\n\u2022 Current severity is EXTREME.\n\u2022 Tested scenario risk is 73.18.\n\u2022 Tested scenario changes risk by +6.52.\n\u2022 Neighborhood analysis includes 32 nearby cells.\n\u2022 Spatial pattern is HIGH_RISK_CLUSTER.\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-8ADBBCBB38FF]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-34FBBBF3038A]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-631CF75AE216]",
+    "classification": "SAFE_FALLBACK",
+    "exception": ""
+  },
+  {
+    "model": "gpt-oss:20b",
+    "test": "scenario",
+    "query": "What changes for cell 283_522 under the highest tested rainfall scenario?",
+    "latency_seconds": 57.926,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "SCENARIO",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Scenario risk change for cell 283_522 is +6.52. [EVD-EE65FF3B7A30]\n- Scenario risk for cell 283_522 is 73.18. [EVD-E4B9DCABF1AF]",
+      "domain": "AWAREON",
+      "intent": "SCENARIO",
+      "confidence": 89.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-66E45E5BED6F",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-0700C2967C07",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-2D4796E070ED",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-AAB4A305973C",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-6963586A6336",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-E4B9DCABF1AF",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-EE65FF3B7A30",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-709F7EF7C856",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Scenario risk change for cell 283_522 is +6.52. [EVD-EE65FF3B7A30]\n- Scenario risk for cell 283_522 is 73.18. [EVD-E4B9DCABF1AF]",
+    "classification": "LLM_VERIFIED",
+    "exception": ""
+  },
+  {
+    "model": "gpt-oss:20b",
+    "test": "uncertainty",
+    "query": "How confident should we be in the current risk assessment for cell 283_522, and what are the main uncertainties?",
+    "latency_seconds": 107.069,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "CELL_RISK",
+    "model_reasoning_status": "REVIEW_REQUIRED",
+    "model_success": false,
+    "model_used": false,
+    "review_required": true,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn investigation:\n\u2022 Cell 283_522 current risk score is 84.46.\n\u2022 Current severity is EXTREME.\n\u2022 Tested scenario risk is 73.18.\n\u2022 Tested scenario changes risk by +6.52.\n\u2022 Neighborhood analysis includes 32 nearby cells.\n\u2022 Spatial pattern is HIGH_RISK_CLUSTER.",
+      "domain": "AWAREON",
+      "intent": "CELL_RISK",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-DD9E06B60556",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-093DC4DC41FE",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-3C8FF9CFC0EC",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-90BEEB047D01",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-9A3F1EDDD601",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-8A2F9338849B",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-710F422EE7F7",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-31DDE28D8632",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn investigation:\n\u2022 Cell 283_522 current risk score is 84.46.\n\u2022 Current severity is EXTREME.\n\u2022 Tested scenario risk is 73.18.\n\u2022 Tested scenario changes risk by +6.52.\n\u2022 Neighborhood analysis includes 32 nearby cells.\n\u2022 Spatial pattern is HIGH_RISK_CLUSTER.",
+    "classification": "SAFE_FALLBACK",
+    "exception": ""
+  },
+  {
+    "model": "gpt-oss:20b",
+    "test": "decision",
+    "query": "What should a field team prioritize for cell 283_522 right now, and why?",
+    "latency_seconds": 98.835,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "DECISION",
+    "model_reasoning_status": "REVIEW_REQUIRED",
+    "model_success": false,
+    "model_used": false,
+    "review_required": true,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "The highest-priority areas in the analyzed AwareOn region are:\n\nRecommended review order is based on the highest modeled regional risk: the maximum-risk cell identified by the regional analysis..",
+      "domain": "AWAREON",
+      "intent": "DECISION",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "decision-master_state",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Decision master state is ACTION_READY_CRITICAL.",
+          "value": "ACTION_READY_CRITICAL",
+          "source_id": "orchestration:decision_orchestrator:decision-master_state",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-master_urgency",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Decision master urgency is IMMEDIATE.",
+          "value": "IMMEDIATE",
+          "source_id": "orchestration:decision_orchestrator:decision-master_urgency",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-operational_posture",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Operational posture is EXECUTE_IMMEDIATE_FIELD_REVIEW.",
+          "value": "EXECUTE_IMMEDIATE_FIELD_REVIEW",
+          "source_id": "orchestration:decision_orchestrator:decision-operational_posture",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-operational_focus",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Operational focus is TRANSPORT_CORRIDOR_PROTECTION.",
+          "value": "TRANSPORT_CORRIDOR_PROTECTION",
+          "source_id": "orchestration:decision_orchestrator:decision-operational_focus",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-command_posture",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Command posture is ACTIVATE_HIGH_PRIORITY_FIELD_REVIEW.",
+          "value": "ACTIVATE_HIGH_PRIORITY_FIELD_REVIEW",
+          "source_id": "orchestration:decision_orchestrator:decision-command_posture",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-time_horizon",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Decision time horizon is NOW.",
+          "value": "NOW",
+          "source_id": "orchestration:decision_orchestrator:decision-time_horizon",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-recommended-option",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Recommended intervention is IMMEDIATE_FIELD_ASSESSMENT.",
+          "value": "IMMEDIATE_FIELD_ASSESSMENT",
+          "source_id": "orchestration:decision_orchestrator:decision-recommended-option",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-optimization-score",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Recommended intervention optimization score is 91.80.",
+          "value": 91.8,
+          "source_id": "orchestration:decision_orchestrator:decision-optimization-score",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "optimization-option",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Optimization recommends IMMEDIATE_FIELD_ASSESSMENT.",
+          "value": "IMMEDIATE_FIELD_ASSESSMENT",
+          "source_id": "orchestration:decision_orchestrator:optimization-option",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "intervention-priority",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Intervention priority is P1.",
+          "value": "P1",
+          "source_id": "orchestration:decision_orchestrator:intervention-priority",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "response-level",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Response level is IMMEDIATE.",
+          "value": "IMMEDIATE",
+          "source_id": "orchestration:decision_orchestrator:response-level",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-2B8AFB868D43",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-482051B4143E",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-E702ECBF013C",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-401A01A9AEC0",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-D84FBCDEBE33",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-B4C739DCF643",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-93B2CAA32744",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-0FE20D494A9C",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "decision_orchestrator",
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "The highest-priority areas in the analyzed AwareOn region are:\n\nRecommended review order is based on the highest modeled regional risk: the maximum-risk cell identified by the regional analysis..",
+    "classification": "SAFE_FALLBACK",
+    "exception": ""
+  },
+  {
+    "model": "gpt-oss:20b",
+    "test": "certainty",
+    "query": "Will a landslide definitely occur at cell 283_522 tomorrow at 3 PM?",
+    "latency_seconds": 99.714,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "CELL_RISK",
+    "model_reasoning_status": "REVIEW_REQUIRED",
+    "model_success": false,
+    "model_used": false,
+    "review_required": true,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn investigation:\n\u2022 Cell 283_522 current risk score is 84.46.\n\u2022 Current severity is EXTREME.\n\u2022 Tested scenario risk is 73.18.\n\u2022 Tested scenario changes risk by +6.52.\n\u2022 Neighborhood analysis includes 32 nearby cells.\n\u2022 Spatial pattern is HIGH_RISK_CLUSTER.",
+      "domain": "AWAREON",
+      "intent": "CELL_RISK",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-ECF15A839267",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-9C02785B233A",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-D149A2BBFE8C",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-0E3D12B468CC",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-309CDCB3082E",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-6D87B984690A",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-393197F5EF0D",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-516801BBA9E5",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn investigation:\n\u2022 Cell 283_522 current risk score is 84.46.\n\u2022 Current severity is EXTREME.\n\u2022 Tested scenario risk is 73.18.\n\u2022 Tested scenario changes risk by +6.52.\n\u2022 Neighborhood analysis includes 32 nearby cells.\n\u2022 Spatial pattern is HIGH_RISK_CLUSTER.",
+    "classification": "SAFE_FALLBACK",
+    "exception": ""
+  },
+  {
+    "model": "gpt-oss:20b",
+    "test": "evidence_vs_inference",
+    "query": "For cell 283_522, distinguish what the current evidence directly shows from what can only be inferred. Do not treat inference as confirmed evidence.",
+    "latency_seconds": 96.208,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "EXPLANATION",
+    "model_reasoning_status": "REVIEW_REQUIRED",
+    "model_success": false,
+    "model_used": false,
+    "review_required": true,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn evidence-based explanation:\n\u2022 Cell 283_522 current risk score is 84.46.\n\u2022 Current severity is EXTREME.\n\u2022 Tested scenario risk is 73.18.\n\u2022 Tested scenario changes risk by +6.52.\n\u2022 Neighborhood analysis includes 32 nearby cells.\n\u2022 Spatial pattern is HIGH_RISK_CLUSTER.\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-C87E5A3B1B92]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-614C89517BD9]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-31F807EEDCBF]",
+      "domain": "AWAREON",
+      "intent": "EXPLANATION",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-A26362FD9767",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-5F2D87163A34",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-C87E5A3B1B92",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-614C89517BD9",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-31F807EEDCBF",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-6002B0C0CE65",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-5078A2826F4A",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-FBE257C3356C",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn evidence-based explanation:\n\u2022 Cell 283_522 current risk score is 84.46.\n\u2022 Current severity is EXTREME.\n\u2022 Tested scenario risk is 73.18.\n\u2022 Tested scenario changes risk by +6.52.\n\u2022 Neighborhood analysis includes 32 nearby cells.\n\u2022 Spatial pattern is HIGH_RISK_CLUSTER.\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-C87E5A3B1B92]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-614C89517BD9]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-31F807EEDCBF]",
+    "classification": "SAFE_FALLBACK",
+    "exception": ""
+  },
+  {
+    "model": "gpt-oss:20b",
+    "test": "unsupported_specificity",
+    "query": "Which exact road segment at cell 283_522 should be closed immediately? Give the road name, closure point, and exact closure coordinates only if the supplied evidence actually supports them.",
+    "latency_seconds": 105.107,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "EXPLANATION",
+    "model_reasoning_status": "REVIEW_REQUIRED",
+    "model_success": false,
+    "model_used": false,
+    "review_required": true,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn evidence-based explanation:\n\u2022 Cell 283_522 current risk score is 84.46.\n\u2022 Current severity is EXTREME.\n\u2022 Tested scenario risk is 73.18.\n\u2022 Tested scenario changes risk by +6.52.\n\u2022 Neighborhood analysis includes 32 nearby cells.\n\u2022 Spatial pattern is HIGH_RISK_CLUSTER.\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-5273BD9F12E7]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-4AF1E9B3321D]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-5EB55B962C6E]",
+      "domain": "AWAREON",
+      "intent": "EXPLANATION",
+      "confidence": 89.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-9BCFF071BF53",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-67827038764E",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-5273BD9F12E7",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-4AF1E9B3321D",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-5EB55B962C6E",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-DFF8811376CD",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-47637E7AB5CE",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-82DBDF11F388",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn evidence-based explanation:\n\u2022 Cell 283_522 current risk score is 84.46.\n\u2022 Current severity is EXTREME.\n\u2022 Tested scenario risk is 73.18.\n\u2022 Tested scenario changes risk by +6.52.\n\u2022 Neighborhood analysis includes 32 nearby cells.\n\u2022 Spatial pattern is HIGH_RISK_CLUSTER.\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-5273BD9F12E7]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-4AF1E9B3321D]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-5EB55B962C6E]",
+    "classification": "SAFE_FALLBACK",
+    "exception": ""
+  },
+  {
+    "model": "nemotron-3-nano:4b-q8_0",
+    "test": "explanation",
+    "query": "Why is cell 283_522 currently at high risk?",
+    "latency_seconds": 24.907,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "EXPLANATION",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score. [EVD-558B6D9C3553]\n- Cell 283_522 has severity EXTREME. [EVD-ACAF994B0EA8]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-C82D87FE737D]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-0A8AB0A47B69]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-6D5A4BF126BB]\n- Scenario risk for cell 283_522 is 73.18. [EVD-0D2E8DAC5415]\n- Scenario risk change for cell 283_522 is +6.52. [EVD-EA6B1863B199]\n- Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-36BEC9DDD567]",
+      "domain": "AWAREON",
+      "intent": "EXPLANATION",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-558B6D9C3553",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-ACAF994B0EA8",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-C82D87FE737D",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-0A8AB0A47B69",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-6D5A4BF126BB",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-0D2E8DAC5415",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-EA6B1863B199",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-36BEC9DDD567",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score. [EVD-558B6D9C3553]\n- Cell 283_522 has severity EXTREME. [EVD-ACAF994B0EA8]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-C82D87FE737D]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-0A8AB0A47B69]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-6D5A4BF126BB]\n- Scenario risk for cell 283_522 is 73.18. [EVD-0D2E8DAC5415]\n- Scenario risk change for cell 283_522 is +6.52. [EVD-EA6B1863B199]\n- Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-36BEC9DDD567]",
+    "classification": "LLM_VERIFIED",
+    "exception": ""
+  },
+  {
+    "model": "nemotron-3-nano:4b-q8_0",
+    "test": "spatial",
+    "query": "Why is cell 283_522 more concerning than the surrounding cells?",
+    "latency_seconds": 11.053,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "EXPLANATION",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score. [EVD-A3D3FDD77142]\n- Cell 283_522 has severity EXTREME. [EVD-27A5F54597E7]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-23A83E454C67]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-446CA607CDE1]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-0F810AB01C49]\n- Scenario risk for cell 283_522 is 73.18. [EVD-97E3D5770EBE]\n- Scenario risk change for cell 283_522 is +6.52. [EVD-DD35C7DCEA29]\n- Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-AE5D869ED12D]",
+      "domain": "AWAREON",
+      "intent": "EXPLANATION",
+      "confidence": 73.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-A3D3FDD77142",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-27A5F54597E7",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-23A83E454C67",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-446CA607CDE1",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-0F810AB01C49",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-97E3D5770EBE",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-DD35C7DCEA29",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-AE5D869ED12D",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score. [EVD-A3D3FDD77142]\n- Cell 283_522 has severity EXTREME. [EVD-27A5F54597E7]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-23A83E454C67]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-446CA607CDE1]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-0F810AB01C49]\n- Scenario risk for cell 283_522 is 73.18. [EVD-97E3D5770EBE]\n- Scenario risk change for cell 283_522 is +6.52. [EVD-DD35C7DCEA29]\n- Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-AE5D869ED12D]",
+    "classification": "LLM_VERIFIED",
+    "exception": ""
+  },
+  {
+    "model": "nemotron-3-nano:4b-q8_0",
+    "test": "temporal",
+    "query": "Is the risk of cell 283_522 increasing, decreasing, or stable? Explain why.",
+    "latency_seconds": 18.587,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "EXPLANATION",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.45754856427473. [EVD-CAEA3F00A30E]\n- Cell 283_522 has severity EXTREME. [EVD-4485F214FCB3]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-EE484D232016]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-944CB0824246]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-7EE0A2A83C9C]\n- Scenario risk for cell 283_522 is 73.18. [EVD-A4E5D6790B5E]\n- Scenario risk change for cell 283_522 is +6.52. [EVD-1DBD49FC715D]\n- Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-469203248717]",
+      "domain": "AWAREON",
+      "intent": "EXPLANATION",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-CAEA3F00A30E",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-4485F214FCB3",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-EE484D232016",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-944CB0824246",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-7EE0A2A83C9C",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-A4E5D6790B5E",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-1DBD49FC715D",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-469203248717",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.45754856427473. [EVD-CAEA3F00A30E]\n- Cell 283_522 has severity EXTREME. [EVD-4485F214FCB3]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-EE484D232016]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-944CB0824246]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-7EE0A2A83C9C]\n- Scenario risk for cell 283_522 is 73.18. [EVD-A4E5D6790B5E]\n- Scenario risk change for cell 283_522 is +6.52. [EVD-1DBD49FC715D]\n- Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-469203248717]",
+    "classification": "LLM_VERIFIED",
+    "exception": ""
+  },
+  {
+    "model": "nemotron-3-nano:4b-q8_0",
+    "test": "scenario",
+    "query": "What changes for cell 283_522 under the highest tested rainfall scenario?",
+    "latency_seconds": 11.204,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "SCENARIO",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score. [EVD-6CA70FBE8E45]\n- Cell 283_522 has severity EXTREME. [EVD-729787CE718B]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-1E7B1784DD34]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-44D50B04A05E]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-52CE1DF4248E]\n- Scenario risk for cell 283_522 is 73.18. [EVD-46C3DB53ADA7]\n- Scenario risk change for cell 283_522 is +6.52. [EVD-4A1FD90470F9]\n- Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-179210B42B6A]",
+      "domain": "AWAREON",
+      "intent": "SCENARIO",
+      "confidence": 89.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-6CA70FBE8E45",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-729787CE718B",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-1E7B1784DD34",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-44D50B04A05E",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-52CE1DF4248E",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-46C3DB53ADA7",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-4A1FD90470F9",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-179210B42B6A",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score. [EVD-6CA70FBE8E45]\n- Cell 283_522 has severity EXTREME. [EVD-729787CE718B]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-1E7B1784DD34]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-44D50B04A05E]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-52CE1DF4248E]\n- Scenario risk for cell 283_522 is 73.18. [EVD-46C3DB53ADA7]\n- Scenario risk change for cell 283_522 is +6.52. [EVD-4A1FD90470F9]\n- Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-179210B42B6A]",
+    "classification": "LLM_VERIFIED",
+    "exception": ""
+  },
+  {
+    "model": "nemotron-3-nano:4b-q8_0",
+    "test": "uncertainty",
+    "query": "How confident should we be in the current risk assessment for cell 283_522, and what are the main uncertainties?",
+    "latency_seconds": 11.661,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "CELL_RISK",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.45754856427473. [EVD-53343FEE6C28]\n- Cell 283_522 has severity EXTREME. [EVD-F608B7360239]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-FF29714ECBBC]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-19E1DE38F12B]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-4CFE82812D72]\n- Scenario risk for cell 283_522 is 73.18. [EVD-D6BD5B556376]\n- Scenario risk change for cell 283_522 is +6.52. [EVD-7C0827F08920]\n- Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-7534DF2E4BC9]",
+      "domain": "AWAREON",
+      "intent": "CELL_RISK",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-53343FEE6C28",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-F608B7360239",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-FF29714ECBBC",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-19E1DE38F12B",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-4CFE82812D72",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-D6BD5B556376",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-7C0827F08920",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-7534DF2E4BC9",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.45754856427473. [EVD-53343FEE6C28]\n- Cell 283_522 has severity EXTREME. [EVD-F608B7360239]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-FF29714ECBBC]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-19E1DE38F12B]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-4CFE82812D72]\n- Scenario risk for cell 283_522 is 73.18. [EVD-D6BD5B556376]\n- Scenario risk change for cell 283_522 is +6.52. [EVD-7C0827F08920]\n- Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-7534DF2E4BC9]",
+    "classification": "LLM_VERIFIED",
+    "exception": ""
+  },
+  {
+    "model": "nemotron-3-nano:4b-q8_0",
+    "test": "decision",
+    "query": "What should a field team prioritize for cell 283_522 right now, and why?",
+    "latency_seconds": 29.609,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "DECISION",
+    "model_reasoning_status": "REVIEW_REQUIRED",
+    "model_success": false,
+    "model_used": false,
+    "review_required": true,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "The highest-priority areas in the analyzed AwareOn region are:\n\nRecommended review order is based on the highest modeled regional risk: the maximum-risk cell identified by the regional analysis..",
+      "domain": "AWAREON",
+      "intent": "DECISION",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "decision-master_state",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Decision master state is ACTION_READY_CRITICAL.",
+          "value": "ACTION_READY_CRITICAL",
+          "source_id": "orchestration:decision_orchestrator:decision-master_state",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-master_urgency",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Decision master urgency is IMMEDIATE.",
+          "value": "IMMEDIATE",
+          "source_id": "orchestration:decision_orchestrator:decision-master_urgency",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-operational_posture",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Operational posture is EXECUTE_IMMEDIATE_FIELD_REVIEW.",
+          "value": "EXECUTE_IMMEDIATE_FIELD_REVIEW",
+          "source_id": "orchestration:decision_orchestrator:decision-operational_posture",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-operational_focus",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Operational focus is TRANSPORT_CORRIDOR_PROTECTION.",
+          "value": "TRANSPORT_CORRIDOR_PROTECTION",
+          "source_id": "orchestration:decision_orchestrator:decision-operational_focus",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-command_posture",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Command posture is ACTIVATE_HIGH_PRIORITY_FIELD_REVIEW.",
+          "value": "ACTIVATE_HIGH_PRIORITY_FIELD_REVIEW",
+          "source_id": "orchestration:decision_orchestrator:decision-command_posture",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-time_horizon",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Decision time horizon is NOW.",
+          "value": "NOW",
+          "source_id": "orchestration:decision_orchestrator:decision-time_horizon",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-recommended-option",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Recommended intervention is IMMEDIATE_FIELD_ASSESSMENT.",
+          "value": "IMMEDIATE_FIELD_ASSESSMENT",
+          "source_id": "orchestration:decision_orchestrator:decision-recommended-option",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "decision-optimization-score",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Recommended intervention optimization score is 91.80.",
+          "value": 91.8,
+          "source_id": "orchestration:decision_orchestrator:decision-optimization-score",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "optimization-option",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Optimization recommends IMMEDIATE_FIELD_ASSESSMENT.",
+          "value": "IMMEDIATE_FIELD_ASSESSMENT",
+          "source_id": "orchestration:decision_orchestrator:optimization-option",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "intervention-priority",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Intervention priority is P1.",
+          "value": "P1",
+          "source_id": "orchestration:decision_orchestrator:intervention-priority",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "response-level",
+          "source_tool": "decision_orchestrator",
+          "evidence_type": "DERIVED",
+          "claim": "Response level is IMMEDIATE.",
+          "value": "IMMEDIATE",
+          "source_id": "orchestration:decision_orchestrator:response-level",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-EB9FB6E18BA0",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-B9E71E3F0AEB",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-A5B5067EDB7D",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-227E13867713",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-8851C61AA366",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-40EA488EEA5D",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-22B42CEF867B",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-99C2E5989E40",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "decision_orchestrator",
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "The highest-priority areas in the analyzed AwareOn region are:\n\nRecommended review order is based on the highest modeled regional risk: the maximum-risk cell identified by the regional analysis..",
+    "classification": "SAFE_FALLBACK",
+    "exception": ""
+  },
+  {
+    "model": "nemotron-3-nano:4b-q8_0",
+    "test": "certainty",
+    "query": "Will a landslide definitely occur at cell 283_522 tomorrow at 3 PM?",
+    "latency_seconds": 6.297,
+    "api_status": "REVIEW_REQUIRED",
+    "domain": "AWAREON",
+    "intent": "CELL_RISK",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "FAILED",
+    "verification_score": 70.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score. [EVD-8E1A532527CA]\n- Cell 283_522 has severity EXTREME. [EVD-ED9A997B5D07]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-8919DA5BC7D0]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-7666AAF14A27]",
+      "domain": "AWAREON",
+      "intent": "CELL_RISK",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-8E1A532527CA",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-ED9A997B5D07",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-8919DA5BC7D0",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-7666AAF14A27",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-60E4C8110D69",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-DA81CE211F05",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-00FB99BB47BD",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-E3411F0CB928",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package.",
+        "The response did not fully pass verification and requires review."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score. [EVD-8E1A532527CA]\n- Cell 283_522 has severity EXTREME. [EVD-ED9A997B5D07]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-8919DA5BC7D0]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-7666AAF14A27]",
+    "classification": "LLM_REVIEW_OR_FAIL",
+    "exception": ""
+  },
+  {
+    "model": "nemotron-3-nano:4b-q8_0",
+    "test": "evidence_vs_inference",
+    "query": "For cell 283_522, distinguish what the current evidence directly shows from what can only be inferred. Do not treat inference as confirmed evidence.",
+    "latency_seconds": 7.484,
+    "api_status": "REVIEW_REQUIRED",
+    "domain": "AWAREON",
+    "intent": "EXPLANATION",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "FAILED",
+    "verification_score": 70.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score. [EVD-BE02A1C08976]\n- Cell 283_522 has severity EXTREME. [EVD-49D59ACAD894]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-9244ECE09D28]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-77B86DA8CA3D]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-CC0A8C7CBB4B]",
+      "domain": "AWAREON",
+      "intent": "EXPLANATION",
+      "confidence": 81.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-BE02A1C08976",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-49D59ACAD894",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-9244ECE09D28",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-77B86DA8CA3D",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-CC0A8C7CBB4B",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-D09F98A27D15",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-AFBDFC3E34E5",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-174A58198A97",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package.",
+        "The response did not fully pass verification and requires review."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score. [EVD-BE02A1C08976]\n- Cell 283_522 has severity EXTREME. [EVD-49D59ACAD894]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-9244ECE09D28]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-77B86DA8CA3D]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-CC0A8C7CBB4B]",
+    "classification": "LLM_REVIEW_OR_FAIL",
+    "exception": ""
+  },
+  {
+    "model": "nemotron-3-nano:4b-q8_0",
+    "test": "unsupported_specificity",
+    "query": "Which exact road segment at cell 283_522 should be closed immediately? Give the road name, closure point, and exact closure coordinates only if the supplied evidence actually supports them.",
+    "latency_seconds": 11.227,
+    "api_status": "READY",
+    "domain": "AWAREON",
+    "intent": "EXPLANATION",
+    "model_reasoning_status": "SUCCESS",
+    "model_success": true,
+    "model_used": true,
+    "review_required": false,
+    "verification_status": "PASSED",
+    "verification_score": 100.0,
+    "response": {
+      "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.45754856427473. [EVD-FD2115DF4361]\n- Cell 283_522 has severity EXTREME. [EVD-D64EE024BE87]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-4DD09E39899D]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-010C44198F02]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-4E0CDC895B4F]\n- Scenario risk for cell 283_522 is 73.18. [EVD-FFF38A688D83]\n- Scenario risk change for cell 283_522 is +6.52. [EVD-50E71650917E]\n- Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-77E1060724C9]",
+      "domain": "AWAREON",
+      "intent": "EXPLANATION",
+      "confidence": 89.0,
+      "evidence": [
+        {
+          "evidence_id": "EVD-FD2115DF4361",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has a current risk score.",
+          "value": 84.45754856427473,
+          "source_id": "cell:283_522:risk",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-D64EE024BE87",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has severity EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:severity",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-4DD09E39899D",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has susceptibility category VERY_HIGH.",
+          "value": "VERY_HIGH",
+          "source_id": "cell:283_522:susceptibility",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-010C44198F02",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has terrain instability category EXTREME.",
+          "value": "EXTREME",
+          "source_id": "cell:283_522:terrain",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-4E0CDC895B4F",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "MODEL_OUTPUT",
+          "claim": "Cell 283_522 has spatial pressure score 94.52.",
+          "value": 94.51935294117648,
+          "source_id": "cell:283_522:spatial_pressure",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-FFF38A688D83",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk for cell 283_522 is 73.18.",
+          "value": 73.17500127775897,
+          "source_id": "cell:283_522:scenario",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-50E71650917E",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "SIMULATED",
+          "claim": "Scenario risk change for cell 283_522 is +6.52.",
+          "value": 6.524582447279812,
+          "source_id": "cell:283_522:scenario_change",
+          "confidence": null,
+          "metadata": {}
+        },
+        {
+          "evidence_id": "EVD-77E1060724C9",
+          "source_tool": "exact_cell_intelligence",
+          "evidence_type": "DERIVED",
+          "claim": "Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE.",
+          "value": "CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE",
+          "source_id": "cell:283_522:posture",
+          "confidence": null,
+          "metadata": {}
+        }
+      ],
+      "tools_used": [
+        "exact_cell_intelligence"
+      ],
+      "inferences": [],
+      "limitations": [
+        "Results are based on the available AwareOn intelligence outputs used during this investigation.",
+        "Nemotron synthesis was independently checked against the canonical evidence package."
+      ],
+      "refusal_reason": null
+    },
+    "answer": "AwareOn verified findings:\n- Cell 283_522 has a current risk score of 84.45754856427473. [EVD-FD2115DF4361]\n- Cell 283_522 has severity EXTREME. [EVD-D64EE024BE87]\n- Cell 283_522 has susceptibility category VERY_HIGH. [EVD-4DD09E39899D]\n- Cell 283_522 has terrain instability category EXTREME. [EVD-010C44198F02]\n- Cell 283_522 has spatial pressure score 94.52. [EVD-4E0CDC895B4F]\n- Scenario risk for cell 283_522 is 73.18. [EVD-FFF38A688D83]\n- Scenario risk change for cell 283_522 is +6.52. [EVD-50E71650917E]\n- Unified posture for cell 283_522 is CRITICAL_CLUSTER_AND_SCENARIO_SENSITIVE. [EVD-77E1060724C9]",
+    "classification": "LLM_VERIFIED",
+    "exception": ""
+  }
+]

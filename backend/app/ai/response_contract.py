@@ -73,6 +73,8 @@ class AIResponse:
 
 def build_out_of_domain_response(
     query: str,
+    *,
+    confidence: float,
 ) -> AIResponse:
 
     response = AIResponse(
@@ -85,7 +87,7 @@ def build_out_of_domain_response(
         ),
         domain="OUTSIDE_DOMAIN",
         intent="UNKNOWN",
-        confidence=99.0,
+        confidence=float(confidence),
         limitations=[
             "No AwareOn specialized intelligence "
             "was used because the query is outside "
@@ -101,7 +103,10 @@ def build_out_of_domain_response(
     return response
 
 
-def build_ambiguous_response() -> AIResponse:
+def build_ambiguous_response(
+    *,
+    confidence: float,
+) -> AIResponse:
 
     response = AIResponse(
         answer=(
@@ -111,7 +116,7 @@ def build_ambiguous_response() -> AIResponse:
         ),
         domain="AMBIGUOUS",
         intent="UNKNOWN",
-        confidence=50.0,
+        confidence=float(confidence),
         limitations=[
             "The query did not provide enough "
             "information for reliable routing."

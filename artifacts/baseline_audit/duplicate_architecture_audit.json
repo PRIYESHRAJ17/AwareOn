@@ -1,0 +1,93 @@
+{
+  "high_similarity_pairs": [],
+  "responsibility_clusters": {
+    "RISK": [
+      "scripts/alert_intelligence_engine.py",
+      "scripts/anomaly_detection_engine.py",
+      "scripts/confidence_uncertainty_engine.py",
+      "scripts/counterfactual_risk_engine.py",
+      "scripts/explanation_recommendation_engine.py",
+      "scripts/exposure_impact_engine.py",
+      "scripts/historical_event_engine.py",
+      "scripts/rainfall_trigger_engine.py",
+      "scripts/risk_decision_engine.py",
+      "scripts/risk_fusion.py",
+      "scripts/sar_evidence_engine.py",
+      "scripts/scenario_simulation_engine.py",
+      "scripts/soil_wetness_engine.py",
+      "scripts/spatial_propagation_engine.py",
+      "scripts/susceptibility_engine.py",
+      "scripts/temporal_risk_engine.py",
+      "scripts/terrain_instability_engine.py",
+      "backend/app/build_risk_spatial_cache.py",
+      "backend/app/cross_engine_intelligence.py",
+      "backend/app/emerging_risk.py",
+      "backend/app/risk_acceleration.py",
+      "backend/app/risk_clusters.py",
+      "backend/app/risk_posture.py",
+      "backend/app/unified_posture.py",
+      "backend/app/core/engine_registry.py"
+    ],
+    "SCENARIO": [
+      "scripts/counterfactual_risk_engine.py",
+      "scripts/scenario_simulation_engine.py",
+      "backend/app/scenario_comparison.py",
+      "backend/app/scenario_curve.py",
+      "backend/app/scenario_decision.py",
+      "backend/app/scenario_forecast.py",
+      "backend/app/scenario_intelligence.py",
+      "backend/app/scenario_map.py",
+      "backend/app/scenario_master.py",
+      "backend/app/scenario_priority.py",
+      "backend/app/scenario_recommendation.py",
+      "backend/app/scenario_sensitivity.py",
+      "backend/app/scenario_thresholds.py",
+      "backend/app/scenario_uncertainty.py",
+      "backend/app/temporal_scenario_coupling.py",
+      "backend/app/ai/scenario_investigator.py",
+      "backend/app/services/scenario_service.py"
+    ],
+    "AI_ORCHESTRATION": [
+      "scripts/risk_decision_engine.py",
+      "backend/app/decision_master.py",
+      "backend/app/decision_optimization.py",
+      "backend/app/decision_tradeoff.py",
+      "backend/app/early_warning_master.py",
+      "backend/app/regional_master.py",
+      "backend/app/scenario_decision.py",
+      "backend/app/scenario_master.py",
+      "backend/app/ai/agent_loop.py",
+      "backend/app/ai/autonomous_master.py",
+      "backend/app/ai/decision_benchmark.py",
+      "backend/app/ai/decision_orchestrator.py",
+      "backend/app/ai/multihop_orchestrator.py",
+      "backend/app/ai/temporal_orchestrator.py"
+    ],
+    "EVIDENCE": [
+      "scripts/sar_evidence_engine.py",
+      "backend/app/evidence_conflict.py",
+      "backend/app/ai/evidence.py",
+      "backend/app/ai/evidence_builder.py",
+      "backend/app/ai/evidence_completeness_benchmark.py",
+      "backend/app/ai/evidence_synthesis.py",
+      "backend/app/ai/grounding.py",
+      "backend/app/ai/verification.py"
+    ],
+    "INVESTIGATION": [
+      "backend/app/cell_intelligence_pipeline.py",
+      "backend/app/exact_cell_intelligence.py",
+      "backend/app/ai/cell_investigator.py",
+      "backend/app/ai/regional_investigator.py",
+      "backend/app/ai/scenario_investigator.py"
+    ],
+    "LEARNING": [
+      "backend/app/ai/agent_memory.py",
+      "backend/app/ai/conversation_memory.py",
+      "backend/app/ai/learning_aware_synthesis.py",
+      "backend/app/ai/learning_candidates.py",
+      "backend/app/ai/learning_feedback.py",
+      "backend/app/ai/learning_memory.py"
+    ]
+  },
+  "warning": "Similarity and filename clusters are candidates for review; they are not proof of duplicate logic."
+}

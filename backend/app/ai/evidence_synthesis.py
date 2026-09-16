@@ -15,6 +15,7 @@ class VerifiedClaim:
     claim_type: str
     status: str
     reason: str
+    confidence: float | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -23,6 +24,7 @@ class VerifiedClaim:
             "claim_type": self.claim_type,
             "status": self.status,
             "reason": self.reason,
+            "confidence": self.confidence,
         }
 
 
@@ -236,6 +238,31 @@ def _claimed_categories(text: str) -> set[str]:
     }
 
 
+def _verified_claim_confidence(
+    cited: list[dict[str, Any]],
+) -> float | None:
+    values: list[float] = []
+
+    for item in cited:
+        value = item.get("confidence")
+
+        if not isinstance(value, (int, float)):
+            continue
+
+        numeric = float(value)
+
+        if 0.0 <= numeric <= 100.0:
+            values.append(numeric)
+
+    if not values:
+        return None
+
+    # Conservative rule:
+    # a verified claim cannot be more confident than
+    # its weakest supporting evidence.
+    return round(min(values) / 100.0, 4)
+
+
 def verify_claim(
     claim_text: str,
     evidence_refs: list[str],
@@ -281,6 +308,10 @@ def verify_claim(
         reference_map[ref]
         for ref in evidence_refs
     ]
+
+    claim_confidence = _verified_claim_confidence(
+        cited
+    )
 
     evidence_text = _normalize(
         " ".join(
@@ -436,6 +467,7 @@ def verify_claim(
         claim_type,
         "VERIFIED",
         "Claim is supported by canonical evidence.",
+        claim_confidence,
     )
 
 

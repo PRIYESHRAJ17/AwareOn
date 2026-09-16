@@ -1,0 +1,100 @@
+project: AwareOn
+
+pipeline:
+  - SOURCE
+  - RAW
+  - CLEAN
+  - FEATURES
+  - ENGINE
+  - DERIVED_INTELLIGENCE
+  - AI_EVIDENCE
+  - DECISION
+
+artifact_contract:
+  required_fields:
+    - artifact_id
+    - producer
+    - input_ids
+    - created_at
+    - source_timestamp
+    - ingestion_timestamp
+    - dataset_version
+    - geographic_scope
+    - quality
+    - freshness
+    - provenance
+    - validation_state
+
+stage_contracts:
+
+  SOURCE:
+    purpose: authoritative-origin information
+    must_have:
+      - source_identity
+      - acquisition_timestamp
+      - geographic_scope
+
+  RAW:
+    purpose: original ingested representation
+    must_have:
+      - source_reference
+      - acquisition_timestamp
+      - checksum_or_equivalent
+
+  CLEAN:
+    purpose: validated and normalized representation
+    must_have:
+      - raw_input_ids
+      - validation_result
+      - transformation_metadata
+
+  FEATURES:
+    purpose: engine-ready features
+    must_have:
+      - source_lineage
+      - transformation_lineage
+      - feature_version
+
+  ENGINE:
+    purpose: model/rule engine output
+    must_have:
+      - engine_id
+      - engine_version
+      - input_feature_ids
+      - prediction_timestamp
+
+  DERIVED_INTELLIGENCE:
+    purpose: cell/regional/cross-engine reasoning
+    must_have:
+      - upstream_engine_ids
+      - geographic_scope
+      - derivation_logic
+      - derivation_timestamp
+
+  AI_EVIDENCE:
+    purpose: evidence package supplied to AI
+    must_have:
+      - evidence_ids
+      - current_vs_historical_state
+      - simulated_vs_observed_state
+      - provenance
+      - freshness
+
+  DECISION:
+    purpose: warning/recommendation/action
+    must_have:
+      - supporting_evidence_ids
+      - uncertainty
+      - decision_timestamp
+      - responsible_component
+      - human_override_state
+
+ai_contract:
+  requires:
+    evidence_ids: true
+    model_id: true
+    provider_id: true
+    verifier_result: true
+    current_data_distinction: true
+    historical_data_distinction: true
+    simulation_distinction: true

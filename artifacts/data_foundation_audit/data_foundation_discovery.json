@@ -1,0 +1,2525 @@
+{
+  "project": "AwareOn",
+  "audit": "data_foundation",
+  "status": "DISCOVERY_ONLY",
+  "source_file_count": 262,
+  "tag_counts": {
+    "cleaning": 40,
+    "features": 71,
+    "ingestion": 57,
+    "provenance": 74,
+    "spatial": 198,
+    "temporal": 169,
+    "validation": 66
+  },
+  "suspicious_input_candidates": [
+    "backend/app/ai/adversarial_benchmark.py",
+    "backend/app/ai/autonomous_master.py",
+    "backend/app/ai/decision_orchestrator.py",
+    "backend/app/ai/domain_knowledge.py",
+    "backend/app/ai/domain_retrieval.py",
+    "backend/app/ai/domain_router.py",
+    "backend/app/ai/evidence_builder.py",
+    "data/model_shootout_deep/deep_results.csv",
+    "data/model_shootout_deep/deep_results.json",
+    "data/model_shootout_deep/leaderboard.json",
+    "data/processed/engines/confidence_uncertainty_engine_output.csv",
+    "data/processed/grid/aspect.tif",
+    "data/processed/grid/sikkim_dem_clipped.tif",
+    "data/processed/grid/sikkim_dem_mosaic.tif",
+    "data/processed/grid/sikkim_dem_utm45.tif",
+    "data/processed/grid/slope.tif",
+    "data/processed/landslides/gsi_inventory_extracted.csv",
+    "docs/audit/beast_spec.yaml",
+    "docs/audit/data_quality_contract.yaml",
+    "scripts/baseline_audit.py",
+    "scripts/build_feature_dataset.py",
+    "scripts/confidence_uncertainty_engine.py",
+    "scripts/data_foundation_audit.py",
+    "scripts/model_shootout_deep.py"
+  ],
+  "files": [
+    {
+      "file": "backend/app/__init__.py",
+      "extension": ".py",
+      "size_bytes": 0,
+      "tags": []
+    },
+    {
+      "file": "backend/app/ai/__init__.py",
+      "extension": ".py",
+      "size_bytes": 3009,
+      "tags": [
+        "provenance",
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/ai/adversarial_benchmark.py",
+      "extension": ".py",
+      "size_bytes": 10829,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/agent_benchmark.py",
+      "extension": ".py",
+      "size_bytes": 18050,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/agent_loop.py",
+      "extension": ".py",
+      "size_bytes": 3164,
+      "tags": []
+    },
+    {
+      "file": "backend/app/ai/agent_memory.py",
+      "extension": ".py",
+      "size_bytes": 3402,
+      "tags": [
+        "provenance",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/agent_tools.py",
+      "extension": ".py",
+      "size_bytes": 18748,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "backend/app/ai/autonomous_master.py",
+      "extension": ".py",
+      "size_bytes": 110805,
+      "tags": [
+        "cleaning",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "backend/app/ai/benchmark.py",
+      "extension": ".py",
+      "size_bytes": 11579,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/cell_investigator.py",
+      "extension": ".py",
+      "size_bytes": 6789,
+      "tags": [
+        "cleaning",
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/ai/conversation_memory.py",
+      "extension": ".py",
+      "size_bytes": 5349,
+      "tags": []
+    },
+    {
+      "file": "backend/app/ai/decision_benchmark.py",
+      "extension": ".py",
+      "size_bytes": 1730,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/ai/decision_orchestrator.py",
+      "extension": ".py",
+      "size_bytes": 24292,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/domain_knowledge.py",
+      "extension": ".py",
+      "size_bytes": 38251,
+      "tags": [
+        "features",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/domain_retrieval.py",
+      "extension": ".py",
+      "size_bytes": 36245,
+      "tags": [
+        "cleaning",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/domain_router.py",
+      "extension": ".py",
+      "size_bytes": 28730,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/evidence.py",
+      "extension": ".py",
+      "size_bytes": 4399,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/evidence_builder.py",
+      "extension": ".py",
+      "size_bytes": 16108,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/evidence_completeness_benchmark.py",
+      "extension": ".py",
+      "size_bytes": 2744,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/ai/evidence_synthesis.py",
+      "extension": ".py",
+      "size_bytes": 17354,
+      "tags": [
+        "cleaning",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/final_ai_benchmark.py",
+      "extension": ".py",
+      "size_bytes": 6737,
+      "tags": []
+    },
+    {
+      "file": "backend/app/ai/grounding.py",
+      "extension": ".py",
+      "size_bytes": 16866,
+      "tags": [
+        "features",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "backend/app/ai/historical_event_intelligence.py",
+      "extension": ".py",
+      "size_bytes": 18844,
+      "tags": [
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/learning_aware_synthesis.py",
+      "extension": ".py",
+      "size_bytes": 11561,
+      "tags": [
+        "features",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "backend/app/ai/learning_candidates.py",
+      "extension": ".py",
+      "size_bytes": 10639,
+      "tags": [
+        "cleaning",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "backend/app/ai/learning_feedback.py",
+      "extension": ".py",
+      "size_bytes": 2990,
+      "tags": [
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "backend/app/ai/learning_memory.py",
+      "extension": ".py",
+      "size_bytes": 6263,
+      "tags": [
+        "cleaning",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "backend/app/ai/model_adapter.py",
+      "extension": ".py",
+      "size_bytes": 30816,
+      "tags": [
+        "cleaning",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "backend/app/ai/model_tool_loop.py",
+      "extension": ".py",
+      "size_bytes": 12556,
+      "tags": [
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "backend/app/ai/multihop_benchmark.py",
+      "extension": ".py",
+      "size_bytes": 2404,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/multihop_orchestrator.py",
+      "extension": ".py",
+      "size_bytes": 6006,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/regional_investigator.py",
+      "extension": ".py",
+      "size_bytes": 10352,
+      "tags": [
+        "cleaning",
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/ai/response_contract.py",
+      "extension": ".py",
+      "size_bytes": 3040,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "backend/app/ai/retrieval_benchmark.py",
+      "extension": ".py",
+      "size_bytes": 4548,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/ai/scenario_investigator.py",
+      "extension": ".py",
+      "size_bytes": 11551,
+      "tags": [
+        "cleaning",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/self_correction.py",
+      "extension": ".py",
+      "size_bytes": 8488,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/system_policy.py",
+      "extension": ".py",
+      "size_bytes": 2034,
+      "tags": [
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "backend/app/ai/temporal_orchestrator.py",
+      "extension": ".py",
+      "size_bytes": 17762,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/tool_planner.py",
+      "extension": ".py",
+      "size_bytes": 4199,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/ai/tool_registry.py",
+      "extension": ".py",
+      "size_bytes": 10464,
+      "tags": [
+        "cleaning",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "backend/app/ai/verification.py",
+      "extension": ".py",
+      "size_bytes": 19121,
+      "tags": [
+        "cleaning",
+        "provenance",
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/api/__init__.py",
+      "extension": ".py",
+      "size_bytes": 0,
+      "tags": []
+    },
+    {
+      "file": "backend/app/build_risk_spatial_cache.py",
+      "extension": ".py",
+      "size_bytes": 3049,
+      "tags": [
+        "features",
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/build_spatial_cache.py",
+      "extension": ".py",
+      "size_bytes": 2883,
+      "tags": [
+        "features",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/cell_intelligence_pipeline.py",
+      "extension": ".py",
+      "size_bytes": 8839,
+      "tags": [
+        "features",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/cell_neighborhood.py",
+      "extension": ".py",
+      "size_bytes": 2595,
+      "tags": [
+        "features",
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/cluster_evolution.py",
+      "extension": ".py",
+      "size_bytes": 6996,
+      "tags": []
+    },
+    {
+      "file": "backend/app/cluster_exposure.py",
+      "extension": ".py",
+      "size_bytes": 5336,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/cluster_priority.py",
+      "extension": ".py",
+      "size_bytes": 6543,
+      "tags": []
+    },
+    {
+      "file": "backend/app/core/__init__.py",
+      "extension": ".py",
+      "size_bytes": 0,
+      "tags": []
+    },
+    {
+      "file": "backend/app/core/config.py",
+      "extension": ".py",
+      "size_bytes": 0,
+      "tags": []
+    },
+    {
+      "file": "backend/app/core/engine_registry.py",
+      "extension": ".py",
+      "size_bytes": 2451,
+      "tags": [
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "backend/app/core/schemas.py",
+      "extension": ".py",
+      "size_bytes": 3017,
+      "tags": [
+        "features",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/cross_cell_patterns.py",
+      "extension": ".py",
+      "size_bytes": 14625,
+      "tags": [
+        "features",
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/cross_engine_intelligence.py",
+      "extension": ".py",
+      "size_bytes": 9196,
+      "tags": [
+        "cleaning",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/decision_master.py",
+      "extension": ".py",
+      "size_bytes": 7815,
+      "tags": [
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/decision_optimization.py",
+      "extension": ".py",
+      "size_bytes": 6015,
+      "tags": []
+    },
+    {
+      "file": "backend/app/decision_tradeoff.py",
+      "extension": ".py",
+      "size_bytes": 6319,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/early_warning.py",
+      "extension": ".py",
+      "size_bytes": 8683,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/early_warning_master.py",
+      "extension": ".py",
+      "size_bytes": 8309,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/emerging_risk.py",
+      "extension": ".py",
+      "size_bytes": 5006,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/event_progression.py",
+      "extension": ".py",
+      "size_bytes": 7714,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/evidence_conflict.py",
+      "extension": ".py",
+      "size_bytes": 6087,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/exact_cell_intelligence.py",
+      "extension": ".py",
+      "size_bytes": 11262,
+      "tags": [
+        "features",
+        "provenance",
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/field_inspection.py",
+      "extension": ".py",
+      "size_bytes": 7693,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/historical_trajectory.py",
+      "extension": ".py",
+      "size_bytes": 13576,
+      "tags": [
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "backend/app/infrastructure_impact.py",
+      "extension": ".py",
+      "size_bytes": 7214,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/intelligence_api.py",
+      "extension": ".py",
+      "size_bytes": 4245,
+      "tags": []
+    },
+    {
+      "file": "backend/app/intelligence_cache.py",
+      "extension": ".py",
+      "size_bytes": 4438,
+      "tags": [
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/intelligence_normalizer.py",
+      "extension": ".py",
+      "size_bytes": 7498,
+      "tags": [
+        "cleaning",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/intelligence_pipeline.py",
+      "extension": ".py",
+      "size_bytes": 2798,
+      "tags": [
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/intelligence_quality.py",
+      "extension": ".py",
+      "size_bytes": 10054,
+      "tags": [
+        "cleaning",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "backend/app/intervention_comparison.py",
+      "extension": ".py",
+      "size_bytes": 6193,
+      "tags": []
+    },
+    {
+      "file": "backend/app/intervention_priority.py",
+      "extension": ".py",
+      "size_bytes": 6473,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/main.py",
+      "extension": ".py",
+      "size_bytes": 26628,
+      "tags": [
+        "ingestion",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "backend/app/monitoring_priority.py",
+      "extension": ".py",
+      "size_bytes": 6121,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/multiscale_temporal.py",
+      "extension": ".py",
+      "size_bytes": 7234,
+      "tags": [
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/operational_planning.py",
+      "extension": ".py",
+      "size_bytes": 6289,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/regional_command.py",
+      "extension": ".py",
+      "size_bytes": 8291,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/regional_hotspots.py",
+      "extension": ".py",
+      "size_bytes": 7876,
+      "tags": []
+    },
+    {
+      "file": "backend/app/regional_intelligence.py",
+      "extension": ".py",
+      "size_bytes": 6734,
+      "tags": [
+        "features",
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/regional_master.py",
+      "extension": ".py",
+      "size_bytes": 7219,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/regional_temporal.py",
+      "extension": ".py",
+      "size_bytes": 8515,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/response_recommendation.py",
+      "extension": ".py",
+      "size_bytes": 7722,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/risk_acceleration.py",
+      "extension": ".py",
+      "size_bytes": 3053,
+      "tags": []
+    },
+    {
+      "file": "backend/app/risk_clusters.py",
+      "extension": ".py",
+      "size_bytes": 11665,
+      "tags": [
+        "features",
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/risk_posture.py",
+      "extension": ".py",
+      "size_bytes": 9024,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/scenario_comparison.py",
+      "extension": ".py",
+      "size_bytes": 11691,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/scenario_curve.py",
+      "extension": ".py",
+      "size_bytes": 9801,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/scenario_decision.py",
+      "extension": ".py",
+      "size_bytes": 7357,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/scenario_forecast.py",
+      "extension": ".py",
+      "size_bytes": 8209,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/scenario_intelligence.py",
+      "extension": ".py",
+      "size_bytes": 9187,
+      "tags": [
+        "cleaning",
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/scenario_map.py",
+      "extension": ".py",
+      "size_bytes": 7124,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/scenario_master.py",
+      "extension": ".py",
+      "size_bytes": 7207,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/scenario_priority.py",
+      "extension": ".py",
+      "size_bytes": 5925,
+      "tags": [
+        "cleaning",
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/scenario_recommendation.py",
+      "extension": ".py",
+      "size_bytes": 5786,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/scenario_sensitivity.py",
+      "extension": ".py",
+      "size_bytes": 8759,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "backend/app/scenario_thresholds.py",
+      "extension": ".py",
+      "size_bytes": 8354,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/scenario_uncertainty.py",
+      "extension": ".py",
+      "size_bytes": 6319,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/services/__init__.py",
+      "extension": ".py",
+      "size_bytes": 0,
+      "tags": []
+    },
+    {
+      "file": "backend/app/services/assessment_service.py",
+      "extension": ".py",
+      "size_bytes": 3501,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/services/gis_service.py",
+      "extension": ".py",
+      "size_bytes": 26711,
+      "tags": [
+        "features",
+        "ingestion",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/services/repository.py",
+      "extension": ".py",
+      "size_bytes": 1160,
+      "tags": [
+        "ingestion"
+      ]
+    },
+    {
+      "file": "backend/app/services/scenario_service.py",
+      "extension": ".py",
+      "size_bytes": 16535,
+      "tags": [
+        "ingestion",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/temporal_anomaly_fusion.py",
+      "extension": ".py",
+      "size_bytes": 5069,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/temporal_scenario_coupling.py",
+      "extension": ".py",
+      "size_bytes": 5548,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "backend/app/unified_posture.py",
+      "extension": ".py",
+      "size_bytes": 10618,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/model_shootout_deep/deep_results.csv",
+      "extension": ".csv",
+      "size_bytes": 2874,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/model_shootout_deep/deep_results.json",
+      "extension": ".json",
+      "size_bytes": 156612,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/model_shootout_deep/leaderboard.json",
+      "extension": ".json",
+      "size_bytes": 986,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/model_shootout_fast.json",
+      "extension": ".json",
+      "size_bytes": 12286,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/dynamic/dynamic_event_features.csv",
+      "extension": ".csv",
+      "size_bytes": 5837,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/dynamic/dynamic_event_trigger_scores.csv",
+      "extension": ".csv",
+      "size_bytes": 2536,
+      "tags": [
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/dynamic/dynamic_trigger_thresholds.csv",
+      "extension": ".csv",
+      "size_bytes": 464,
+      "tags": [
+        "features"
+      ]
+    },
+    {
+      "file": "data/processed/dynamic/dynamic_trigger_validation.csv",
+      "extension": ".csv",
+      "size_bytes": 7280,
+      "tags": [
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/engines/anomaly_detection_engine_output.csv",
+      "extension": ".csv",
+      "size_bytes": 323,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/engines/anomaly_feature_diagnostics.csv",
+      "extension": ".csv",
+      "size_bytes": 794,
+      "tags": [
+        "features",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/engines/confidence_uncertainty_engine_output.csv",
+      "extension": ".csv",
+      "size_bytes": 206800,
+      "tags": [
+        "spatial",
+        "validation"
+      ]
+    },
+    {
+      "file": "data/processed/engines/counterfactual_risk_output.csv",
+      "extension": ".csv",
+      "size_bytes": 812938,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/processed/engines/explanation_recommendation_engine_output.csv",
+      "extension": ".csv",
+      "size_bytes": 758987,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/engines/exposure_impact_engine_output.csv",
+      "extension": ".csv",
+      "size_bytes": 128827,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/processed/engines/historical_event_engine_output.csv",
+      "extension": ".csv",
+      "size_bytes": 24083,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/processed/engines/historical_event_summary.csv",
+      "extension": ".csv",
+      "size_bytes": 130,
+      "tags": []
+    },
+    {
+      "file": "data/processed/engines/rainfall_trigger_engine_output.csv",
+      "extension": ".csv",
+      "size_bytes": 437,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/engines/sar_evidence_engine_output.csv",
+      "extension": ".csv",
+      "size_bytes": 549,
+      "tags": [
+        "spatial",
+        "validation"
+      ]
+    },
+    {
+      "file": "data/processed/engines/scenario_simulation_engine_output.csv",
+      "extension": ".csv",
+      "size_bytes": 922,
+      "tags": []
+    },
+    {
+      "file": "data/processed/engines/soil_wetness_engine_output.csv",
+      "extension": ".csv",
+      "size_bytes": 372,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/engines/spatial_propagation_engine_output.csv",
+      "extension": ".csv",
+      "size_bytes": 97469,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/processed/engines/susceptibility_engine_output.csv",
+      "extension": ".csv",
+      "size_bytes": 75458,
+      "tags": []
+    },
+    {
+      "file": "data/processed/engines/temporal_risk_engine_output.csv",
+      "extension": ".csv",
+      "size_bytes": 604,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/engines/terrain_instability_engine_output.csv",
+      "extension": ".csv",
+      "size_bytes": 174254,
+      "tags": []
+    },
+    {
+      "file": "data/processed/features/ground_truth_environment_features.csv",
+      "extension": ".csv",
+      "size_bytes": 332022,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/features/ground_truth_terrain_features.csv",
+      "extension": ".csv",
+      "size_bytes": 146016,
+      "tags": []
+    },
+    {
+      "file": "data/processed/features/static_ml_features.csv",
+      "extension": ".csv",
+      "size_bytes": 250294,
+      "tags": []
+    },
+    {
+      "file": "data/processed/features/static_ml_features_validated.csv",
+      "extension": ".csv",
+      "size_bytes": 249711,
+      "tags": []
+    },
+    {
+      "file": "data/processed/grid/aspect.tif",
+      "extension": ".tif",
+      "size_bytes": 53052794,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/grid/master_grid_100m.geojson",
+      "extension": ".geojson",
+      "size_bytes": 762139764,
+      "tags": [
+        "features",
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/processed/grid/osm_sikkim_clipped.geojson",
+      "extension": ".geojson",
+      "size_bytes": 272163064,
+      "tags": [
+        "features",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "data/processed/grid/osm_sikkim_clipped_utm45.geojson",
+      "extension": ".geojson",
+      "size_bytes": 302546803,
+      "tags": [
+        "features",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "data/processed/grid/sikkim_boundary.geojson",
+      "extension": ".geojson",
+      "size_bytes": 377,
+      "tags": [
+        "features",
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/processed/grid/sikkim_boundary_utm45.geojson",
+      "extension": ".geojson",
+      "size_bytes": 562,
+      "tags": [
+        "features",
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/processed/grid/sikkim_dem_clipped.tif",
+      "extension": ".tif",
+      "size_bytes": 30794883,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/processed/grid/sikkim_dem_mosaic.tif",
+      "extension": ".tif",
+      "size_bytes": 132996147,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/grid/sikkim_dem_utm45.tif",
+      "extension": ".tif",
+      "size_bytes": 30111626,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/processed/grid/slope.tif",
+      "extension": ".tif",
+      "size_bytes": 43639484,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/ground_truth/dated_landslide_events.csv",
+      "extension": ".csv",
+      "size_bytes": 5232,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/ground_truth/dated_landslide_events.geojson",
+      "extension": ".geojson",
+      "size_bytes": 13431,
+      "tags": [
+        "features",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/ground_truth/ground_truth_test.csv",
+      "extension": ".csv",
+      "size_bytes": 3588,
+      "tags": []
+    },
+    {
+      "file": "data/processed/ground_truth/ground_truth_test.geojson",
+      "extension": ".geojson",
+      "size_bytes": 82115,
+      "tags": [
+        "features",
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/processed/ground_truth/ground_truth_train.csv",
+      "extension": ".csv",
+      "size_bytes": 17257,
+      "tags": []
+    },
+    {
+      "file": "data/processed/ground_truth/ground_truth_train.geojson",
+      "extension": ".geojson",
+      "size_bytes": 398491,
+      "tags": [
+        "features",
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/processed/ground_truth/ground_truth_validation.csv",
+      "extension": ".csv",
+      "size_bytes": 2870,
+      "tags": []
+    },
+    {
+      "file": "data/processed/ground_truth/ground_truth_validation.geojson",
+      "extension": ".geojson",
+      "size_bytes": 65323,
+      "tags": [
+        "features",
+        "spatial",
+        "validation"
+      ]
+    },
+    {
+      "file": "data/processed/ground_truth/negative_cells.csv",
+      "extension": ".csv",
+      "size_bytes": 7419,
+      "tags": []
+    },
+    {
+      "file": "data/processed/ground_truth/positive_cells.csv",
+      "extension": ".csv",
+      "size_bytes": 12607,
+      "tags": []
+    },
+    {
+      "file": "data/processed/intelligence/awareon_alerts.csv",
+      "extension": ".csv",
+      "size_bytes": 250341,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/intelligence/awareon_incidents.csv",
+      "extension": ".csv",
+      "size_bytes": 59976,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/processed/intelligence/awareon_incidents.geojson",
+      "extension": ".geojson",
+      "size_bytes": 192644,
+      "tags": [
+        "features",
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/processed/intelligence/awareon_intelligence_state.csv",
+      "extension": ".csv",
+      "size_bytes": 780893,
+      "tags": [
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "data/processed/intelligence/awareon_prioritized_incidents.csv",
+      "extension": ".csv",
+      "size_bytes": 108496,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/processed/intelligence/awareon_risk_decisions.csv",
+      "extension": ".csv",
+      "size_bytes": 329552,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/intelligence/historical_current_correlation.csv",
+      "extension": ".csv",
+      "size_bytes": 52984,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/intelligence/intelligence_state_validation.csv",
+      "extension": ".csv",
+      "size_bytes": 192,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/processed/landslides/gsi_inventory_extracted.csv",
+      "extension": ".csv",
+      "size_bytes": 3567640,
+      "tags": [
+        "features",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "data/processed/landslides/gsi_inventory_with_osm_features.csv",
+      "extension": ".csv",
+      "size_bytes": 123886,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/landslides/gsi_inventory_with_osm_features.geojson",
+      "extension": ".geojson",
+      "size_bytes": 456063,
+      "tags": [
+        "features",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/landslides/gsi_sikkim_inventory.csv",
+      "extension": ".csv",
+      "size_bytes": 68160,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/processed/landslides/gsi_sikkim_inventory.geojson",
+      "extension": ".geojson",
+      "size_bytes": 238592,
+      "tags": [
+        "features",
+        "spatial"
+      ]
+    },
+    {
+      "file": "data/processed/landslides/gsi_sikkim_inventory_clean.csv",
+      "extension": ".csv",
+      "size_bytes": 67043,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/landslides/gsi_sikkim_inventory_clean.geojson",
+      "extension": ".geojson",
+      "size_bytes": 250533,
+      "tags": [
+        "cleaning",
+        "features",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/processed/models/baseline_feature_importance.csv",
+      "extension": ".csv",
+      "size_bytes": 561,
+      "tags": [
+        "features"
+      ]
+    },
+    {
+      "file": "data/processed/models/local_explanations.csv",
+      "extension": ".csv",
+      "size_bytes": 57357,
+      "tags": []
+    },
+    {
+      "file": "data/processed/models/model_comparison.csv",
+      "extension": ".csv",
+      "size_bytes": 768,
+      "tags": [
+        "spatial",
+        "validation"
+      ]
+    },
+    {
+      "file": "data/processed/models/model_diagnostic_report.csv",
+      "extension": ".csv",
+      "size_bytes": 377,
+      "tags": [
+        "features",
+        "validation"
+      ]
+    },
+    {
+      "file": "data/processed/models/permutation_importance.csv",
+      "extension": ".csv",
+      "size_bytes": 898,
+      "tags": [
+        "features"
+      ]
+    },
+    {
+      "file": "data/processed/models/road_bias_check.csv",
+      "extension": ".csv",
+      "size_bytes": 478,
+      "tags": [
+        "features",
+        "validation"
+      ]
+    },
+    {
+      "file": "data/processed/models/threshold_optimization.csv",
+      "extension": ".csv",
+      "size_bytes": 5891,
+      "tags": []
+    },
+    {
+      "file": "data/processed/risk/current_risk_scores.csv",
+      "extension": ".csv",
+      "size_bytes": 190726,
+      "tags": []
+    },
+    {
+      "file": "data/processed/weather/era5_environment_timeseries.csv",
+      "extension": ".csv",
+      "size_bytes": 49321669,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/raw/context/export.geojson",
+      "extension": ".geojson",
+      "size_bytes": 102819740,
+      "tags": [
+        "features",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "data/raw/context/osm_sikkim.geojson",
+      "extension": ".geojson",
+      "size_bytes": 97445404,
+      "tags": [
+        "features",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "data/raw/satellite/sentinel1/s1a-iw-grd-vh-20250327t235510-20250327t235535-058497-073ca4-002.tiff",
+      "extension": ".tiff",
+      "size_bytes": 860040428,
+      "tags": []
+    },
+    {
+      "file": "data/raw/satellite/sentinel1/s1a-iw-grd-vv-20250327t235510-20250327t235535-058497-073ca4-001.tiff",
+      "extension": ".tiff",
+      "size_bytes": 860040428,
+      "tags": []
+    },
+    {
+      "file": "data/raw/terrain/dem/n26_e087_1arc_v3.tif",
+      "extension": ".tif",
+      "size_bytes": 25964800,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/raw/terrain/dem/n26_e088_1arc_v3.tif",
+      "extension": ".tif",
+      "size_bytes": 25964800,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/raw/terrain/dem/n26_e089_1arc_v3.tif",
+      "extension": ".tif",
+      "size_bytes": 25964800,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/raw/terrain/dem/n27_e087_1arc_v3.tif",
+      "extension": ".tif",
+      "size_bytes": 25964800,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/raw/terrain/dem/n27_e088_1arc_v3.tif",
+      "extension": ".tif",
+      "size_bytes": 25964800,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/raw/terrain/dem/n27_e089_1arc_v3.tif",
+      "extension": ".tif",
+      "size_bytes": 25964800,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/raw/terrain/dem/n28_e087_1arc_v3.tif",
+      "extension": ".tif",
+      "size_bytes": 25964800,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/raw/terrain/dem/n28_e088_1arc_v3.tif",
+      "extension": ".tif",
+      "size_bytes": 25964800,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/raw/terrain/dem/n28_e089_1arc_v3.tif",
+      "extension": ".tif",
+      "size_bytes": 25964800,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/raw/weather/ERA5_Land/reanalysis-era5-land-timeseries-sfc-pressure-precipitationaaxetdyt.nc",
+      "extension": ".nc",
+      "size_bytes": 2723473,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "data/raw/weather/ERA5_Land/reanalysis-era5-land-timeseries-sfc-soil-waterkz282_kx.nc",
+      "extension": ".nc",
+      "size_bytes": 3632238,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "docs/audit/beast_spec.yaml",
+      "extension": ".yaml",
+      "size_bytes": 2456,
+      "tags": [
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "docs/audit/data_catalog.yaml",
+      "extension": ".yaml",
+      "size_bytes": 244,
+      "tags": [
+        "features",
+        "provenance",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "docs/audit/data_lineage.yaml",
+      "extension": ".yaml",
+      "size_bytes": 2021,
+      "tags": [
+        "cleaning",
+        "features",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "docs/audit/data_quality_contract.yaml",
+      "extension": ".yaml",
+      "size_bytes": 1385,
+      "tags": [
+        "cleaning",
+        "features",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "docs/audit/feature_scope_177.yaml",
+      "extension": ".yaml",
+      "size_bytes": 239,
+      "tags": [
+        "features",
+        "validation"
+      ]
+    },
+    {
+      "file": "frontend/js/api.js",
+      "extension": ".js",
+      "size_bytes": 4938,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "frontend/js/app.js",
+      "extension": ".js",
+      "size_bytes": 13634,
+      "tags": [
+        "cleaning",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "frontend/js/incidents.js",
+      "extension": ".js",
+      "size_bytes": 3187,
+      "tags": [
+        "cleaning",
+        "features",
+        "provenance",
+        "temporal"
+      ]
+    },
+    {
+      "file": "frontend/js/intelligence.js",
+      "extension": ".js",
+      "size_bytes": 7951,
+      "tags": [
+        "cleaning",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "frontend/js/map.js",
+      "extension": ".js",
+      "size_bytes": 22965,
+      "tags": [
+        "cleaning",
+        "features",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "frontend/js/scenarios.js",
+      "extension": ".js",
+      "size_bytes": 30429,
+      "tags": [
+        "cleaning",
+        "features",
+        "provenance",
+        "spatial"
+      ]
+    },
+    {
+      "file": "frontend/js/state.js",
+      "extension": ".js",
+      "size_bytes": 515,
+      "tags": [
+        "temporal"
+      ]
+    },
+    {
+      "file": "frontend/js/views.js",
+      "extension": ".js",
+      "size_bytes": 2036,
+      "tags": [
+        "cleaning",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/add_environment_features.py",
+      "extension": ".py",
+      "size_bytes": 3975,
+      "tags": [
+        "features",
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/alert_intelligence_engine.py",
+      "extension": ".py",
+      "size_bytes": 6685,
+      "tags": [
+        "ingestion",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/anomaly_detection_engine.py",
+      "extension": ".py",
+      "size_bytes": 5566,
+      "tags": [
+        "features",
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/baseline_audit.py",
+      "extension": ".py",
+      "size_bytes": 43622,
+      "tags": [
+        "cleaning",
+        "features",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/build_dynamic_event_features.py",
+      "extension": ".py",
+      "size_bytes": 6173,
+      "tags": [
+        "cleaning",
+        "features",
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/build_dynamic_trigger.py",
+      "extension": ".py",
+      "size_bytes": 6404,
+      "tags": [
+        "features",
+        "ingestion",
+        "provenance",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/build_event_dataset.py",
+      "extension": ".py",
+      "size_bytes": 4084,
+      "tags": [
+        "cleaning",
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/build_feature_dataset.py",
+      "extension": ".py",
+      "size_bytes": 9684,
+      "tags": [
+        "features",
+        "ingestion",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/build_ground_truth.py",
+      "extension": ".py",
+      "size_bytes": 2503,
+      "tags": [
+        "cleaning",
+        "ingestion",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/build_intelligence_state.py",
+      "extension": ".py",
+      "size_bytes": 6109,
+      "tags": [
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/build_model_diagnostic_report.py",
+      "extension": ".py",
+      "size_bytes": 3383,
+      "tags": [
+        "features",
+        "ingestion",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/build_negative_samples.py",
+      "extension": ".py",
+      "size_bytes": 3301,
+      "tags": [
+        "ingestion",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/calibrate_model.py",
+      "extension": ".py",
+      "size_bytes": 3883,
+      "tags": [
+        "features",
+        "ingestion",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/clean_gsi_inventory.py",
+      "extension": ".py",
+      "size_bytes": 9691,
+      "tags": [
+        "cleaning",
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/cluster_alerts.py",
+      "extension": ".py",
+      "size_bytes": 8489,
+      "tags": [
+        "cleaning",
+        "ingestion",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/compare_models.py",
+      "extension": ".py",
+      "size_bytes": 7135,
+      "tags": [
+        "features",
+        "ingestion",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/confidence_integrity_test.py",
+      "extension": ".py",
+      "size_bytes": 2687,
+      "tags": []
+    },
+    {
+      "file": "scripts/confidence_uncertainty_engine.py",
+      "extension": ".py",
+      "size_bytes": 6080,
+      "tags": [
+        "features",
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/counterfactual_risk_engine.py",
+      "extension": ".py",
+      "size_bytes": 6977,
+      "tags": [
+        "features",
+        "ingestion",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/data_foundation_audit.py",
+      "extension": ".py",
+      "size_bytes": 6047,
+      "tags": [
+        "cleaning",
+        "features",
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/explain_susceptibility.py",
+      "extension": ".py",
+      "size_bytes": 4724,
+      "tags": [
+        "cleaning",
+        "features",
+        "ingestion",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/explanation_recommendation_engine.py",
+      "extension": ".py",
+      "size_bytes": 9336,
+      "tags": [
+        "ingestion",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/exposure_impact_engine.py",
+      "extension": ".py",
+      "size_bytes": 4446,
+      "tags": [
+        "features",
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/extract_gsi_inventory.py",
+      "extension": ".py",
+      "size_bytes": 1442,
+      "tags": [
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/final_intelligence_audit.py",
+      "extension": ".py",
+      "size_bytes": 7648,
+      "tags": [
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/historical_current_correlation.py",
+      "extension": ".py",
+      "size_bytes": 5657,
+      "tags": [
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/historical_event_engine.py",
+      "extension": ".py",
+      "size_bytes": 4658,
+      "tags": [
+        "cleaning",
+        "ingestion",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/level20_e2e.py",
+      "extension": ".py",
+      "size_bytes": 2423,
+      "tags": [
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/merge_static_features.py",
+      "extension": ".py",
+      "size_bytes": 8502,
+      "tags": [
+        "features",
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/model_ablation.py",
+      "extension": ".py",
+      "size_bytes": 3850,
+      "tags": [
+        "features",
+        "ingestion",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/model_road_bias_check.py",
+      "extension": ".py",
+      "size_bytes": 5719,
+      "tags": [
+        "features",
+        "ingestion",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/model_shootout_deep.py",
+      "extension": ".py",
+      "size_bytes": 16442,
+      "tags": [
+        "cleaning",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/model_shootout_fast.py",
+      "extension": ".py",
+      "size_bytes": 7280,
+      "tags": [
+        "cleaning",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/optimize_threshold.py",
+      "extension": ".py",
+      "size_bytes": 4339,
+      "tags": [
+        "features",
+        "ingestion",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/parse_gsi_inventory.py",
+      "extension": ".py",
+      "size_bytes": 3183,
+      "tags": [
+        "ingestion",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/prioritize_incidents.py",
+      "extension": ".py",
+      "size_bytes": 4173,
+      "tags": [
+        "cleaning",
+        "ingestion",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/process_era5.py",
+      "extension": ".py",
+      "size_bytes": 2422,
+      "tags": [
+        "features",
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/process_osm.py",
+      "extension": ".py",
+      "size_bytes": 8049,
+      "tags": [
+        "cleaning",
+        "features",
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/process_terrain.py",
+      "extension": ".py",
+      "size_bytes": 5336,
+      "tags": [
+        "features",
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/rainfall_trigger_engine.py",
+      "extension": ".py",
+      "size_bytes": 4571,
+      "tags": [
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/risk_decision_engine.py",
+      "extension": ".py",
+      "size_bytes": 7443,
+      "tags": [
+        "ingestion",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/risk_fusion.py",
+      "extension": ".py",
+      "size_bytes": 6714,
+      "tags": [
+        "features",
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/sar_evidence_engine.py",
+      "extension": ".py",
+      "size_bytes": 5340,
+      "tags": [
+        "features",
+        "ingestion",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/scenario_simulation_engine.py",
+      "extension": ".py",
+      "size_bytes": 4197,
+      "tags": [
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/soil_wetness_engine.py",
+      "extension": ".py",
+      "size_bytes": 4518,
+      "tags": [
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/spatial_propagation_engine.py",
+      "extension": ".py",
+      "size_bytes": 4591,
+      "tags": [
+        "features",
+        "ingestion",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/split_ground_truth.py",
+      "extension": ".py",
+      "size_bytes": 4447,
+      "tags": [
+        "ingestion",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/susceptibility_engine.py",
+      "extension": ".py",
+      "size_bytes": 3300,
+      "tags": [
+        "features",
+        "ingestion",
+        "provenance",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/temporal_risk_engine.py",
+      "extension": ".py",
+      "size_bytes": 6649,
+      "tags": [
+        "ingestion",
+        "provenance",
+        "spatial",
+        "temporal"
+      ]
+    },
+    {
+      "file": "scripts/terrain_instability_engine.py",
+      "extension": ".py",
+      "size_bytes": 4125,
+      "tags": [
+        "features",
+        "ingestion",
+        "provenance",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/train_baseline.py",
+      "extension": ".py",
+      "size_bytes": 4688,
+      "tags": [
+        "features",
+        "ingestion",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/validate_dynamic_trigger.py",
+      "extension": ".py",
+      "size_bytes": 5979,
+      "tags": [
+        "cleaning",
+        "features",
+        "ingestion",
+        "provenance",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/validate_features.py",
+      "extension": ".py",
+      "size_bytes": 5049,
+      "tags": [
+        "cleaning",
+        "features",
+        "ingestion",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/validate_ground_truth.py",
+      "extension": ".py",
+      "size_bytes": 3201,
+      "tags": [
+        "ingestion",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    },
+    {
+      "file": "scripts/validate_intelligence_state.py",
+      "extension": ".py",
+      "size_bytes": 4680,
+      "tags": [
+        "ingestion",
+        "spatial",
+        "temporal",
+        "validation"
+      ]
+    }
+  ],
+  "limitations": [
+    "Static discovery is candidate evidence only.",
+    "No source is declared authoritative without runtime/code verification.",
+    "No fabricated dataset or feature entry is created.",
+    "Runtime validation must follow discovery."
+  ]
+}

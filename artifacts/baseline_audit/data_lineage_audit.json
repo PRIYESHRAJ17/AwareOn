@@ -1,0 +1,2463 @@
+{
+  "required_stages": [
+    "SOURCE",
+    "RAW",
+    "CLEAN",
+    "FEATURES",
+    "ENGINE",
+    "DERIVED_INTELLIGENCE",
+    "AI_EVIDENCE",
+    "DECISION"
+  ],
+  "stage_results": {
+    "SOURCE": {
+      "candidate_count": 112,
+      "files": [
+        {
+          "path": "DATA_PRESERVATION.md",
+          "keywords": [
+            "source",
+            "weather",
+            "dem",
+            "gis"
+          ]
+        },
+        {
+          "path": "README.md",
+          "keywords": [
+            "rainfall",
+            "gis"
+          ]
+        },
+        {
+          "path": "data/model_shootout_fast.json",
+          "keywords": [
+            "rainfall"
+          ]
+        },
+        {
+          "path": "docs/LEVEL13_20_PRODUCT_BUILD.md",
+          "keywords": [
+            "source",
+            "rainfall",
+            "dem"
+          ]
+        },
+        {
+          "path": "docs/STUDY_AREA.md",
+          "keywords": [
+            "rainfall",
+            "dem"
+          ]
+        },
+        {
+          "path": "frontend/index.html",
+          "keywords": [
+            "rainfall"
+          ]
+        },
+        {
+          "path": "frontend/README_INSTALL.txt",
+          "keywords": [
+            "gis"
+          ]
+        },
+        {
+          "path": "scripts/add_environment_features.py",
+          "keywords": [
+            "weather"
+          ]
+        },
+        {
+          "path": "scripts/alert_intelligence_engine.py",
+          "keywords": [
+            "rainfall",
+            "sar"
+          ]
+        },
+        {
+          "path": "scripts/anomaly_detection_engine.py",
+          "keywords": [
+            "rainfall",
+            "weather"
+          ]
+        },
+        {
+          "path": "scripts/build_dynamic_event_features.py",
+          "keywords": [
+            "rainfall",
+            "weather"
+          ]
+        },
+        {
+          "path": "scripts/build_dynamic_trigger.py",
+          "keywords": [
+            "rainfall",
+            "weather"
+          ]
+        },
+        {
+          "path": "scripts/build_event_dataset.py",
+          "keywords": [
+            "source",
+            "rainfall",
+            "weather",
+            "gsi"
+          ]
+        },
+        {
+          "path": "scripts/build_feature_dataset.py",
+          "keywords": [
+            "dem"
+          ]
+        },
+        {
+          "path": "scripts/build_ground_truth.py",
+          "keywords": [
+            "gsi"
+          ]
+        },
+        {
+          "path": "scripts/build_intelligence_state.py",
+          "keywords": [
+            "source",
+            "rainfall",
+            "sar"
+          ]
+        },
+        {
+          "path": "scripts/clean_gsi_inventory.py",
+          "keywords": [
+            "source",
+            "gsi"
+          ]
+        },
+        {
+          "path": "scripts/compare_models.py",
+          "keywords": [
+            "gis"
+          ]
+        },
+        {
+          "path": "scripts/confidence_uncertainty_engine.py",
+          "keywords": [
+            "sar"
+          ]
+        },
+        {
+          "path": "scripts/counterfactual_risk_engine.py",
+          "keywords": [
+            "rainfall",
+            "weather"
+          ]
+        },
+        {
+          "path": "scripts/explanation_recommendation_engine.py",
+          "keywords": [
+            "rainfall"
+          ]
+        },
+        {
+          "path": "scripts/extract_gsi_inventory.py",
+          "keywords": [
+            "gsi"
+          ]
+        },
+        {
+          "path": "scripts/final_intelligence_audit.py",
+          "keywords": [
+            "rainfall",
+            "sar"
+          ]
+        },
+        {
+          "path": "scripts/historical_event_engine.py",
+          "keywords": [
+            "gsi"
+          ]
+        },
+        {
+          "path": "scripts/level20_e2e.py",
+          "keywords": [
+            "rainfall"
+          ]
+        },
+        {
+          "path": "scripts/model_shootout_deep.py",
+          "keywords": [
+            "rainfall"
+          ]
+        },
+        {
+          "path": "scripts/model_shootout_fast.py",
+          "keywords": [
+            "rainfall"
+          ]
+        },
+        {
+          "path": "scripts/parse_gsi_inventory.py",
+          "keywords": [
+            "gsi"
+          ]
+        },
+        {
+          "path": "scripts/process_era5.py",
+          "keywords": [
+            "rainfall",
+            "weather"
+          ]
+        },
+        {
+          "path": "scripts/process_osm.py",
+          "keywords": [
+            "gsi"
+          ]
+        },
+        {
+          "path": "scripts/process_terrain.py",
+          "keywords": [
+            "source",
+            "dem"
+          ]
+        },
+        {
+          "path": "scripts/rainfall_trigger_engine.py",
+          "keywords": [
+            "rainfall",
+            "weather"
+          ]
+        },
+        {
+          "path": "scripts/risk_decision_engine.py",
+          "keywords": [
+            "rainfall"
+          ]
+        },
+        {
+          "path": "scripts/risk_fusion.py",
+          "keywords": [
+            "rainfall",
+            "weather"
+          ]
+        },
+        {
+          "path": "scripts/sar_evidence_engine.py",
+          "keywords": [
+            "sentinel",
+            "sar"
+          ]
+        },
+        {
+          "path": "scripts/scenario_simulation_engine.py",
+          "keywords": [
+            "rainfall",
+            "weather"
+          ]
+        },
+        {
+          "path": "scripts/soil_wetness_engine.py",
+          "keywords": [
+            "weather"
+          ]
+        },
+        {
+          "path": "scripts/temporal_risk_engine.py",
+          "keywords": [
+            "rainfall",
+            "weather"
+          ]
+        },
+        {
+          "path": "scripts/validate_dynamic_trigger.py",
+          "keywords": [
+            "rainfall",
+            "weather"
+          ]
+        },
+        {
+          "path": "frontend/js/api.js",
+          "keywords": [
+            "rainfall",
+            "gis"
+          ]
+        },
+        {
+          "path": "frontend/js/app.js",
+          "keywords": [
+            "rainfall"
+          ]
+        },
+        {
+          "path": "frontend/js/intelligence.js",
+          "keywords": [
+            "source",
+            "rainfall",
+            "sar"
+          ]
+        },
+        {
+          "path": "frontend/js/map.js",
+          "keywords": [
+            "sar"
+          ]
+        },
+        {
+          "path": "frontend/js/scenarios.js",
+          "keywords": [
+            "rainfall"
+          ]
+        },
+        {
+          "path": "frontend/js/views.js",
+          "keywords": [
+            "rainfall"
+          ]
+        },
+        {
+          "path": "docs/audit/beast_spec.yaml",
+          "keywords": [
+            "source",
+            "sar"
+          ]
+        },
+        {
+          "path": "docs/audit/data_lineage.yaml",
+          "keywords": [
+            "source"
+          ]
+        },
+        {
+          "path": "data/processed/landslides/gsi_inventory_raw.txt",
+          "keywords": [
+            "weather",
+            "sar",
+            "gsi",
+            "dem",
+            "gis"
+          ]
+        },
+        {
+          "path": "backend/app/build_risk_spatial_cache.py",
+          "keywords": [
+            "source"
+          ]
+        },
+        {
+          "path": "backend/app/build_spatial_cache.py",
+          "keywords": [
+            "source"
+          ]
+        }
+      ]
+    },
+    "RAW": {
+      "candidate_count": 28,
+      "files": [
+        {
+          "path": "LEVEL20_E2E_QA.md",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "docs/LEVEL13_20_PRODUCT_BUILD.md",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "frontend/index.html",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "scripts/extract_gsi_inventory.py",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "scripts/model_shootout_deep.py",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "scripts/parse_gsi_inventory.py",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "scripts/process_era5.py",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "scripts/process_terrain.py",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "scripts/sar_evidence_engine.py",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "frontend/css/style.css",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "frontend/js/app.js",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "frontend/js/intelligence.js",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "frontend/js/map.js",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "frontend/js/views.js",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "docs/audit/beast_spec.yaml",
+          "keywords": [
+            "ingest"
+          ]
+        },
+        {
+          "path": "docs/audit/data_lineage.yaml",
+          "keywords": [
+            "raw",
+            "ingest"
+          ]
+        },
+        {
+          "path": "data/processed/landslides/gsi_inventory_raw.txt",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "backend/app/cluster_exposure.py",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "backend/app/cross_engine_intelligence.py",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "backend/app/ai/autonomous_master.py",
+          "keywords": [
+            "raw",
+            "ingest"
+          ]
+        },
+        {
+          "path": "backend/app/ai/decision_orchestrator.py",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "backend/app/ai/domain_retrieval.py",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "backend/app/ai/evidence_synthesis.py",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "backend/app/ai/historical_event_intelligence.py",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "backend/app/ai/learning_aware_synthesis.py",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "backend/app/ai/learning_candidates.py",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "backend/app/ai/model_adapter.py",
+          "keywords": [
+            "raw"
+          ]
+        },
+        {
+          "path": "backend/app/ai/self_correction.py",
+          "keywords": [
+            "raw"
+          ]
+        }
+      ]
+    },
+    "CLEAN": {
+      "candidate_count": 49,
+      "files": [
+        {
+          "path": "README.md",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "docs/LEVEL13_20_PRODUCT_BUILD.md",
+          "keywords": [
+            "clean"
+          ]
+        },
+        {
+          "path": "docs/STUDY_AREA.md",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/alert_intelligence_engine.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/build_dynamic_event_features.py",
+          "keywords": [
+            "normalize",
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/build_event_dataset.py",
+          "keywords": [
+            "clean",
+            "normalize"
+          ]
+        },
+        {
+          "path": "scripts/build_feature_dataset.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/build_ground_truth.py",
+          "keywords": [
+            "clean"
+          ]
+        },
+        {
+          "path": "scripts/build_model_diagnostic_report.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/calibrate_model.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/clean_gsi_inventory.py",
+          "keywords": [
+            "clean",
+            "normalize",
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/cluster_alerts.py",
+          "keywords": [
+            "normalize"
+          ]
+        },
+        {
+          "path": "scripts/compare_models.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/explain_susceptibility.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/final_intelligence_audit.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/historical_event_engine.py",
+          "keywords": [
+            "clean",
+            "normalize"
+          ]
+        },
+        {
+          "path": "scripts/merge_static_features.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/model_ablation.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/model_road_bias_check.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/optimize_threshold.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/prioritize_incidents.py",
+          "keywords": [
+            "normalize"
+          ]
+        },
+        {
+          "path": "scripts/process_osm.py",
+          "keywords": [
+            "clean"
+          ]
+        },
+        {
+          "path": "scripts/risk_decision_engine.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/split_ground_truth.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/train_baseline.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/validate_dynamic_trigger.py",
+          "keywords": [
+            "normalize",
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/validate_features.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/validate_ground_truth.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "scripts/validate_intelligence_state.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "frontend/js/map.js",
+          "keywords": [
+            "clean"
+          ]
+        },
+        {
+          "path": "docs/audit/beast_spec.yaml",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "docs/audit/data_lineage.yaml",
+          "keywords": [
+            "clean",
+            "normalize",
+            "validation"
+          ]
+        },
+        {
+          "path": "docs/audit/feature_scope_177.yaml",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "backend/app/cross_engine_intelligence.py",
+          "keywords": [
+            "normalize"
+          ]
+        },
+        {
+          "path": "backend/app/intelligence_normalizer.py",
+          "keywords": [
+            "normalize"
+          ]
+        },
+        {
+          "path": "backend/app/intelligence_quality.py",
+          "keywords": [
+            "normalize"
+          ]
+        },
+        {
+          "path": "backend/app/scenario_intelligence.py",
+          "keywords": [
+            "normalize"
+          ]
+        },
+        {
+          "path": "backend/app/scenario_priority.py",
+          "keywords": [
+            "normalize"
+          ]
+        },
+        {
+          "path": "backend/app/ai/autonomous_master.py",
+          "keywords": [
+            "clean"
+          ]
+        },
+        {
+          "path": "backend/app/ai/cell_investigator.py",
+          "keywords": [
+            "clean"
+          ]
+        },
+        {
+          "path": "backend/app/ai/evidence_synthesis.py",
+          "keywords": [
+            "normalize"
+          ]
+        },
+        {
+          "path": "backend/app/ai/learning_candidates.py",
+          "keywords": [
+            "clean",
+            "validation"
+          ]
+        },
+        {
+          "path": "backend/app/ai/model_adapter.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "backend/app/ai/model_tool_loop.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "backend/app/ai/regional_investigator.py",
+          "keywords": [
+            "clean"
+          ]
+        },
+        {
+          "path": "backend/app/ai/scenario_investigator.py",
+          "keywords": [
+            "clean"
+          ]
+        },
+        {
+          "path": "backend/app/ai/system_policy.py",
+          "keywords": [
+            "validation"
+          ]
+        },
+        {
+          "path": "backend/app/ai/tool_registry.py",
+          "keywords": [
+            "normalize"
+          ]
+        },
+        {
+          "path": "backend/app/ai/verification.py",
+          "keywords": [
+            "normalize"
+          ]
+        }
+      ]
+    },
+    "FEATURES": {
+      "candidate_count": 47,
+      "files": [
+        {
+          "path": "README.md",
+          "keywords": [
+            "transform"
+          ]
+        },
+        {
+          "path": "scripts/add_environment_features.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/anomaly_detection_engine.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/build_dynamic_event_features.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/build_dynamic_trigger.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/build_feature_dataset.py",
+          "keywords": [
+            "feature",
+            "transform"
+          ]
+        },
+        {
+          "path": "scripts/build_model_diagnostic_report.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/calibrate_model.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/compare_models.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/confidence_uncertainty_engine.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/counterfactual_risk_engine.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/explain_susceptibility.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/exposure_impact_engine.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/merge_static_features.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/model_ablation.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/model_road_bias_check.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/optimize_threshold.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/process_era5.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/process_osm.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/process_terrain.py",
+          "keywords": [
+            "transform"
+          ]
+        },
+        {
+          "path": "scripts/risk_fusion.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/sar_evidence_engine.py",
+          "keywords": [
+            "transform"
+          ]
+        },
+        {
+          "path": "scripts/spatial_propagation_engine.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/susceptibility_engine.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/terrain_instability_engine.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/train_baseline.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/validate_dynamic_trigger.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "scripts/validate_features.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "frontend/css/style.css",
+          "keywords": [
+            "transform"
+          ]
+        },
+        {
+          "path": "frontend/js/incidents.js",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "frontend/js/map.js",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "frontend/js/scenarios.js",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "docs/audit/data_lineage.yaml",
+          "keywords": [
+            "feature",
+            "transform"
+          ]
+        },
+        {
+          "path": "docs/audit/feature_scope_177.yaml",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "data/processed/landslides/gsi_inventory_raw.txt",
+          "keywords": [
+            "transform"
+          ]
+        },
+        {
+          "path": "backend/app/build_risk_spatial_cache.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "backend/app/build_spatial_cache.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "backend/app/cell_intelligence_pipeline.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "backend/app/cell_neighborhood.py",
+          "keywords": [
+            "feature",
+            "transform"
+          ]
+        },
+        {
+          "path": "backend/app/cross_cell_patterns.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "backend/app/exact_cell_intelligence.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "backend/app/regional_intelligence.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "backend/app/risk_clusters.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "backend/app/ai/grounding.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "backend/app/ai/learning_aware_synthesis.py",
+          "keywords": [
+            "transform"
+          ]
+        },
+        {
+          "path": "backend/app/core/schemas.py",
+          "keywords": [
+            "feature"
+          ]
+        },
+        {
+          "path": "backend/app/services/gis_service.py",
+          "keywords": [
+            "feature",
+            "transform"
+          ]
+        }
+      ]
+    },
+    "ENGINE": {
+      "candidate_count": 103,
+      "files": [
+        {
+          "path": "frontend/index.html",
+          "keywords": [
+            "engine"
+          ]
+        },
+        {
+          "path": "scripts/alert_intelligence_engine.py",
+          "keywords": [
+            "engine",
+            "risk_score"
+          ]
+        },
+        {
+          "path": "scripts/anomaly_detection_engine.py",
+          "keywords": [
+            "engine"
+          ]
+        },
+        {
+          "path": "scripts/build_intelligence_state.py",
+          "keywords": [
+            "engine",
+            "risk_score"
+          ]
+        },
+        {
+          "path": "scripts/calibrate_model.py",
+          "keywords": [
+            "predict"
+          ]
+        },
+        {
+          "path": "scripts/cluster_alerts.py",
+          "keywords": [
+            "predict",
+            "risk_score"
+          ]
+        },
+        {
+          "path": "scripts/compare_models.py",
+          "keywords": [
+            "predict"
+          ]
+        },
+        {
+          "path": "scripts/confidence_uncertainty_engine.py",
+          "keywords": [
+            "engine",
+            "predict"
+          ]
+        },
+        {
+          "path": "scripts/counterfactual_risk_engine.py",
+          "keywords": [
+            "engine",
+            "predict",
+            "risk_score"
+          ]
+        },
+        {
+          "path": "scripts/explain_susceptibility.py",
+          "keywords": [
+            "predict"
+          ]
+        },
+        {
+          "path": "scripts/explanation_recommendation_engine.py",
+          "keywords": [
+            "engine"
+          ]
+        },
+        {
+          "path": "scripts/exposure_impact_engine.py",
+          "keywords": [
+            "engine"
+          ]
+        },
+        {
+          "path": "scripts/final_intelligence_audit.py",
+          "keywords": [
+            "engine",
+            "risk_score"
+          ]
+        },
+        {
+          "path": "scripts/historical_current_correlation.py",
+          "keywords": [
+            "engine",
+            "risk_score"
+          ]
+        },
+        {
+          "path": "scripts/historical_event_engine.py",
+          "keywords": [
+            "engine"
+          ]
+        },
+        {
+          "path": "scripts/model_ablation.py",
+          "keywords": [
+            "predict"
+          ]
+        },
+        {
+          "path": "scripts/model_road_bias_check.py",
+          "keywords": [
+            "predict"
+          ]
+        },
+        {
+          "path": "scripts/optimize_threshold.py",
+          "keywords": [
+            "predict"
+          ]
+        },
+        {
+          "path": "scripts/prioritize_incidents.py",
+          "keywords": [
+            "risk_score"
+          ]
+        },
+        {
+          "path": "scripts/rainfall_trigger_engine.py",
+          "keywords": [
+            "engine"
+          ]
+        },
+        {
+          "path": "scripts/risk_decision_engine.py",
+          "keywords": [
+            "engine",
+            "risk_score"
+          ]
+        },
+        {
+          "path": "scripts/risk_fusion.py",
+          "keywords": [
+            "predict",
+            "risk_score"
+          ]
+        },
+        {
+          "path": "scripts/sar_evidence_engine.py",
+          "keywords": [
+            "engine"
+          ]
+        },
+        {
+          "path": "scripts/scenario_simulation_engine.py",
+          "keywords": [
+            "engine"
+          ]
+        },
+        {
+          "path": "scripts/soil_wetness_engine.py",
+          "keywords": [
+            "engine"
+          ]
+        },
+        {
+          "path": "scripts/spatial_propagation_engine.py",
+          "keywords": [
+            "engine"
+          ]
+        },
+        {
+          "path": "scripts/susceptibility_engine.py",
+          "keywords": [
+            "engine",
+            "predict"
+          ]
+        },
+        {
+          "path": "scripts/temporal_risk_engine.py",
+          "keywords": [
+            "engine"
+          ]
+        },
+        {
+          "path": "scripts/terrain_instability_engine.py",
+          "keywords": [
+            "engine"
+          ]
+        },
+        {
+          "path": "scripts/train_baseline.py",
+          "keywords": [
+            "predict"
+          ]
+        },
+        {
+          "path": "scripts/validate_intelligence_state.py",
+          "keywords": [
+            "engine",
+            "risk_score"
+          ]
+        },
+        {
+          "path": "frontend/js/app.js",
+          "keywords": [
+            "risk_score"
+          ]
+        },
+        {
+          "path": "frontend/js/incidents.js",
+          "keywords": [
+            "risk_score"
+          ]
+        },
+        {
+          "path": "frontend/js/map.js",
+          "keywords": [
+            "risk_score"
+          ]
+        },
+        {
+          "path": "frontend/js/scenarios.js",
+          "keywords": [
+            "risk_score"
+          ]
+        },
+        {
+          "path": "docs/audit/beast_spec.yaml",
+          "keywords": [
+            "engine",
+            "predict"
+          ]
+        },
+        {
+          "path": "docs/audit/data_lineage.yaml",
+          "keywords": [
+            "engine",
+            "predict"
+          ]
+        },
+        {
+          "path": "data/processed/landslides/gsi_inventory_raw.txt",
+          "keywords": [
+            "engine"
+          ]
+        },
+        {
+          "path": "backend/app/cell_intelligence_pipeline.py",
+          "keywords": [
+            "engine",
+            "risk_score"
+          ]
+        },
+        {
+          "path": "backend/app/cluster_evolution.py",
+          "keywords": [
+            "risk_score"
+          ]
+        },
+        {
+          "path": "backend/app/cross_cell_patterns.py",
+          "keywords": [
+            "risk_score"
+          ]
+        },
+        {
+          "path": "backend/app/cross_engine_intelligence.py",
+          "keywords": [
+            "engine",
+            "risk_score"
+          ]
+        },
+        {
+          "path": "backend/app/decision_master.py",
+          "keywords": [
+            "engine"
+          ]
+        },
+        {
+          "path": "backend/app/decision_optimization.py",
+          "keywords": [
+            "engine",
+            "risk_score"
+          ]
+        },
+        {
+          "path": "backend/app/decision_tradeoff.py",
+          "keywords": [
+            "engine",
+            "risk_score"
+          ]
+        },
+        {
+          "path": "backend/app/early_warning.py",
+          "keywords": [
+            "engine",
+            "risk_score"
+          ]
+        },
+        {
+          "path": "backend/app/early_warning_master.py",
+          "keywords": [
+            "engine"
+          ]
+        },
+        {
+          "path": "backend/app/emerging_risk.py",
+          "keywords": [
+            "engine"
+          ]
+        },
+        {
+          "path": "backend/app/event_progression.py",
+          "keywords": [
+            "engine",
+            "risk_score"
+          ]
+        },
+        {
+          "path": "backend/app/evidence_conflict.py",
+          "keywords": [
+            "engine",
+            "risk_score"
+          ]
+        }
+      ]
+    },
+    "DERIVED_INTELLIGENCE": {
+      "candidate_count": 129,
+      "files": [
+        {
+          "path": "LEVEL20_E2E_QA.md",
+          "keywords": [
+            "cell",
+            "cluster"
+          ]
+        },
+        {
+          "path": "README.md",
+          "keywords": [
+            "cell",
+            "cluster",
+            "temporal"
+          ]
+        },
+        {
+          "path": "data/model_shootout_fast.json",
+          "keywords": [
+            "cell",
+            "cluster"
+          ]
+        },
+        {
+          "path": "docs/LEVEL13_20_PRODUCT_BUILD.md",
+          "keywords": [
+            "cell",
+            "cluster"
+          ]
+        },
+        {
+          "path": "frontend/index.html",
+          "keywords": [
+            "cell",
+            "cluster"
+          ]
+        },
+        {
+          "path": "frontend/README_INSTALL.txt",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/add_environment_features.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/alert_intelligence_engine.py",
+          "keywords": [
+            "cell",
+            "temporal"
+          ]
+        },
+        {
+          "path": "scripts/build_feature_dataset.py",
+          "keywords": [
+            "cell",
+            "neighborhood"
+          ]
+        },
+        {
+          "path": "scripts/build_ground_truth.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/build_intelligence_state.py",
+          "keywords": [
+            "cell",
+            "propagation",
+            "temporal"
+          ]
+        },
+        {
+          "path": "scripts/build_negative_samples.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/calibrate_model.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/cluster_alerts.py",
+          "keywords": [
+            "cell",
+            "cluster"
+          ]
+        },
+        {
+          "path": "scripts/compare_models.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/confidence_uncertainty_engine.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/counterfactual_risk_engine.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/explain_susceptibility.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/explanation_recommendation_engine.py",
+          "keywords": [
+            "cell",
+            "propagation",
+            "temporal"
+          ]
+        },
+        {
+          "path": "scripts/exposure_impact_engine.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/final_intelligence_audit.py",
+          "keywords": [
+            "cell",
+            "propagation",
+            "temporal"
+          ]
+        },
+        {
+          "path": "scripts/historical_current_correlation.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/merge_static_features.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/model_ablation.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/model_road_bias_check.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/model_shootout_deep.py",
+          "keywords": [
+            "cell",
+            "temporal"
+          ]
+        },
+        {
+          "path": "scripts/model_shootout_fast.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/optimize_threshold.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/prioritize_incidents.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/risk_decision_engine.py",
+          "keywords": [
+            "cell",
+            "temporal"
+          ]
+        },
+        {
+          "path": "scripts/risk_fusion.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/spatial_propagation_engine.py",
+          "keywords": [
+            "cell",
+            "neighborhood",
+            "propagation"
+          ]
+        },
+        {
+          "path": "scripts/split_ground_truth.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/susceptibility_engine.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/temporal_risk_engine.py",
+          "keywords": [
+            "temporal"
+          ]
+        },
+        {
+          "path": "scripts/terrain_instability_engine.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/train_baseline.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/validate_features.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/validate_ground_truth.py",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "scripts/validate_intelligence_state.py",
+          "keywords": [
+            "cell",
+            "propagation"
+          ]
+        },
+        {
+          "path": "frontend/css/style.css",
+          "keywords": [
+            "cell",
+            "cluster"
+          ]
+        },
+        {
+          "path": "frontend/js/api.js",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "frontend/js/app.js",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "frontend/js/incidents.js",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "frontend/js/intelligence.js",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "frontend/js/map.js",
+          "keywords": [
+            "cell",
+            "cluster",
+            "propagation"
+          ]
+        },
+        {
+          "path": "frontend/js/scenarios.js",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "frontend/js/state.js",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "docs/audit/data_lineage.yaml",
+          "keywords": [
+            "cell"
+          ]
+        },
+        {
+          "path": "data/processed/landslides/gsi_inventory_raw.txt",
+          "keywords": [
+            "cell"
+          ]
+        }
+      ]
+    },
+    "AI_EVIDENCE": {
+      "candidate_count": 66,
+      "files": [
+        {
+          "path": "LEVEL20_E2E_QA.md",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "README.md",
+          "keywords": [
+            "evidence",
+            "grounding",
+            "verification"
+          ]
+        },
+        {
+          "path": "data/model_shootout_fast.json",
+          "keywords": [
+            "verification"
+          ]
+        },
+        {
+          "path": "docs/LEVEL13_20_PRODUCT_BUILD.md",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "docs/STUDY_AREA.md",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "frontend/index.html",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "scripts/build_intelligence_state.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "scripts/confidence_integrity_test.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "scripts/confidence_uncertainty_engine.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "scripts/explanation_recommendation_engine.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "scripts/final_intelligence_audit.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "scripts/model_shootout_deep.py",
+          "keywords": [
+            "evidence",
+            "verification"
+          ]
+        },
+        {
+          "path": "scripts/model_shootout_fast.py",
+          "keywords": [
+            "verification"
+          ]
+        },
+        {
+          "path": "scripts/sar_evidence_engine.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "frontend/css/style.css",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "frontend/js/intelligence.js",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "frontend/js/views.js",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "docs/audit/beast_spec.yaml",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "docs/audit/data_lineage.yaml",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "docs/audit/feature_scope_177.yaml",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/cell_intelligence_pipeline.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/cross_engine_intelligence.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/decision_master.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/decision_tradeoff.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/early_warning.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/early_warning_master.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/emerging_risk.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/evidence_conflict.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/exact_cell_intelligence.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/historical_trajectory.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/intervention_priority.py",
+          "keywords": [
+            "verification"
+          ]
+        },
+        {
+          "path": "backend/app/operational_planning.py",
+          "keywords": [
+            "evidence",
+            "verification"
+          ]
+        },
+        {
+          "path": "backend/app/regional_temporal.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/risk_posture.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/scenario_master.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/scenario_uncertainty.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/temporal_anomaly_fusion.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/unified_posture.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/ai/adversarial_benchmark.py",
+          "keywords": [
+            "evidence",
+            "verification"
+          ]
+        },
+        {
+          "path": "backend/app/ai/agent_benchmark.py",
+          "keywords": [
+            "evidence",
+            "verification"
+          ]
+        },
+        {
+          "path": "backend/app/ai/agent_memory.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/ai/autonomous_master.py",
+          "keywords": [
+            "evidence",
+            "grounding",
+            "verification"
+          ]
+        },
+        {
+          "path": "backend/app/ai/benchmark.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/ai/cell_investigator.py",
+          "keywords": [
+            "evidence",
+            "grounding"
+          ]
+        },
+        {
+          "path": "backend/app/ai/domain_knowledge.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/ai/domain_router.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/ai/evidence.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/ai/evidence_builder.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/ai/evidence_completeness_benchmark.py",
+          "keywords": [
+            "evidence"
+          ]
+        },
+        {
+          "path": "backend/app/ai/evidence_synthesis.py",
+          "keywords": [
+            "evidence",
+            "verification"
+          ]
+        }
+      ]
+    },
+    "DECISION": {
+      "candidate_count": 102,
+      "files": [
+        {
+          "path": "DATA_PRESERVATION.md",
+          "keywords": [
+            "recommend"
+          ]
+        },
+        {
+          "path": "README.md",
+          "keywords": [
+            "decision",
+            "recommend",
+            "warning",
+            "priority"
+          ]
+        },
+        {
+          "path": "data/model_shootout_fast.json",
+          "keywords": [
+            "decision",
+            "recommend",
+            "priority"
+          ]
+        },
+        {
+          "path": "docs/LEVEL13_20_PRODUCT_BUILD.md",
+          "keywords": [
+            "decision"
+          ]
+        },
+        {
+          "path": "frontend/index.html",
+          "keywords": [
+            "decision",
+            "alert",
+            "priority"
+          ]
+        },
+        {
+          "path": "frontend/README_INSTALL.txt",
+          "keywords": [
+            "decision",
+            "alert",
+            "priority"
+          ]
+        },
+        {
+          "path": "scripts/alert_intelligence_engine.py",
+          "keywords": [
+            "decision",
+            "recommend",
+            "alert",
+            "priority"
+          ]
+        },
+        {
+          "path": "scripts/build_intelligence_state.py",
+          "keywords": [
+            "recommend"
+          ]
+        },
+        {
+          "path": "scripts/build_model_diagnostic_report.py",
+          "keywords": [
+            "decision"
+          ]
+        },
+        {
+          "path": "scripts/cluster_alerts.py",
+          "keywords": [
+            "decision",
+            "alert",
+            "warning",
+            "priority"
+          ]
+        },
+        {
+          "path": "scripts/confidence_uncertainty_engine.py",
+          "keywords": [
+            "decision",
+            "warning"
+          ]
+        },
+        {
+          "path": "scripts/explanation_recommendation_engine.py",
+          "keywords": [
+            "recommend",
+            "warning"
+          ]
+        },
+        {
+          "path": "scripts/final_intelligence_audit.py",
+          "keywords": [
+            "decision",
+            "recommend",
+            "alert",
+            "priority"
+          ]
+        },
+        {
+          "path": "scripts/historical_current_correlation.py",
+          "keywords": [
+            "priority"
+          ]
+        },
+        {
+          "path": "scripts/model_shootout_deep.py",
+          "keywords": [
+            "decision"
+          ]
+        },
+        {
+          "path": "scripts/model_shootout_fast.py",
+          "keywords": [
+            "decision"
+          ]
+        },
+        {
+          "path": "scripts/prioritize_incidents.py",
+          "keywords": [
+            "recommend",
+            "alert",
+            "priority"
+          ]
+        },
+        {
+          "path": "scripts/risk_decision_engine.py",
+          "keywords": [
+            "decision",
+            "recommend",
+            "warning"
+          ]
+        },
+        {
+          "path": "scripts/risk_fusion.py",
+          "keywords": [
+            "decision"
+          ]
+        },
+        {
+          "path": "scripts/susceptibility_engine.py",
+          "keywords": [
+            "decision",
+            "alert"
+          ]
+        },
+        {
+          "path": "scripts/validate_intelligence_state.py",
+          "keywords": [
+            "recommend"
+          ]
+        },
+        {
+          "path": "frontend/css/style.css",
+          "keywords": [
+            "decision",
+            "recommend",
+            "priority"
+          ]
+        },
+        {
+          "path": "frontend/js/api.js",
+          "keywords": [
+            "alert",
+            "priority"
+          ]
+        },
+        {
+          "path": "frontend/js/app.js",
+          "keywords": [
+            "decision",
+            "recommend",
+            "alert",
+            "warning",
+            "priority"
+          ]
+        },
+        {
+          "path": "frontend/js/incidents.js",
+          "keywords": [
+            "priority"
+          ]
+        },
+        {
+          "path": "frontend/js/intelligence.js",
+          "keywords": [
+            "decision"
+          ]
+        },
+        {
+          "path": "frontend/js/map.js",
+          "keywords": [
+            "warning",
+            "priority"
+          ]
+        },
+        {
+          "path": "frontend/js/scenarios.js",
+          "keywords": [
+            "decision"
+          ]
+        },
+        {
+          "path": "frontend/js/state.js",
+          "keywords": [
+            "alert"
+          ]
+        },
+        {
+          "path": "frontend/js/views.js",
+          "keywords": [
+            "decision",
+            "priority"
+          ]
+        },
+        {
+          "path": "docs/audit/beast_spec.yaml",
+          "keywords": [
+            "recommend"
+          ]
+        },
+        {
+          "path": "docs/audit/data_lineage.yaml",
+          "keywords": [
+            "decision",
+            "recommend",
+            "warning"
+          ]
+        },
+        {
+          "path": "backend/app/build_risk_spatial_cache.py",
+          "keywords": [
+            "decision"
+          ]
+        },
+        {
+          "path": "backend/app/cell_intelligence_pipeline.py",
+          "keywords": [
+            "warning",
+            "priority"
+          ]
+        },
+        {
+          "path": "backend/app/cluster_priority.py",
+          "keywords": [
+            "warning",
+            "priority"
+          ]
+        },
+        {
+          "path": "backend/app/cross_cell_patterns.py",
+          "keywords": [
+            "warning"
+          ]
+        },
+        {
+          "path": "backend/app/cross_engine_intelligence.py",
+          "keywords": [
+            "warning"
+          ]
+        },
+        {
+          "path": "backend/app/decision_master.py",
+          "keywords": [
+            "decision",
+            "recommend",
+            "priority"
+          ]
+        },
+        {
+          "path": "backend/app/decision_optimization.py",
+          "keywords": [
+            "decision",
+            "recommend",
+            "priority"
+          ]
+        },
+        {
+          "path": "backend/app/decision_tradeoff.py",
+          "keywords": [
+            "decision"
+          ]
+        },
+        {
+          "path": "backend/app/early_warning.py",
+          "keywords": [
+            "warning"
+          ]
+        },
+        {
+          "path": "backend/app/early_warning_master.py",
+          "keywords": [
+            "warning",
+            "priority"
+          ]
+        },
+        {
+          "path": "backend/app/emerging_risk.py",
+          "keywords": [
+            "priority"
+          ]
+        },
+        {
+          "path": "backend/app/event_progression.py",
+          "keywords": [
+            "warning",
+            "priority"
+          ]
+        },
+        {
+          "path": "backend/app/exact_cell_intelligence.py",
+          "keywords": [
+            "warning",
+            "priority"
+          ]
+        },
+        {
+          "path": "backend/app/field_inspection.py",
+          "keywords": [
+            "priority"
+          ]
+        },
+        {
+          "path": "backend/app/infrastructure_impact.py",
+          "keywords": [
+            "priority"
+          ]
+        },
+        {
+          "path": "backend/app/intelligence_normalizer.py",
+          "keywords": [
+            "warning"
+          ]
+        },
+        {
+          "path": "backend/app/intelligence_quality.py",
+          "keywords": [
+            "warning"
+          ]
+        },
+        {
+          "path": "backend/app/intervention_comparison.py",
+          "keywords": [
+            "recommend",
+            "priority"
+          ]
+        }
+      ]
+    }
+  },
+  "required_artifact_fields": [
+    "artifact_id",
+    "producer",
+    "input_ids",
+    "created_at",
+    "source_timestamp",
+    "ingestion_timestamp",
+    "dataset_version",
+    "geographic_scope",
+    "quality",
+    "freshness",
+    "provenance",
+    "validation_state"
+  ],
+  "warning": "Keyword discovery does not prove runtime lineage. Runtime lineage still requires actual producer/consumer IDs, timestamps, versions, freshness and provenance."
+}

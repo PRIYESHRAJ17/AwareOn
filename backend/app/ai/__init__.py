@@ -69,8 +69,6 @@ from .scenario_investigator import (
 from .agent_memory import (
     AgentStep,
     InvestigationMemory,
-    LearningCandidate,
-    approve_learning_candidate,
     create_investigation_memory,
 )
 
@@ -108,7 +106,6 @@ __all__ = [
     "EvidencePackage",
     "EvidenceType",
     "InvestigationMemory",
-    "LearningCandidate",
     "ModelAdapterError",
     "ModelConfig",
     "QueryDomain",
@@ -119,7 +116,6 @@ __all__ = [
     "ToolSpec",
     "VerificationIssue",
     "VerificationResult",
-    "approve_learning_candidate",
     "build_ambiguous_response",
     "build_out_of_domain_response",
     "build_provenance",

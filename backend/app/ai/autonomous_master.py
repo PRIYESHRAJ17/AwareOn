@@ -3177,7 +3177,9 @@ def run_awareon_agent(
                 ),
                 domain="AWAREON",
                 intent="GENERAL_AWAREON",
-                confidence=100.0,
+                confidence=(
+                    float(previous_turn.confidence)
+                ),
                 evidence=[],
                 tools_used=[],
                 inferences=[],
@@ -3226,6 +3228,7 @@ def run_awareon_agent(
                 answer=response.answer,
                 intent="GENERAL_AWAREON",
                 status="READY",
+                confidence=response.confidence,
                 facts=previous_turn.facts,
             )
 
@@ -3288,7 +3291,11 @@ def run_awareon_agent(
     ):
         response = (
             build_out_of_domain_response(
-                query
+                query,
+                confidence=round(
+                    decision.confidence * 100.0,
+                    2,
+                ),
             )
         )
 
@@ -3324,7 +3331,12 @@ def run_awareon_agent(
         == QueryDomain.AMBIGUOUS
     ):
         response = (
-            build_ambiguous_response()
+            build_ambiguous_response(
+                confidence=round(
+                    decision.confidence * 100.0,
+                    2,
+                )
+            )
         )
 
         memory.add_step(
@@ -3690,7 +3702,12 @@ def run_awareon_agent(
 
     if not investigations:
         response = (
-            build_ambiguous_response()
+            build_ambiguous_response(
+                confidence=round(
+                    decision.confidence * 100.0,
+                    2,
+                )
+            )
         )
 
         memory.add_step(
@@ -3803,7 +3820,7 @@ def run_awareon_agent(
     )
 
     # --------------------------------------------------------
-    # REAL NEMOTRON SYNTHESIS
+    # MODEL-BACKED SYNTHESIS
     # --------------------------------------------------------
 
     answer = ""
@@ -3953,9 +3970,17 @@ def run_awareon_agent(
     ]
 
     if model_used:
+        model_name = (
+            AwareOnModelAdapter
+            .from_environment()
+            .config
+            .model
+            or "configured AI model"
+        )
+
         limitations.append(
             (
-                "Nemotron synthesis was independently "
+                f"{model_name} synthesis was independently "
                 "checked against the canonical evidence "
                 "package."
             )
@@ -4135,11 +4160,20 @@ def run_awareon_agent(
     )
 
     if conversation is not None:
+        if final_investigation.response is None:
+            raise RuntimeError(
+                "Cannot persist a conversation turn "
+                "without an AIResponse confidence."
+            )
+
         conversation.add_turn(
             query=query,
             answer=final_investigation.answer,
             intent=final_investigation.intent,
             status=final_investigation.status,
+            confidence=(
+                final_investigation.response.confidence
+            ),
             facts=(
                 final_investigation.memory.facts
                 if final_investigation.memory

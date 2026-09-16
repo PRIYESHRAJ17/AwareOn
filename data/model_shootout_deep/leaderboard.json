@@ -1,0 +1,41 @@
+[
+  {
+    "model": "nemotron-3-nano:4b-q8_0",
+    "tests": 9,
+    "llm_verified": 6,
+    "llm_verified_rate": 0.6667,
+    "llm_use_rate": 0.8889,
+    "verification_rate": 0.7778,
+    "safe_fallback_rate": 0.1111,
+    "error_rate": 0.0,
+    "avg_latency_seconds": 14.67,
+    "p95_latency_seconds": 24.91,
+    "score": 69.19
+  },
+  {
+    "model": "qwen3.5:9b",
+    "tests": 9,
+    "llm_verified": 6,
+    "llm_verified_rate": 0.6667,
+    "llm_use_rate": 1.0,
+    "verification_rate": 0.6667,
+    "safe_fallback_rate": 0.0,
+    "error_rate": 0.0,
+    "avg_latency_seconds": 32.54,
+    "p95_latency_seconds": 33.92,
+    "score": 66.53
+  },
+  {
+    "model": "gpt-oss:20b",
+    "tests": 9,
+    "llm_verified": 3,
+    "llm_verified_rate": 0.3333,
+    "llm_use_rate": 0.3333,
+    "verification_rate": 1.0,
+    "safe_fallback_rate": 0.6667,
+    "error_rate": 0.0,
+    "avg_latency_seconds": 91.6,
+    "p95_latency_seconds": 107.07,
+    "score": 56.58
+  }
+]

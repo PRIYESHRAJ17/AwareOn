@@ -1,0 +1,486 @@
+{
+  "project": "AwareOn",
+  "audit": "data_quality",
+  "status": "PASS",
+  "results": [
+    {
+      "dataset": "gsi_clean",
+      "kind": "CSV",
+      "status": "PASS",
+      "details": {
+        "path": "data/processed/landslides/gsi_sikkim_inventory_clean.csv",
+        "rows": 677,
+        "columns": 10,
+        "column_names": [
+          "record_id",
+          "landslide_id",
+          "state",
+          "district",
+          "location",
+          "latitude",
+          "longitude",
+          "movement_type",
+          "history",
+          "event_date"
+        ],
+        "numeric_columns": [
+          "record_id",
+          "latitude",
+          "longitude"
+        ],
+        "duplicate_rows": 0,
+        "nan_values_numeric_raw": 0,
+        "expected_warmup_nan": 0,
+        "nan_values_numeric_unexpected": 0,
+        "inf_values_numeric": 0,
+        "date_columns": [
+          {
+            "column": "event_date",
+            "missing_source_values": 651,
+            "valid_dates": 26,
+            "invalid_nonmissing_dates": 0,
+            "min": "2009-05-09 00:00:00",
+            "max": "2017-07-09 00:00:00"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "dataset": "static_features",
+      "kind": "CSV",
+      "status": "PASS",
+      "details": {
+        "path": "data/processed/features/static_ml_features.csv",
+        "rows": 1298,
+        "columns": 19,
+        "column_names": [
+          "cell_id",
+          "label",
+          "elevation_m",
+          "slope_deg",
+          "aspect_deg",
+          "elevation_std_m",
+          "aspect_sin",
+          "aspect_cos",
+          "terrain_imputed",
+          "road_distance_m",
+          "settlement_distance_m",
+          "amenity_distance_m",
+          "road_density_500m_km_per_km2",
+          "settlements_within_1km",
+          "amenities_within_1km",
+          "near_road_250m",
+          "near_settlement_1km",
+          "near_amenity_1km",
+          "osm_context_available"
+        ],
+        "numeric_columns": [
+          "label",
+          "elevation_m",
+          "slope_deg",
+          "aspect_deg",
+          "elevation_std_m",
+          "aspect_sin",
+          "aspect_cos",
+          "terrain_imputed",
+          "road_distance_m",
+          "settlement_distance_m",
+          "amenity_distance_m",
+          "road_density_500m_km_per_km2",
+          "settlements_within_1km",
+          "amenities_within_1km",
+          "near_road_250m",
+          "near_settlement_1km",
+          "near_amenity_1km",
+          "osm_context_available"
+        ],
+        "duplicate_rows": 0,
+        "nan_values_numeric_raw": 0,
+        "expected_warmup_nan": 0,
+        "nan_values_numeric_unexpected": 0,
+        "inf_values_numeric": 0,
+        "date_columns": [],
+        "issues": []
+      }
+    },
+    {
+      "dataset": "static_features_validated",
+      "kind": "CSV",
+      "status": "PASS",
+      "details": {
+        "path": "data/processed/features/static_ml_features_validated.csv",
+        "rows": 1298,
+        "columns": 19,
+        "column_names": [
+          "cell_id",
+          "label",
+          "elevation_m",
+          "slope_deg",
+          "aspect_deg",
+          "elevation_std_m",
+          "aspect_sin",
+          "aspect_cos",
+          "terrain_imputed",
+          "road_distance_m",
+          "settlement_distance_m",
+          "amenity_distance_m",
+          "road_density_500m_km_per_km2",
+          "settlements_within_1km",
+          "amenities_within_1km",
+          "near_road_250m",
+          "near_settlement_1km",
+          "near_amenity_1km",
+          "osm_context_available"
+        ],
+        "numeric_columns": [
+          "label",
+          "elevation_m",
+          "slope_deg",
+          "aspect_deg",
+          "elevation_std_m",
+          "aspect_sin",
+          "aspect_cos",
+          "terrain_imputed",
+          "road_distance_m",
+          "settlement_distance_m",
+          "amenity_distance_m",
+          "road_density_500m_km_per_km2",
+          "settlements_within_1km",
+          "amenities_within_1km",
+          "near_road_250m",
+          "near_settlement_1km",
+          "near_amenity_1km",
+          "osm_context_available"
+        ],
+        "duplicate_rows": 0,
+        "nan_values_numeric_raw": 0,
+        "expected_warmup_nan": 0,
+        "nan_values_numeric_unexpected": 0,
+        "inf_values_numeric": 0,
+        "date_columns": [],
+        "issues": []
+      }
+    },
+    {
+      "dataset": "ground_truth_train",
+      "kind": "CSV",
+      "status": "PASS",
+      "details": {
+        "path": "data/processed/ground_truth/ground_truth_train.csv",
+        "rows": 948,
+        "columns": 3,
+        "column_names": [
+          "cell_id",
+          "label",
+          "block_id"
+        ],
+        "numeric_columns": [
+          "label"
+        ],
+        "duplicate_rows": 0,
+        "nan_values_numeric_raw": 0,
+        "expected_warmup_nan": 0,
+        "nan_values_numeric_unexpected": 0,
+        "inf_values_numeric": 0,
+        "date_columns": [],
+        "issues": []
+      }
+    },
+    {
+      "dataset": "ground_truth_validation",
+      "kind": "CSV",
+      "status": "PASS",
+      "details": {
+        "path": "data/processed/ground_truth/ground_truth_validation.csv",
+        "rows": 155,
+        "columns": 3,
+        "column_names": [
+          "cell_id",
+          "label",
+          "block_id"
+        ],
+        "numeric_columns": [
+          "label"
+        ],
+        "duplicate_rows": 0,
+        "nan_values_numeric_raw": 0,
+        "expected_warmup_nan": 0,
+        "nan_values_numeric_unexpected": 0,
+        "inf_values_numeric": 0,
+        "date_columns": [],
+        "issues": []
+      }
+    },
+    {
+      "dataset": "ground_truth_test",
+      "kind": "CSV",
+      "status": "PASS",
+      "details": {
+        "path": "data/processed/ground_truth/ground_truth_test.csv",
+        "rows": 195,
+        "columns": 3,
+        "column_names": [
+          "cell_id",
+          "label",
+          "block_id"
+        ],
+        "numeric_columns": [
+          "label"
+        ],
+        "duplicate_rows": 0,
+        "nan_values_numeric_raw": 0,
+        "expected_warmup_nan": 0,
+        "nan_values_numeric_unexpected": 0,
+        "inf_values_numeric": 0,
+        "date_columns": [],
+        "issues": []
+      }
+    },
+    {
+      "dataset": "positive_cells",
+      "kind": "CSV",
+      "status": "PASS",
+      "details": {
+        "path": "data/processed/ground_truth/positive_cells.csv",
+        "rows": 649,
+        "columns": 4,
+        "column_names": [
+          "cell_id",
+          "landslide_count",
+          "record_ids",
+          "label"
+        ],
+        "numeric_columns": [
+          "landslide_count",
+          "label"
+        ],
+        "duplicate_rows": 0,
+        "nan_values_numeric_raw": 0,
+        "expected_warmup_nan": 0,
+        "nan_values_numeric_unexpected": 0,
+        "inf_values_numeric": 0,
+        "date_columns": [],
+        "issues": []
+      }
+    },
+    {
+      "dataset": "negative_cells",
+      "kind": "CSV",
+      "status": "PASS",
+      "details": {
+        "path": "data/processed/ground_truth/negative_cells.csv",
+        "rows": 649,
+        "columns": 2,
+        "column_names": [
+          "cell_id",
+          "label"
+        ],
+        "numeric_columns": [
+          "label"
+        ],
+        "duplicate_rows": 0,
+        "nan_values_numeric_raw": 0,
+        "expected_warmup_nan": 0,
+        "nan_values_numeric_unexpected": 0,
+        "inf_values_numeric": 0,
+        "date_columns": [],
+        "issues": []
+      }
+    },
+    {
+      "dataset": "era5_environment",
+      "kind": "CSV",
+      "status": "PASS",
+      "details": {
+        "path": "data/processed/weather/era5_environment_timeseries.csv",
+        "rows": 225720,
+        "columns": 14,
+        "column_names": [
+          "valid_time",
+          "latitude",
+          "longitude",
+          "precip_mm",
+          "swvl1",
+          "swvl2",
+          "rain_3h_mm",
+          "rain_6h_mm",
+          "rain_12h_mm",
+          "rain_24h_mm",
+          "rain_72h_mm",
+          "rain_7d_mm",
+          "rain_change_24h_mm",
+          "rain_change_24h_available"
+        ],
+        "numeric_columns": [
+          "latitude",
+          "longitude",
+          "precip_mm",
+          "swvl1",
+          "swvl2",
+          "rain_3h_mm",
+          "rain_6h_mm",
+          "rain_12h_mm",
+          "rain_24h_mm",
+          "rain_72h_mm",
+          "rain_7d_mm",
+          "rain_change_24h_mm"
+        ],
+        "duplicate_rows": 0,
+        "nan_values_numeric_raw": 24,
+        "expected_warmup_nan": 24,
+        "nan_values_numeric_unexpected": 0,
+        "inf_values_numeric": 0,
+        "date_columns": [
+          {
+            "column": "valid_time",
+            "missing_source_values": 0,
+            "valid_dates": 225720,
+            "invalid_nonmissing_dates": 0,
+            "min": "2000-01-01 00:00:00",
+            "max": "2025-09-30 23:00:00"
+          }
+        ],
+        "issues": []
+      }
+    },
+    {
+      "dataset": "current_risk",
+      "kind": "CSV",
+      "status": "PASS",
+      "details": {
+        "path": "data/processed/risk/current_risk_scores.csv",
+        "rows": 1298,
+        "columns": 10,
+        "column_names": [
+          "cell_id",
+          "label",
+          "susceptibility_probability",
+          "trigger_score",
+          "soil_wetness_score",
+          "exposure_score",
+          "uncertainty_score",
+          "confidence_score",
+          "risk_score",
+          "risk_category"
+        ],
+        "numeric_columns": [
+          "label",
+          "susceptibility_probability",
+          "trigger_score",
+          "soil_wetness_score",
+          "exposure_score",
+          "uncertainty_score",
+          "confidence_score",
+          "risk_score"
+        ],
+        "duplicate_rows": 0,
+        "nan_values_numeric_raw": 0,
+        "expected_warmup_nan": 0,
+        "nan_values_numeric_unexpected": 0,
+        "inf_values_numeric": 0,
+        "date_columns": [],
+        "issues": []
+      }
+    },
+    {
+      "dataset": "intelligence_state",
+      "kind": "CSV",
+      "status": "PASS",
+      "details": {
+        "path": "data/processed/intelligence/awareon_intelligence_state.csv",
+        "rows": 1298,
+        "columns": 28,
+        "column_names": [
+          "cell_id",
+          "susceptibility_probability",
+          "susceptibility_category",
+          "terrain_instability_score",
+          "terrain_instability_category",
+          "exposure_score",
+          "exposure_category",
+          "dominant_exposure",
+          "spatial_pressure_score",
+          "spatial_category",
+          "confidence_score",
+          "uncertainty_score",
+          "confidence_category",
+          "risk_label",
+          "primary_reason",
+          "recommended_action",
+          "explanation",
+          "rainfall_trigger_score",
+          "rainfall_trigger_category",
+          "soil_wetness_score",
+          "soil_wetness_category",
+          "temporal_trajectory",
+          "temporal_category",
+          "anomaly_score",
+          "anomaly_category",
+          "sar_data_quality",
+          "unified_risk_score",
+          "unified_risk_category"
+        ],
+        "numeric_columns": [
+          "susceptibility_probability",
+          "terrain_instability_score",
+          "exposure_score",
+          "spatial_pressure_score",
+          "confidence_score",
+          "uncertainty_score",
+          "rainfall_trigger_score",
+          "soil_wetness_score",
+          "anomaly_score",
+          "unified_risk_score"
+        ],
+        "duplicate_rows": 0,
+        "nan_values_numeric_raw": 0,
+        "expected_warmup_nan": 0,
+        "nan_values_numeric_unexpected": 0,
+        "inf_values_numeric": 0,
+        "date_columns": [],
+        "issues": []
+      }
+    },
+    {
+      "dataset": "dem_clipped",
+      "kind": "RASTER",
+      "status": "UNVERIFIED",
+      "details": {
+        "path": "data/processed/grid/sikkim_dem_clipped.tif",
+        "reason": "rasterio unavailable in audit environment",
+        "not_a_dataset_failure": true
+      }
+    },
+    {
+      "dataset": "dem_utm45",
+      "kind": "RASTER",
+      "status": "UNVERIFIED",
+      "details": {
+        "path": "data/processed/grid/sikkim_dem_utm45.tif",
+        "reason": "rasterio unavailable in audit environment",
+        "not_a_dataset_failure": true
+      }
+    },
+    {
+      "dataset": "slope",
+      "kind": "RASTER",
+      "status": "UNVERIFIED",
+      "details": {
+        "path": "data/processed/grid/slope.tif",
+        "reason": "rasterio unavailable in audit environment",
+        "not_a_dataset_failure": true
+      }
+    },
+    {
+      "dataset": "aspect",
+      "kind": "RASTER",
+      "status": "UNVERIFIED",
+      "details": {
+        "path": "data/processed/grid/aspect.tif",
+        "reason": "rasterio unavailable in audit environment",
+        "not_a_dataset_failure": true
+      }
+    }
+  ]
+}

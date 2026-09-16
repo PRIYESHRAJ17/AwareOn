@@ -10,7 +10,15 @@ class ConversationTurn:
     answer: str
     intent: str
     status: str
+    confidence: float
     facts: list[dict[str, Any]] = field(default_factory=list)
+
+    def __post_init__(self) -> None:
+        if not 0.0 <= float(self.confidence) <= 100.0:
+            raise ValueError(
+                "ConversationTurn.confidence must be "
+                "between 0 and 100."
+            )
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -18,6 +26,7 @@ class ConversationTurn:
             "answer": self.answer,
             "intent": self.intent,
             "status": self.status,
+            "confidence": self.confidence,
             "facts": self.facts,
         }
 
@@ -36,6 +45,7 @@ class ConversationMemory:
         answer: str,
         intent: str,
         status: str,
+        confidence: float,
         facts: list[dict[str, Any]] | None = None,
     ) -> None:
 
@@ -45,6 +55,7 @@ class ConversationMemory:
                 answer=answer,
                 intent=intent,
                 status=status,
+                confidence=float(confidence),
                 facts=list(
                     facts or []
                 ),

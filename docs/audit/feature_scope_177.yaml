@@ -1,0 +1,12 @@
+project: AwareOn
+
+expected_count: 177
+
+features: []
+
+validation:
+  exact_count_required: 177
+  fabricated_entries_forbidden: true
+  duplicate_ids_forbidden: true
+  missing_ids_forbidden: true
+  completion_requires_real_code_evidence: true

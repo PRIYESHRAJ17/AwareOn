@@ -1,0 +1,122 @@
+project: AwareOn
+
+ai:
+  primary:
+    provider: ollama
+    model: qwen3.5:9b
+    role: production_primary
+
+  backup:
+    provider: ollama
+    model: nemotron-3-nano:4b-q8_0
+    role: fallback_only
+
+  rules:
+    ai_is_not_source_of_truth: true
+    canonical_evidence_is_source_of_truth: true
+    blind_weight_updates_forbidden: true
+    stale_primary_model_labels_forbidden: true
+    runtime_model_identity_required: true
+
+truth_model:
+  canonical_source_of_truth: awareon_evidence
+
+  distinctions_required:
+    current: true
+    historical: true
+    simulated: true
+    derived: true
+    forecast: true
+
+  unsupported_specificity_must_be_blocked: true
+
+learning:
+  required_loop:
+    - prediction
+    - observation
+    - outcome
+    - discrepancy
+    - validation
+    - lesson
+    - memory
+    - future_reasoning
+    - measured_improvement
+
+  evidence_linked: true
+  auditable: true
+  reversible: true
+  human_override_available: true
+  automatic_policy_changes_forbidden: true
+
+evidence:
+  required_fields:
+    - evidence_id
+    - source
+    - source_timestamp
+    - ingestion_timestamp
+    - freshness
+    - geographic_scope
+    - dataset_version
+    - provenance
+    - quality
+    - conflict_state
+
+  ai_requirements:
+    claim_to_evidence_mapping: true
+    recommendation_evidence: true
+    numerical_consistency: true
+    simulation_label: true
+    uncertainty_when_material: true
+    model_identity_logged: true
+
+performance:
+  api:
+    health_p95_ms: 1000
+    engines_p95_ms: 1500
+    risk_p95_ms: 5000
+    scenario_p95_ms: 5000
+
+  ai:
+    timeout_seconds: 120
+    fallback_required: true
+    provider_identity_logged: true
+    model_identity_logged: true
+
+reliability:
+  silent_fallback_forbidden: true
+  degraded_state_explicit: true
+  stale_data_detectable: true
+  conflicting_data_detectable: true
+  errors_observable: true
+
+validation:
+  every_capability_requires:
+    - design
+    - implementation
+    - integration
+    - positive_test
+    - adversarial_test
+    - failure_test
+    - improvement
+    - retest
+    - validation
+
+  reproducible_inputs_required: true
+  benchmark_artifacts_required: true
+
+completion_rule:
+  requires:
+    implementation: true
+    integration: true
+    positive_tests: true
+    adversarial_tests: true
+    failure_handling: true
+    measurable_targets: true
+    saved_evidence: true
+
+  does_not_count_as_completion:
+    - README_claim
+    - UI_BUTTON
+    - ENDPOINT_EXISTS
+    - MODULE_EXISTS
+    - HAPPY_PATH_ONLY

@@ -1,0 +1,11 @@
+project: AwareOn
+
+status: discovery
+
+sources: []
+
+validation:
+  authoritative_sources_required: true
+  fabricated_sources_forbidden: true
+  every_source_requires_code_or_runtime_evidence: true
+  every_transformation_requires_traceability: true

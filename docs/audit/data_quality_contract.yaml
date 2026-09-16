@@ -1,0 +1,51 @@
+project: AwareOn
+
+purpose:
+  - Establish trustworthy, reproducible, traceable data inputs.
+  - Prevent silent corruption, schema drift, leakage, invalid values, and untracked transformations.
+  - Ensure every dataset consumed by risk intelligence has explicit provenance and validation.
+
+pipeline:
+  - SOURCE
+  - RAW
+  - CLEAN
+  - FEATURES
+  - ENGINE
+  - DERIVED_INTELLIGENCE
+  - AI_EVIDENCE
+  - DECISION
+
+required_checks:
+  schema_validation: required
+  missing_values: required
+  infinite_values: required
+  duplicate_records: required
+  numeric_range_validation: required
+  unit_validation: required
+  crs_validation: required
+  spatial_coverage_validation: required
+  temporal_coverage_validation: required
+  temporal_leakage_check: required
+  spatial_leakage_check: required
+  train_inference_consistency: required
+  provenance_tracking: required
+  freshness_tracking: required
+  transformation_tracking: required
+  silent_fallback_detection: required
+
+completion_rule:
+  design: required
+  implementation: required
+  integration: required
+  positive_testing: required
+  adversarial_testing: required
+  failure_testing: required
+  improvement: required
+  retesting: required
+  validation: required
+
+truth_policy:
+  ai_is_not_source_of_truth: true
+  canonical_data_and_evidence_are_source_of_truth: true
+  fabricated_data_forbidden: true
+  silent_data_substitution_forbidden: true

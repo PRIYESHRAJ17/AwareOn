@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "missing_sections": [],
+  "primary_ai_ok": true,
+  "backup_ai_ok": true,
+  "primary": {
+    "provider": "ollama",
+    "model": "qwen3.5:9b",
+    "role": "production_primary"
+  },
+  "backup": {
+    "provider": "ollama",
+    "model": "nemotron-3-nano:4b-q8_0",
+    "role": "fallback_only"
+  }
+}

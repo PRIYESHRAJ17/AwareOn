@@ -1,0 +1,880 @@
+{
+  "total": 109,
+  "critical": 0,
+  "high": 0,
+  "medium": 106,
+  "findings": [
+    {
+      "path": "frontend/index.html",
+      "line": 45,
+      "category": "PLACEHOLDER",
+      "matched": "placeholder",
+      "severity": "MEDIUM",
+      "reason": "Possible unfinished implementation."
+    },
+    {
+      "path": "frontend/index.html",
+      "line": 159,
+      "category": "PLACEHOLDER",
+      "matched": "placeholder",
+      "severity": "MEDIUM",
+      "reason": "Possible unfinished implementation."
+    },
+    {
+      "path": "frontend/index.html",
+      "line": 167,
+      "category": "PLACEHOLDER",
+      "matched": "placeholder",
+      "severity": "MEDIUM",
+      "reason": "Possible unfinished implementation."
+    },
+    {
+      "path": "frontend/index.html",
+      "line": 133,
+      "category": "SIMULATION",
+      "matched": "SIMULATED",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "frontend/index.html",
+      "line": 41,
+      "category": "LIVE_CLAIM",
+      "matched": "live",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "frontend/index.html",
+      "line": 41,
+      "category": "LIVE_CLAIM",
+      "matched": "Live",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "frontend/index.html",
+      "line": 158,
+      "category": "LIVE_CLAIM",
+      "matched": "live",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "frontend/index.html",
+      "line": 169,
+      "category": "LIVE_CLAIM",
+      "matched": "live",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "scripts/model_shootout_deep.py",
+      "line": 135,
+      "category": "FAKE_DELAY",
+      "matched": "time.sleep(",
+      "severity": "LOW",
+      "reason": "Artificial timing may indicate demo behavior."
+    },
+    {
+      "path": "scripts/model_shootout_fast.py",
+      "line": 86,
+      "category": "FAKE_DELAY",
+      "matched": "time.sleep(",
+      "severity": "LOW",
+      "reason": "Artificial timing may indicate demo behavior."
+    },
+    {
+      "path": "scripts/scenario_simulation_engine.py",
+      "line": 181,
+      "category": "SIMULATION",
+      "matched": "SIMULATION",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "frontend/css/style.css",
+      "line": 77,
+      "category": "PLACEHOLDER",
+      "matched": "placeholder",
+      "severity": "MEDIUM",
+      "reason": "Possible unfinished implementation."
+    },
+    {
+      "path": "frontend/css/style.css",
+      "line": 72,
+      "category": "LIVE_CLAIM",
+      "matched": "live",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "frontend/css/style.css",
+      "line": 73,
+      "category": "LIVE_CLAIM",
+      "matched": "live",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "frontend/js/api.js",
+      "line": 185,
+      "category": "SIMULATION",
+      "matched": "simulate",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "frontend/js/app.js",
+      "line": 43,
+      "category": "LIVE_CLAIM",
+      "matched": "Live",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "frontend/js/app.js",
+      "line": 152,
+      "category": "LIVE_CLAIM",
+      "matched": "Live",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "frontend/js/scenarios.js",
+      "line": 625,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "frontend/js/scenarios.js",
+      "line": 756,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/cell_intelligence_pipeline.py",
+      "line": 136,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/cell_intelligence_pipeline.py",
+      "line": 138,
+      "category": "SIMULATION",
+      "matched": "simulate",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/cell_intelligence_pipeline.py",
+      "line": 143,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/cell_intelligence_pipeline.py",
+      "line": 150,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/cell_intelligence_pipeline.py",
+      "line": 155,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/exact_cell_intelligence.py",
+      "line": 128,
+      "category": "SIMULATION",
+      "matched": "simulate",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/main.py",
+      "line": 720,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/main.py",
+      "line": 723,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/main.py",
+      "line": 725,
+      "category": "SIMULATION",
+      "matched": "simulate",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/main.py",
+      "line": 730,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/main.py",
+      "line": 740,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/main.py",
+      "line": 833,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/main.py",
+      "line": 948,
+      "category": "SIMULATION",
+      "matched": "simulate",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/main.py",
+      "line": 963,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/main.py",
+      "line": 1053,
+      "category": "SIMULATION",
+      "matched": "SIMULATE",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/main.py",
+      "line": 1057,
+      "category": "SIMULATION",
+      "matched": "simulate",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/main.py",
+      "line": 1171,
+      "category": "SIMULATION",
+      "matched": "simulate",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/main.py",
+      "line": 1245,
+      "category": "SIMULATION",
+      "matched": "simulate",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/monitoring_priority.py",
+      "line": 161,
+      "category": "LIVE_CLAIM",
+      "matched": "CONTINUOUS",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "backend/app/monitoring_priority.py",
+      "line": 219,
+      "category": "LIVE_CLAIM",
+      "matched": "continuous",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "backend/app/monitoring_priority.py",
+      "line": 222,
+      "category": "LIVE_CLAIM",
+      "matched": "CONTINUOUS",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "backend/app/monitoring_priority.py",
+      "line": 237,
+      "category": "LIVE_CLAIM",
+      "matched": "continuous",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "backend/app/monitoring_priority.py",
+      "line": 253,
+      "category": "LIVE_CLAIM",
+      "matched": "continuous",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "backend/app/monitoring_priority.py",
+      "line": 253,
+      "category": "LIVE_CLAIM",
+      "matched": "continuous",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "backend/app/monitoring_priority.py",
+      "line": 284,
+      "category": "LIVE_CLAIM",
+      "matched": "continuous",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "backend/app/monitoring_priority.py",
+      "line": 285,
+      "category": "LIVE_CLAIM",
+      "matched": "continuous",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "backend/app/response_recommendation.py",
+      "line": 195,
+      "category": "LIVE_CLAIM",
+      "matched": "continuous",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "backend/app/scenario_forecast.py",
+      "line": 305,
+      "category": "LIVE_CLAIM",
+      "matched": "continuous",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "backend/app/scenario_uncertainty.py",
+      "line": 127,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/scenario_uncertainty.py",
+      "line": 212,
+      "category": "LIVE_CLAIM",
+      "matched": "continuous",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "backend/app/ai/adversarial_benchmark.py",
+      "line": 101,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/adversarial_benchmark.py",
+      "line": 108,
+      "category": "SIMULATION",
+      "matched": "SIMULATED",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/adversarial_benchmark.py",
+      "line": 229,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/adversarial_benchmark.py",
+      "line": 256,
+      "category": "SIMULATION",
+      "matched": "synthetic",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/agent_benchmark.py",
+      "line": 296,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/agent_tools.py",
+      "line": 98,
+      "category": "SIMULATION",
+      "matched": "simulate",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/agent_tools.py",
+      "line": 471,
+      "category": "SIMULATION",
+      "matched": "Simulate",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/autonomous_master.py",
+      "line": 2399,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/autonomous_master.py",
+      "line": 2399,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/benchmark.py",
+      "line": 256,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/domain_knowledge.py",
+      "line": 426,
+      "category": "SIMULATION",
+      "matched": "synthetic",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/domain_knowledge.py",
+      "line": 702,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/domain_knowledge.py",
+      "line": 706,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/domain_knowledge.py",
+      "line": 713,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/domain_knowledge.py",
+      "line": 714,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/domain_knowledge.py",
+      "line": 921,
+      "category": "SIMULATION",
+      "matched": "Synthetic",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/domain_retrieval.py",
+      "line": 198,
+      "category": "SIMULATION",
+      "matched": "synthetic",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/domain_router.py",
+      "line": 324,
+      "category": "SIMULATION",
+      "matched": "simulate",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/domain_router.py",
+      "line": 325,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/domain_router.py",
+      "line": 326,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/domain_router.py",
+      "line": 519,
+      "category": "SIMULATION",
+      "matched": "simulate",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/domain_router.py",
+      "line": 520,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/domain_router.py",
+      "line": 521,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/evidence.py",
+      "line": 16,
+      "category": "SIMULATION",
+      "matched": "SIMULATED",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/evidence.py",
+      "line": 16,
+      "category": "SIMULATION",
+      "matched": "SIMULATED",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/evidence.py",
+      "line": 174,
+      "category": "SIMULATION",
+      "matched": "SIMULATED",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/evidence_builder.py",
+      "line": 450,
+      "category": "SIMULATION",
+      "matched": "SIMULATED",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/evidence_builder.py",
+      "line": 460,
+      "category": "SIMULATION",
+      "matched": "SIMULATED",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/evidence_builder.py",
+      "line": 470,
+      "category": "SIMULATION",
+      "matched": "SIMULATED",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/evidence_synthesis.py",
+      "line": 436,
+      "category": "SIMULATION",
+      "matched": "SIMULATED",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/evidence_synthesis.py",
+      "line": 450,
+      "category": "SIMULATION",
+      "matched": "SIMULATED",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/evidence_synthesis.py",
+      "line": 452,
+      "category": "SIMULATION",
+      "matched": "Simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/evidence_synthesis.py",
+      "line": 591,
+      "category": "SIMULATION",
+      "matched": "Simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/evidence_synthesis.py",
+      "line": 591,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/grounding.py",
+      "line": 223,
+      "category": "SIMULATION",
+      "matched": "SIMULATED",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/grounding.py",
+      "line": 243,
+      "category": "SIMULATION",
+      "matched": "SIMULATED",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/grounding.py",
+      "line": 408,
+      "category": "SIMULATION",
+      "matched": "SIMULATION",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/grounding.py",
+      "line": 420,
+      "category": "SIMULATION",
+      "matched": "SIMULATED",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/grounding.py",
+      "line": 423,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/grounding.py",
+      "line": 434,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/learning_aware_synthesis.py",
+      "line": 73,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/learning_aware_synthesis.py",
+      "line": 274,
+      "category": "SIMULATION",
+      "matched": "Simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/learning_aware_synthesis.py",
+      "line": 274,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/model_adapter.py",
+      "line": 674,
+      "category": "FAKE_DELAY",
+      "matched": "time.sleep(",
+      "severity": "LOW",
+      "reason": "Artificial timing may indicate demo behavior."
+    },
+    {
+      "path": "backend/app/ai/scenario_investigator.py",
+      "line": 492,
+      "category": "SIMULATION",
+      "matched": "simulate",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/self_correction.py",
+      "line": 233,
+      "category": "SIMULATION",
+      "matched": "SIMULATED",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/self_correction.py",
+      "line": 233,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/tool_registry.py",
+      "line": 187,
+      "category": "SIMULATION",
+      "matched": "Simulate",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/tool_registry.py",
+      "line": 196,
+      "category": "SIMULATION",
+      "matched": "simulate",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/tool_registry.py",
+      "line": 201,
+      "category": "SIMULATION",
+      "matched": "SIMULATED",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/verification.py",
+      "line": 263,
+      "category": "SIMULATION",
+      "matched": "Simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/verification.py",
+      "line": 266,
+      "category": "SIMULATION",
+      "matched": "SIMULATED",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/verification.py",
+      "line": 270,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/verification.py",
+      "line": 271,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/verification.py",
+      "line": 289,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/ai/verification.py",
+      "line": 292,
+      "category": "SIMULATION",
+      "matched": "simulated",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/services/gis_service.py",
+      "line": 891,
+      "category": "LIVE_CLAIM",
+      "matched": "live",
+      "severity": "MEDIUM",
+      "reason": "Live/realtime claim requires actual freshness semantics."
+    },
+    {
+      "path": "backend/app/services/scenario_service.py",
+      "line": 75,
+      "category": "SIMULATION",
+      "matched": "simulation",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/services/scenario_service.py",
+      "line": 469,
+      "category": "SIMULATION",
+      "matched": "Simulate",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    },
+    {
+      "path": "backend/app/services/scenario_service.py",
+      "line": 472,
+      "category": "SIMULATION",
+      "matched": "simulate",
+      "severity": "MEDIUM",
+      "reason": "Possible simulated or non-production data path."
+    }
+  ]
+}

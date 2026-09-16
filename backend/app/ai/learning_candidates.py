@@ -299,6 +299,32 @@ def _build_structural_pattern(
 # CANDIDATE BUILDER
 # ============================================================
 
+def _claim_confidence(
+    claim: Any,
+) -> float | None:
+    value = getattr(
+        claim,
+        "confidence",
+        None,
+    )
+
+    if value is None and isinstance(
+        claim,
+        dict,
+    ):
+        value = claim.get("confidence")
+
+    if not isinstance(value, (int, float)):
+        return None
+
+    numeric = float(value)
+
+    if not 0.0 <= numeric <= 1.0:
+        return None
+
+    return numeric
+
+
 def build_learning_candidate(
     query: str,
     verified_claims: list[Any],
@@ -318,6 +344,42 @@ def build_learning_candidate(
     ):
         return None
 
+    evidence_id_set = set(
+        evidence_ids
+    )
+
+    supporting_confidences = []
+
+    for claim in verified_claims:
+        claim_evidence = set(
+            _claim_evidence(claim)
+        )
+
+        if not (
+            claim_evidence
+            & evidence_id_set
+        ):
+            continue
+
+        confidence = _claim_confidence(
+            claim
+        )
+
+        if confidence is None:
+            return None
+
+        supporting_confidences.append(
+            confidence
+        )
+
+    if not supporting_confidences:
+        return None
+
+    candidate_confidence = round(
+        min(supporting_confidences),
+        4,
+    )
+
     return LearningCandidate(
         query=_clean(
             query
@@ -326,7 +388,7 @@ def build_learning_candidate(
         evidence_ids=tuple(
             evidence_ids
         ),
-        confidence=0.90,
+        confidence=candidate_confidence,
         rationale=(
             "Generalizable pattern derived only from "
             "verified AwareOn claims. The candidate "

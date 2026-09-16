@@ -1,0 +1,5364 @@
+{
+  "git": {
+    "branch": "main",
+    "commit": "de358897bd3fb5a012020885fd4ddc62da7b5261",
+    "status": "M backend/app/ai/__init__.py\n M backend/app/ai/agent_memory.py\n M backend/app/ai/autonomous_master.py\n M backend/app/ai/conversation_memory.py\n M backend/app/ai/domain_router.py\n M backend/app/ai/evidence_synthesis.py\n M backend/app/ai/learning_aware_synthesis.py\n M backend/app/ai/learning_candidates.py\n M backend/app/ai/response_contract.py\n?? artifacts/\n?? data/model_shootout_deep/\n?? data/model_shootout_fast.json\n?? docs/audit/\n?? master_grid_100m.geojson.tar.gz\n?? scripts/baseline_audit.py\n?? scripts/confidence_integrity_test.py\n?? scripts/model_shootout_deep.py\n?? scripts/model_shootout_fast.py"
+  },
+  "file_count": 187,
+  "python_component_count": 160,
+  "category_counts": {
+    "Processor / Feature Generator": 13,
+    "Risk Engine": 18,
+    "Backend Module": 61,
+    "Derived Intelligence": 12,
+    "Application Entry Point": 1,
+    "Simulation / Scenario": 14,
+    "AI Evaluation": 8,
+    "AI": 10,
+    "Memory": 2,
+    "AI Tool": 4,
+    "Orchestrator": 4,
+    "Investigator": 3,
+    "Evidence / Verification": 5,
+    "Learning": 4,
+    "API": 1
+  },
+  "files": [
+    {
+      "path": "DATA_PRESERVATION.md",
+      "extension": ".md",
+      "size_bytes": 720,
+      "line_count": 12,
+      "sha256": "22a5b19b0d1cf945c6b6fe7b0f03bbac35a652e2f11b69012100b88885e14dd1"
+    },
+    {
+      "path": "LEVEL20_E2E_QA.md",
+      "extension": ".md",
+      "size_bytes": 1334,
+      "line_count": 34,
+      "sha256": "cb91b596325efe901ce0fcbdc9857dc6fa44f560152705a4cfb75f99710c417e"
+    },
+    {
+      "path": "README.md",
+      "extension": ".md",
+      "size_bytes": 11324,
+      "line_count": 321,
+      "sha256": "f0662734a2d8fc6db0c7b6ccad6fe1f0fd734ff1efb1783f0acb658070823c21"
+    },
+    {
+      "path": "requirements.txt",
+      "extension": ".txt",
+      "size_bytes": 149,
+      "line_count": 16,
+      "sha256": "99843a56a842ac5c073c2a113b57926334bbcf4cac6669f18adcf1d5bbce92c4"
+    },
+    {
+      "path": "data/model_shootout_fast.json",
+      "extension": ".json",
+      "size_bytes": 12286,
+      "line_count": 204,
+      "sha256": "6137cd5831ee07cfa2e198389f686111fc0520e63710c5444734e532b0b83a29"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "extension": ".md",
+      "size_bytes": 2,
+      "line_count": 1,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "docs/LEVEL13_20_PRODUCT_BUILD.md",
+      "extension": ".md",
+      "size_bytes": 3165,
+      "line_count": 68,
+      "sha256": "7da1ef9122799db60cc5aca7b80b16bbaf3eba215be3e79d8972f6543672b53f"
+    },
+    {
+      "path": "docs/MVP_SCOPE.md",
+      "extension": ".md",
+      "size_bytes": 2,
+      "line_count": 1,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "docs/PRIOR_ART_MATRIX.md",
+      "extension": ".md",
+      "size_bytes": 2,
+      "line_count": 1,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "docs/SIH26001_REQUIREMENTS.md",
+      "extension": ".md",
+      "size_bytes": 2,
+      "line_count": 1,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "docs/STUDY_AREA.md",
+      "extension": ".md",
+      "size_bytes": 507,
+      "line_count": 13,
+      "sha256": "82d3e6a425e0fbff984692c34b7c6220a2078dad7131f5e667a1d3b1d0371794"
+    },
+    {
+      "path": "frontend/index.html",
+      "extension": ".html",
+      "size_bytes": 12624,
+      "line_count": 174,
+      "sha256": "b8995c66a83fd56367a490f397d362ae546dbabc3b2a2affec7ec4b90f866bc2"
+    },
+    {
+      "path": "frontend/README_INSTALL.txt",
+      "extension": ".txt",
+      "size_bytes": 1544,
+      "line_count": 57,
+      "sha256": "0170f782025e0d98c716c41ae05e60e84509cf14e060e35e63cfdeeaa9edb1ec"
+    },
+    {
+      "path": "scripts/add_environment_features.py",
+      "extension": ".py",
+      "size_bytes": 3975,
+      "line_count": 188,
+      "sha256": "a051f7110167f489f4ed06035de4fb7892a3fabac2a5618facb4491f7e39b7d2"
+    },
+    {
+      "path": "scripts/alert_intelligence_engine.py",
+      "extension": ".py",
+      "size_bytes": 6685,
+      "line_count": 327,
+      "sha256": "1ac012d6b8d85ff538f18b01195933b2b713488149a07e8a0fe53fd56a2c8da8"
+    },
+    {
+      "path": "scripts/anomaly_detection_engine.py",
+      "extension": ".py",
+      "size_bytes": 5566,
+      "line_count": 282,
+      "sha256": "cd4a1883edfa5d76079be066ce05651f98ffd11cbe4446a1b3a4d714ae18861e"
+    },
+    {
+      "path": "scripts/build_dynamic_event_features.py",
+      "extension": ".py",
+      "size_bytes": 6173,
+      "line_count": 286,
+      "sha256": "9eab8be58b33d77b73681b0e24dc8a7485ad85b0012dc0d75785090c324cb5ff"
+    },
+    {
+      "path": "scripts/build_dynamic_trigger.py",
+      "extension": ".py",
+      "size_bytes": 6404,
+      "line_count": 290,
+      "sha256": "885166bd758795f82b51518e7c57cb95aa75c1ea3f9a51c864de5b355d3b5e48"
+    },
+    {
+      "path": "scripts/build_event_dataset.py",
+      "extension": ".py",
+      "size_bytes": 4084,
+      "line_count": 186,
+      "sha256": "6851ad294ec743b43bc72674a1255f14573132b91a87473fae6c6923c6ba4e2e"
+    },
+    {
+      "path": "scripts/build_feature_dataset.py",
+      "extension": ".py",
+      "size_bytes": 9684,
+      "line_count": 436,
+      "sha256": "c5f88b8196fddc04291dae7489c7a92a4649018a11b6542b4f7e50c252b94746"
+    },
+    {
+      "path": "scripts/build_ground_truth.py",
+      "extension": ".py",
+      "size_bytes": 2503,
+      "line_count": 106,
+      "sha256": "339743d81f90548901c47bd23e28921d0a468fe2dc4a66615da92a70d0d807f1"
+    },
+    {
+      "path": "scripts/build_intelligence_state.py",
+      "extension": ".py",
+      "size_bytes": 6109,
+      "line_count": 308,
+      "sha256": "cc9ee3385036fe3c1c6b52e1a94225bb592076dad80e005b21923b9afe19645f"
+    },
+    {
+      "path": "scripts/build_model_diagnostic_report.py",
+      "extension": ".py",
+      "size_bytes": 3383,
+      "line_count": 149,
+      "sha256": "32fe7ee4dce8d58f02e48fbe2c3a7d3b384abc618deda464d7440ba7495af3bc"
+    },
+    {
+      "path": "scripts/build_negative_samples.py",
+      "extension": ".py",
+      "size_bytes": 3301,
+      "line_count": 139,
+      "sha256": "cb09daeb9ba4bb389b3e51189d542ad59177f303b04ccb17196333fe28289eee"
+    },
+    {
+      "path": "scripts/calibrate_model.py",
+      "extension": ".py",
+      "size_bytes": 3883,
+      "line_count": 190,
+      "sha256": "03f04846c99f2fa7dba299cf75e75167dee04c51f8af3c27e20028c5a7bd8ac3"
+    },
+    {
+      "path": "scripts/clean_gsi_inventory.py",
+      "extension": ".py",
+      "size_bytes": 9691,
+      "line_count": 436,
+      "sha256": "b71a4a4e14d44f1920d44199fa95b0f92e5d4a0063ad1af1327ac0ca306c2628"
+    },
+    {
+      "path": "scripts/cluster_alerts.py",
+      "extension": ".py",
+      "size_bytes": 8489,
+      "line_count": 442,
+      "sha256": "42f8b5ec30ebc7f4bdc2d5bb689a5b81036356ba8a240eca7d17954dca1a52ac"
+    },
+    {
+      "path": "scripts/compare_models.py",
+      "extension": ".py",
+      "size_bytes": 7135,
+      "line_count": 345,
+      "sha256": "7a58b05b207c89b60dffd70682b18c94a43380dc9fc111aca7b7741ab277912f"
+    },
+    {
+      "path": "scripts/confidence_integrity_test.py",
+      "extension": ".py",
+      "size_bytes": 2687,
+      "line_count": 109,
+      "sha256": "2e5ba3611213792ee2bcc4cea7587a33eaf6f4b81f59cf49dfabbf5ba43b8fdc"
+    },
+    {
+      "path": "scripts/confidence_uncertainty_engine.py",
+      "extension": ".py",
+      "size_bytes": 6080,
+      "line_count": 300,
+      "sha256": "642a84d0f6cce226dd469d80a4d145b363c1340f75cd1e586d09a814a3c17241"
+    },
+    {
+      "path": "scripts/counterfactual_risk_engine.py",
+      "extension": ".py",
+      "size_bytes": 6977,
+      "line_count": 343,
+      "sha256": "51f079b0e1c12222d765857a92e5c89fc47add45c37cf8e167e02e756abea808"
+    },
+    {
+      "path": "scripts/explain_susceptibility.py",
+      "extension": ".py",
+      "size_bytes": 4724,
+      "line_count": 220,
+      "sha256": "5d63daa4be76311dfe087dbcab052b3ef3a09a296f46c1ea04cb3bc8b01d0997"
+    },
+    {
+      "path": "scripts/explanation_recommendation_engine.py",
+      "extension": ".py",
+      "size_bytes": 9336,
+      "line_count": 457,
+      "sha256": "d50daa33efc92d8463d37e77786460462de01e8ae0f1cb8df3e6f4b611cfaa87"
+    },
+    {
+      "path": "scripts/exposure_impact_engine.py",
+      "extension": ".py",
+      "size_bytes": 4446,
+      "line_count": 223,
+      "sha256": "5ac4896bcb6f3892afe2b6a5064fafd97b8f15578a1a1b78a7d24b22fcf35f1c"
+    },
+    {
+      "path": "scripts/extract_gsi_inventory.py",
+      "extension": ".py",
+      "size_bytes": 1442,
+      "line_count": 51,
+      "sha256": "909b507bea3b496f2d68d019f25e2048e22bca423bcf7b150712b76362bb3596"
+    },
+    {
+      "path": "scripts/final_intelligence_audit.py",
+      "extension": ".py",
+      "size_bytes": 7648,
+      "line_count": 389,
+      "sha256": "7f1d1350a66c48adc1d829a4023fc233147c37ee5dae44f5d982e80f46dcc4e3"
+    },
+    {
+      "path": "scripts/historical_current_correlation.py",
+      "extension": ".py",
+      "size_bytes": 5657,
+      "line_count": 281,
+      "sha256": "6718d0f384598ab39b4289579ec75e68233f0ec3ea0eaf0669ce9ea3d4c97ab9"
+    },
+    {
+      "path": "scripts/historical_event_engine.py",
+      "extension": ".py",
+      "size_bytes": 4658,
+      "line_count": 264,
+      "sha256": "9754db5c900129ddaf55a0092b737be401ff76c264d6bf99655c2bb9f6aa4cbc"
+    },
+    {
+      "path": "scripts/level20_e2e.py",
+      "extension": ".py",
+      "size_bytes": 2423,
+      "line_count": 66,
+      "sha256": "f3db51fb04972b91f92fe8b99b02dac12e952c7037b2d579f5b8b98848fa3810"
+    },
+    {
+      "path": "scripts/merge_static_features.py",
+      "extension": ".py",
+      "size_bytes": 8502,
+      "line_count": 384,
+      "sha256": "daeb31d5bd28a1e7b18afa4d75b04fafc0039f9dab91310c2c69ad23cf676453"
+    },
+    {
+      "path": "scripts/model_ablation.py",
+      "extension": ".py",
+      "size_bytes": 3850,
+      "line_count": 161,
+      "sha256": "1f5040aebfe57b78942d17151e7afca2a0836acca1c387e1d62bbf706270f88e"
+    },
+    {
+      "path": "scripts/model_road_bias_check.py",
+      "extension": ".py",
+      "size_bytes": 5719,
+      "line_count": 270,
+      "sha256": "7e704aba7e02aa4897b00f6cf930c37b98ae6b9ac96f11350d9c327fa85c9491"
+    },
+    {
+      "path": "scripts/model_shootout_deep.py",
+      "extension": ".py",
+      "size_bytes": 16442,
+      "line_count": 619,
+      "sha256": "190b67d5fc842e7fb2e25f52a3ccb74bb72a90ef65e00b8429643305ead4e5da"
+    },
+    {
+      "path": "scripts/model_shootout_fast.py",
+      "extension": ".py",
+      "size_bytes": 7280,
+      "line_count": 262,
+      "sha256": "b6b033ccb6e8ef4fa6936a7b61d51123a5d146363085400d93803402b3f5a685"
+    },
+    {
+      "path": "scripts/optimize_threshold.py",
+      "extension": ".py",
+      "size_bytes": 4339,
+      "line_count": 223,
+      "sha256": "038ab194dde837e8f56bccf8963751aaf838a0a35afc10b10ed73dc324e1495b"
+    },
+    {
+      "path": "scripts/parse_gsi_inventory.py",
+      "extension": ".py",
+      "size_bytes": 3183,
+      "line_count": 136,
+      "sha256": "fab2a26af8248e7f0beb7f981301a9f070329544f60da33742613aed71bff844"
+    },
+    {
+      "path": "scripts/prioritize_incidents.py",
+      "extension": ".py",
+      "size_bytes": 4173,
+      "line_count": 215,
+      "sha256": "db31d6d4c8a42a794d170c3b861779cb33366abe31e96439bddd66c65e6b9e08"
+    },
+    {
+      "path": "scripts/process_era5.py",
+      "extension": ".py",
+      "size_bytes": 2422,
+      "line_count": 120,
+      "sha256": "bcd972004baa367ac61498c40c87a92be25060af95d428af667a000ad1adf942"
+    },
+    {
+      "path": "scripts/process_osm.py",
+      "extension": ".py",
+      "size_bytes": 8049,
+      "line_count": 361,
+      "sha256": "0949bc41ba531d7ca6c11cb643d12dc105e0535a6b63e361dcb8934de7313adb"
+    },
+    {
+      "path": "scripts/process_terrain.py",
+      "extension": ".py",
+      "size_bytes": 5336,
+      "line_count": 228,
+      "sha256": "48393a1a603238b955a7d971e62ff5bbbd548a8e187c384bb6e9e667c4a1e909"
+    },
+    {
+      "path": "scripts/rainfall_trigger_engine.py",
+      "extension": ".py",
+      "size_bytes": 4571,
+      "line_count": 243,
+      "sha256": "9fecb08bee9277c1d92e189b43f7944bbec20e3590b8a386c5b4d61326d3046a"
+    },
+    {
+      "path": "scripts/risk_decision_engine.py",
+      "extension": ".py",
+      "size_bytes": 7443,
+      "line_count": 367,
+      "sha256": "23c64dc26b14fa85ff78de629228caf67ae0e132bb601e4e15a2d8e8eafaef5c"
+    },
+    {
+      "path": "scripts/risk_fusion.py",
+      "extension": ".py",
+      "size_bytes": 6714,
+      "line_count": 359,
+      "sha256": "1b6e563a65042b56df0e5ccdbbffea823dac93d3885c0d21f35cdf71dd47ec98"
+    },
+    {
+      "path": "scripts/sar_evidence_engine.py",
+      "extension": ".py",
+      "size_bytes": 5340,
+      "line_count": 244,
+      "sha256": "f25258a69f6fcff3574b8b09040164b6066aaeb99ed9d59f23127da11a36ed1f"
+    },
+    {
+      "path": "scripts/scenario_simulation_engine.py",
+      "extension": ".py",
+      "size_bytes": 4197,
+      "line_count": 208,
+      "sha256": "9ce6315a9cb5fa538ff665d2fead0dcce0ca8f8030a13e05f5a5259bb4ee86ff"
+    },
+    {
+      "path": "scripts/soil_wetness_engine.py",
+      "extension": ".py",
+      "size_bytes": 4518,
+      "line_count": 240,
+      "sha256": "dbe547e13044af08877bfe0303aa8671348d12c988217cbeafe2261dc0ab6f7a"
+    },
+    {
+      "path": "scripts/spatial_propagation_engine.py",
+      "extension": ".py",
+      "size_bytes": 4591,
+      "line_count": 236,
+      "sha256": "8c4ddf6bc14cc26669bd2fc1bcc3cee4ab2386a2b7d09f0fd6821c3d927c95a8"
+    },
+    {
+      "path": "scripts/split_ground_truth.py",
+      "extension": ".py",
+      "size_bytes": 4447,
+      "line_count": 197,
+      "sha256": "4e97b44a048aa7b7425a8a451330f73bef7f969e9f5ee986cd81048326e097c9"
+    },
+    {
+      "path": "scripts/susceptibility_engine.py",
+      "extension": ".py",
+      "size_bytes": 3300,
+      "line_count": 165,
+      "sha256": "665195512c3f3c3d1869006fd61aec6beadd85546e73410a0a13aa6e132289ae"
+    },
+    {
+      "path": "scripts/temporal_risk_engine.py",
+      "extension": ".py",
+      "size_bytes": 6649,
+      "line_count": 345,
+      "sha256": "ec33d9b66e9ae3f0b9ea613fa559073854bf06e025c32766e49f36cd1ed60cfa"
+    },
+    {
+      "path": "scripts/terrain_instability_engine.py",
+      "extension": ".py",
+      "size_bytes": 4125,
+      "line_count": 191,
+      "sha256": "3b36dbbf09e4fd834bd8786b65b31f5460ae3ca11bec54a62abd8105b478e09c"
+    },
+    {
+      "path": "scripts/train_baseline.py",
+      "extension": ".py",
+      "size_bytes": 4688,
+      "line_count": 221,
+      "sha256": "744496587c29d2b4452eeeaabb91211ed8bc5ca6ba72916b546f740f51d3da02"
+    },
+    {
+      "path": "scripts/validate_dynamic_trigger.py",
+      "extension": ".py",
+      "size_bytes": 5979,
+      "line_count": 287,
+      "sha256": "44921d32ea78e7a0f947b5507b07dcbaf6946f0bc210ae1e24c78a785791ca33"
+    },
+    {
+      "path": "scripts/validate_features.py",
+      "extension": ".py",
+      "size_bytes": 5049,
+      "line_count": 239,
+      "sha256": "6569f09b158e3d92a997f495c1451845fb57206b4eb1ab967d2b3469ff15d851"
+    },
+    {
+      "path": "scripts/validate_ground_truth.py",
+      "extension": ".py",
+      "size_bytes": 3201,
+      "line_count": 119,
+      "sha256": "3c2a3013ece04898c0899ac4d3b0beabe81aee95f45ac160a13f1cfaa5a6b034"
+    },
+    {
+      "path": "scripts/validate_intelligence_state.py",
+      "extension": ".py",
+      "size_bytes": 4680,
+      "line_count": 216,
+      "sha256": "c876b7f04b8f682c395096b8668256a9b1dbf1fab8b0e72a665ac24d57a4fe96"
+    },
+    {
+      "path": "frontend/css/style.css",
+      "extension": ".css",
+      "size_bytes": 41007,
+      "line_count": 694,
+      "sha256": "22e37387bc56f4f847d9f6a70e788f806df90cdeec18eee9119e8e927169fb3e"
+    },
+    {
+      "path": "frontend/js/api.js",
+      "extension": ".js",
+      "size_bytes": 4938,
+      "line_count": 223,
+      "sha256": "645e83d9c8ec06ce30916d01bb91e305042beac88174dd317215499a974047a8"
+    },
+    {
+      "path": "frontend/js/app.js",
+      "extension": ".js",
+      "size_bytes": 13634,
+      "line_count": 171,
+      "sha256": "73275d251d4d7958c8c2bef3e707b21433316fb47cba50d673667badb9856cb0"
+    },
+    {
+      "path": "frontend/js/incidents.js",
+      "extension": ".js",
+      "size_bytes": 3187,
+      "line_count": 42,
+      "sha256": "b0e346f30b096d0205b95060a1023f8292ecb9bf6d50c0073a2eca9542177697"
+    },
+    {
+      "path": "frontend/js/intelligence.js",
+      "extension": ".js",
+      "size_bytes": 7951,
+      "line_count": 293,
+      "sha256": "06be9a722b0b1b1f0c040e8eb2fb1ac781228883c23159e55a14dbb76bdb2cbb"
+    },
+    {
+      "path": "frontend/js/map.js",
+      "extension": ".js",
+      "size_bytes": 22965,
+      "line_count": 502,
+      "sha256": "65b6b2c44dcd7bbdafa1de1efa85152351caf17e34631d3282cb14f8043eeca4"
+    },
+    {
+      "path": "frontend/js/scenarios.js",
+      "extension": ".js",
+      "size_bytes": 30429,
+      "line_count": 1473,
+      "sha256": "73eb5f59605b6471f344b186c603b30dc834a0cf15b981426bcbcc309b6770d6"
+    },
+    {
+      "path": "frontend/js/state.js",
+      "extension": ".js",
+      "size_bytes": 515,
+      "line_count": 23,
+      "sha256": "5860f173c8285c2ad5e3bac11be2d0642a873b3096e166a10bae5d2a9f8c43a5"
+    },
+    {
+      "path": "frontend/js/views.js",
+      "extension": ".js",
+      "size_bytes": 2036,
+      "line_count": 35,
+      "sha256": "ee07bddaac678683e46a2d3ab848410bf2e059f1cf1f85f4147c3612dbd7aafe"
+    },
+    {
+      "path": "docs/audit/beast_spec.yaml",
+      "extension": ".yaml",
+      "size_bytes": 2456,
+      "line_count": 122,
+      "sha256": "f833dc51f27f89bcf5f8cfd225641462d6c37ca2f96ef47546e51b968e413426"
+    },
+    {
+      "path": "docs/audit/data_lineage.yaml",
+      "extension": ".yaml",
+      "size_bytes": 2021,
+      "line_count": 100,
+      "sha256": "88f3430515df004765995adce55c1d9e74f3183d431574c4824b5d7d3eec41e3"
+    },
+    {
+      "path": "docs/audit/feature_scope_177.yaml",
+      "extension": ".yaml",
+      "size_bytes": 239,
+      "line_count": 12,
+      "sha256": "dee821065316dc0a5a555398c9fdf39b3757b94a98526375f2744de354d300dd"
+    },
+    {
+      "path": "data/raw/weather/IMERG/subset_GPM_3IMERGDF_07_20260827_170829_.txt",
+      "extension": ".txt",
+      "size_bytes": 4016076,
+      "line_count": 9407,
+      "sha256": "2fb0eda1705eb1e91a91d143d3242ee058e0a20e35a8482a2392d747237d2e8f"
+    },
+    {
+      "path": "data/processed/landslides/gsi_inventory_raw.txt",
+      "extension": ".txt",
+      "size_bytes": 4108330,
+      "line_count": 46306,
+      "sha256": "62b0bd237ba0df31fe00c6a061d0c21aab56b15888b05500499fb59197069a30"
+    },
+    {
+      "path": "backend/app/build_risk_spatial_cache.py",
+      "extension": ".py",
+      "size_bytes": 3049,
+      "line_count": 174,
+      "sha256": "484e0ee1758c4146dc46e25c20cb37c760c120b45990a6f26e5544c1779ff1bc"
+    },
+    {
+      "path": "backend/app/build_spatial_cache.py",
+      "extension": ".py",
+      "size_bytes": 2883,
+      "line_count": 180,
+      "sha256": "6810412cabc9eec391ce56600e190de23eb5aa8edb9390ff378e96fb80d77f24"
+    },
+    {
+      "path": "backend/app/cell_intelligence_pipeline.py",
+      "extension": ".py",
+      "size_bytes": 8839,
+      "line_count": 453,
+      "sha256": "6e414d4fbc95aa6a20b8d583663efbc0321ab46f81609a07c6c1e2a03e47e834"
+    },
+    {
+      "path": "backend/app/cell_neighborhood.py",
+      "extension": ".py",
+      "size_bytes": 2595,
+      "line_count": 141,
+      "sha256": "e09ff3e5bf93f75729b51eb636100dfc10f47f2e2d217c21eb6d025b3d9f6689"
+    },
+    {
+      "path": "backend/app/cluster_evolution.py",
+      "extension": ".py",
+      "size_bytes": 6996,
+      "line_count": 346,
+      "sha256": "3b6b5ba321c402cc792319bdb01ede9e95c018f7e4c255f743279f89ed6873c5"
+    },
+    {
+      "path": "backend/app/cluster_exposure.py",
+      "extension": ".py",
+      "size_bytes": 5336,
+      "line_count": 214,
+      "sha256": "e997b4e566ca245a3baf6c234d0ced183728dc0873e6a2c4354c459e36d6ba25"
+    },
+    {
+      "path": "backend/app/cluster_priority.py",
+      "extension": ".py",
+      "size_bytes": 6543,
+      "line_count": 341,
+      "sha256": "f21870b6259d727f8fddcf2af90a0e95d989dd5410d6ac86b728899642bd3453"
+    },
+    {
+      "path": "backend/app/cross_cell_patterns.py",
+      "extension": ".py",
+      "size_bytes": 14625,
+      "line_count": 775,
+      "sha256": "407cf782e40b776a3f74dcd90f0657030ac6d7d1f9e8baada32e463a61962844"
+    },
+    {
+      "path": "backend/app/cross_engine_intelligence.py",
+      "extension": ".py",
+      "size_bytes": 9196,
+      "line_count": 477,
+      "sha256": "fff3f7025bfabab4c65cab3420a132e2ae4b17c6e4acb09743ef4bcd78138329"
+    },
+    {
+      "path": "backend/app/decision_master.py",
+      "extension": ".py",
+      "size_bytes": 7815,
+      "line_count": 362,
+      "sha256": "b768bae6fa6cdf27635283acd98003d6b1953fb79abd9fa8e4ddad8328b912c3"
+    },
+    {
+      "path": "backend/app/decision_optimization.py",
+      "extension": ".py",
+      "size_bytes": 6015,
+      "line_count": 296,
+      "sha256": "fe7c6abd0b778247595a9789b27fe5292d195775a5f228ca185c734f28e97126"
+    },
+    {
+      "path": "backend/app/decision_tradeoff.py",
+      "extension": ".py",
+      "size_bytes": 6319,
+      "line_count": 321,
+      "sha256": "2424d2a10174c6420486435e6016b8a978f61cbedde9d53f3688e12a1bcefaec"
+    },
+    {
+      "path": "backend/app/early_warning.py",
+      "extension": ".py",
+      "size_bytes": 8683,
+      "line_count": 372,
+      "sha256": "b6ab2427efd08a828bdc4bbda6cf967000584518204d1f6520a15503d65d19ed"
+    },
+    {
+      "path": "backend/app/early_warning_master.py",
+      "extension": ".py",
+      "size_bytes": 8309,
+      "line_count": 405,
+      "sha256": "2728da5c47216bb0a65379aa0c435304e78443ff75a8976e30726c7d82ec0899"
+    },
+    {
+      "path": "backend/app/emerging_risk.py",
+      "extension": ".py",
+      "size_bytes": 5006,
+      "line_count": 237,
+      "sha256": "a61a1c6896220fe693b6a79c7a0dd33fa7e9c0c5c44c00a1ae620dca750e938e"
+    },
+    {
+      "path": "backend/app/event_progression.py",
+      "extension": ".py",
+      "size_bytes": 7714,
+      "line_count": 396,
+      "sha256": "b8ea1338a8289b5f3994b5a2d2d40fc16655134c1d3d54f718b7bcb5dc698293"
+    },
+    {
+      "path": "backend/app/evidence_conflict.py",
+      "extension": ".py",
+      "size_bytes": 6087,
+      "line_count": 318,
+      "sha256": "62f4ad9994ebc8acded06cf9186c64ec64a5fa3d28da56577063e937737ba973"
+    },
+    {
+      "path": "backend/app/exact_cell_intelligence.py",
+      "extension": ".py",
+      "size_bytes": 11262,
+      "line_count": 481,
+      "sha256": "f9edc7d386c06fc28562150542c1d4f0c7bfbb360d0869985469ebc68b7cecc6"
+    },
+    {
+      "path": "backend/app/field_inspection.py",
+      "extension": ".py",
+      "size_bytes": 7693,
+      "line_count": 387,
+      "sha256": "f47b3916995eed98d8f7cfd7ca85af8cbd693550781d1d593d26e86a2af76ee8"
+    },
+    {
+      "path": "backend/app/historical_trajectory.py",
+      "extension": ".py",
+      "size_bytes": 13576,
+      "line_count": 622,
+      "sha256": "930f9e7266f89d20a67e3dab725306fb8a93da9061e33c00934bb5dca1c0c04b"
+    },
+    {
+      "path": "backend/app/infrastructure_impact.py",
+      "extension": ".py",
+      "size_bytes": 7214,
+      "line_count": 361,
+      "sha256": "655f5d9e948ef633abee59fae9dfc2ace2eadd59e92f5b09aea33d5cd025e504"
+    },
+    {
+      "path": "backend/app/intelligence_api.py",
+      "extension": ".py",
+      "size_bytes": 4245,
+      "line_count": 182,
+      "sha256": "02d9d9eab9aa1e36b5febd7ba308d94318fc84f22285f314013d4cb759b1e237"
+    },
+    {
+      "path": "backend/app/intelligence_cache.py",
+      "extension": ".py",
+      "size_bytes": 4438,
+      "line_count": 217,
+      "sha256": "362e8b4c175dff0202e8566173a02acdc0bda3dea1a6bd2646f9995a7066cdd6"
+    },
+    {
+      "path": "backend/app/intelligence_normalizer.py",
+      "extension": ".py",
+      "size_bytes": 7498,
+      "line_count": 387,
+      "sha256": "3a4da976143a143dc4bdb6a29cefc7ccbbac61f0dbc4bbe2c17dd4fbf2b1d436"
+    },
+    {
+      "path": "backend/app/intelligence_pipeline.py",
+      "extension": ".py",
+      "size_bytes": 2798,
+      "line_count": 133,
+      "sha256": "9691dcff15ccddf2b07285301e7faee40015f6015cc7640dcc9af28b7ad8baf8"
+    },
+    {
+      "path": "backend/app/intelligence_quality.py",
+      "extension": ".py",
+      "size_bytes": 10054,
+      "line_count": 544,
+      "sha256": "6a3ac6d763eca1eaa8e1ef7b375c3ce8fed1094839cff14d4560fa8187183227"
+    },
+    {
+      "path": "backend/app/intervention_comparison.py",
+      "extension": ".py",
+      "size_bytes": 6193,
+      "line_count": 299,
+      "sha256": "040b4e2447e621af30d57539bf305c16e4a689b168be7ec4c26a9ad0753f456c"
+    },
+    {
+      "path": "backend/app/intervention_priority.py",
+      "extension": ".py",
+      "size_bytes": 6473,
+      "line_count": 327,
+      "sha256": "79e799083066059d2a0f2900eec8a994266b697b2b3b1de1bacc97c070beeea5"
+    },
+    {
+      "path": "backend/app/main.py",
+      "extension": ".py",
+      "size_bytes": 26628,
+      "line_count": 1248,
+      "sha256": "06f4b52f85f10e4d93074d6558ab8cbfd4f6c85b63fe8420b92662a3c71587ae"
+    },
+    {
+      "path": "backend/app/monitoring_priority.py",
+      "extension": ".py",
+      "size_bytes": 6121,
+      "line_count": 299,
+      "sha256": "8b8d5a6ae011254ad1bfdfa6b817c3aed64529a8ab25daa5bd5664dc9c3e7a4d"
+    },
+    {
+      "path": "backend/app/multiscale_temporal.py",
+      "extension": ".py",
+      "size_bytes": 7234,
+      "line_count": 388,
+      "sha256": "de2e8b4b2689199bfba4a210582c04dd9ffbd7cd87ed5293547361e15ba3d915"
+    },
+    {
+      "path": "backend/app/operational_planning.py",
+      "extension": ".py",
+      "size_bytes": 6289,
+      "line_count": 288,
+      "sha256": "24f5d2f48b1215d0e80e862abdfc01b5e9c7b33e92eabd356a9988563d2c032b"
+    },
+    {
+      "path": "backend/app/regional_command.py",
+      "extension": ".py",
+      "size_bytes": 8291,
+      "line_count": 408,
+      "sha256": "fa6fa0de84578fda480f38c8b667a077a76a94c278639af7ac4a08182ee5bcb0"
+    },
+    {
+      "path": "backend/app/regional_hotspots.py",
+      "extension": ".py",
+      "size_bytes": 7876,
+      "line_count": 373,
+      "sha256": "8afcb8e9dd7a5cc31b50d2673744d8f8285e0f1368f04ff81ecc206d1c4d450d"
+    },
+    {
+      "path": "backend/app/regional_intelligence.py",
+      "extension": ".py",
+      "size_bytes": 6734,
+      "line_count": 341,
+      "sha256": "fe7486442de45c24326f5c8323df450ef3867c96ad65633db9acddfaa0f80c03"
+    },
+    {
+      "path": "backend/app/regional_master.py",
+      "extension": ".py",
+      "size_bytes": 7219,
+      "line_count": 357,
+      "sha256": "faf43c304e25bc69fb63eb99dba7933690cc9bc79ac03bcb235d5c8920ce1463"
+    },
+    {
+      "path": "backend/app/regional_temporal.py",
+      "extension": ".py",
+      "size_bytes": 8515,
+      "line_count": 372,
+      "sha256": "65b1482ad5cc655e4dc52cc4326cc54033944e426c06dfe474278268b57317a3"
+    },
+    {
+      "path": "backend/app/response_recommendation.py",
+      "extension": ".py",
+      "size_bytes": 7722,
+      "line_count": 305,
+      "sha256": "1b600254950b1060b8c7212ad5e834808181dc8ad24a727dc79c173ffa869027"
+    },
+    {
+      "path": "backend/app/risk_acceleration.py",
+      "extension": ".py",
+      "size_bytes": 3053,
+      "line_count": 151,
+      "sha256": "7d727a3bcf6143015a170d388d4c5f5e09ad57f9f7ba46ac0885c6e3fa51fd44"
+    },
+    {
+      "path": "backend/app/risk_clusters.py",
+      "extension": ".py",
+      "size_bytes": 11665,
+      "line_count": 579,
+      "sha256": "3fdc08d85a189d767617a271afd26c44892965015d3b081701d853cc39c159cc"
+    },
+    {
+      "path": "backend/app/risk_posture.py",
+      "extension": ".py",
+      "size_bytes": 9024,
+      "line_count": 469,
+      "sha256": "bb1163de724fb33f729db170ec4452da38d8ff95bb721a4c73357379f3aae61c"
+    },
+    {
+      "path": "backend/app/scenario_comparison.py",
+      "extension": ".py",
+      "size_bytes": 11691,
+      "line_count": 529,
+      "sha256": "cf94c7d7c60a9b8c43cb836fd0fe9a28382e71ad8d38f5832f98e13b5f84cf88"
+    },
+    {
+      "path": "backend/app/scenario_curve.py",
+      "extension": ".py",
+      "size_bytes": 9801,
+      "line_count": 467,
+      "sha256": "e35abbf0386999f6a365467c54d165c0e0abe3dd1eada7598770372fa91eb3f1"
+    },
+    {
+      "path": "backend/app/scenario_decision.py",
+      "extension": ".py",
+      "size_bytes": 7357,
+      "line_count": 362,
+      "sha256": "7b1c44719e9bf0aef3ad5cb551a40354ff1c3197baea3d08ba5512f4337a5345"
+    },
+    {
+      "path": "backend/app/scenario_forecast.py",
+      "extension": ".py",
+      "size_bytes": 8209,
+      "line_count": 407,
+      "sha256": "5f6d575a174272a868b234e8b20e32645bbe91951fd69a2253be5905499830c3"
+    },
+    {
+      "path": "backend/app/scenario_intelligence.py",
+      "extension": ".py",
+      "size_bytes": 9187,
+      "line_count": 430,
+      "sha256": "c251240b2ac9925a62172e204abf0bfee3b25320078aa66deb4286ad481fcf2c"
+    },
+    {
+      "path": "backend/app/scenario_map.py",
+      "extension": ".py",
+      "size_bytes": 7124,
+      "line_count": 352,
+      "sha256": "c53bf6efebecc14b99eb93aa7df67a325b40d2492d74f66fd7136ae06fc66647"
+    },
+    {
+      "path": "backend/app/scenario_master.py",
+      "extension": ".py",
+      "size_bytes": 7207,
+      "line_count": 288,
+      "sha256": "8a4ec06e99361001c835a4aacbc4df56487ca80d309ff631ccc2092ca36544f1"
+    },
+    {
+      "path": "backend/app/scenario_priority.py",
+      "extension": ".py",
+      "size_bytes": 5925,
+      "line_count": 331,
+      "sha256": "81b6038138a434242fdd8d5c69ecdf8986cfa1787268714f711493519f395bd1"
+    },
+    {
+      "path": "backend/app/scenario_recommendation.py",
+      "extension": ".py",
+      "size_bytes": 5786,
+      "line_count": 295,
+      "sha256": "594eb12d3d8eae3254987c28566c00830a003384a83d4ed5e02b9911406694c8"
+    },
+    {
+      "path": "backend/app/scenario_sensitivity.py",
+      "extension": ".py",
+      "size_bytes": 8759,
+      "line_count": 452,
+      "sha256": "c970a9354c9d61340bbd63532c6d3c07b81a9f4d3c91f8cca2582b5f89a78777"
+    },
+    {
+      "path": "backend/app/scenario_thresholds.py",
+      "extension": ".py",
+      "size_bytes": 8354,
+      "line_count": 396,
+      "sha256": "778cc5dfd10603e920f0ea35a49b35654b6bce9c586e7e16cde415b13ec30f76"
+    },
+    {
+      "path": "backend/app/scenario_uncertainty.py",
+      "extension": ".py",
+      "size_bytes": 6319,
+      "line_count": 292,
+      "sha256": "62d7fbe3f43d84b2b407ca7ebe9485ad9b9b7c59e0fac1411aa3d480e80b17fc"
+    },
+    {
+      "path": "backend/app/temporal_anomaly_fusion.py",
+      "extension": ".py",
+      "size_bytes": 5069,
+      "line_count": 228,
+      "sha256": "f4aebb1bf235f3e2b3b0cfe41b2695648f1037bfd5e2affe41b29ba558325bab"
+    },
+    {
+      "path": "backend/app/temporal_scenario_coupling.py",
+      "extension": ".py",
+      "size_bytes": 5548,
+      "line_count": 232,
+      "sha256": "f4be9c657ca528360385e37f8f5e8f2eb3b6ac02913091f57a995c85dae6d275"
+    },
+    {
+      "path": "backend/app/unified_posture.py",
+      "extension": ".py",
+      "size_bytes": 10618,
+      "line_count": 466,
+      "sha256": "25b64cc92d29a5bfe565ef03a464cf7fe1db27aeff1b709c96b13885e72ad5d4"
+    },
+    {
+      "path": "backend/app/__init__.py",
+      "extension": ".py",
+      "size_bytes": 0,
+      "line_count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "backend/app/ai/adversarial_benchmark.py",
+      "extension": ".py",
+      "size_bytes": 10829,
+      "line_count": 471,
+      "sha256": "7e84eec0551487ba90ff9a944a25df009ddbae35d64bb50511a1ec792ae7cb59"
+    },
+    {
+      "path": "backend/app/ai/agent_benchmark.py",
+      "extension": ".py",
+      "size_bytes": 18050,
+      "line_count": 826,
+      "sha256": "b080f535999420435a23457b7c9d8432277ce55522b0db7f60c95d434a8c27a4"
+    },
+    {
+      "path": "backend/app/ai/agent_loop.py",
+      "extension": ".py",
+      "size_bytes": 3164,
+      "line_count": 141,
+      "sha256": "cf84d86fd61f0df9e7dae0ed960ed059df062bb2cab8f9782edabe80c7552e67"
+    },
+    {
+      "path": "backend/app/ai/agent_memory.py",
+      "extension": ".py",
+      "size_bytes": 3402,
+      "line_count": 144,
+      "sha256": "c66b7d5cd797aa1ae1c12d0cef7118cbd8363c3638b489aff2d18b052437f6f9"
+    },
+    {
+      "path": "backend/app/ai/agent_tools.py",
+      "extension": ".py",
+      "size_bytes": 18748,
+      "line_count": 719,
+      "sha256": "d3cb97c0d232778acd87955bb45ad0dd134e1a2f6aaf55ecbb9197ebe6fd963f"
+    },
+    {
+      "path": "backend/app/ai/autonomous_master.py",
+      "extension": ".py",
+      "size_bytes": 110805,
+      "line_count": 4184,
+      "sha256": "2aaef22fbe20b4cf5e1408e4caf466b4e4f87a25b63b4922e934184d45833eef"
+    },
+    {
+      "path": "backend/app/ai/benchmark.py",
+      "extension": ".py",
+      "size_bytes": 11579,
+      "line_count": 542,
+      "sha256": "fd755a3b5fcf84987a89c22094e227c8619a644e34ab944f0672ef727fc3b162"
+    },
+    {
+      "path": "backend/app/ai/cell_investigator.py",
+      "extension": ".py",
+      "size_bytes": 6789,
+      "line_count": 306,
+      "sha256": "39d84df11cd1178e8fe70d6d7a8bb6caa2a9471fdd9195b2252eabccb58ccf88"
+    },
+    {
+      "path": "backend/app/ai/conversation_memory.py",
+      "extension": ".py",
+      "size_bytes": 5349,
+      "line_count": 236,
+      "sha256": "b70eaed4dfeb9b654cefc23951d7a090559282bc59f6cdaf05018e151f1246d2"
+    },
+    {
+      "path": "backend/app/ai/decision_benchmark.py",
+      "extension": ".py",
+      "size_bytes": 1730,
+      "line_count": 85,
+      "sha256": "22ca482d565b650c24f3fbe60e781540c83fd0eb7aefe8532262d89daa749f44"
+    },
+    {
+      "path": "backend/app/ai/decision_orchestrator.py",
+      "extension": ".py",
+      "size_bytes": 24292,
+      "line_count": 1091,
+      "sha256": "9d0ae474529afaecf947c3a5b05305cbc482871f0768b7dd85334b48ca85b210"
+    },
+    {
+      "path": "backend/app/ai/domain_knowledge.py",
+      "extension": ".py",
+      "size_bytes": 38251,
+      "line_count": 1214,
+      "sha256": "3c2ce9c779a6b9c504667d2647972a05a728f1775122d5d3e3e8d00657866cce"
+    },
+    {
+      "path": "backend/app/ai/domain_retrieval.py",
+      "extension": ".py",
+      "size_bytes": 36245,
+      "line_count": 1667,
+      "sha256": "53cb1168841acfb969921872ea378e113c64f46792c915ba2a206501208918bc"
+    },
+    {
+      "path": "backend/app/ai/domain_router.py",
+      "extension": ".py",
+      "size_bytes": 28730,
+      "line_count": 1088,
+      "sha256": "6dc2701f1489c70dbd1fad2d4439334099b262903da304686c910d3e85293b42"
+    },
+    {
+      "path": "backend/app/ai/evidence.py",
+      "extension": ".py",
+      "size_bytes": 4399,
+      "line_count": 182,
+      "sha256": "61ee811b02e4f7000e5b453890fc306e63b16366ff1f45dd08ccfb34d022c125"
+    },
+    {
+      "path": "backend/app/ai/evidence_builder.py",
+      "extension": ".py",
+      "size_bytes": 16108,
+      "line_count": 750,
+      "sha256": "e7cbc593e593aa4c7b399d89d8503bcf1c7cf2af40c06e107fe18cdd665df27b"
+    },
+    {
+      "path": "backend/app/ai/evidence_completeness_benchmark.py",
+      "extension": ".py",
+      "size_bytes": 2744,
+      "line_count": 120,
+      "sha256": "9f25dcba784f9b8d6d2d22f7aec467bafdbd2d3a08af22a6b72fac0b94a874bd"
+    },
+    {
+      "path": "backend/app/ai/evidence_synthesis.py",
+      "extension": ".py",
+      "size_bytes": 17354,
+      "line_count": 721,
+      "sha256": "1c888ad485d9dafd985c230202d15f69283cfa76031e42368896e8bc9ac33a41"
+    },
+    {
+      "path": "backend/app/ai/final_ai_benchmark.py",
+      "extension": ".py",
+      "size_bytes": 6737,
+      "line_count": 356,
+      "sha256": "084c93ad8a3efc9b84b42aa3eed81c47f50d2f82b3cadf834613378e44f9084a"
+    },
+    {
+      "path": "backend/app/ai/grounding.py",
+      "extension": ".py",
+      "size_bytes": 16866,
+      "line_count": 610,
+      "sha256": "b9ad3b97f3e117e6183f43338a6d106ffeb7c5ab660c17a5be969a6217afa168"
+    },
+    {
+      "path": "backend/app/ai/historical_event_intelligence.py",
+      "extension": ".py",
+      "size_bytes": 18844,
+      "line_count": 897,
+      "sha256": "ce2e2d7dd930a3ca6b7b18518a47b83f11955312f249bf4f835b63f5db6f4854"
+    },
+    {
+      "path": "backend/app/ai/learning_aware_synthesis.py",
+      "extension": ".py",
+      "size_bytes": 11561,
+      "line_count": 487,
+      "sha256": "2510e7efe4d157b14521698007c41a6593ed312e5502dfad7d32ed38d17f81ea"
+    },
+    {
+      "path": "backend/app/ai/learning_candidates.py",
+      "extension": ".py",
+      "size_bytes": 10639,
+      "line_count": 473,
+      "sha256": "0848e06cbf5d6ca870aa643ff360bf87d407caad6c124f1701d8084c2a76d1ac"
+    },
+    {
+      "path": "backend/app/ai/learning_feedback.py",
+      "extension": ".py",
+      "size_bytes": 2990,
+      "line_count": 145,
+      "sha256": "da1119e2589c102a0acddcaf486a157aead401c3b6ca96e6a69cbd3fcb08e506"
+    },
+    {
+      "path": "backend/app/ai/learning_memory.py",
+      "extension": ".py",
+      "size_bytes": 6263,
+      "line_count": 257,
+      "sha256": "e9551a292e65fbe4f38c720c50b6c1a503d86ce82f63f36086ac3489f98c6019"
+    },
+    {
+      "path": "backend/app/ai/model_adapter.py",
+      "extension": ".py",
+      "size_bytes": 30816,
+      "line_count": 1172,
+      "sha256": "ddee0784c53bb58ba63c6e9217a1fd27d6fab520e1e94ef317a24a45df097e4d"
+    },
+    {
+      "path": "backend/app/ai/model_tool_loop.py",
+      "extension": ".py",
+      "size_bytes": 12556,
+      "line_count": 540,
+      "sha256": "d3bc594e38f25ea3da7d6558725a231ad5e94f1ea499f83977a7fc1dc032e293"
+    },
+    {
+      "path": "backend/app/ai/multihop_benchmark.py",
+      "extension": ".py",
+      "size_bytes": 2404,
+      "line_count": 123,
+      "sha256": "71fddeccafd0f3df8bd5dca15c550628c5de49451e9123f73ec420fdf7436db7"
+    },
+    {
+      "path": "backend/app/ai/multihop_orchestrator.py",
+      "extension": ".py",
+      "size_bytes": 6006,
+      "line_count": 255,
+      "sha256": "4bd8bf818290d48006a5fcde22ec6abace52f20d3d19f50ffeaa6b148890443d"
+    },
+    {
+      "path": "backend/app/ai/regional_investigator.py",
+      "extension": ".py",
+      "size_bytes": 10352,
+      "line_count": 503,
+      "sha256": "758dfec6bcc7db280aa9b46ff624eddc60734dd83cc120d7603ceb10921c56a6"
+    },
+    {
+      "path": "backend/app/ai/response_contract.py",
+      "extension": ".py",
+      "size_bytes": 3040,
+      "line_count": 128,
+      "sha256": "c9f7361d712ca1c06f6bf1844040f4eaaa75a8d50ebe70da795d63298abaa54c"
+    },
+    {
+      "path": "backend/app/ai/retrieval_benchmark.py",
+      "extension": ".py",
+      "size_bytes": 4548,
+      "line_count": 216,
+      "sha256": "a442886576c5cd83ea5c2251ac554723b4cb181334b9dee47aa4e0a6ccf54bd1"
+    },
+    {
+      "path": "backend/app/ai/scenario_investigator.py",
+      "extension": ".py",
+      "size_bytes": 11551,
+      "line_count": 580,
+      "sha256": "9bbce97884a4a1f366e3cf5e401f2bd3f93c309e62837a5df4643d7111205545"
+    },
+    {
+      "path": "backend/app/ai/self_correction.py",
+      "extension": ".py",
+      "size_bytes": 8488,
+      "line_count": 335,
+      "sha256": "32f5cb4bce1fe9d0f4e4df9ba0478a3f08afb067f3e02efa49241bd4c7688111"
+    },
+    {
+      "path": "backend/app/ai/system_policy.py",
+      "extension": ".py",
+      "size_bytes": 2034,
+      "line_count": 78,
+      "sha256": "72ea7f09811261be7ef2a7fc60f927486285c7d343b57371692f5688439b277b"
+    },
+    {
+      "path": "backend/app/ai/temporal_orchestrator.py",
+      "extension": ".py",
+      "size_bytes": 17762,
+      "line_count": 750,
+      "sha256": "823b81407187db99850b1db2dcbd9fbde24ea02d333d5a5559a0cabf0b6a768e"
+    },
+    {
+      "path": "backend/app/ai/tool_planner.py",
+      "extension": ".py",
+      "size_bytes": 4199,
+      "line_count": 215,
+      "sha256": "c6ad1e4bac5118d01459c00f5f9e37d4943048a50ae08be9acb374f00e75a602"
+    },
+    {
+      "path": "backend/app/ai/tool_registry.py",
+      "extension": ".py",
+      "size_bytes": 10464,
+      "line_count": 325,
+      "sha256": "cc2115689c59ebf16b8a20b46f37871fd01826da2db90f1b68c77b9ebdeeb1d5"
+    },
+    {
+      "path": "backend/app/ai/verification.py",
+      "extension": ".py",
+      "size_bytes": 19121,
+      "line_count": 890,
+      "sha256": "b7eb66d644c8905e5d3148095e15d80142ece2f75d090fe0cfd847f1d011c4f1"
+    },
+    {
+      "path": "backend/app/ai/__init__.py",
+      "extension": ".py",
+      "size_bytes": 3009,
+      "line_count": 144,
+      "sha256": "35eac60eb665812e6c463ae0274de5d8ad5b987773b51e2c6afcf494419eff3c"
+    },
+    {
+      "path": "backend/app/api/__init__.py",
+      "extension": ".py",
+      "size_bytes": 0,
+      "line_count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "backend/app/core/config.py",
+      "extension": ".py",
+      "size_bytes": 0,
+      "line_count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "backend/app/core/engine_registry.py",
+      "extension": ".py",
+      "size_bytes": 2451,
+      "line_count": 97,
+      "sha256": "ee84502d1a9e5b43ef4dd905a4bcdccfd86f48d635acea50069367c3daf1b55e"
+    },
+    {
+      "path": "backend/app/core/schemas.py",
+      "extension": ".py",
+      "size_bytes": 3017,
+      "line_count": 161,
+      "sha256": "01bb4e024190ae2a332b66946543dae1146b232300c27e74ac861c0e47a3287f"
+    },
+    {
+      "path": "backend/app/core/__init__.py",
+      "extension": ".py",
+      "size_bytes": 0,
+      "line_count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "backend/app/services/assessment_service.py",
+      "extension": ".py",
+      "size_bytes": 3501,
+      "line_count": 133,
+      "sha256": "35c2944360d3ab27ca349ba8993b749c1f87990c5980e2e536ecc6d42a3f0bf8"
+    },
+    {
+      "path": "backend/app/services/gis_service.py",
+      "extension": ".py",
+      "size_bytes": 26711,
+      "line_count": 1106,
+      "sha256": "3c467f3e1ec0e9e5bda1d7c4e528ad744a887177f893b7a31e45e272cf177e57"
+    },
+    {
+      "path": "backend/app/services/repository.py",
+      "extension": ".py",
+      "size_bytes": 1160,
+      "line_count": 65,
+      "sha256": "5696609323be02fe0ea0982b9b7a4f4c2e811d0d0c2bd15b38f1c5bb02432f86"
+    },
+    {
+      "path": "backend/app/services/scenario_service.py",
+      "extension": ".py",
+      "size_bytes": 16535,
+      "line_count": 673,
+      "sha256": "2d37d1037c23c8bc6f6719be8bfe6bfd3a2af837ce8fad87e43143803ad747ba"
+    },
+    {
+      "path": "backend/app/services/__init__.py",
+      "extension": ".py",
+      "size_bytes": 0,
+      "line_count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "components": [
+    {
+      "path": "scripts/add_environment_features.py",
+      "category": "Processor / Feature Generator",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/alert_intelligence_engine.py",
+      "category": "Risk Engine",
+      "classes": [],
+      "functions": [
+        "build_reason",
+        "determine_alert",
+        "response"
+      ],
+      "imports": [
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/anomaly_detection_engine.py",
+      "category": "Risk Engine",
+      "classes": [],
+      "functions": [
+        "z_score"
+      ],
+      "imports": [
+        "numpy",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/build_dynamic_event_features.py",
+      "category": "Processor / Feature Generator",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "numpy",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/build_dynamic_trigger.py",
+      "category": "Processor / Feature Generator",
+      "classes": [],
+      "functions": [
+        "percentile_score"
+      ],
+      "imports": [
+        "numpy",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/build_event_dataset.py",
+      "category": "Processor / Feature Generator",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "geopandas",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/build_feature_dataset.py",
+      "category": "Processor / Feature Generator",
+      "classes": [],
+      "functions": [
+        "load_raster",
+        "nearest_valid_values"
+      ],
+      "imports": [
+        "geopandas",
+        "numpy",
+        "pandas",
+        "pathlib",
+        "rasterio",
+        "rasterio.transform",
+        "scipy.ndimage"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/build_ground_truth.py",
+      "category": "Processor / Feature Generator",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "geopandas",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/build_intelligence_state.py",
+      "category": "Processor / Feature Generator",
+      "classes": [],
+      "functions": [
+        "unified_category"
+      ],
+      "imports": [
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/build_model_diagnostic_report.py",
+      "category": "Processor / Feature Generator",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "joblib",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/build_negative_samples.py",
+      "category": "Processor / Feature Generator",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "geopandas",
+        "pandas",
+        "pathlib",
+        "shapely.ops"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/calibrate_model.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "joblib",
+        "pandas",
+        "pathlib",
+        "sklearn.calibration",
+        "sklearn.frozen",
+        "sklearn.metrics"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/clean_gsi_inventory.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "clean_text",
+        "extract_event_date",
+        "normalize_movement_type",
+        "split_movement_and_history"
+      ],
+      "imports": [
+        "geopandas",
+        "pandas",
+        "pathlib",
+        "re",
+        "shapely.geometry"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/cluster_alerts.py",
+      "category": "Derived Intelligence",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "geopandas",
+        "numpy",
+        "pandas",
+        "pathlib",
+        "sklearn.cluster"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/compare_models.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "joblib",
+        "pandas",
+        "pathlib",
+        "sklearn.ensemble",
+        "sklearn.linear_model",
+        "sklearn.metrics",
+        "sklearn.pipeline",
+        "sklearn.preprocessing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/confidence_integrity_test.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "check",
+        "main"
+      ],
+      "imports": [
+        "backend.app.ai.domain_router",
+        "backend.app.ai.evidence_synthesis",
+        "backend.app.ai.response_contract"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/confidence_uncertainty_engine.py",
+      "category": "Risk Engine",
+      "classes": [],
+      "functions": [
+        "classify",
+        "explanation"
+      ],
+      "imports": [
+        "numpy",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/counterfactual_risk_engine.py",
+      "category": "Risk Engine",
+      "classes": [],
+      "functions": [
+        "inverse_distance",
+        "percentile"
+      ],
+      "imports": [
+        "joblib",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/explain_susceptibility.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "explain_row"
+      ],
+      "imports": [
+        "joblib",
+        "numpy",
+        "pandas",
+        "pathlib",
+        "sklearn.inspection"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/explanation_recommendation_engine.py",
+      "category": "Risk Engine",
+      "classes": [],
+      "functions": [
+        "build_action",
+        "build_explanation",
+        "build_reason",
+        "make_risk_label"
+      ],
+      "imports": [
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/exposure_impact_engine.py",
+      "category": "Risk Engine",
+      "classes": [],
+      "functions": [
+        "classify",
+        "inverse_distance"
+      ],
+      "imports": [
+        "numpy",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/extract_gsi_inventory.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "pandas",
+        "pathlib",
+        "pdfplumber",
+        "re"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/final_intelligence_audit.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/historical_current_correlation.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "classify"
+      ],
+      "imports": [
+        "geopandas",
+        "numpy",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/historical_event_engine.py",
+      "category": "Risk Engine",
+      "classes": [],
+      "functions": [
+        "classify"
+      ],
+      "imports": [
+        "geopandas",
+        "numpy",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/level20_e2e.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "check",
+        "get",
+        "main",
+        "post"
+      ],
+      "imports": [
+        "__future__",
+        "json",
+        "urllib.error",
+        "urllib.request"
+      ],
+      "routes": [
+        "data",
+        "status",
+        "success"
+      ]
+    },
+    {
+      "path": "scripts/merge_static_features.py",
+      "category": "Processor / Feature Generator",
+      "classes": [],
+      "functions": [
+        "has_column",
+        "nearest_distance"
+      ],
+      "imports": [
+        "geopandas",
+        "numpy",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/model_ablation.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "evaluate_model"
+      ],
+      "imports": [
+        "pandas",
+        "pathlib",
+        "sklearn.ensemble",
+        "sklearn.metrics"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/model_road_bias_check.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "evaluate"
+      ],
+      "imports": [
+        "pandas",
+        "pathlib",
+        "sklearn.ensemble",
+        "sklearn.metrics"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/model_shootout_deep.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "calculate_model_score",
+        "classify",
+        "inspect_payload",
+        "main",
+        "request_json",
+        "run_test",
+        "start_backend",
+        "stop_backend"
+      ],
+      "imports": [
+        "csv",
+        "json",
+        "os",
+        "pathlib",
+        "statistics",
+        "subprocess",
+        "sys",
+        "time",
+        "urllib.error",
+        "urllib.request"
+      ],
+      "routes": [
+        "action",
+        "answer",
+        "classification",
+        "domain",
+        "error",
+        "intent",
+        "latency_seconds",
+        "memory",
+        "model",
+        "model_used",
+        "response",
+        "result_summary",
+        "review_required",
+        "score",
+        "status",
+        "steps",
+        "verification",
+        "verification_score",
+        "verification_status"
+      ]
+    },
+    {
+      "path": "scripts/model_shootout_fast.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "extract_result",
+        "get_json",
+        "main",
+        "start_backend",
+        "stop_backend"
+      ],
+      "imports": [
+        "json",
+        "os",
+        "pathlib",
+        "subprocess",
+        "sys",
+        "time",
+        "urllib.request"
+      ],
+      "routes": [
+        "action",
+        "answer",
+        "memory",
+        "model",
+        "result_summary",
+        "score",
+        "status",
+        "steps",
+        "verification"
+      ]
+    },
+    {
+      "path": "scripts/optimize_threshold.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "joblib",
+        "numpy",
+        "pandas",
+        "pathlib",
+        "sklearn.metrics"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/parse_gsi_inventory.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "geopandas",
+        "pandas",
+        "pathlib",
+        "re",
+        "shapely.geometry"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/prioritize_incidents.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "classify",
+        "normalize",
+        "recommendation"
+      ],
+      "imports": [
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/process_era5.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "pandas",
+        "pathlib",
+        "xarray"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/process_osm.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "has_values",
+        "nearest_distance"
+      ],
+      "imports": [
+        "geopandas",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/process_terrain.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "geopandas",
+        "numpy",
+        "pathlib",
+        "rasterio",
+        "rasterio.mask",
+        "rasterio.merge",
+        "rasterio.warp"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/rainfall_trigger_engine.py",
+      "category": "Risk Engine",
+      "classes": [],
+      "functions": [
+        "percentile_rank"
+      ],
+      "imports": [
+        "numpy",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/risk_decision_engine.py",
+      "category": "Risk Engine",
+      "classes": [],
+      "functions": [
+        "dominant_drivers",
+        "recommendation",
+        "severity",
+        "warning_state"
+      ],
+      "imports": [
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/risk_fusion.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "classify",
+        "inverse_distance_score",
+        "percentile_rank"
+      ],
+      "imports": [
+        "joblib",
+        "numpy",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/sar_evidence_engine.py",
+      "category": "Risk Engine",
+      "classes": [],
+      "functions": [
+        "raster_statistics"
+      ],
+      "imports": [
+        "numpy",
+        "pandas",
+        "pathlib",
+        "rasterio"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/scenario_simulation_engine.py",
+      "category": "Risk Engine",
+      "classes": [],
+      "functions": [
+        "percentile_rank"
+      ],
+      "imports": [
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/soil_wetness_engine.py",
+      "category": "Risk Engine",
+      "classes": [],
+      "functions": [
+        "percentile_rank"
+      ],
+      "imports": [
+        "numpy",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/spatial_propagation_engine.py",
+      "category": "Risk Engine",
+      "classes": [],
+      "functions": [
+        "classify"
+      ],
+      "imports": [
+        "geopandas",
+        "numpy",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/split_ground_truth.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "geopandas",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/susceptibility_engine.py",
+      "category": "Risk Engine",
+      "classes": [],
+      "functions": [
+        "classify"
+      ],
+      "imports": [
+        "joblib",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": [
+        "threshold"
+      ]
+    },
+    {
+      "path": "scripts/temporal_risk_engine.py",
+      "category": "Risk Engine",
+      "classes": [],
+      "functions": [
+        "percentile_rank"
+      ],
+      "imports": [
+        "numpy",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/terrain_instability_engine.py",
+      "category": "Risk Engine",
+      "classes": [],
+      "functions": [
+        "classify",
+        "percentile_score"
+      ],
+      "imports": [
+        "numpy",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/train_baseline.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "evaluate"
+      ],
+      "imports": [
+        "joblib",
+        "pandas",
+        "pathlib",
+        "sklearn.ensemble",
+        "sklearn.metrics"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/validate_dynamic_trigger.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "numpy",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/validate_features.py",
+      "category": "Processor / Feature Generator",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "numpy",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/validate_ground_truth.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "load"
+      ],
+      "imports": [
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "scripts/validate_intelligence_state.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/build_risk_spatial_cache.py",
+      "category": "Processor / Feature Generator",
+      "classes": [],
+      "functions": [
+        "build_cache"
+      ],
+      "imports": [
+        "__future__",
+        "pandas",
+        "pathlib",
+        "pickle",
+        "time"
+      ],
+      "routes": [
+        "cell_id",
+        "records"
+      ]
+    },
+    {
+      "path": "backend/app/build_spatial_cache.py",
+      "category": "Processor / Feature Generator",
+      "classes": [],
+      "functions": [
+        "build_cache"
+      ],
+      "imports": [
+        "__future__",
+        "json",
+        "pathlib",
+        "pickle",
+        "shapely.geometry",
+        "time"
+      ],
+      "routes": [
+        "cell_id",
+        "features",
+        "geometry",
+        "id",
+        "properties"
+      ]
+    },
+    {
+      "path": "backend/app/cell_intelligence_pipeline.py",
+      "category": "Derived Intelligence",
+      "classes": [],
+      "functions": [
+        "_num",
+        "analyze_spatial",
+        "build_cell_intelligence_pipeline",
+        "build_cross_engine",
+        "build_risk_posture_step",
+        "build_unified",
+        "load_current",
+        "resolve_evidence",
+        "resolve_neighborhood",
+        "run_scenario"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.cell_neighborhood",
+        "backend.app.cross_cell_patterns",
+        "backend.app.cross_engine_intelligence",
+        "backend.app.evidence_conflict",
+        "backend.app.intelligence_pipeline",
+        "backend.app.risk_posture",
+        "backend.app.services.assessment_service",
+        "backend.app.services.scenario_service",
+        "backend.app.unified_posture",
+        "time",
+        "typing"
+      ],
+      "routes": [
+        "cell_id",
+        "confidence_band",
+        "evidence_state",
+        "neighbor_count",
+        "pattern",
+        "priority_level",
+        "records",
+        "risk_score",
+        "risk_score_change",
+        "severity",
+        "unified_posture",
+        "unified_risk_score",
+        "warning_state"
+      ]
+    },
+    {
+      "path": "backend/app/cell_neighborhood.py",
+      "category": "Derived Intelligence",
+      "classes": [],
+      "functions": [
+        "_num",
+        "resolve_cell_neighborhood"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.services.gis_service",
+        "typing"
+      ],
+      "routes": [
+        "cell_id",
+        "centroid_x",
+        "centroid_y",
+        "distance_m",
+        "features",
+        "properties"
+      ]
+    },
+    {
+      "path": "backend/app/cluster_evolution.py",
+      "category": "Derived Intelligence",
+      "classes": [],
+      "functions": [
+        "_num",
+        "_rank",
+        "_scenario_points",
+        "analyze_cluster_evolution",
+        "summarize_cluster_state"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "rainfall_change_percent",
+        "risk_category",
+        "risk_score",
+        "risk_score_change"
+      ]
+    },
+    {
+      "path": "backend/app/cluster_exposure.py",
+      "category": "Derived Intelligence",
+      "classes": [],
+      "functions": [
+        "_category",
+        "_num",
+        "link_cluster_to_exposure"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.services.gis_service",
+        "typing"
+      ],
+      "routes": [
+        "cell_ids",
+        "cluster_id",
+        "dominant_exposure",
+        "exposure_category",
+        "exposure_score",
+        "infrastructure_exposure",
+        "population_exposure_proxy",
+        "transport_exposure"
+      ]
+    },
+    {
+      "path": "backend/app/cluster_priority.py",
+      "category": "Derived Intelligence",
+      "classes": [],
+      "functions": [
+        "_clamp",
+        "_num",
+        "_priority_level",
+        "_rank",
+        "rank_clusters",
+        "score_cluster"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "cell_count",
+        "cluster_id",
+        "cluster_severity",
+        "critical_or_warning_cells",
+        "extreme_cells",
+        "maximum_risk",
+        "mean_confidence",
+        "mean_risk",
+        "priority_score"
+      ]
+    },
+    {
+      "path": "backend/app/cross_cell_patterns.py",
+      "category": "Derived Intelligence",
+      "classes": [],
+      "functions": [
+        "_category",
+        "_feature_centroid",
+        "_num",
+        "_rank",
+        "_spatial_span",
+        "analyze_cross_cell_pattern"
+      ],
+      "imports": [
+        "__future__",
+        "math",
+        "typing"
+      ],
+      "routes": [
+        "cell_id",
+        "confidence_score",
+        "coordinates",
+        "distance_m",
+        "features",
+        "geometry",
+        "properties",
+        "severity",
+        "type",
+        "unified_risk_score",
+        "warning_state"
+      ]
+    },
+    {
+      "path": "backend/app/cross_engine_intelligence.py",
+      "category": "Risk Engine",
+      "classes": [],
+      "functions": [
+        "_category",
+        "_category_rank",
+        "_engine_state",
+        "_normalize_score",
+        "_num",
+        "build_cross_engine_intelligence"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "cell_id",
+        "confidence_score",
+        "rainfall_trigger_category",
+        "severity",
+        "soil_wetness_category",
+        "temporal_category",
+        "uncertainty_score",
+        "unified_risk_score",
+        "warning_state"
+      ]
+    },
+    {
+      "path": "backend/app/decision_master.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_num",
+        "build_decision_master"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "command_posture",
+        "comparison_count",
+        "decision",
+        "decision_mode",
+        "decision_strength",
+        "field_posture",
+        "monitoring_posture",
+        "operational_focus",
+        "optimization_score",
+        "option",
+        "primary_action",
+        "priority",
+        "recommended_option",
+        "regional_posture",
+        "response_level",
+        "score",
+        "target_count",
+        "time_horizon",
+        "tradeoff_state"
+      ]
+    },
+    {
+      "path": "backend/app/decision_optimization.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_level",
+        "_num",
+        "optimize_response_options"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "confidence_score",
+        "operational_focus",
+        "response_level",
+        "score",
+        "target_count",
+        "unified_risk_score"
+      ]
+    },
+    {
+      "path": "backend/app/decision_tradeoff.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_band",
+        "_num",
+        "build_decision_tradeoff"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "confidence_score",
+        "exposure_summary",
+        "maximum_exposure",
+        "mean_exposure",
+        "risk_change",
+        "scenario",
+        "score",
+        "unified_risk_score",
+        "urgency"
+      ]
+    },
+    {
+      "path": "backend/app/early_warning.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_num",
+        "build_early_warning_signal"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "anomaly_state",
+        "confidence",
+        "direction",
+        "emerging_state",
+        "escalating_cells",
+        "mean_risk_change",
+        "new_extreme_cells",
+        "new_high_or_extreme",
+        "scenarios",
+        "score",
+        "severity",
+        "temporal_state",
+        "trajectory",
+        "unified_risk_score"
+      ]
+    },
+    {
+      "path": "backend/app/early_warning_master.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_num",
+        "build_early_warning_master"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "agreement",
+        "anomaly_state",
+        "confidence",
+        "coupled_state",
+        "direction",
+        "emerging_state",
+        "overall",
+        "progression_direction",
+        "progression_priority",
+        "progression_state",
+        "score",
+        "signal_strength",
+        "state",
+        "temporal_state",
+        "warning_level"
+      ]
+    },
+    {
+      "path": "backend/app/emerging_risk.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_num",
+        "detect_emerging_risk"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "alignment",
+        "environment_anomaly_score",
+        "rain_24h_change_percent",
+        "rain_72h_change_percent",
+        "rain_7d_change_percent",
+        "recent_vs_baseline",
+        "soil_change_percent",
+        "temporal_state",
+        "volatility_change_percent"
+      ]
+    },
+    {
+      "path": "backend/app/event_progression.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_num",
+        "_rank",
+        "build_event_progression"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "direction",
+        "rainfall_change_percent",
+        "risk_category",
+        "risk_score",
+        "risk_score_change",
+        "severity",
+        "unified_risk_score",
+        "warning_level"
+      ]
+    },
+    {
+      "path": "backend/app/evidence_conflict.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_category",
+        "_group_summary",
+        "_num",
+        "_rank",
+        "classify_evidence_state"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "cell_id",
+        "confidence_score",
+        "engines",
+        "uncertainty_score",
+        "unified_risk_score"
+      ]
+    },
+    {
+      "path": "backend/app/exact_cell_intelligence.py",
+      "category": "Derived Intelligence",
+      "classes": [],
+      "functions": [
+        "_num",
+        "build_exact_cell_intelligence"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.cell_neighborhood",
+        "backend.app.cross_cell_patterns",
+        "backend.app.cross_engine_intelligence",
+        "backend.app.evidence_conflict",
+        "backend.app.intelligence_cache",
+        "backend.app.risk_posture",
+        "backend.app.services.assessment_service",
+        "backend.app.services.gis_service",
+        "backend.app.services.scenario_service",
+        "backend.app.unified_posture",
+        "typing"
+      ],
+      "routes": [
+        "baseline_category",
+        "centroid_utm",
+        "centroid_wgs84",
+        "confidence",
+        "confidence_band",
+        "confidence_score",
+        "evidence_state",
+        "evidence_strength",
+        "extreme_cells",
+        "feature_collection",
+        "high_risk_cells",
+        "neighbor_count",
+        "pattern",
+        "priority_level",
+        "priority_score",
+        "rainfall_change_percent",
+        "risk_category",
+        "risk_score",
+        "risk_score_change",
+        "scenario",
+        "scenarios",
+        "severity",
+        "target_distance_m",
+        "target_present",
+        "unified_posture",
+        "unified_risk_score",
+        "warning_state"
+      ]
+    },
+    {
+      "path": "backend/app/field_inspection.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_num",
+        "_priority",
+        "prioritize_field_inspection"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "cell_id",
+        "confidence",
+        "exposure_score",
+        "impact_focus",
+        "infrastructure_exposure",
+        "population_exposure",
+        "priority",
+        "risk_score",
+        "scenario_risk_change",
+        "transport_exposure"
+      ]
+    },
+    {
+      "path": "backend/app/historical_trajectory.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_num",
+        "_safe_div",
+        "_trajectory_band",
+        "build_historical_trajectory"
+      ],
+      "imports": [
+        "__future__",
+        "pandas",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/infrastructure_impact.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_num",
+        "rank_infrastructure_impact"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "cell_id",
+        "confidence_score",
+        "exposure_score",
+        "infrastructure_exposure",
+        "population_exposure",
+        "risk_change",
+        "transport_exposure",
+        "unified_risk_score"
+      ]
+    },
+    {
+      "path": "backend/app/intelligence_api.py",
+      "category": "Backend Module",
+      "classes": [
+        "IntelligenceAskRequest"
+      ],
+      "functions": [
+        "_conversation_for",
+        "ask_awareon",
+        "exact_cell_intelligence"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.autonomous_master",
+        "backend.app.ai.conversation_memory",
+        "backend.app.exact_cell_intelligence",
+        "fastapi",
+        "pydantic",
+        "threading",
+        "typing"
+      ],
+      "routes": [
+        "/ask",
+        "/cell/{cell_id}"
+      ]
+    },
+    {
+      "path": "backend/app/intelligence_cache.py",
+      "category": "Backend Module",
+      "classes": [
+        "IntelligenceCache",
+        "_CacheEntry"
+      ],
+      "functions": [
+        "__init__",
+        "_remove_expired",
+        "clear",
+        "get",
+        "get_or_set",
+        "set",
+        "stats"
+      ],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "threading",
+        "time",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/intelligence_normalizer.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_category",
+        "_clamp",
+        "_num",
+        "_rank",
+        "normalize_assessment",
+        "normalize_category",
+        "normalize_engine_output",
+        "normalize_probability",
+        "normalize_score"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "cell_id",
+        "confidence_score",
+        "environment_anomaly_category",
+        "environment_anomaly_score",
+        "exposure_category",
+        "exposure_score",
+        "rainfall_trigger_category",
+        "rainfall_trigger_score",
+        "severity",
+        "soil_wetness_category",
+        "soil_wetness_score",
+        "spatial_category",
+        "spatial_pressure_score",
+        "susceptibility_category",
+        "susceptibility_probability",
+        "temporal_category",
+        "temporal_trajectory",
+        "terrain_instability_category",
+        "terrain_instability_score",
+        "uncertainty_score",
+        "unified_risk_score",
+        "warning_state"
+      ]
+    },
+    {
+      "path": "backend/app/intelligence_pipeline.py",
+      "category": "Backend Module",
+      "classes": [
+        "IntelligencePipeline",
+        "PipelineResult"
+      ],
+      "functions": [
+        "__init__",
+        "add_step",
+        "run",
+        "run_pipeline"
+      ],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "time",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/intelligence_quality.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_add_issue",
+        "_category",
+        "_num",
+        "_severity_rank",
+        "validate_assessment",
+        "validate_normalized_assessment",
+        "validate_normalized_engine"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.intelligence_normalizer",
+        "typing"
+      ],
+      "routes": [
+        "category",
+        "cell_id",
+        "confidence_score",
+        "engine",
+        "engines",
+        "probability_percent",
+        "score",
+        "severity",
+        "uncertainty_score",
+        "unified_risk_score"
+      ]
+    },
+    {
+      "path": "backend/app/intervention_comparison.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_delta",
+        "_num",
+        "compare_intervention_options"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "coverage",
+        "effort",
+        "effort_delta",
+        "optimization_score",
+        "option",
+        "priority",
+        "protection",
+        "protection_delta",
+        "score_delta",
+        "speed"
+      ]
+    },
+    {
+      "path": "backend/app/intervention_priority.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_num",
+        "_priority",
+        "build_intervention_priority"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "confidence_score",
+        "exposure",
+        "impact_focus",
+        "master_warning",
+        "priority",
+        "progression_direction",
+        "progression_priority",
+        "score",
+        "severity",
+        "signal_strength",
+        "state",
+        "unified_risk_score"
+      ]
+    },
+    {
+      "path": "backend/app/main.py",
+      "category": "Application Entry Point",
+      "classes": [],
+      "functions": [
+        "alerts",
+        "api_info",
+        "assessment",
+        "engines",
+        "gis_boundary",
+        "gis_cell",
+        "gis_exposure_layer",
+        "gis_historical_hotspots",
+        "gis_nearby",
+        "gis_priority_incidents",
+        "gis_risk_layer",
+        "health",
+        "incidents",
+        "load_csv",
+        "risk",
+        "risk_for_cell",
+        "root",
+        "scenario_cell",
+        "scenario_decision",
+        "scenario_map",
+        "scenario_simulate",
+        "scenario_summary"
+      ],
+      "imports": [
+        "backend.app.core.engine_registry",
+        "backend.app.core.schemas",
+        "backend.app.intelligence_api",
+        "backend.app.scenario_comparison",
+        "backend.app.scenario_decision",
+        "backend.app.scenario_map",
+        "backend.app.scenario_priority",
+        "backend.app.scenario_recommendation",
+        "backend.app.scenario_sensitivity",
+        "backend.app.services.assessment_service",
+        "backend.app.services.gis_service",
+        "backend.app.services.scenario_service",
+        "fastapi",
+        "fastapi.middleware.cors",
+        "fastapi.responses",
+        "pandas",
+        "pathlib"
+      ],
+      "routes": [
+        "/",
+        "/api/v1",
+        "/api/v1/alerts",
+        "/api/v1/assessment/{cell_id}",
+        "/api/v1/engines",
+        "/api/v1/gis/boundary",
+        "/api/v1/gis/cell/{cell_id}",
+        "/api/v1/gis/exposure-layer",
+        "/api/v1/gis/historical-hotspots",
+        "/api/v1/gis/nearby",
+        "/api/v1/gis/priority-incidents",
+        "/api/v1/gis/risk-layer",
+        "/api/v1/incidents",
+        "/api/v1/risk",
+        "/api/v1/risk/{cell_id}",
+        "/api/v1/scenario/decision/{rainfall_change_percent}",
+        "/api/v1/scenario/map/{rainfall_change_percent}",
+        "/api/v1/scenario/simulate",
+        "/api/v1/scenario/summary",
+        "/api/v1/scenario/{cell_id}",
+        "/health",
+        "rainfall_change_percent",
+        "rainfall_multiplier",
+        "records",
+        "scenario",
+        "scenarios"
+      ]
+    },
+    {
+      "path": "backend/app/monitoring_priority.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_num",
+        "_priority",
+        "prioritize_monitoring"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "cell_id",
+        "confidence",
+        "exposure_score",
+        "impact_score",
+        "risk_score",
+        "scenario_risk_change"
+      ]
+    },
+    {
+      "path": "backend/app/multiscale_temporal.py",
+      "category": "Derived Intelligence",
+      "classes": [],
+      "functions": [
+        "_direction",
+        "_num",
+        "_safe_change",
+        "build_multiscale_temporal_intelligence"
+      ],
+      "imports": [
+        "__future__",
+        "pandas",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/operational_planning.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_num",
+        "build_operational_plan"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "command_posture",
+        "confidence_score",
+        "decision_mode",
+        "field_posture",
+        "intervention_class",
+        "monitoring_posture",
+        "operational_focus",
+        "option",
+        "priority",
+        "recommended_option",
+        "response_level",
+        "target_count",
+        "tradeoff_state",
+        "unified_risk_score"
+      ]
+    },
+    {
+      "path": "backend/app/regional_command.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_num",
+        "build_regional_command_intelligence"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "cell_count",
+        "cluster_behavior",
+        "cluster_id",
+        "cluster_severity",
+        "coverage",
+        "exposure_state",
+        "exposure_summary",
+        "extreme_cell_delta",
+        "extreme_cells",
+        "high_cell_delta",
+        "high_exposure_cells",
+        "impact_focus",
+        "maximum_exposure",
+        "maximum_risk",
+        "maximum_risk_cell",
+        "mean_confidence",
+        "mean_risk",
+        "mean_risk_delta",
+        "operational_state",
+        "priority_level",
+        "priority_score",
+        "trajectory"
+      ]
+    },
+    {
+      "path": "backend/app/regional_hotspots.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_clamp",
+        "_hotspot_level",
+        "_num",
+        "_rank",
+        "rank_regional_hotspots"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "cell_count",
+        "cell_ids",
+        "centroid",
+        "cluster_id",
+        "cluster_severity",
+        "critical_or_warning_cells",
+        "extreme_cells",
+        "maximum_risk",
+        "maximum_risk_cell",
+        "mean_confidence",
+        "mean_risk"
+      ]
+    },
+    {
+      "path": "backend/app/regional_intelligence.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_category_rank",
+        "_num",
+        "build_regional_intelligence"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.cross_cell_patterns",
+        "backend.app.services.gis_service",
+        "typing"
+      ],
+      "routes": [
+        "cell_id",
+        "confidence_score",
+        "distance_m",
+        "features",
+        "pattern",
+        "properties",
+        "severity",
+        "unified_risk_score",
+        "warning_state"
+      ]
+    },
+    {
+      "path": "backend/app/regional_master.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_num",
+        "_text",
+        "build_regional_master"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "cell_count",
+        "cluster_behavior",
+        "cluster_id",
+        "coverage",
+        "exposure_state",
+        "exposure_summary",
+        "extreme_cell_delta",
+        "extreme_cells",
+        "high_cell_delta",
+        "high_exposure_cells",
+        "impact_focus",
+        "maximum_exposure",
+        "maximum_risk",
+        "maximum_risk_cell",
+        "mean_confidence",
+        "mean_risk",
+        "mean_risk_delta",
+        "operational_focus",
+        "priority_level",
+        "priority_score",
+        "regional_posture",
+        "trajectory",
+        "urgency"
+      ]
+    },
+    {
+      "path": "backend/app/regional_temporal.py",
+      "category": "Derived Intelligence",
+      "classes": [],
+      "functions": [
+        "_num",
+        "build_regional_temporal_intelligence"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "band",
+        "behavior",
+        "cell_count",
+        "confidence",
+        "direction",
+        "evolution",
+        "exposure",
+        "extreme_cells",
+        "impact_focus",
+        "master_state",
+        "maximum_risk",
+        "mean_risk",
+        "mean_risk_delta",
+        "rain_24h_change_percent",
+        "rain_72h_change_percent",
+        "rain_7d_change_percent",
+        "recent_vs_baseline",
+        "regional_posture",
+        "risk",
+        "score",
+        "soil_change_percent",
+        "state",
+        "trajectory",
+        "trajectory_category",
+        "trajectory_score",
+        "volatility_change_percent"
+      ]
+    },
+    {
+      "path": "backend/app/response_recommendation.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_num",
+        "build_response_recommendation"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "components",
+        "confidence",
+        "field_posture",
+        "high_priority_targets",
+        "immediate_targets",
+        "intervention_class",
+        "master_warning",
+        "monitoring_posture",
+        "operational_focus",
+        "operational_posture",
+        "priority",
+        "progression_direction",
+        "progression_state",
+        "regional_posture",
+        "target_count",
+        "urgency"
+      ]
+    },
+    {
+      "path": "backend/app/risk_acceleration.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_get_mean_risk",
+        "_num",
+        "analyze_risk_acceleration"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "rainfall_change_percent"
+      ]
+    },
+    {
+      "path": "backend/app/risk_clusters.py",
+      "category": "Derived Intelligence",
+      "classes": [],
+      "functions": [
+        "_build_adjacency",
+        "_category",
+        "_centroid",
+        "_distance_m",
+        "_num",
+        "_rank",
+        "detect_risk_clusters"
+      ],
+      "imports": [
+        "__future__",
+        "collections",
+        "typing"
+      ],
+      "routes": [
+        "cell_id",
+        "centroid",
+        "confidence_score",
+        "coordinates",
+        "features",
+        "geometry",
+        "properties",
+        "severity",
+        "type",
+        "unified_risk_score",
+        "warning_state"
+      ]
+    },
+    {
+      "path": "backend/app/risk_posture.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_category",
+        "_num",
+        "_rank",
+        "_scenario_escalates",
+        "_scenario_sensitivity",
+        "build_risk_posture"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "baseline_category",
+        "cell_id",
+        "confidence_score",
+        "escalates",
+        "evidence_state",
+        "rainfall_change_percent",
+        "risk_category",
+        "risk_score",
+        "risk_score_change",
+        "severity",
+        "unified_risk_score",
+        "warning_state"
+      ]
+    },
+    {
+      "path": "backend/app/scenario_comparison.py",
+      "category": "Simulation / Scenario",
+      "classes": [],
+      "functions": [
+        "_assessment",
+        "_int",
+        "_num",
+        "_trigger_rank",
+        "compare_scenarios"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "escalating_cells",
+        "max_risk_change",
+        "max_risk_score",
+        "mean_risk_change",
+        "mean_risk_score",
+        "new_extreme_cells",
+        "new_high_or_extreme",
+        "rainfall_change_percent",
+        "rainfall_trigger_score",
+        "scenario",
+        "trigger_category",
+        "trigger_score_change_from_baseline"
+      ]
+    },
+    {
+      "path": "backend/app/scenario_curve.py",
+      "category": "Simulation / Scenario",
+      "classes": [],
+      "functions": [
+        "_curve_shape",
+        "_direction",
+        "_int",
+        "_num",
+        "analyze_scenario_curve"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "escalating_cells",
+        "max_risk_change",
+        "max_risk_score",
+        "mean_risk_change",
+        "mean_risk_score",
+        "new_extreme_cells",
+        "new_high_or_extreme",
+        "rainfall_change_percent",
+        "rainfall_trigger_score",
+        "scenario",
+        "trigger_category"
+      ]
+    },
+    {
+      "path": "backend/app/scenario_decision.py",
+      "category": "Simulation / Scenario",
+      "classes": [],
+      "functions": [
+        "_int",
+        "_num",
+        "_scenario_name",
+        "build_decision_brief"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "actions",
+        "baseline",
+        "baseline_risk",
+        "cell_id",
+        "escalating_cells",
+        "exposure_component",
+        "max_risk_score",
+        "mean_risk_change",
+        "mean_risk_score",
+        "new_extreme_cells",
+        "new_high_or_extreme",
+        "priority_level",
+        "priority_rank",
+        "priority_score",
+        "rainfall_change_percent",
+        "rank_change",
+        "recommendation_level",
+        "risk_change",
+        "scenario",
+        "scenario_risk",
+        "susceptibility_component",
+        "top_priority_cells",
+        "transition",
+        "trigger_shift",
+        "worst_case",
+        "worst_mean_risk"
+      ]
+    },
+    {
+      "path": "backend/app/scenario_forecast.py",
+      "category": "Simulation / Scenario",
+      "classes": [],
+      "functions": [
+        "_confidence",
+        "_direction",
+        "_num",
+        "_rank",
+        "build_scenario_forecast"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "escalating_cells",
+        "escalating_cells_delta",
+        "first_escalation",
+        "first_new_high",
+        "from_rainfall_percent",
+        "largest_escalation_jump",
+        "lower_bound_percent",
+        "mean_risk_score",
+        "new_high_or_extreme",
+        "overall_curve_shape",
+        "points",
+        "rainfall_change_percent",
+        "scenario",
+        "strongest_tipping_region",
+        "to_rainfall_percent",
+        "transition_score",
+        "trigger_category",
+        "trigger_shift_count",
+        "type",
+        "upper_bound_percent"
+      ]
+    },
+    {
+      "path": "backend/app/scenario_intelligence.py",
+      "category": "Simulation / Scenario",
+      "classes": [],
+      "functions": [
+        "_interpret_cell",
+        "_num",
+        "_transition_text",
+        "analyze_cell_scenarios",
+        "analyze_scenario_summary"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "baseline_category",
+        "baseline_risk_score",
+        "category_change",
+        "escalates",
+        "escalating_cells",
+        "max_risk_score",
+        "mean_risk_score",
+        "new_high_or_extreme",
+        "rainfall_change_percent",
+        "risk_category",
+        "risk_score",
+        "risk_score_change",
+        "scenario"
+      ]
+    },
+    {
+      "path": "backend/app/scenario_map.py",
+      "category": "Simulation / Scenario",
+      "classes": [],
+      "functions": [
+        "_band",
+        "_int",
+        "_num",
+        "_rank",
+        "build_scenario_map"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "baseline_category",
+        "baseline_risk_score",
+        "cell_id",
+        "escalates",
+        "exposure_score",
+        "rainfall_change_percent",
+        "rainfall_trigger_score",
+        "risk_category",
+        "risk_score",
+        "risk_score_change",
+        "scenario",
+        "susceptibility_probability"
+      ]
+    },
+    {
+      "path": "backend/app/scenario_master.py",
+      "category": "Simulation / Scenario",
+      "classes": [],
+      "functions": [
+        "build_scenario_master"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "boundaries",
+        "category_change_cells",
+        "cell_count",
+        "confidence",
+        "derived_inferences",
+        "early_warning_point",
+        "escalating_cells",
+        "extreme_escalations",
+        "headline",
+        "high_or_extreme_escalations",
+        "highest_risk_cells",
+        "new_extreme_cells",
+        "new_high_or_extreme_cells",
+        "operational_posture",
+        "rainfall_change_percent",
+        "recommendation_level",
+        "record_count",
+        "scenario",
+        "scenarios",
+        "soil_scenario_available",
+        "supported_evidence",
+        "supported_parameter",
+        "top_cells",
+        "top_sensitive_cells",
+        "trajectory_class",
+        "transition_region",
+        "uncertainty_level",
+        "unsupported_claims",
+        "very_high_sensitivity_cells"
+      ]
+    },
+    {
+      "path": "backend/app/scenario_priority.py",
+      "category": "Simulation / Scenario",
+      "classes": [],
+      "functions": [
+        "_normalize",
+        "_num",
+        "_rank",
+        "calculate_scenario_priority",
+        "rank_scenario_priority"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "baseline_category",
+        "baseline_risk_score",
+        "cell_id",
+        "exposure_score",
+        "rainfall_change_percent",
+        "rainfall_trigger_score",
+        "risk_score_change",
+        "scenario",
+        "scenario_category",
+        "scenario_risk_score",
+        "susceptibility_probability"
+      ]
+    },
+    {
+      "path": "backend/app/scenario_recommendation.py",
+      "category": "Simulation / Scenario",
+      "classes": [],
+      "functions": [
+        "_build_actions",
+        "_int",
+        "_num",
+        "_recommendation_level",
+        "build_scenario_recommendation"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "baseline_risk_score",
+        "cell_id",
+        "escalating_cells",
+        "exposure_score",
+        "max_risk_score",
+        "mean_risk_change",
+        "mean_risk_score",
+        "new_extreme_cells",
+        "new_high_or_extreme",
+        "priority_level",
+        "rainfall_change_percent",
+        "risk_score_change",
+        "scenario",
+        "scenario_risk_score",
+        "scenarios",
+        "sensitivity_score",
+        "transition"
+      ]
+    },
+    {
+      "path": "backend/app/scenario_sensitivity.py",
+      "category": "Simulation / Scenario",
+      "classes": [],
+      "functions": [
+        "_cell_sensitivity_score",
+        "_int",
+        "_num",
+        "_priority_band",
+        "_rank",
+        "_sensitivity_band",
+        "_transition_weight",
+        "rank_scenario_cells"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "baseline_category",
+        "baseline_risk_score",
+        "cell_id",
+        "escalates",
+        "exposure_score",
+        "rainfall_change_percent",
+        "rainfall_trigger_score",
+        "risk_category",
+        "risk_score",
+        "risk_score_change",
+        "scenario",
+        "susceptibility_probability"
+      ]
+    },
+    {
+      "path": "backend/app/scenario_thresholds.py",
+      "category": "Simulation / Scenario",
+      "classes": [],
+      "functions": [
+        "_int",
+        "_num",
+        "_rank",
+        "detect_scenario_thresholds"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "escalating_cells",
+        "mean_risk_change",
+        "mean_risk_score",
+        "new_extreme_cells",
+        "new_high_or_extreme",
+        "rainfall_change_percent",
+        "rainfall_trigger_score",
+        "scenario",
+        "trigger_category"
+      ]
+    },
+    {
+      "path": "backend/app/scenario_uncertainty.py",
+      "category": "Simulation / Scenario",
+      "classes": [],
+      "functions": [
+        "_build_boundaries",
+        "_build_supported_statements",
+        "_num",
+        "_uncertainty_level",
+        "build_scenario_uncertainty"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "first_escalation",
+        "lower_bound_percent",
+        "points",
+        "rainfall_change_percent",
+        "strongest_tipping_region",
+        "transition_score",
+        "type",
+        "upper_bound_percent",
+        "worst_tested_scenario"
+      ]
+    },
+    {
+      "path": "backend/app/temporal_anomaly_fusion.py",
+      "category": "Derived Intelligence",
+      "classes": [],
+      "functions": [
+        "_num",
+        "build_temporal_anomaly_fusion"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "acceleration",
+        "direction",
+        "environment_anomaly_category",
+        "environment_anomaly_score",
+        "mean_risk_rate",
+        "state",
+        "trajectory",
+        "trajectory_score"
+      ]
+    },
+    {
+      "path": "backend/app/temporal_scenario_coupling.py",
+      "category": "Simulation / Scenario",
+      "classes": [],
+      "functions": [
+        "_num",
+        "build_temporal_scenario_coupling"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "alignment",
+        "category",
+        "direction",
+        "progression_direction",
+        "progression_state",
+        "risk_change",
+        "scenario",
+        "temporal_state",
+        "trajectory"
+      ]
+    },
+    {
+      "path": "backend/app/unified_posture.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [
+        "_category",
+        "_clustered_spatial",
+        "_confidence_band",
+        "_high_spatial",
+        "_num",
+        "_posture",
+        "_priority_level",
+        "_priority_score",
+        "_rank",
+        "_scenario_signal",
+        "build_unified_posture"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "category",
+        "cell_id",
+        "confidence",
+        "confidence_score",
+        "evidence_state",
+        "evidence_strength",
+        "extreme_cells",
+        "future",
+        "high_risk_cells",
+        "pattern",
+        "pattern_strength",
+        "posture",
+        "risk_change",
+        "risk_score",
+        "severity",
+        "unified_risk_score",
+        "warning_state"
+      ]
+    },
+    {
+      "path": "backend/app/__init__.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [],
+      "imports": [],
+      "routes": []
+    },
+    {
+      "path": "backend/app/ai/adversarial_benchmark.py",
+      "category": "AI Evaluation",
+      "classes": [
+        "AdversarialCase"
+      ],
+      "functions": [
+        "case_correct_category_verified",
+        "case_current_evidence_is_verified",
+        "case_empty_query_rejected",
+        "case_historical_boundary_preserved",
+        "case_malformed_cell_request_is_safe",
+        "case_non_string_query_rejected",
+        "case_normal_agent_response_has_no_traceback",
+        "case_number_mismatch_rejected",
+        "case_ood_request_is_safe",
+        "case_partial_failure_does_not_crash",
+        "case_second_ood_request_is_safe",
+        "case_simulated_not_observed",
+        "case_simulation_is_not_observation",
+        "case_strange_phrasing_routes",
+        "case_unknown_evidence_rejected",
+        "case_wrong_category_rejected",
+        "failed_cell",
+        "run_adversarial_benchmark",
+        "run_step10_benchmark"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai",
+        "backend.app.ai.agent_tools",
+        "backend.app.ai.autonomous_master",
+        "backend.app.ai.domain_router",
+        "backend.app.ai.evidence_builder",
+        "backend.app.ai.evidence_synthesis",
+        "dataclasses",
+        "typing"
+      ],
+      "routes": [
+        "status"
+      ]
+    },
+    {
+      "path": "backend/app/ai/agent_benchmark.py",
+      "category": "AI Evaluation",
+      "classes": [
+        "AgentBenchmarkCase",
+        "AgentBenchmarkResult",
+        "AgentBenchmarkSuiteResult"
+      ],
+      "functions": [
+        "_domain",
+        "_has_any",
+        "_intent",
+        "_lower",
+        "_score",
+        "_status",
+        "_text",
+        "_tools",
+        "_verified",
+        "evaluate_cell",
+        "evaluate_decision",
+        "evaluate_evidence",
+        "evaluate_historical",
+        "evaluate_outside",
+        "evaluate_regional",
+        "evaluate_scenario",
+        "evaluate_warning",
+        "model_status",
+        "run_real_agent_benchmark",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.autonomous_master",
+        "backend.app.ai.model_adapter",
+        "dataclasses",
+        "time",
+        "typing"
+      ],
+      "routes": [
+        "status"
+      ]
+    },
+    {
+      "path": "backend/app/ai/agent_loop.py",
+      "category": "AI",
+      "classes": [
+        "AgentRun"
+      ],
+      "functions": [
+        "run_investigation_loop",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.agent_memory",
+        "dataclasses",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/ai/agent_memory.py",
+      "category": "Memory",
+      "classes": [
+        "AgentStep",
+        "InvestigationMemory"
+      ],
+      "functions": [
+        "add_evidence_id",
+        "add_fact",
+        "add_step",
+        "create_investigation_memory",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "datetime",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/ai/agent_tools.py",
+      "category": "AI Tool",
+      "classes": [],
+      "functions": [
+        "_schema",
+        "execute_decision_master",
+        "execute_early_warning_master",
+        "execute_exact_cell_intelligence",
+        "execute_historical_event_intelligence",
+        "execute_historical_trajectory",
+        "execute_regional_intelligence",
+        "execute_scenario_simulation",
+        "execute_temporal_orchestrator",
+        "get_awareon_executors",
+        "get_awareon_tools"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.historical_event_intelligence",
+        "backend.app.ai.model_tool_loop",
+        "backend.app.ai.regional_investigator",
+        "backend.app.ai.temporal_orchestrator",
+        "backend.app.decision_master",
+        "backend.app.early_warning_master",
+        "backend.app.exact_cell_intelligence",
+        "backend.app.historical_trajectory",
+        "backend.app.services.scenario_service",
+        "typing"
+      ],
+      "routes": [
+        "regional_intelligence",
+        "status",
+        "tool_results"
+      ]
+    },
+    {
+      "path": "backend/app/ai/autonomous_master.py",
+      "category": "Orchestrator",
+      "classes": [
+        "AutonomousInvestigation"
+      ],
+      "functions": [
+        "_build_answer",
+        "_build_learning_candidate",
+        "_build_orchestration_evidence",
+        "_collect_findings",
+        "_extract_cell_id",
+        "_extract_coordinates",
+        "_ingest_evidence",
+        "_learning_feedback_dict",
+        "_model_synthesis",
+        "_reconstruct_evidence",
+        "_resolve_decision_cell_from_region",
+        "_run_cell",
+        "_run_decision",
+        "_run_general_explanation",
+        "_run_historical",
+        "_run_historical_event",
+        "_run_region",
+        "_run_scenario",
+        "_run_temporal",
+        "_safe_add_investigation",
+        "_store_structural_learning",
+        "add",
+        "add_scalar_fields",
+        "run_awareon_agent",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.agent_memory",
+        "backend.app.ai.agent_tools",
+        "backend.app.ai.cell_investigator",
+        "backend.app.ai.conversation_memory",
+        "backend.app.ai.decision_orchestrator",
+        "backend.app.ai.domain_retrieval",
+        "backend.app.ai.domain_router",
+        "backend.app.ai.evidence",
+        "backend.app.ai.grounding",
+        "backend.app.ai.historical_event_intelligence",
+        "backend.app.ai.learning_aware_synthesis",
+        "backend.app.ai.learning_candidates",
+        "backend.app.ai.learning_feedback",
+        "backend.app.ai.model_adapter",
+        "backend.app.ai.regional_investigator",
+        "backend.app.ai.response_contract",
+        "backend.app.ai.scenario_investigator",
+        "backend.app.ai.verification",
+        "backend.app.historical_trajectory",
+        "dataclasses",
+        "re",
+        "typing"
+      ],
+      "routes": [
+        "approximate_years",
+        "band",
+        "cell_id",
+        "claim",
+        "confidence",
+        "content",
+        "coupled_state",
+        "coupling",
+        "coverage",
+        "data_quality_band",
+        "decision",
+        "decision_master",
+        "direction",
+        "distance_m",
+        "district",
+        "early_warning",
+        "early_warning_master",
+        "emerging_risk",
+        "emerging_state",
+        "entry_id",
+        "event_count",
+        "event_date",
+        "events",
+        "evidence",
+        "evidence_id",
+        "evidence_type",
+        "findings",
+        "historical",
+        "historical_current",
+        "historical_current_score",
+        "historical_events",
+        "historical_hotspot_distance_m",
+        "historical_recurrence",
+        "hotspot_category",
+        "hotspot_id",
+        "hotspot_score",
+        "incident_id",
+        "intervention",
+        "items",
+        "landslide_id",
+        "location",
+        "master_state",
+        "master_warning",
+        "max_risk_score",
+        "maximum_risk",
+        "metadata",
+        "observations",
+        "optimization",
+        "optimization_score",
+        "option",
+        "priority",
+        "priority_score",
+        "progression",
+        "progression_state",
+        "query",
+        "rain_24h_change_percent",
+        "recent_vs_baseline",
+        "recommended_option",
+        "regional_intelligence",
+        "repeated_locations",
+        "response",
+        "response_level",
+        "scope",
+        "score",
+        "source",
+        "source_id",
+        "source_tool",
+        "source_type",
+        "status",
+        "strongest_correlations",
+        "title",
+        "tool_results",
+        "top_cells",
+        "trajectory",
+        "trajectory_score",
+        "value",
+        "volatility_change_percent",
+        "warning_level"
+      ]
+    },
+    {
+      "path": "backend/app/ai/benchmark.py",
+      "category": "AI Evaluation",
+      "classes": [
+        "BenchmarkCase",
+        "BenchmarkResult",
+        "BenchmarkSuiteResult"
+      ],
+      "functions": [
+        "_has_all",
+        "_has_any",
+        "evaluate_cell_explanation",
+        "evaluate_generic",
+        "evaluate_outside_domain",
+        "evaluate_regional",
+        "evaluate_scenario",
+        "run_benchmark",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "time",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/ai/cell_investigator.py",
+      "category": "Investigator",
+      "classes": [
+        "CellInvestigation"
+      ],
+      "functions": [
+        "_build_findings",
+        "extract_cell_id",
+        "investigate_cell",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.domain_router",
+        "backend.app.ai.evidence_builder",
+        "backend.app.ai.grounding",
+        "backend.app.exact_cell_intelligence",
+        "dataclasses",
+        "typing"
+      ],
+      "routes": [
+        "cell_id",
+        "current_risk_score",
+        "current_severity",
+        "evidence_state",
+        "neighbor_count",
+        "scenario_risk",
+        "scenario_risk_change",
+        "signal_summary",
+        "spatial_pattern"
+      ]
+    },
+    {
+      "path": "backend/app/ai/conversation_memory.py",
+      "category": "Memory",
+      "classes": [
+        "ConversationMemory",
+        "ConversationTurn"
+      ],
+      "functions": [
+        "__post_init__",
+        "add_turn",
+        "context_text",
+        "create_conversation_memory",
+        "last_turn",
+        "recent_turns",
+        "resolve_references",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "typing"
+      ],
+      "routes": [
+        "claim"
+      ]
+    },
+    {
+      "path": "backend/app/ai/decision_benchmark.py",
+      "category": "AI Evaluation",
+      "classes": [],
+      "functions": [
+        "run_decision_benchmark"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.decision_orchestrator"
+      ],
+      "routes": [
+        "option",
+        "recommended_option"
+      ]
+    },
+    {
+      "path": "backend/app/ai/decision_orchestrator.py",
+      "category": "Orchestrator",
+      "classes": [
+        "DecisionIntelligenceResult"
+      ],
+      "functions": [
+        "_build_cluster",
+        "_build_risk_lookup",
+        "_build_scenario_lookup",
+        "_extract_targets",
+        "_regional_core",
+        "_require_dict",
+        "_require_list",
+        "run_decision_intelligence",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.agent_tools",
+        "backend.app.ai.temporal_orchestrator",
+        "backend.app.cluster_evolution",
+        "backend.app.cluster_exposure",
+        "backend.app.cluster_priority",
+        "backend.app.decision_master",
+        "backend.app.decision_optimization",
+        "backend.app.decision_tradeoff",
+        "backend.app.field_inspection",
+        "backend.app.infrastructure_impact",
+        "backend.app.intervention_comparison",
+        "backend.app.intervention_priority",
+        "backend.app.monitoring_priority",
+        "backend.app.operational_planning",
+        "backend.app.regional_command",
+        "backend.app.regional_master",
+        "backend.app.response_recommendation",
+        "backend.app.services.assessment_service",
+        "backend.app.services.scenario_service",
+        "dataclasses",
+        "typing"
+      ],
+      "routes": [
+        "anomaly_fusion",
+        "cell_count",
+        "cell_id",
+        "early_warning",
+        "early_warning_master",
+        "extreme_cells",
+        "high_or_extreme_cells",
+        "maximum_risk",
+        "mean_confidence",
+        "mean_risk_score",
+        "optimization_score",
+        "option",
+        "options",
+        "progression",
+        "recommended_option",
+        "regional_intelligence",
+        "regional_posture",
+        "risk_category",
+        "risk_score",
+        "risk_score_change",
+        "scenarios",
+        "spatial_pattern",
+        "temporal_state",
+        "tool_results",
+        "top_cells",
+        "warning_level",
+        "watch_cells"
+      ]
+    },
+    {
+      "path": "backend/app/ai/domain_knowledge.py",
+      "category": "AI",
+      "classes": [
+        "KnowledgeEntry"
+      ],
+      "functions": [
+        "_normalise",
+        "_score_entry",
+        "all_entries",
+        "build_knowledge_context",
+        "retrieve_awareon_knowledge",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/ai/domain_retrieval.py",
+      "category": "AI",
+      "classes": [
+        "RankedKnowledge"
+      ],
+      "functions": [
+        "_cosine_like_overlap",
+        "_entry_concepts",
+        "_entry_purposes",
+        "_normalise",
+        "_phrase_present",
+        "_query_concepts",
+        "_query_purpose",
+        "_rank_entry",
+        "_term_counter",
+        "_tokens",
+        "build_semantic_knowledge_context",
+        "retrieve_awareon_knowledge_semantic",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.domain_knowledge",
+        "collections",
+        "dataclasses",
+        "math",
+        "re",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/ai/domain_router.py",
+      "category": "AI",
+      "classes": [
+        "DomainDecision",
+        "QueryDomain",
+        "QueryIntent"
+      ],
+      "functions": [
+        "_infer_intent",
+        "_normalise",
+        "_signals_for",
+        "classify_query"
+      ],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "enum"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/ai/evidence.py",
+      "category": "Evidence / Verification",
+      "classes": [
+        "EvidenceItem",
+        "EvidencePackage",
+        "EvidenceType"
+      ],
+      "functions": [
+        "add",
+        "build_provenance",
+        "classify_evidence_type",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "typing",
+        "uuid"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/ai/evidence_builder.py",
+      "category": "Evidence / Verification",
+      "classes": [],
+      "functions": [
+        "_item",
+        "add",
+        "assessment",
+        "build_cell_evidence_package",
+        "canonical",
+        "signal"
+      ],
+      "imports": [
+        "__future__",
+        "typing"
+      ],
+      "routes": [
+        "cell",
+        "cell_id",
+        "current_assessment",
+        "evidence_state",
+        "extreme_cells",
+        "high_risk_cells",
+        "neighbor_count",
+        "neighborhood",
+        "pattern",
+        "priority_level",
+        "priority_score",
+        "risk_category",
+        "risk_score",
+        "risk_score_change",
+        "scenario",
+        "signal_summary",
+        "spatial_pattern",
+        "unified_posture"
+      ]
+    },
+    {
+      "path": "backend/app/ai/evidence_completeness_benchmark.py",
+      "category": "AI Evaluation",
+      "classes": [],
+      "functions": [
+        "run_evidence_completeness_benchmark"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.agent_tools",
+        "backend.app.ai.evidence_builder"
+      ],
+      "routes": [
+        "evidence_id",
+        "items",
+        "value"
+      ]
+    },
+    {
+      "path": "backend/app/ai/evidence_synthesis.py",
+      "category": "Evidence / Verification",
+      "classes": [
+        "EvidenceSynthesisResult",
+        "VerifiedClaim"
+      ],
+      "functions": [
+        "_build_prompt",
+        "_canonical_categories",
+        "_claimed_categories",
+        "_extract_json_object",
+        "_extract_numbers",
+        "_normalize",
+        "_verified_claim_confidence",
+        "assemble_verified_answer",
+        "build_model_evidence",
+        "synthesize_with_verification",
+        "to_dict",
+        "verify_claim",
+        "verify_model_claims"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.model_adapter",
+        "dataclasses",
+        "json",
+        "re",
+        "typing"
+      ],
+      "routes": [
+        "claim",
+        "claims",
+        "confidence",
+        "evidence_id",
+        "evidence_refs",
+        "evidence_type",
+        "items",
+        "value"
+      ]
+    },
+    {
+      "path": "backend/app/ai/final_ai_benchmark.py",
+      "category": "AI Evaluation",
+      "classes": [],
+      "functions": [
+        "_passed",
+        "_passed_count",
+        "_score",
+        "_total",
+        "run_final_ai_benchmark"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.adversarial_benchmark",
+        "backend.app.ai.agent_benchmark",
+        "backend.app.ai.decision_benchmark",
+        "backend.app.ai.evidence_completeness_benchmark",
+        "backend.app.ai.multihop_benchmark",
+        "backend.app.ai.retrieval_benchmark",
+        "typing"
+      ],
+      "routes": [
+        "passed",
+        "score",
+        "verified_required"
+      ]
+    },
+    {
+      "path": "backend/app/ai/grounding.py",
+      "category": "Evidence / Verification",
+      "classes": [],
+      "functions": [
+        "_num",
+        "canonical_value",
+        "ground_tool_result",
+        "merge_evidence"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.evidence",
+        "typing"
+      ],
+      "routes": [
+        "cell_count",
+        "cell_id",
+        "current_assessment",
+        "direction",
+        "extreme_cells",
+        "features",
+        "high_or_extreme_cells",
+        "master_state",
+        "master_urgency",
+        "master_warning",
+        "mean_risk_score",
+        "operational_focus",
+        "operational_posture",
+        "rainfall_change_percent",
+        "regional_state",
+        "response_level",
+        "severity",
+        "signal_summary",
+        "trajectory",
+        "trajectory_score",
+        "unified_posture"
+      ]
+    },
+    {
+      "path": "backend/app/ai/historical_event_intelligence.py",
+      "category": "AI",
+      "classes": [],
+      "functions": [
+        "_extract_coordinates",
+        "_extract_places",
+        "_extract_year",
+        "_float",
+        "_haversine_m",
+        "_int",
+        "_normalise",
+        "_prepare_event",
+        "_read_csv",
+        "build_historical_current_context",
+        "build_historical_event_intelligence",
+        "build_historical_recurrence",
+        "search_historical_events"
+      ],
+      "imports": [
+        "__future__",
+        "csv",
+        "math",
+        "pathlib",
+        "re",
+        "typing"
+      ],
+      "routes": [
+        "district",
+        "event_count",
+        "event_date",
+        "historical_current_category",
+        "historical_current_score",
+        "historical_hotspot_distance_m",
+        "hotspot_category",
+        "hotspot_id",
+        "hotspot_score",
+        "incident_id",
+        "landslide_id",
+        "latitude",
+        "location",
+        "longitude",
+        "max_risk_score",
+        "persistent_risk_zone",
+        "precip_mm",
+        "priority_level",
+        "priority_rank",
+        "priority_score",
+        "rain_24h_mm",
+        "rain_72h_mm",
+        "rain_7d_mm",
+        "record_id",
+        "swvl1",
+        "swvl2"
+      ]
+    },
+    {
+      "path": "backend/app/ai/learning_aware_synthesis.py",
+      "category": "Learning",
+      "classes": [
+        "LearningAwareSynthesisResult"
+      ],
+      "functions": [
+        "_knowledge_to_evidence",
+        "answer",
+        "build_learning_system_prompt",
+        "status",
+        "synthesize_with_learning",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.domain_retrieval",
+        "backend.app.ai.evidence_synthesis",
+        "backend.app.ai.learning_feedback",
+        "backend.app.ai.learning_memory",
+        "backend.app.ai.model_adapter",
+        "dataclasses",
+        "typing"
+      ],
+      "routes": [
+        "content",
+        "context",
+        "entry_id",
+        "items",
+        "query",
+        "scope",
+        "source",
+        "source_date",
+        "source_type",
+        "title",
+        "topic"
+      ]
+    },
+    {
+      "path": "backend/app/ai/learning_candidates.py",
+      "category": "Learning",
+      "classes": [
+        "LearningCandidate"
+      ],
+      "functions": [
+        "_build_structural_pattern",
+        "_claim_confidence",
+        "_claim_evidence",
+        "_claim_text",
+        "_clean",
+        "_is_generalizable",
+        "_is_verified",
+        "build_learning_candidate",
+        "store_validated_candidate",
+        "to_dict",
+        "validate_learning_candidate"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.learning_memory",
+        "dataclasses",
+        "re",
+        "typing"
+      ],
+      "routes": [
+        "confidence"
+      ]
+    },
+    {
+      "path": "backend/app/ai/learning_feedback.py",
+      "category": "Learning",
+      "classes": [
+        "LearningFeedback"
+      ],
+      "functions": [
+        "count",
+        "learning_context_for_query",
+        "retrieve_learning_feedback",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.learning_memory",
+        "dataclasses",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/ai/learning_memory.py",
+      "category": "Learning",
+      "classes": [
+        "LearningMemory",
+        "LearningRecord"
+      ],
+      "functions": [
+        "__init__",
+        "_connect",
+        "_initialize",
+        "_make_id",
+        "count",
+        "search",
+        "store",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "datetime",
+        "hashlib",
+        "json",
+        "os",
+        "sqlite3",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/ai/model_adapter.py",
+      "category": "AI",
+      "classes": [
+        "AwareOnModelAdapter",
+        "ModelAdapterError",
+        "ModelConfig",
+        "ModelConfigurationError",
+        "ModelProviderError",
+        "ModelResponse",
+        "ModelResponseError"
+      ],
+      "functions": [
+        "__init__",
+        "_build_assistant_message",
+        "_extract_ollama_tool_calls",
+        "_extract_ollama_usage",
+        "_extract_openai_tool_calls",
+        "_extract_output_text",
+        "_extract_request_id",
+        "_extract_response_id",
+        "_extract_usage",
+        "_format_http_error",
+        "_generate_ollama_messages",
+        "_generate_openai",
+        "_generate_openai_json",
+        "_request",
+        "_request_with_retry",
+        "_should_retry",
+        "_validate_configuration",
+        "_validate_schema",
+        "configuration_status",
+        "from_environment",
+        "generate",
+        "generate_from_messages",
+        "generate_json",
+        "generate_response",
+        "get_model_adapter",
+        "is_configured",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "json",
+        "os",
+        "time",
+        "typing",
+        "urllib.error",
+        "urllib.request"
+      ],
+      "routes": [
+        "_awareon_request_id",
+        "arguments",
+        "call_id",
+        "content",
+        "function",
+        "id",
+        "message",
+        "name",
+        "output",
+        "output_text",
+        "request-id",
+        "request_id",
+        "schema",
+        "text",
+        "thinking",
+        "tool_calls",
+        "type",
+        "usage",
+        "x-request-id"
+      ]
+    },
+    {
+      "path": "backend/app/ai/model_tool_loop.py",
+      "category": "AI Tool",
+      "classes": [
+        "ToolExecution",
+        "ToolLoopResult"
+      ],
+      "functions": [
+        "_call_signature",
+        "build_ollama_tool",
+        "run_model_tool_loop",
+        "to_dict",
+        "validate_arguments"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.model_adapter",
+        "dataclasses",
+        "json",
+        "typing"
+      ],
+      "routes": [
+        "arguments",
+        "id",
+        "name"
+      ]
+    },
+    {
+      "path": "backend/app/ai/multihop_benchmark.py",
+      "category": "AI Evaluation",
+      "classes": [],
+      "functions": [
+        "run_multihop_benchmark"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.agent_tools"
+      ],
+      "routes": [
+        "coupling",
+        "early_warning",
+        "early_warning_master",
+        "emerging_risk",
+        "historical",
+        "hop_1",
+        "hop_2",
+        "master_warning",
+        "orchestration",
+        "progression",
+        "status"
+      ]
+    },
+    {
+      "path": "backend/app/ai/multihop_orchestrator.py",
+      "category": "Orchestrator",
+      "classes": [
+        "MultiHopPlan",
+        "MultiHopResult",
+        "MultiHopStep"
+      ],
+      "functions": [
+        "build_multihop_plan",
+        "execute_multihop_plan",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/ai/regional_investigator.py",
+      "category": "Investigator",
+      "classes": [
+        "RegionalInvestigation"
+      ],
+      "functions": [
+        "_build_findings",
+        "_extract_maximum_risk",
+        "_num",
+        "extract_coordinates",
+        "investigate_region",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.domain_router",
+        "backend.app.ai.grounding",
+        "backend.app.regional_intelligence",
+        "dataclasses",
+        "typing"
+      ],
+      "routes": [
+        "cell_count",
+        "cell_id",
+        "classification",
+        "confidence_band",
+        "extreme_cells",
+        "high_or_extreme_cells",
+        "maximum_risk",
+        "mean_risk_score",
+        "pattern",
+        "regional_state",
+        "risk_score",
+        "score",
+        "severity",
+        "spatial_pattern",
+        "top_cells"
+      ]
+    },
+    {
+      "path": "backend/app/ai/response_contract.py",
+      "category": "AI",
+      "classes": [
+        "AIResponse",
+        "EvidenceItem"
+      ],
+      "functions": [
+        "build_ambiguous_response",
+        "build_out_of_domain_response",
+        "to_dict",
+        "validate"
+      ],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/ai/retrieval_benchmark.py",
+      "category": "AI Evaluation",
+      "classes": [
+        "RetrievalCase"
+      ],
+      "functions": [
+        "run_retrieval_benchmark"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.domain_retrieval",
+        "dataclasses",
+        "pprint",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/ai/scenario_investigator.py",
+      "category": "Investigator",
+      "classes": [
+        "ScenarioInvestigation"
+      ],
+      "functions": [
+        "_build_findings",
+        "_extract_high_count",
+        "_extract_max_risk",
+        "_extract_mean_risk",
+        "_resolve_scenarios",
+        "extract_percentages",
+        "investigate_scenarios",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.domain_router",
+        "backend.app.ai.grounding",
+        "backend.app.services.scenario_service",
+        "dataclasses",
+        "typing"
+      ],
+      "routes": [
+        "max_risk",
+        "maximum_risk",
+        "mean_risk",
+        "rainfall_change_percent",
+        "records",
+        "risk_score",
+        "score"
+      ]
+    },
+    {
+      "path": "backend/app/ai/self_correction.py",
+      "category": "AI",
+      "classes": [
+        "CorrectionResult"
+      ],
+      "functions": [
+        "_assemble_answer",
+        "_evidence_text",
+        "_extract_json",
+        "run_controlled_correction",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.evidence_synthesis",
+        "backend.app.ai.model_adapter",
+        "dataclasses",
+        "json",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/ai/system_policy.py",
+      "category": "AI",
+      "classes": [],
+      "functions": [
+        "get_system_policy"
+      ],
+      "imports": [
+        "__future__"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/ai/temporal_orchestrator.py",
+      "category": "Orchestrator",
+      "classes": [
+        "TemporalIntelligenceResult"
+      ],
+      "functions": [
+        "_build_regional_context",
+        "_build_scenario_summary",
+        "_require_dict",
+        "_require_scenario_records",
+        "run_temporal_intelligence",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.early_warning",
+        "backend.app.early_warning_master",
+        "backend.app.emerging_risk",
+        "backend.app.event_progression",
+        "backend.app.historical_trajectory",
+        "backend.app.multiscale_temporal",
+        "backend.app.regional_temporal",
+        "backend.app.risk_acceleration",
+        "backend.app.services.assessment_service",
+        "backend.app.services.scenario_service",
+        "backend.app.temporal_anomaly_fusion",
+        "backend.app.temporal_scenario_coupling",
+        "dataclasses",
+        "typing"
+      ],
+      "routes": [
+        "cell_count",
+        "cell_id",
+        "confidence_band",
+        "extreme_cells",
+        "high_or_extreme_cells",
+        "latitude",
+        "longitude",
+        "maximum_risk",
+        "mean_confidence",
+        "mean_risk_score",
+        "rainfall_change_percent",
+        "region",
+        "regional_state",
+        "risk_category",
+        "risk_score",
+        "risk_score_change",
+        "scenario",
+        "scenarios",
+        "signal_alignment",
+        "spatial_pattern"
+      ]
+    },
+    {
+      "path": "backend/app/ai/tool_planner.py",
+      "category": "AI Tool",
+      "classes": [
+        "ToolPlan"
+      ],
+      "functions": [
+        "_valid_tools",
+        "build_tool_plan",
+        "plan_for_query",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.ai.domain_router",
+        "backend.app.ai.tool_registry",
+        "dataclasses",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/ai/tool_registry.py",
+      "category": "AI Tool",
+      "classes": [
+        "AwareOnToolRegistry",
+        "ToolSpec"
+      ],
+      "functions": [
+        "__init__",
+        "all",
+        "by_intent",
+        "describe",
+        "get",
+        "names",
+        "summary"
+      ],
+      "imports": [
+        "__future__",
+        "backend.app.decision_master",
+        "backend.app.early_warning_master",
+        "backend.app.exact_cell_intelligence",
+        "backend.app.historical_trajectory",
+        "backend.app.regional_intelligence",
+        "backend.app.services.gis_service",
+        "backend.app.services.scenario_service",
+        "dataclasses",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/ai/verification.py",
+      "category": "Evidence / Verification",
+      "classes": [
+        "VerificationIssue",
+        "VerificationResult"
+      ],
+      "functions": [
+        "_contains_approx_number",
+        "_has_any_marker",
+        "_num",
+        "_text",
+        "passed",
+        "to_dict",
+        "verify_evidence_package",
+        "verify_investigation_completeness",
+        "verify_known_contradictions",
+        "verify_numeric_consistency",
+        "verify_response"
+      ],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "typing"
+      ],
+      "routes": [
+        "claim",
+        "evidence_id",
+        "evidence_type",
+        "items"
+      ]
+    },
+    {
+      "path": "backend/app/ai/__init__.py",
+      "category": "AI",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "agent_loop",
+        "agent_memory",
+        "autonomous_master",
+        "cell_investigator",
+        "domain_router",
+        "evidence",
+        "grounding",
+        "model_adapter",
+        "regional_investigator",
+        "response_contract",
+        "scenario_investigator",
+        "system_policy",
+        "tool_planner",
+        "tool_registry",
+        "verification"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/api/__init__.py",
+      "category": "API",
+      "classes": [],
+      "functions": [],
+      "imports": [],
+      "routes": []
+    },
+    {
+      "path": "backend/app/core/config.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [],
+      "imports": [],
+      "routes": []
+    },
+    {
+      "path": "backend/app/core/engine_registry.py",
+      "category": "Risk Engine",
+      "classes": [
+        "EngineDefinition"
+      ],
+      "functions": [
+        "get_engine",
+        "get_engines"
+      ],
+      "imports": [
+        "dataclasses"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/core/schemas.py",
+      "category": "Backend Module",
+      "classes": [
+        "AlertRecord",
+        "AlertResponse",
+        "AssessmentResponse",
+        "EngineInfo",
+        "EngineRegistryResponse",
+        "GISBoundaryResponse",
+        "GISCellResponse",
+        "HealthResponse",
+        "IncidentRecord",
+        "IncidentResponse",
+        "RiskRecord",
+        "RiskResponse"
+      ],
+      "functions": [],
+      "imports": [
+        "pydantic",
+        "typing"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/core/__init__.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [],
+      "imports": [],
+      "routes": []
+    },
+    {
+      "path": "backend/app/services/assessment_service.py",
+      "category": "Backend Module",
+      "classes": [
+        "AssessmentService"
+      ],
+      "functions": [
+        "get_assessment"
+      ],
+      "imports": [
+        "backend.app.services.repository"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/services/gis_service.py",
+      "category": "Backend Module",
+      "classes": [
+        "GISService"
+      ],
+      "functions": [
+        "get_boundary",
+        "get_cell",
+        "get_exposure_layer",
+        "get_feature_cell_id",
+        "get_historical_hotspots",
+        "get_nearby_cells",
+        "get_priority_incidents",
+        "get_risk_layer",
+        "iter_grid_features",
+        "load_exposure_lookup",
+        "load_risk_lookup",
+        "read_geojson",
+        "require_file",
+        "transform_coords",
+        "transform_geometry_to_wgs84"
+      ],
+      "imports": [
+        "ijson",
+        "json",
+        "pandas",
+        "pathlib",
+        "pickle",
+        "pyproj",
+        "shapely.geometry"
+      ],
+      "routes": [
+        "cell_id",
+        "geometry",
+        "properties",
+        "records"
+      ]
+    },
+    {
+      "path": "backend/app/services/repository.py",
+      "category": "Backend Module",
+      "classes": [
+        "DataRepository"
+      ],
+      "functions": [
+        "__init__",
+        "find_cell",
+        "load_csv"
+      ],
+      "imports": [
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/services/scenario_service.py",
+      "category": "Simulation / Scenario",
+      "classes": [
+        "ScenarioService"
+      ],
+      "functions": [
+        "get_cell_scenarios",
+        "get_summary",
+        "load_counterfactual_table",
+        "load_scenario_table",
+        "simulate"
+      ],
+      "imports": [
+        "pandas",
+        "pathlib"
+      ],
+      "routes": []
+    },
+    {
+      "path": "backend/app/services/__init__.py",
+      "category": "Backend Module",
+      "classes": [],
+      "functions": [],
+      "imports": [],
+      "routes": []
+    }
+  ]
+}

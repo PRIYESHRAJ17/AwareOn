@@ -1043,7 +1043,7 @@ def classify_query(
         return DomainDecision(
             domain=QueryDomain.OUTSIDE_DOMAIN,
             intent=QueryIntent.UNKNOWN,
-            confidence=0.98,
+            confidence=0.0,
             matched_signals=(),
             explanation=(
                 "The query does not contain signals "

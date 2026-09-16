@@ -1,0 +1,98 @@
+{
+  "environment": {
+    "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "git_commit": "de358897bd3fb5a012020885fd4ddc62da7b5261",
+    "git_branch": "main"
+  },
+  "ai": {
+    "primary_provider": "ollama",
+    "primary_model": "qwen3.5:9b",
+    "backup_provider": "ollama",
+    "backup_model": "nemotron-3-nano:4b-q8_0",
+    "configured_provider": "",
+    "configured_model": ""
+  },
+  "base_url": "http://127.0.0.1:8000",
+  "endpoints": [
+    {
+      "path": "/health",
+      "status": 200,
+      "ok": true,
+      "samples_ms": [
+        22.53,
+        1.15,
+        0.94
+      ],
+      "median_ms": 1.15,
+      "max_ms": 22.53,
+      "errors": []
+    },
+    {
+      "path": "/api/v1/engines",
+      "status": 200,
+      "ok": true,
+      "samples_ms": [
+        1.09,
+        0.93,
+        0.93
+      ],
+      "median_ms": 0.93,
+      "max_ms": 1.09,
+      "errors": []
+    },
+    {
+      "path": "/api/v1/risk",
+      "status": 200,
+      "ok": true,
+      "samples_ms": [
+        19.71,
+        20.51,
+        44.12
+      ],
+      "median_ms": 20.51,
+      "max_ms": 44.12,
+      "errors": []
+    },
+    {
+      "path": "/api/v1/alerts",
+      "status": 200,
+      "ok": true,
+      "samples_ms": [
+        17.09,
+        39.68,
+        33.4
+      ],
+      "median_ms": 33.4,
+      "max_ms": 39.68,
+      "errors": []
+    },
+    {
+      "path": "/api/v1/incidents",
+      "status": 200,
+      "ok": true,
+      "samples_ms": [
+        7.03,
+        27.12,
+        31.97
+      ],
+      "median_ms": 27.12,
+      "max_ms": 31.97,
+      "errors": []
+    },
+    {
+      "path": "/api/v1/scenario/summary",
+      "status": 200,
+      "ok": true,
+      "samples_ms": [
+        43.13,
+        34.55,
+        45.04
+      ],
+      "median_ms": 43.13,
+      "max_ms": 45.04,
+      "errors": []
+    }
+  ]
+}

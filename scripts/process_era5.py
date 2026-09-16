@@ -77,10 +77,19 @@ df["rain_7d_mm"] = (
     .sum()
 )
 
-# Rate/trend indicator
+# Rate/trend indicator.
+#
+# The first 24 observations have no previous 24-hour window,
+# so a 24-hour change is mathematically unavailable there.
+# Keep these values as NaN rather than manufacturing zeroes.
 df["rain_change_24h_mm"] = (
     df["rain_24h_mm"]
     .diff(24)
+)
+
+# Explicitly document the warm-up boundary for downstream consumers.
+df["rain_change_24h_available"] = (
+    df["rain_change_24h_mm"].notna()
 )
 
 # Metadata
@@ -102,6 +111,7 @@ columns = [
     "rain_72h_mm",
     "rain_7d_mm",
     "rain_change_24h_mm",
+    "rain_change_24h_available",
 ]
 
 df = df[columns]

@@ -460,7 +460,7 @@ def synthesize_with_learning(
     )
 
     # --------------------------------------------------------
-    # 6. VERIFIED NEMOTRON SYNTHESIS
+    # 6. VERIFIED MODEL SYNTHESIS
     # --------------------------------------------------------
 
     synthesis = synthesize_with_verification(

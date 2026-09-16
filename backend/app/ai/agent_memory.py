@@ -32,30 +32,6 @@ class AgentStep:
 
 
 # ============================================================
-# LEARNING CANDIDATE
-# ============================================================
-
-@dataclass
-class LearningCandidate:
-    candidate_id: str
-    category: str
-    observation: str
-    evidence: list[str]
-    confidence: float
-    approved: bool = False
-
-    def to_dict(self) -> dict[str, Any]:
-        return {
-            "candidate_id": self.candidate_id,
-            "category": self.category,
-            "observation": self.observation,
-            "evidence": self.evidence,
-            "confidence": self.confidence,
-            "approved": self.approved,
-        }
-
-
-# ============================================================
 # INVESTIGATION MEMORY
 # ============================================================
 
@@ -71,9 +47,6 @@ class InvestigationMemory:
         default_factory=list
     )
     evidence_ids: list[str] = field(
-        default_factory=list
-    )
-    learning_candidates: list[LearningCandidate] = field(
         default_factory=list
     )
 
@@ -126,30 +99,6 @@ class InvestigationMemory:
                 evidence_id
             )
 
-    def add_learning_candidate(
-        self,
-        category: str,
-        observation: str,
-        evidence: list[str],
-        confidence: float,
-    ) -> LearningCandidate:
-
-        candidate = LearningCandidate(
-            candidate_id=(
-                f"LC-{len(self.learning_candidates) + 1:04d}"
-            ),
-            category=category,
-            observation=observation,
-            evidence=evidence,
-            confidence=confidence,
-        )
-
-        self.learning_candidates.append(
-            candidate
-        )
-
-        return candidate
-
     def to_dict(self) -> dict[str, Any]:
         return {
             "investigation_id":
@@ -172,10 +121,6 @@ class InvestigationMemory:
             "evidence_ids":
                 self.evidence_ids,
 
-            "learning_candidates": [
-                item.to_dict()
-                for item in self.learning_candidates
-            ],
         }
 
 
@@ -197,29 +142,3 @@ def create_investigation_memory(
             ).isoformat()
         ),
     )
-
-
-# ============================================================
-# LEARNING GATE
-# ============================================================
-
-def approve_learning_candidate(
-    candidate: LearningCandidate,
-    *,
-    validator: str,
-) -> LearningCandidate:
-
-    if not validator.strip():
-        raise ValueError(
-            "validator is required."
-        )
-
-    if candidate.confidence < 75.0:
-        raise ValueError(
-            "Learning candidate confidence is too low "
-            "for approval."
-        )
-
-    candidate.approved = True
-
-    return candidate
