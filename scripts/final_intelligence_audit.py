@@ -373,7 +373,7 @@ if failed:
 
 else:
 
-    print("AUDIT PASSED ✅")
+    print("AUDIT PASSED")
 
 
 print("========================================")

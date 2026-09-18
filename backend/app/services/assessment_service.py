@@ -102,6 +102,15 @@ class AssessmentService:
             "confidence_category": str(
                 state["confidence_category"]
             ),
+            "confidence_explanation": str(
+                state["confidence_explanation"]
+            ),
+            "model_input_degraded": bool(
+                state["model_input_degraded"]
+            ),
+            "environment_input_degraded": bool(
+                state["environment_input_degraded"]
+            ),
 
             "driver_1": str(
                 risk["driver_1"]

@@ -34,7 +34,7 @@ Status:
 - `data/processed/grid/sikkim_dem_utm45.tif`
 - `data/processed/grid/slope.tif`
 - `data/processed/landslides/gsi_inventory_extracted.csv`
-- `docs/audit/beast_spec.yaml`
+- `docs/audit/intelligence_spec.yaml`
 - `docs/audit/data_quality_contract.yaml`
 - `scripts/baseline_audit.py`
 - `scripts/build_feature_dataset.py`

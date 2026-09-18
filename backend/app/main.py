@@ -9,6 +9,8 @@ from fastapi.responses import JSONResponse
 
 from backend.app.core.engine_registry import get_engines
 from backend.app.intelligence_api import router as intelligence_router
+# AWAREON INTELLIGENCE ROUTER V1
+from backend.app.intelligence.api import router as intelligence_router
 from backend.app.core.schemas import (
     AlertResponse,
     AssessmentResponse,
@@ -92,6 +94,15 @@ app = FastAPI(
     ),
     version="0.9.0",
 )
+app.include_router(
+    intelligence_router
+)
+
+# AWAREON INTELLIGENCE DETERMINISTIC REGISTRATION V6
+app.include_router(
+    intelligence_router
+)
+# AWAREON INTELLIGENCE ROUTER INCLUDE V1
 app.include_router(
     intelligence_router
 )
@@ -1246,3 +1257,51 @@ def api_info():
             ],
         },
     }
+
+
+# AWAREON INTELLIGENCE FINAL ROUTER GUARD V4
+try:
+    _awareon_intelligence_required_paths = {
+        "/api/v1/intelligence/health",
+        "/api/v1/intelligence/cell/{cell_id}/cascade",
+        "/api/v1/intelligence/cell/{cell_id}/resilience",
+    }
+    _awareon_intelligence_registered_paths = {
+        getattr(_route, "path", None)
+        for _route in app.routes
+    }
+    if not _awareon_intelligence_required_paths.issubset(_awareon_intelligence_registered_paths):
+        app.include_router(intelligence_router)
+except Exception:
+    pass
+
+# AWAREON INTELLIGENCE RUNTIME BINDING ONE_SHOT
+# Bind after all normal application route declarations so the Intelligence endpoints
+# survive fresh-process imports. The operation is idempotent by route path.
+def _awareon_bind_intelligence_routes() -> None:
+    existing = {
+        getattr(route, "path", None)
+        for route in app.routes
+    }
+    missing_routes = [
+        route
+        for route in intelligence_router.routes
+        if getattr(route, "path", None) not in existing
+    ]
+    if missing_routes:
+        app.include_router(intelligence_router)
+        existing = {
+            getattr(route, "path", None)
+            for route in app.routes
+        }
+    still_missing = [
+        route
+        for route in intelligence_router.routes
+        if getattr(route, "path", None) not in existing
+    ]
+    if still_missing:
+        # Final deterministic fallback: attach the actual route objects.
+        app.router.routes.extend(still_missing)
+
+
+_awareon_bind_intelligence_routes()

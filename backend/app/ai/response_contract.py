@@ -32,6 +32,22 @@ class AIResponse:
         default_factory=list
     )
     refusal_reason: str | None = None
+    # AWAREON INTELLIGENCE CONTRACT V1
+    claims: list[dict[str, Any]] = field(
+        default_factory=list
+    )
+    evidence_ids: list[str] = field(
+        default_factory=list
+    )
+    uncertainties: list[str] = field(
+        default_factory=list
+    )
+    model_identity: dict[str, Any] = field(
+        default_factory=dict
+    )
+    verification: dict[str, Any] = field(
+        default_factory=dict
+    )
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -69,6 +85,38 @@ class AIResponse:
             raise ValueError(
                 "tools_used must be a list."
             )
+
+        # AWAREON INTELLIGENCE PROVENANCE V1
+        # Build canonical claim-to-evidence links from supplied evidence.
+        if not self.evidence_ids:
+            self.evidence_ids = []
+        for item in self.evidence:
+            source_id = str(getattr(item, "source_id", "") or "").strip()
+            claim = str(getattr(item, "claim", "") or "").strip()
+            if source_id and source_id not in self.evidence_ids:
+                self.evidence_ids.append(source_id)
+            if claim:
+                mapped = {
+                    "claim": claim,
+                    "evidence_ids": [source_id] if source_id else [],
+                    "status": str(getattr(item, "status", "SUPPORTED") or "SUPPORTED").upper(),
+                    "source_type": str(getattr(item, "source_type", "")),
+                }
+                if mapped not in self.claims:
+                    self.claims.append(mapped)
+
+        if not self.model_identity:
+            import os
+            self.model_identity = {
+                "provider": os.getenv("AWAREON_AI_PROVIDER", "ollama"),
+                "model": os.getenv("AWAREON_AI_MODEL", "qwen3.5:9b"),
+                "fallback_model": os.getenv("AWAREON_AI_FALLBACK_MODEL", "nemotron-3-nano:4b-q8_0"),
+            }
+        if self.confidence < 60.0 and "Low response confidence." not in self.uncertainties:
+            self.uncertainties.append("Low response confidence.")
+        for limitation in self.limitations:
+            if limitation not in self.uncertainties:
+                self.uncertainties.append(limitation)
 
 
 def build_out_of_domain_response(

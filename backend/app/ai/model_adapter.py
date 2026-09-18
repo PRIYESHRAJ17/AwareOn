@@ -313,14 +313,67 @@ class AwareOnModelAdapter:
                 "supports Ollama only."
             )
 
-        return self._generate_ollama_messages(
-            messages=messages,
-            tools=tools,
-            temperature=temperature,
-            max_tokens=max_tokens,
-            response_format=response_format,
-            think=think,
-        )
+        try:
+            return self._generate_ollama_messages(
+                messages=messages,
+                tools=tools,
+                temperature=temperature,
+                max_tokens=max_tokens,
+                response_format=response_format,
+                think=think,
+            )
+        except Exception as primary_error:
+            # AWAREON INTELLIGENCE FALLBACK V1
+            fallback_enabled = os.getenv("AWAREON_AI_FALLBACK_ENABLED", "true").strip().lower() in {"1", "true", "yes", "on"}
+            fallback_model = os.getenv("AWAREON_AI_FALLBACK_MODEL", "nemotron-3-nano:4b-q8_0").strip()
+            if not fallback_enabled or not fallback_model or fallback_model == self.config.model:
+                raise
+
+            fallback = AwareOnModelAdapter(
+                ModelConfig(
+                    provider="ollama",
+                    model=fallback_model,
+                    base_url=self.config.base_url,
+                    timeout_seconds=self.config.timeout_seconds,
+                    max_retries=max(0, self.config.max_retries),
+                    retry_backoff_seconds=self.config.retry_backoff_seconds,
+                    reasoning_effort=self.config.reasoning_effort,
+                )
+            )
+            try:
+                response = fallback._generate_ollama_messages(
+                    messages=messages,
+                    tools=tools,
+                    temperature=temperature,
+                    max_tokens=max_tokens,
+                    response_format=response_format,
+                    think=think,
+                )
+            except Exception as fallback_error:
+                raise ModelProviderError(
+                    "Primary AI model failed and fallback AI model also failed. "
+                    f"primary={primary_error}; fallback={fallback_error}"
+                ) from fallback_error
+            raw = dict(response.raw or {})
+            raw["awareon_fallback"] = {
+                "used": True,
+                "primary_model": self.config.model,
+                "fallback_model": fallback_model,
+                "primary_error": str(primary_error)[:1000],
+                "silent_fallback_forbidden": True,
+            }
+            return ModelResponse(
+                text=response.text,
+                provider=response.provider,
+                model=response.model,
+                request_id=response.request_id,
+                response_id=response.response_id,
+                usage=response.usage,
+                raw=raw,
+                tool_calls=response.tool_calls,
+                assistant_message=response.assistant_message,
+                thinking=response.thinking,
+            )
 
     # ========================================================
     # JSON

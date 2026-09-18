@@ -112,6 +112,9 @@ for source, columns in [
             "confidence_score",
             "uncertainty_score",
             "confidence_category",
+            "confidence_explanation",
+            "model_input_degraded",
+            "environment_input_degraded",
         ],
     ),
     (
@@ -237,6 +240,11 @@ required = [
     "exposure_score",
     "spatial_pressure_score",
     "confidence_score",
+    "uncertainty_score",
+    "confidence_category",
+    "confidence_explanation",
+    "model_input_degraded",
+    "environment_input_degraded",
     "rainfall_trigger_score",
     "soil_wetness_score",
     "unified_risk_score",
@@ -249,6 +257,53 @@ if missing.sum() > 0:
     raise RuntimeError(
         "Missing intelligence-state values:\n"
         + missing[missing > 0].to_string()
+    )
+
+
+# ------------------------------------------------------------
+# Trust metadata integrity
+# ------------------------------------------------------------
+
+if not state["confidence_score"].between(0, 100).all():
+    raise RuntimeError(
+        "Confidence score outside 0-100."
+    )
+
+if not state["uncertainty_score"].between(0, 100).all():
+    raise RuntimeError(
+        "Uncertainty score outside 0-100."
+    )
+
+complement_error = (
+    state["confidence_score"]
+    + state["uncertainty_score"]
+    - 100.0
+).abs()
+
+if complement_error.max() > 1e-9:
+    raise RuntimeError(
+        "Confidence + uncertainty integrity failure. "
+        f"Maximum deviation: {complement_error.max()}"
+    )
+
+if state["confidence_category"].isna().any():
+    raise RuntimeError(
+        "Missing confidence categories."
+    )
+
+if state["confidence_explanation"].isna().any():
+    raise RuntimeError(
+        "Missing confidence explanations."
+    )
+
+if not state["model_input_degraded"].isin([True, False]).all():
+    raise RuntimeError(
+        "Invalid model_input_degraded values."
+    )
+
+if not state["environment_input_degraded"].isin([True, False]).all():
+    raise RuntimeError(
+        "Invalid environment_input_degraded values."
     )
 
 

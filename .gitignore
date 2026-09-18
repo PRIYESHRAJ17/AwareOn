@@ -292,3 +292,7 @@ Thumbs.db
 # AwareOn runtime artifacts
 backend/awareon_learning.db
 data/processed/cache/
+
+# AwareOn Intelligence runtime state
+/backend/awareon_intelligence.db
+/artifacts/intelligence_upgrade_2_15/

@@ -550,7 +550,7 @@
       "sha256": "ee07bddaac678683e46a2d3ab848410bf2e059f1cf1f85f4147c3612dbd7aafe"
     },
     {
-      "path": "docs/audit/beast_spec.yaml",
+      "path": "docs/audit/intelligence_spec.yaml",
       "extension": ".yaml",
       "size_bytes": 2456,
       "line_count": 122,

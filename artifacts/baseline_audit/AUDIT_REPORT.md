@@ -61,7 +61,7 @@ Required stages:
 Base URL:
 `http://127.0.0.1:8000`
 
-## Beast specification
+## Intelligence specification
 
 Status:
 `PASS`

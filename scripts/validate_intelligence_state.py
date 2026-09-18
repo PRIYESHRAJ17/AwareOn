@@ -213,4 +213,4 @@ print(
 print("\nValidation output:")
 print(OUTPUT)
 
-print("\nSTEP 21.2 COMPLETE ✅")
+print("\nSTEP 21.2 COMPLETE")

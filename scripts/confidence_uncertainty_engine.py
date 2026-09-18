@@ -82,6 +82,15 @@ data = sus.merge(
 
 threshold = 0.45
 
+data["susceptibility_probability"] = pd.to_numeric(
+    data["susceptibility_probability"],
+    errors="coerce",
+)
+
+model_invalid = ~np.isfinite(
+    data["susceptibility_probability"]
+)
+
 data["model_margin"] = (
     data["susceptibility_probability"]
     - threshold
@@ -93,6 +102,13 @@ data["model_certainty"] = np.clip(
     0.0,
     1.0,
 ) * 100.0
+
+# Missing/invalid susceptibility probability means
+# there is no defensible basis for model certainty.
+data.loc[
+    model_invalid,
+    "model_certainty",
+] = 0.0
 
 
 # ------------------------------------------------------------
@@ -134,19 +150,32 @@ else:
 # Environmental agreement
 # ------------------------------------------------------------
 
-anomaly_score = float(
-    anomaly.iloc[0]["anomaly_score"]
+anomaly_score = pd.to_numeric(
+    pd.Series(
+        [anomaly.iloc[0]["anomaly_score"]]
+    ),
+    errors="coerce",
+).iloc[0]
+
+anomaly_invalid = not np.isfinite(
+    anomaly_score
 )
 
-# Convert anomaly score into a 0-100 agreement component.
-# Low anomaly means the environment is not providing a
-# strong independent warning signal, so this is neutral
-# rather than treated as a failure.
-environment_quality = np.clip(
-    100.0 - abs(anomaly_score - 50.0),
-    0.0,
-    100.0,
-)
+if anomaly_invalid:
+    environment_quality = 0.0
+
+else:
+    # Convert anomaly score into a 0-100 agreement component.
+    # Low anomaly means the environment is not providing a
+    # strong independent warning signal, so this is neutral
+    # rather than treated as a failure.
+    environment_quality = float(
+        np.clip(
+            100.0 - abs(anomaly_score - 50.0),
+            0.0,
+            100.0,
+        )
+    )
 
 
 # ------------------------------------------------------------
@@ -161,11 +190,34 @@ data["confidence_score"] = (
     + 0.10 * environment_quality
 )
 
+# Explicitly record degraded direct evidence inputs.
+data["model_input_degraded"] = model_invalid
+data["environment_input_degraded"] = anomaly_invalid
+
+
+# ------------------------------------------------------------
+# Finite-output integrity
+# ------------------------------------------------------------
+
+if not np.isfinite(
+    data["confidence_score"]
+).all():
+    raise RuntimeError(
+        "Confidence calculation produced non-finite values."
+    )
+
 
 # Uncertainty is inverse confidence.
 data["uncertainty_score"] = (
     100.0 - data["confidence_score"]
 )
+
+if not np.isfinite(
+    data["uncertainty_score"]
+).all():
+    raise RuntimeError(
+        "Uncertainty calculation produced non-finite values."
+    )
 
 
 # ------------------------------------------------------------
@@ -173,7 +225,6 @@ data["uncertainty_score"] = (
 # ------------------------------------------------------------
 
 def classify(score):
-
     if score >= 80:
         return "HIGH"
 
@@ -200,20 +251,40 @@ def explanation(row):
 
     reasons = []
 
-    if row["model_certainty"] < 40:
-        reasons.append("prediction near decision threshold")
+    if row["model_input_degraded"]:
+        reasons.append(
+            "susceptibility model input unavailable"
+        )
+
+    elif row["model_certainty"] < 40:
+        reasons.append(
+            "prediction near decision threshold"
+        )
+
+    if row["environment_input_degraded"]:
+        reasons.append(
+            "environment anomaly input unavailable"
+        )
 
     if row["terrain_imputed"] == 1:
-        reasons.append("terrain fallback sampling used")
+        reasons.append(
+            "terrain fallback sampling used"
+        )
 
     if row["osm_context_available"] == 0:
-        reasons.append("limited OSM context")
+        reasons.append(
+            "limited OSM context"
+        )
 
     if sar_quality_name == "UNREFERENCED":
-        reasons.append("SAR is not spatially georeferenced")
+        reasons.append(
+            "SAR is not spatially georeferenced"
+        )
 
     if not reasons:
-        reasons.append("multiple data signals available")
+        reasons.append(
+            "multiple data signals available"
+        )
 
     return "; ".join(reasons)
 
@@ -241,6 +312,8 @@ output_columns = [
     "uncertainty_score",
     "confidence_category",
     "confidence_explanation",
+    "model_input_degraded",
+    "environment_input_degraded",
 ]
 
 data[output_columns].to_csv(
@@ -282,6 +355,16 @@ print(
     data["confidence_category"]
     .value_counts()
     .to_string()
+)
+
+print(
+    "\nDegraded model inputs:",
+    int(data["model_input_degraded"].sum()),
+)
+
+print(
+    "Degraded environment inputs:",
+    int(data["environment_input_degraded"].sum()),
 )
 
 print(

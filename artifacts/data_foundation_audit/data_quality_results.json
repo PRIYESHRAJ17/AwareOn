@@ -390,7 +390,7 @@
       "details": {
         "path": "data/processed/intelligence/awareon_intelligence_state.csv",
         "rows": 1298,
-        "columns": 28,
+        "columns": 31,
         "column_names": [
           "cell_id",
           "susceptibility_probability",
@@ -405,6 +405,9 @@
           "confidence_score",
           "uncertainty_score",
           "confidence_category",
+          "confidence_explanation",
+          "model_input_degraded",
+          "environment_input_degraded",
           "risk_label",
           "primary_reason",
           "recommended_action",

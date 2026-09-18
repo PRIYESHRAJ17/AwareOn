@@ -43,7 +43,7 @@ AUDIT_DOCS = ROOT / "docs" / "audit"
 OUTPUT_DIR = ROOT / "artifacts" / "baseline_audit"
 
 FEATURE_SCOPE = AUDIT_DOCS / "feature_scope_177.yaml"
-BEAST_SPEC = AUDIT_DOCS / "beast_spec.yaml"
+INTELLIGENCE_SPEC = AUDIT_DOCS / "intelligence_spec.yaml"
 LINEAGE_SPEC = AUDIT_DOCS / "data_lineage.yaml"
 
 
@@ -1541,13 +1541,13 @@ def run_performance_baseline(
 
 
 # ============================================================
-# 7. BEAST SPEC VALIDATION
+# 7. INTELLIGENCE SPEC VALIDATION
 # ============================================================
 
 def run_spec_validation() -> dict[str, Any]:
 
     spec = load_yaml(
-        BEAST_SPEC
+        INTELLIGENCE_SPEC
     )
 
     required_sections = {
@@ -1616,7 +1616,7 @@ def run_spec_validation() -> dict[str, Any]:
 
     write_json(
         OUTPUT_DIR
-        / "beast_spec_validation.json",
+        / "intelligence_spec_validation.json",
         result,
     )
 
@@ -1732,7 +1732,7 @@ def generate_report(
     duplicates,
     lineage,
     performance,
-    beast,
+    intelligence,
     qwen,
 ) -> str:
 
@@ -1799,16 +1799,16 @@ Required stages:
 Base URL:
 `{performance.get("base_url", "not run")}`
 
-## Beast specification
+## Intelligence specification
 
 Status:
-`{beast["status"]}`
+`{intelligence["status"]}`
 
 Primary AI valid:
-`{beast["primary_ai_ok"]}`
+`{intelligence["primary_ai_ok"]}`
 
 Backup AI valid:
-`{beast["backup_ai_ok"]}`
+`{intelligence["backup_ai_ok"]}`
 
 ## Qwen primary lock
 
@@ -1899,7 +1899,7 @@ def main():
     )
 
     print("[7/7] Specification + Qwen lock...")
-    beast = run_spec_validation()
+    intelligence = run_spec_validation()
     qwen = run_qwen_lock_audit()
 
     report = generate_report(
@@ -1909,7 +1909,7 @@ def main():
         duplicates,
         lineage,
         performance,
-        beast,
+        intelligence,
         qwen,
     )
 

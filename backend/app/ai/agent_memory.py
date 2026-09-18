@@ -35,6 +35,32 @@ class AgentStep:
 # INVESTIGATION MEMORY
 # ============================================================
 
+# AWAREON LEARNING CANDIDATE PROPOSAL V6
+@dataclass
+class LearningCandidateProposal:
+    candidate_id: str
+    category: str
+    query: str
+    observation: str
+    evidence: tuple[str, ...]
+    confidence: float
+    approved: bool = False
+    approval_required: bool = True
+    created_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "candidate_id": self.candidate_id,
+            "category": self.category,
+            "query": self.query,
+            "observation": self.observation,
+            "evidence": list(self.evidence),
+            "confidence": self.confidence,
+            "approved": self.approved,
+            "approval_required": self.approval_required,
+            "created_at": self.created_at,
+        }
+
 @dataclass
 class InvestigationMemory:
     investigation_id: str
@@ -47,6 +73,9 @@ class InvestigationMemory:
         default_factory=list
     )
     evidence_ids: list[str] = field(
+        default_factory=list
+    )
+    learning_candidates: list[LearningCandidateProposal] = field(
         default_factory=list
     )
 
@@ -99,6 +128,41 @@ class InvestigationMemory:
                 evidence_id
             )
 
+    def add_learning_candidate(
+        self,
+        category: str,
+        observation: str,
+        evidence: list[str] | tuple[str, ...],
+        confidence: float,
+    ) -> LearningCandidateProposal:
+        # Review-gated proposal only; no model or production-policy mutation.
+        import math
+        candidate_evidence = tuple(dict.fromkeys(str(item) for item in evidence if str(item).strip()))
+        numeric_confidence = float(confidence)
+        if not category or not observation or not candidate_evidence:
+            raise ValueError("learning candidate requires category, observation, and evidence")
+        if not math.isfinite(numeric_confidence) or not 0.0 <= numeric_confidence <= 1.0:
+            raise ValueError("learning candidate confidence must be finite and within [0,1]")
+        candidate = LearningCandidateProposal(
+            candidate_id=f"LC-{self.investigation_id}-{len(self.learning_candidates) + 1:03d}",
+            category=str(category),
+            query=self.query,
+            observation=str(observation),
+            evidence=candidate_evidence,
+            confidence=numeric_confidence,
+        )
+        self.learning_candidates.append(candidate)
+        for evidence_id in candidate_evidence:
+            self.add_evidence_id(evidence_id)
+        self.add_step(
+            action="LEARNING_CANDIDATE",
+            target="investigation_memory",
+            status="PROPOSED",
+            result_summary=f"Review-gated candidate {candidate.candidate_id} created; no model or policy mutation.",
+            metadata={"candidate_id": candidate.candidate_id, "approval_required": True},
+        )
+        return candidate
+
     def to_dict(self) -> dict[str, Any]:
         return {
             "investigation_id":
@@ -120,6 +184,11 @@ class InvestigationMemory:
 
             "evidence_ids":
                 self.evidence_ids,
+
+            "learning_candidates": [
+                item.to_dict()
+                for item in self.learning_candidates
+            ],
 
         }
 

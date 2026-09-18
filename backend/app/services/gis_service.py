@@ -1,7 +1,11 @@
 from pathlib import Path
 import json
 
-import ijson
+# AWAREON INTELLIGENCE GIS V1
+try:
+    import ijson  # type: ignore
+except ImportError:
+    ijson = None
 import pandas as pd
 from shapely.geometry import Point, mapping, shape
 from pyproj import Transformer
@@ -98,22 +102,61 @@ def read_geojson(path: Path) -> dict:
 # STREAM LARGE MASTER GRID
 # ============================================================
 
+def _iter_json_array_objects(path: Path, key: str):
+    """Dependency-light streaming fallback for a large top-level JSON array."""
+    decoder = json.JSONDecoder()
+    buffer = ""
+    found_array = False
+    eof = False
+    with path.open("r", encoding="utf-8") as file:
+        while not eof or buffer:
+            if not eof and len(buffer) < 1024 * 1024:
+                chunk = file.read(1024 * 1024)
+                if chunk:
+                    buffer += chunk
+                else:
+                    eof = True
+            if not found_array:
+                marker_text = f'"{key}"'
+                marker_pos = buffer.find(marker_text)
+                if marker_pos < 0:
+                    if eof:
+                        raise RuntimeError(f"GeoJSON key not found: {key}")
+                    continue
+                array_start = buffer.find("[", marker_pos + len(marker_text))
+                if array_start < 0:
+                    if eof:
+                        raise RuntimeError(f"GeoJSON array not found: {key}")
+                    continue
+                buffer = buffer[array_start + 1:]
+                found_array = True
+            buffer = buffer.lstrip()
+            if not buffer:
+                continue
+            if buffer[0] == "]":
+                return
+            if buffer[0] == ",":
+                buffer = buffer[1:].lstrip()
+                if not buffer:
+                    continue
+            try:
+                value, end = decoder.raw_decode(buffer)
+            except json.JSONDecodeError as exc:
+                if eof:
+                    raise RuntimeError("Could not decode streamed GeoJSON feature.") from exc
+                continue
+            yield value
+            buffer = buffer[end:]
+
+
 def iter_grid_features():
-    """
-    Stream GeoJSON features one at a time.
-
-    This is intentionally used instead of json.load()
-    because master_grid_100m.geojson is very large.
-    """
-
+    """Stream GeoJSON features with ijson or the stdlib fallback."""
     require_file(GRID_FILE)
-
-    with GRID_FILE.open("rb") as file:
-        for feature in ijson.items(
-            file,
-            "features.item",
-        ):
-            yield feature
+    if ijson is not None:
+        with GRID_FILE.open("rb") as file:
+            yield from ijson.items(file, "features.item")
+        return
+    yield from _iter_json_array_objects(GRID_FILE, "features")
 
 
 # ============================================================

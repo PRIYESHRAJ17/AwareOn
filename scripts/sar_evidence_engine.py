@@ -164,8 +164,11 @@ output = pd.DataFrame(
 
             "vv_vh_mean_ratio": vv_vh_ratio,
 
-            "vv_crs": vv["crs"],
-            "vh_crs": vh["crs"],
+            # Preserve missing CRS as an explicit semantic state.
+            # Avoid the literal string "None", which pandas interprets
+            # as NaN when the output CSV is read back.
+            "vv_crs": vv["crs"] if vv["crs"] != "None" else "UNREFERENCED",
+            "vh_crs": vh["crs"] if vh["crs"] != "None" else "UNREFERENCED",
 
             "same_shape": int(same_shape),
             "same_dtype": int(same_dtype),

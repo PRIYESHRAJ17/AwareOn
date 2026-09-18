@@ -827,6 +827,9 @@ def _build_learning_candidate(
         return None
 
     return {
+        # AWAREON INTELLIGENCE LEARNING CONFIDENCE SCALE FIX ONE_SHOT
+        # AIResponse.confidence is the public 0-100 percentage scale.
+        # InvestigationMemory stores learning confidence internally as 0-1.
         "candidate_id": (
             f"LC-{memory.investigation_id}"
         ),
@@ -844,7 +847,7 @@ def _build_learning_candidate(
                 memory.evidence_ids
             ),
         "confidence":
-            response.confidence,
+            round(float(response.confidence) / 100.0, 6),
         "approved":
             False,
         "approval_required":

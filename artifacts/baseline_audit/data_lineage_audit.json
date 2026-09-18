@@ -314,7 +314,7 @@
           ]
         },
         {
-          "path": "docs/audit/beast_spec.yaml",
+          "path": "docs/audit/intelligence_spec.yaml",
           "keywords": [
             "source",
             "sar"
@@ -438,7 +438,7 @@
           ]
         },
         {
-          "path": "docs/audit/beast_spec.yaml",
+          "path": "docs/audit/intelligence_spec.yaml",
           "keywords": [
             "ingest"
           ]
@@ -715,7 +715,7 @@
           ]
         },
         {
-          "path": "docs/audit/beast_spec.yaml",
+          "path": "docs/audit/intelligence_spec.yaml",
           "keywords": [
             "validation"
           ]
@@ -1350,7 +1350,7 @@
           ]
         },
         {
-          "path": "docs/audit/beast_spec.yaml",
+          "path": "docs/audit/intelligence_spec.yaml",
           "keywords": [
             "engine",
             "predict"
@@ -1887,7 +1887,7 @@
           ]
         },
         {
-          "path": "docs/audit/beast_spec.yaml",
+          "path": "docs/audit/intelligence_spec.yaml",
           "keywords": [
             "evidence"
           ]
@@ -2311,7 +2311,7 @@
           ]
         },
         {
-          "path": "docs/audit/beast_spec.yaml",
+          "path": "docs/audit/intelligence_spec.yaml",
           "keywords": [
             "recommend"
           ]
