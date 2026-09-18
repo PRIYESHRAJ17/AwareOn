@@ -8,8 +8,7 @@ from fastapi.responses import JSONResponse
 
 
 from backend.app.core.engine_registry import get_engines
-from backend.app.intelligence_api import router as intelligence_router
-# AWAREON INTELLIGENCE ROUTER V1
+from backend.app.intelligence_api import router as ai_intelligence_router
 from backend.app.intelligence.api import router as intelligence_router
 from backend.app.core.schemas import (
     AlertResponse,
@@ -94,18 +93,8 @@ app = FastAPI(
     ),
     version="0.9.0",
 )
-app.include_router(
-    intelligence_router
-)
-
-# AWAREON INTELLIGENCE DETERMINISTIC REGISTRATION V6
-app.include_router(
-    intelligence_router
-)
-# AWAREON INTELLIGENCE ROUTER INCLUDE V1
-app.include_router(
-    intelligence_router
-)
+app.include_router(ai_intelligence_router)
+app.include_router(intelligence_router)
 
 # ============================================================
 # CORS
