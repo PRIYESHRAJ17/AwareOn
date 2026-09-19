@@ -5,7 +5,8 @@ const config = {
   "risk-map": ["GEOINT WORKSPACE", "Risk Explorer", "Inspect spatial risk, evidence, and decision context."],
   incidents: ["INCIDENT COMMAND", "Priority Incidents", "Move from ranked zones to focused spatial action."],
   scenarios: ["DECISION SUPPORT", "Scenario Lab", "Explore supported rainfall counterfactuals and their spatial effects."],
-  intelligence: ["AWAREON INTELLIGENCE", "Ask the landscape", "Investigate risk, evidence, scenarios, history, and decisions in natural language."]
+  intelligence: ["AWAREON INTELLIGENCE", "Ask the landscape", "Investigate risk, evidence, scenarios, history, and decisions in natural language."],
+  about: ["ABOUT AWAREON", "Understand the system", "Product context, sources, methodology, verification, and limitations."]
 };
 
 function setDrawer(open = true){
@@ -22,7 +23,7 @@ export function isContextDrawerOpen(){ return !document.getElementById("context-
 export function switchView(name, options = {}) {
   if (!config[name]) return;
   state.activeView = name;
-  document.querySelectorAll(".rail-item").forEach(b => b.classList.toggle("active", b.dataset.view === name));
+  document.querySelectorAll(".rail-item").forEach(b => { const active=b.dataset.view===name; b.classList.toggle("active",active); if(active) b.setAttribute("aria-current","page"); else b.removeAttribute("aria-current"); });
   document.querySelectorAll(".workspace").forEach(v => v.classList.toggle("active", v.id === `view-${name}`));
   const [eyebrow, title, subtitle] = config[name];
   document.getElementById("workspace-eyebrow")?.replaceChildren(document.createTextNode(eyebrow));

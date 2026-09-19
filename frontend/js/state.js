@@ -19,5 +19,8 @@ export const state = {
   selectedScenario: null,
   scenarioRecords: [],
   presentationMode: false,
-  ready: false
+  ready: false,
+  aboutSection: "overview",
+  scenarioScopeCellId: null,
+  topAIState: "idle"
 };

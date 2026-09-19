@@ -679,6 +679,37 @@ export async function initScenarios() {
 }
 
 
+
+function renderCellScenarioContext(payload, pct){
+    const record = payload?.scenarios?.find(item => Number(item?.rainfall_change_percent) === Number(pct)) || payload?.scenarios?.[0];
+    if(!record) return false;
+    const baseline = payload.scenarios.find(item => Number(item?.rainfall_change_percent) === 0) || record;
+    const container = document.getElementById("scenario-readout");
+    if(!container) return true;
+    const rainfall = Number(record.rainfall_change_percent||0);
+    const meanRisk = Number(record.risk_score||0);
+    const baselineRisk = Number(baseline.risk_score||0);
+    const delta = Number(record.risk_score_change||0);
+    const transition = `${baseline.risk_category||"—"} → ${record.risk_category||"—"}`;
+    container.innerHTML = `<div class="scenario-result"><div class="scenario-result-head"><div><span class="scenario-kicker">SELECTED CELL SCENARIO</span><h3>Cell ${esc(payload.cell_id)}</h3><p>Precomputed cell-level counterfactual for rainfall +${rainfall.toFixed(0)}%.</p></div><span class="scenario-status-badge scenario-positive">${esc(record.risk_category||"SUPPORTED")}</span></div><div class="scenario-primary"><div class="scenario-primary-main"><span>Risk score</span><strong>${n(meanRisk)}</strong><small>selected cell</small></div><div class="scenario-delta-panel scenario-positive"><span>Change from baseline</span><strong>${delta>=0?"+":""}${n(delta)}</strong><small>${esc(transition)}</small></div></div><div class="scenario-metrics-grid"><article class="scenario-metric-card"><span>Rainfall</span><strong>+${rainfall.toFixed(0)}%</strong><small>supported state</small></article><article class="scenario-metric-card"><span>Baseline</span><strong>${n(baselineRisk)}</strong><small>current cell risk</small></article><article class="scenario-metric-card"><span>Category change</span><strong>${Number(record.category_change||0)>0?"Yes":"No"}</strong><small>${esc(transition)}</small></article><article class="scenario-metric-card"><span>Data state</span><strong>PRECOMPUTED</strong><small>no interpolation</small></article></div><div class="scenario-comparison"><div class="scenario-comparison-head"><div><span class="scenario-kicker">CELL RESPONSE</span><strong>Baseline → selected</strong></div><span>${n(baselineRisk)} → ${n(meanRisk)}</span></div><div class="scenario-comparison-track"><div class="scenario-comparison-baseline"><span></span></div><div class="scenario-comparison-current scenario-positive" style="width:${Math.max(4,Math.min(100,meanRisk))}%"><span></span></div></div><div class="scenario-comparison-labels"><span>Baseline ${n(baselineRisk)}</span><span>Selected ${n(meanRisk)}</span></div></div><div class="scenario-decision-card"><div class="scenario-decision-icon">→</div><div><span class="scenario-kicker">DECISION READOUT</span><strong>${esc(record.escalates?"This cell escalates under the selected scenario.":"This cell does not change category under the selected scenario.")}</strong><p>Cell-level scenario analysis is restricted to the supported precomputed states.</p></div></div>${scenarioInsightMarkup({scopeLabel:`Cell ${payload.cell_id}`,rainfall,baselineRisk,selectedRisk:meanRisk,delta,trigger:record.rainfall_trigger_score,triggerCategory:record.trigger_category||"UNCLASSIFIED",escalating:Number(record.escalates||0),newHigh:Number(record.escalates?1:0),newExtreme:Number(record.risk_category==="EXTREME"&&baseline.risk_category!=="EXTREME"?1:0),maxRisk:meanRisk,maxChange:delta,interpretation:record.escalates?"The selected cell moves into a higher category under the tested rainfall state.":"The selected cell remains in the same risk category under the tested rainfall state.",categoryTransition:transition})}</div>`;
+    return true;
+}
+
+export async function refreshScenarioContext(){
+    const cellId = state.selectedCell?.cell_id ? String(state.selectedCell.cell_id) : null;
+    const banner = document.getElementById("scenario-context-banner");
+    state.scenarioScopeCellId = cellId;
+    if(banner) banner.textContent = cellId ? `Selected cell · ${cellId} · supported states: 0%, +25%, +50%, +100% · precomputed counterfactuals` : "Regional scenario scope · supported states: 0%, +25%, +50%, +100% · precomputed/modelled comparison";
+    if(!cellId || !state.scenarioSummary) return;
+    try{
+        const payload = await api.scenarioCell(cellId);
+        state.scenarioCellPayload = payload;
+        renderCellScenarioContext(payload, Number(state.selectedScenario||0));
+    }catch(error){
+        if(document.getElementById("scenario-readout")) document.getElementById("scenario-readout").innerHTML = `<div class="scenario-empty-state"><strong>Cell scenario unavailable</strong><p>${esc(error.message||"No supported cell scenario is available.")}</p></div>`;
+    }
+}
+
 /* ============================================================
    SELECT SCENARIO
    ============================================================ */
@@ -690,6 +721,17 @@ async function selectScenario(
     state.selectedScenario =
         pct;
 
+    if (state.selectedCell?.cell_id) {
+        try {
+            const payload = await api.scenarioCell(String(state.selectedCell.cell_id));
+            state.scenarioCellPayload = payload;
+            renderCellScenarioContext(payload, pct);
+            window.dispatchEvent(new CustomEvent("awareon:scenario", {detail:{pct, result:{supported:true, cell_id:state.selectedCell.cell_id, cell_specific:true}}}));
+            return;
+        } catch (error) {
+            console.warn("Cell scenario unavailable:", error);
+        }
+    }
 
     markSelectedScenario(
         pct
@@ -1407,6 +1449,7 @@ function render(
 
             </div>
 
+            ${scenarioInsightMarkup({scopeLabel:"Regional scenario scope",rainfall:rainfallPct,baselineRisk,selectedRisk:meanRisk,delta:calculatedDelta,trigger,triggerCategory,escalating,newHigh,newExtreme,maxRisk,maxChange,interpretation,categoryTransition:transitionText})}
 
             <div class="scenario-footer">
 
@@ -1443,6 +1486,83 @@ function render(
         `;
 }
 
+
+
+/* ============================================================
+   RICHER SCENARIO DETAIL SECTIONS
+   ============================================================ */
+
+function scenarioInsightMarkup({
+    scopeLabel,
+    rainfall,
+    baselineRisk,
+    selectedRisk,
+    delta,
+    trigger,
+    triggerCategory,
+    escalating,
+    newHigh,
+    newExtreme,
+    maxRisk,
+    maxChange,
+    interpretation,
+    categoryTransition,
+}) {
+    const scoreMovement = Number.isFinite(Number(delta))
+        ? `${Number(delta) >= 0 ? "+" : ""}${n(delta)}`
+        : "—";
+
+    const peakChange = Number.isFinite(Number(maxChange))
+        ? `${Number(maxChange) >= 0 ? "+" : ""}${n(maxChange)}`
+        : scoreMovement;
+
+    return `
+      <div class="scenario-detail-grid16">
+        <article class="scenario-detail-card16">
+          <span class="scenario-kicker">SCENARIO PROFILE</span>
+          <h4>${esc(scopeLabel)}</h4>
+          <div class="scenario-detail-list16">
+            <div><span>Rainfall state</span><b>+${Number(rainfall || 0).toFixed(0)}%</b></div>
+            <div><span>Baseline risk</span><b>${n(baselineRisk)}</b></div>
+            <div><span>Selected risk</span><b>${n(selectedRisk)}</b></div>
+            <div><span>Mean movement</span><b>${scoreMovement}</b></div>
+          </div>
+        </article>
+
+        <article class="scenario-detail-card16">
+          <span class="scenario-kicker">SPATIAL IMPACT</span>
+          <h4>What changes across the modelled surface</h4>
+          <div class="scenario-detail-list16">
+            <div><span>Escalating cells</span><b>${Number(escalating || 0).toLocaleString()}</b></div>
+            <div><span>New HIGH+</span><b>${Number(newHigh || 0).toLocaleString()}</b></div>
+            <div><span>New EXTREME</span><b>${Number(newExtreme || 0).toLocaleString()}</b></div>
+            <div><span>Peak change</span><b>${peakChange}</b></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="scenario-interpretation16">
+        <div class="scenario-interpretation-head16">
+          <div>
+            <span class="scenario-kicker">HOW TO READ THIS</span>
+            <strong>${esc(categoryTransition)}</strong>
+          </div>
+          <span class="scenario-state-chip16">TRIGGER · ${n(trigger)} · ${esc(triggerCategory)}</span>
+        </div>
+        <p>${esc(interpretation)}</p>
+        <div class="scenario-read-grid16">
+          <span><b>1</b> Compare against the baseline.</span>
+          <span><b>2</b> Watch category transitions and spatial concentration.</span>
+          <span><b>3</b> Treat the result as modelled evidence, not an observed event.</span>
+        </div>
+      </div>
+
+      <div class="scenario-guardrail16">
+        <strong>MODEL STATE</strong>
+        <p>This Scenario Lab uses AwareOn's supported precomputed/modelled states. It does not interpolate unsupported rainfall levels and it does not replace current official warnings or field verification.</p>
+      </div>
+    `;
+}
 
 /* ============================================================
    PUBLIC DEBUG HELPER

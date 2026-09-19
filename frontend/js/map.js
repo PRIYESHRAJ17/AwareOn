@@ -26,6 +26,127 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 L.control.zoom({ position: "bottomright" }).addTo(map);
 
+const AWAREON_SCALE_WIDTH = 132;
+const AWAREON_SCALE_MIN_METERS = 10;
+const AWAREON_SCALE_MAX_METERS = 10_000_000;
+
+const niceScaleValue = meters => {
+  const magnitude = 10 ** Math.floor(Math.log10(Math.max(meters, AWAREON_SCALE_MIN_METERS)));
+  const normalized = meters / magnitude;
+  let step = 1;
+
+  if (normalized >= 5) step = 5;
+  else if (normalized >= 2.5) step = 2.5;
+  else if (normalized >= 2) step = 2;
+
+  return step * magnitude;
+};
+
+const formatScaleValue = meters => {
+  const value = Number(meters);
+  if (!Number.isFinite(value)) return "—";
+
+  if (value >= 1000) {
+    const km = value / 1000;
+    if (km >= 1000) return `${Math.round(km).toLocaleString()} km`;
+    if (km >= 100) return `${Math.round(km)} km`;
+    if (km >= 10) return `${km.toFixed(1).replace(/\.0$/, "")} km`;
+    return `${km.toFixed(2).replace(/0+$/, "").replace(/\.$/, "")} km`;
+  }
+
+  return `${Math.round(value).toLocaleString()} m`;
+};
+
+const formatScaleNumber = meters => {
+  const value = Number(meters);
+  if (!Number.isFinite(value)) return "—";
+  if (value >= 1000) {
+    const km = value / 1000;
+    return km >= 100 ? `${Math.round(km).toLocaleString()}` : `${km.toFixed(1).replace(/\.0$/, "")}`;
+  }
+  return `${Math.round(value).toLocaleString()}`;
+};
+
+const AwareOnScaleControl = L.Control.extend({
+  options: { position: "bottomleft" },
+
+  onAdd: function () {
+    this._container = L.DomUtil.create("div", "awareon-scale-control leaflet-control");
+    this._container.setAttribute("aria-label", "Map scale");
+    this._container.innerHTML = `
+      <div class="awareon-scale-labels" aria-hidden="true">
+        <span data-scale="zero">0</span>
+        <span data-scale="mid">—</span>
+        <span data-scale="end">—</span>
+      </div>
+      <div class="awareon-scale-ruler" aria-hidden="true">
+        <span class="awareon-scale-tick tick-start"></span>
+        <span class="awareon-scale-tick tick-mid"></span>
+        <span class="awareon-scale-tick tick-end"></span>
+        <span class="awareon-scale-segment segment-a"></span>
+        <span class="awareon-scale-segment segment-b"></span>
+      </div>
+    `;
+
+    L.DomEvent.disableClickPropagation(this._container);
+    L.DomEvent.disableScrollPropagation(this._container);
+
+    const update = () => {
+      const center = map.getCenter();
+      const centerPoint = map.latLngToContainerPoint(center);
+      const probePoint = L.point(centerPoint.x + AWAREON_SCALE_WIDTH, centerPoint.y);
+      const probeLatLng = map.containerPointToLatLng(probePoint);
+      const metersPerPixel = map.distance(center, probeLatLng) / AWAREON_SCALE_WIDTH;
+      if (!Number.isFinite(metersPerPixel) || metersPerPixel <= 0) return;
+
+      const visibleMeters = metersPerPixel * AWAREON_SCALE_WIDTH;
+      let scaleMeters = Math.min(
+        AWAREON_SCALE_MAX_METERS,
+        niceScaleValue(visibleMeters)
+      );
+
+      if (scaleMeters < AWAREON_SCALE_MIN_METERS) {
+        scaleMeters = AWAREON_SCALE_MIN_METERS;
+      }
+
+      let lineWidth = scaleMeters / metersPerPixel;
+
+      if (lineWidth > AWAREON_SCALE_WIDTH) {
+        const fallbackCandidates = [
+          10, 20, 25, 50, 100, 200, 250, 500,
+          1000, 2000, 2500, 5000, 10000, 20000,
+          25000, 50000, 100000, 200000, 250000,
+          500000, 1000000, 2000000, 2500000,
+          5000000, 10000000
+        ];
+        const fitting = fallbackCandidates.filter(value => value / metersPerPixel <= AWAREON_SCALE_WIDTH);
+        scaleMeters = fitting.length ? fitting[fitting.length - 1] : AWAREON_SCALE_MIN_METERS;
+        lineWidth = scaleMeters / metersPerPixel;
+      }
+
+      const midMeters = scaleMeters / 2;
+      const labels = this._container.querySelectorAll("[data-scale]");
+      labels[0].textContent = "0";
+      labels[1].textContent = formatScaleNumber(midMeters);
+      labels[2].textContent = formatScaleValue(scaleMeters);
+
+      this._container.style.setProperty("--ao-scale-width", `${Math.max(38, lineWidth)}px`);
+    };
+
+    map.on("zoomend moveend resize", update);
+    this._updateScale = update;
+    return this._container;
+  },
+
+  onRemove: function () {
+    map.off("zoomend moveend resize", this._updateScale);
+  }
+});
+
+const awareonScale = new AwareOnScaleControl();
+awareonScale.addTo(map);
+awareonScale._updateScale();
+
 function createPane(name, zIndex, pointerEvents = "none") {
   let pane = map.getPane(name);
   if (!pane) pane = map.createPane(name);
